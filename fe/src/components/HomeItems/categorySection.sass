@@ -1,0 +1,66 @@
+.categorySection
+    background: var(--secondarybg)
+    height: 210px
+
+.cat-btn 
+    position: relative;
+    display: inline-block;
+    margin: 15px;
+    padding: 5px 30px;
+    text-align: center;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: var(--textNormal);
+    background: none;
+    border: 3px solid var(--borderNormal);
+    cursor: pointer;
+    transition: ease-out 0.5s;
+    -webkit-transition: ease-out 0.5s;
+    -moz-transition: ease-out 0.5s;
+    width: calc((100%/4) - 50px);
+    max-width: 200px;
+
+    
+.cat-btn.btn-border::after
+    position: absolute
+    content: ""
+    width: 0
+    height: 0
+    transition: .5s
+
+.cat-btn.btn-border::before 
+    position: absolute
+    content: ""
+    width: 0
+    height: 0
+    transition: .5s
+
+
+.cat-btn.btn-border::after 
+    top: -9px
+    left: -9px
+    border-top: 3px solid transparent
+    border-left: 3px solid transparent
+
+
+.cat-btn.btn-border::before 
+    bottom: -9px;
+    right: -9px;
+    border-bottom: 3px solid transparent
+    border-right: 3px solid transparent
+
+
+.cat-btn.btn-border:hover 
+    color: #FFBA00;
+
+
+.cat-btn.btn-border:hover::after
+    width: calc(100% + 15px)
+    height: calc(100% + 15px)
+    border-color: #FFBA00
+
+.cat-btn.btn-border:hover::before 
+    width: calc(100% + 15px)
+    height: calc(100% + 15px)
+    border-color: #FFBA00

@@ -1,0 +1,106 @@
+$tablet: 1200px;
+$desktop: 1800px;
+
+.category-bar
+    margin-right: 30px
+    margin-left: 30px
+    position: relative
+    display: flex
+    z-index: 3
+    height: 35px
+
+.cat-btn-top
+    position: relative;
+    display: flex;
+    padding: 16px 10px;
+    text-align: center;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: var(--textNormal);
+    background: none;
+    border: 1px solid var(--borderNormal);
+    cursor: pointer;
+    transition: ease-out 0.5s;
+    -webkit-transition: ease-out 0.5s;
+    -moz-transition: ease-out 0.5s;
+    width: calc((100%/4) - 50px);
+    max-width: 150px;
+    line-height: 0px;
+    justify-content: center;
+    align-items: center;
+
+    
+.cat-btn-top.btn-border::after
+    position: absolute
+    content: ""
+    width: 0
+    height: 0
+    transition: .5s
+
+.cat-btn-top.btn-border::before 
+    position: absolute
+    content: ""
+    width: 0
+    height: 0
+    transition: .5s
+
+
+.cat-btn-top.btn-border::after 
+    top: -9px
+    left: -9px
+    border-top: 3px solid transparent
+    border-left: 3px solid transparent
+
+
+.cat-btn-top.btn-border::before 
+    bottom: -9px;
+    right: -9px;
+    border-bottom: 3px solid transparent
+    border-right: 3px solid transparent
+
+
+.cat-btn-top.btn-border:hover 
+    color: #FFBA00;
+
+
+.cat-btn-top.btn-border:hover::after
+    width: calc(100% + 15px)
+    height: calc(100% + 15px)
+    border-color: #FFBA00
+
+.cat-btn-top.btn-border:hover::before 
+    width: calc(100% + 15px)
+    height: calc(100% + 15px)
+    border-color: #FFBA00
+
+
+.navbar-start 
+    width: 70vw
+    min-width: 600px
+.navbar-end
+    min-width: 400px
+.navbar-item
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+.input-search
+    font-size: .75rem
+    height: 25px
+    border-top-right-radius: 0
+    border-bottom-right-radius: 0
+    border-top-left-radius: 5px
+    border-bottom-left-radius: 5px
+    border: none
+    width: 30vw
+    max-width: 400px
+    padding: 0 25px 0 10px
+    outline: none
+
+@media only screen and (max-width: $tablet) 
+    .input-search
+        width: 20vw
+
