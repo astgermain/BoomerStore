@@ -7,13 +7,26 @@
   src: local('Pacifico Regular'), local('Pacifico-Regular'), url(https://fonts.gstatic.com/s/pacifico/v12/FwZY7-Qmy14u9lezJ-6H6MmBp0u-.woff2) format('woff2')
   font-display: swap
 
+@font-face 
+  font-family: "EinaBold";
+  src: url("../fonts/EinaBold.otf");
+  font-style: normal
+  font-weight: 300
+  font-display: swap
+@font-face 
+  font-family: "EinaReg";
+  src: url("../fonts/EinaReg.otf");
+  font-style: normal
+  font-weight: 500
+  font-display: swap
+
 body 
     overflow: scroll
+    font-family: "EinaBold"
 
 .page-content 
     min-width: 900px
     overflow: hidden
-
 
 .bodylight
   --bg: white;
@@ -82,11 +95,15 @@ body
 /* The Transformation */
 .img-hover-zoom--zoom-n-rotate:hover .imgProduct 
   transform: scale(0.9)
-
 .imgProduct
     animation-name: zoomIn
     animation-duration: 2s
+.plogo-box
+    margin: 25px 0 10px 0;
 
+.box
+    padding: 0
+    width: 225px
 @keyframes zoomIn 
     from
         opacity: 0.7
@@ -95,35 +112,92 @@ body
     50%
         opacity: 1
         transform: scale3d(0.7, 0.7, 0)
-
+.image-box
+    width: auto;
+    height: 100px;
+    padding: 5px 10px 5px 10px;
+    display: flex;
+    justify-content: center;
 .productBox
-    animation-duration: 1s
+    animation-duration: .35s ease
+    background: linear-gradient(350deg, #00000008 50%, #ffffffde 50%)
+    background-size: 200% 200%;
+    animation-fill-mode: both;
+    -webkit-animation-fill-mode: both;
+    padding: 1rem;
+    background-position-y: 0%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
     animation-name: bounceOut
+    animation-direction: alternate
+    transition: 0.5s
+    color: black
 
-.productBox :hover
-    animation-duration: 2s
+.productBox:hover
+    animation-duration: .35s
     animation-timing-function: ease
     animation-name: hoverProduct
     animation-direction: alternate
+    transition: 1s ease
+
+.p-title
+    
+    line-height: 18px;
+
+.p-price
+    color: #002244;
+    font-size: 18px;
+    margin-top: 5px;
+
+.productBox:hover .p-title
+    color: white !important
+
+.productBox:hover .p-price
+    color: #FFBA00 !important
+
+.productBox:hover .p-view-more
+    color: #002244
+    background: #FFBA00
+    border-radius: 3px
+
+.p-view-more
+    font-family: "EinaReg";
+    color: #00040A;
+    width: 75%;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    padding: 5px;
+    margin-top: 10px;
+    font-size: 14px;
+    border-radius: 3px;
+    border: 1px solid #002244;
+
+.productBox:hover
+    color: #00040A
+
+
+.box-background
+    background: linear-gradient(350deg, #002244 55%, rgba(255, 255, 255, 0.5) 55%);
+    background-position-y: 50%;
+    background-size: 200% 200%;
 
 @keyframes hoverProduct 
-    from
-        opacity: 1
-    50%
-        opacity: 0.7
+    0%
+        background-position: 0% 0%
     100%
-        opacity: 1
-
+        background-position: 5% 55%
 
 @keyframes bounceOut 
    0%
         opacity: 0
-        transform: translate3d(0, 10%, 0)
+        background-position: 5% 55%
 
 
    100%
         opacity: 1 
-        transform: scale3d(1, 1, 1)
+        background-position: 0% 0%
 
 .fromleft
     animation-name: FromLeft
