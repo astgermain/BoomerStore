@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react"
 import { Mutation } from "react-apollo"
 import gql from "graphql-tag"
 import StoreContext from "../../../context/store"
+import './login.sass'
 
 const LOGIN_USER = gql`
   mutation customerAccessTokenCreate($input: CustomerAccessTokenCreateInput!) {
@@ -37,8 +38,9 @@ const Login = ({reg}) => {
     <Mutation mutation={LOGIN_USER}>
       {loginFunc => {
         return (
-          <div className="login-form">
-            <form
+          <>
+          <form
+              className="login-form"
               onSubmit={e => {
                 e.preventDefault()
                 loginFunc({
@@ -80,17 +82,17 @@ const Login = ({reg}) => {
                       onChange={e => setPassword(e.target.value)}
                     ></input>
               </div>
-              <div className="row">
-                <button onClick={() => reg("forgot")}>Forgot your password?</button>
-                <button type="submit">Login</button>
+              <div className="login-row">
+                <button onClick={() => reg("forgot")} className="forgot-button">Forgot your password?</button>
+                <button type="submit" className="account-button">Login</button>
               </div>
             </form>
 
-            <div>
-              <button onClick={() => reg("register")}>Click here to register</button>
+            <div className="login-reg-section">
+              <button onClick={() => reg("register")} className="reg-button">Don't Have An Account?</button>
               
             </div>
-          </div>
+          </>
         )
       }}
     </Mutation>

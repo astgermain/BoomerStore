@@ -190,7 +190,7 @@ const Header = ({ setTheme }) => {
               )}
           </div>
           </div>
-          {cartState != '' && <CartSection />}
+          {cartState != '' && <CartSection quantity={quantity} cartState={setCartState} />}
           {accountState != '' && <AccountSection />}
           <div
             className="navbar-item"

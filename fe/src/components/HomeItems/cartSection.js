@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
+import { Link } from "gatsby"; /* eslint-disable */
 import StoreContext from "../../context/store";
 import "./cartSection.sass";
 
-const CartSection = ({ data }) => {
+const CartSection = ({ data, quantity, cartState }) => {
   const context = useContext(StoreContext);
   //Data is allShopifyProduct
   console.log("Cart Context", context.store.checkout);
@@ -17,13 +18,17 @@ const CartSection = ({ data }) => {
         <>
           <div className="cart-product-box">
             <img
-              src={`${line[0].variant.image.src}`}
+              src={`${line[0]?.variant.image.src}`}
               className="cart-img"
             ></img>
-            <div>Title: {line[0].title}</div>
-            <div>Quantity: {line[0].quantity}</div>
-            <div>Price Per: ${line[0].variant.price}</div>
-            <div>Subtotal: ${check.subtotalPrice}</div>
+            <div>Title: {line[0]?.title}</div>
+            <div className="small-text margin-left">
+              Qty: {line[0]?.quantity}
+            </div>
+            <div className="small-text float-right">
+              Price Per: ${line[0]?.variant.price}
+            </div>
+            <div>Subtotal: ${line[0]?.variant.price * line[0]?.quantity}</div>
           </div>
         </>
       );
@@ -31,31 +36,51 @@ const CartSection = ({ data }) => {
       return (
         <>
           <div className="cart-product-box">
-          <img
-              src={`${line[0]?.variant.image.src}`}
+            <img
+              src={`${line[line.length - 1]?.variant.image.src}`}
               className="cart-img"
             ></img>
-            <div>
-              <div>Qty: {line[0]?.quantity}</div>
-              <div className="cart-product-title">{line[0]?.title}</div>
+            <div className="inner-cart-box">
+              <div className="small-text margin-left">
+                Qty: {line[line.length - 1]?.quantity}
+              </div>
+              <div className="cart-product-title">
+                {line[line.length - 1]?.title}
+              </div>
             </div>
             <div>
-              <div>${line[0]?.variant.price}</div>
-              <div>${check.subtotalPrice}</div>
+              <div className="small-text float-right">
+                ${line[line.length - 1]?.variant.price}
+              </div>
+              <div>
+                $
+                {line[line.length - 1]?.variant.price *
+                  line[line.length - 1]?.quantity}
+              </div>
             </div>
           </div>
           <div className="cart-product-box">
             <img
-              src={`${line[1]?.variant.image.src}`}
+              src={`${line[line.length - 2]?.variant.image.src}`}
               className="cart-img"
             ></img>
-            <div>
-              <div>Qty: {line[1]?.quantity}</div>
-              <div className="cart-product-title">{line[1]?.title}</div>
+            <div className="inner-cart-box">
+              <div className="small-text margin-left">
+                Qty: {line[line.length - 2]?.quantity}
+              </div>
+              <div className="cart-product-title">
+                {line[line.length - 2]?.title}
+              </div>
             </div>
             <div>
-              <div>${line[1]?.variant.price}</div>
-              <div>${check.subtotalPrice}</div>
+              <div className="small-text float-right">
+                ${line[line.length - 2]?.variant.price}
+              </div>
+              <div>
+                $
+                {line[line.length - 2]?.variant.price *
+                  line[line.length - 2]?.quantity}
+              </div>
             </div>
           </div>
         </>
@@ -65,8 +90,24 @@ const CartSection = ({ data }) => {
 
   return (
     <div className="cart-section" style={{ margin: "0" }}>
+      <div className="small-text margin-left">Recently Added</div>
       <div>{firstTwoCart()}</div>
-      <div>Buttons and Totals</div>
+      <div className="cart-bottom">
+        <div>
+          <span className="small-text">Total Items </span>
+          <span>{quantity}</span>
+        </div>
+        <div>
+          <span className="small-text">Subtotal </span>
+          <span>${check?.subtotalPrice}</span>
+        </div>
+        <Link to="/cart" onClick={() => cartState("")} className="cart-button">
+          View Cart
+        </Link>{" "}
+        <Link to={check.webUrl} className="cart-button">
+          Checkout
+        </Link>
+      </div>
     </div>
   );
 };
