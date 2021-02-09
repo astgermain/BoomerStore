@@ -4,6 +4,8 @@ import React, { useContext, useState, useEffect } from "react";
 import StoreContext from "../context/store";
 import logo from "../images/boomerstorelogo.png";
 import ToggleButton from "./UI/toogleButton";
+import CartSection from "./HomeItems/cartSection"
+import AccountSection from "./HomeItems/accountSection"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faShoppingBag,
@@ -25,12 +27,13 @@ const countQuantity = (lineItems) => {
 
 const Header = ({ setTheme }) => {
   const [selected, setSelected] = useState(false);
+  const [cartState, setCartState] = useState("");
+  const [accountState, setAccountState] = useState("");
   const context = useContext(StoreContext);
   const { checkout } = context.store;
   const [quantity, setQuantity] = useState(
     countQuantity(checkout ? checkout.lineItems : [])
   );
-  const [modal, setModal] = useState(false);
   const [search, setSearch] = useState("");
   const [menu, setMenu] = useState(false);
 
@@ -42,12 +45,25 @@ const Header = ({ setTheme }) => {
     setQuantity(countQuantity(checkout ? checkout.lineItems : []));
   }, [checkout]);
 
-  const openSearchBar = () => {
-    setModal(true);
-  };
-  const closeSearchBar = () => {
-    setModal(false);
-  };
+  const cartHover = () => {
+    if(cartState == ""){
+      setAccountState("")
+      setCartState('cart-hovered')
+    }
+    else {
+      setCartState("")
+    }
+  }
+  const accountHover = () => {
+    if(accountState == ""){
+      setCartState("")
+      setAccountState('account-hovered')
+    }
+    else {
+      setAccountState("")
+    }
+    
+  }
 
   return (
     <>
@@ -109,7 +125,7 @@ const Header = ({ setTheme }) => {
                     borderRadius: "0 5px 5px 0",
                     borderLeft: "none",
                     height: "25px",
-                    backgroundColor: "#FFBA00",
+                    backgroundColor: "var(--c1)",
                     boxShadow: "0 0 0.125em 0.075em rgb(10 10 10 / 12%)",
                     outline: "none",
                   }}
@@ -124,55 +140,63 @@ const Header = ({ setTheme }) => {
           className="navbar-end"
           style={{
             display: "flex",
-            alignItems: "center",
             width: "30vw",
-            background: "#002244",
+            background: "var(--bg)",
             color: "white",
           }}
         >
           <div
-            className="navbar-item"
-            style={{ color: "white", width: "calc(30vw/3)" }}
+            className={`navbar-item ${accountState}`}
+            style={{ color: "var(--textTitle)", width: "calc(30vw/3)" }}
+            onClick={() => accountHover()}
           >
-            <h2>Sign In</h2>
-            <FontAwesomeIcon icon={faUser} />
+            <h2 style={{marginRight: "10px"}}>Sign In</h2>
+            <FontAwesomeIcon icon={faUser} style={{color: "var(--c1)", display: "flex", alginSelf: "center"}}/>
           </div>
           <div
-            className="navbar-item"
-            style={{ color: "white", width: "calc(30vw/3)" }}
-          >
-            <Link
-              aria-label="cart"
-              to="/cart"
-              style={{ display: "flex", color: "white" }}
+              className={`cart ${cartState}`}
+              aria-label={`cart ${cartState}`}
+              style={{ display: "flex", color: "var(--textTitle)", display: "flex" }}
+              onClick={() => cartHover()}
             >
+          <div
+            className="navbar-item"
+            style={{ color: "var(--textTitle)", width: "calc(30vw/3)" }}
+          >
+            
               {quantity > 0 ? (
                 <>
-                  <div className="shopping-bag-quantity">{quantity}</div>
-                  <h2>Cart</h2>
+                {cartState != "" ? <h2 style={{marginRight: "10px", display: "flex", alignItems: "center", color: "white"}}>Cart</h2> 
+                :
+                <h2 style={{marginRight: "10px", display: "flex", alignItems: "center"}}>Cart</h2>
+                }
+                  
                   <FontAwesomeIcon
                     icon={faShoppingBag}
                     className="is-size-5"
-                    style={{ color: "white" }}
+                    style={{color: "var(--c1)", display: "flex", alignSelf: "center"}}
                   />
+                  <div className="shopping-bag-quantity">{quantity}</div>
                 </>
               ) : (
                 <>
-                  <h2>Cart</h2>
+                  <h2 style={{marginRight: "10px"}}>Cart</h2>
                   <FontAwesomeIcon
                     icon={faShoppingBag}
                     className="is-size-5"
-                    style={{ color: "white" }}
+                    style={{color: "var(--c1)", display: "flex", alignSelf: "center"}}
                   />
                 </>
               )}
-            </Link>
           </div>
+          </div>
+          {cartState != '' && <CartSection />}
+          {accountState != '' && <AccountSection />}
           <div
             className="navbar-item"
-            style={{ color: "white", width: "calc(30vw/3)" }}
+            style={{ color: "var(--textTitle)", width: "calc(30vw/3)" }}
           >
-            <h2>Theme</h2>
+            <h2 style={{marginRight: "10px"}}>Theme</h2>
             <ToggleButton
               selected={selected}
               toggleSelected={() => {
@@ -192,7 +216,7 @@ const Header = ({ setTheme }) => {
               marginLeft: "10px",
               marginTop: "1px",
               transform: "rotate(90deg)",
-              color: "rgb(255, 186, 0)",
+              color: "#FFBA00",
             }}
           />
           </h1>

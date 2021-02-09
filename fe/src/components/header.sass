@@ -8,6 +8,9 @@ $desktop: 1800px;
     display: flex
     z-index: 3
     height: 35px
+.cart-hovered, .account-hovered
+    background: var(--hover2)
+    color: white !important
 
 .cat-btn-top
     position: relative;
@@ -84,9 +87,10 @@ $desktop: 1800px;
     flex-grow: 0;
     flex-shrink: 0;
     height: 100%;
-    display: flex;
+    display: flex !important;
     justify-content: center;
     align-items: center;
+    min-width: calc(400px/3)
 .input-search
     font-size: .75rem
     height: 25px

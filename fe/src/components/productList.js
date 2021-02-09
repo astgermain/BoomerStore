@@ -4,15 +4,15 @@ import Sort from "./Filter/sort"
 import Collection from './Filter/collection';
 import StoreContext from '../context/store'
 
-const ProductList = ({ data }) => {
+const ProductList = ({ data, total }) => {
   const { edges: products } = data.allShopifyProduct
   const context = useContext(StoreContext);
-
+  let cur = 0
   return (
     <section className="hero">
       <div className="hero-body">
         <div className="container">
-          <div className="columns is-multiline" style={{ margin: "0" }}>
+          <div className="columns is-multiline" style={{ margin: "0", justifyContent: "center", maxHeight: "350px",overflow: "hidden" }}>
             {
               products
                 .filter(p => context.store.filteredType === 'all' ? p : (p.node.productType.includes(context.store.filteredType)))
@@ -25,8 +25,12 @@ const ProductList = ({ data }) => {
                 )
                 .map((p, i) => {
                   let product = p
+                  cur++
+                  if(cur > total){
+                    return ""
+                  }
                   return (
-                    <div className="column is-3" style={{ marginBottom: "40px" }} key={i}>
+                    <div className={`column is-3 pro-${i}`} style={{ marginBottom: "40px" }} key={i}>
                       <ProductBox product={product} />
                     </div>
                   )

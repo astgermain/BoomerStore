@@ -17,7 +17,7 @@ const productPage = ({ data }) => {
     const [variant, setVariant] = useState(product.variants[0]);
     const productVariant = context.store.client.product.helpers.variantForOptions(product, variant) || variant;
     const [available, setAvailable] = useState(productVariant.availableForSale)
-
+    console.log("data", data)
     useEffect(() => {
         let defaultOptionValues = {}
         product.options.forEach(selector => {

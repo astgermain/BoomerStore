@@ -21,7 +21,7 @@ const ProductBox = (props) => {
               fadeIn={false}
               loading="eager"
               alt={product.node.title}
-              style={{width: "75%", alignSelf: "center"}}
+              style={{width: "75%", alignSelf: "center", maxHeight: "100px"}}
             />
             </div>
             <p className="has-text-weight-semibold p-title">

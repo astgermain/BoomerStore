@@ -1,6 +1,7 @@
 import React from 'react'; /* eslint-disable */
 
 const VariantSelector = ({key, onChange, options}) => {
+    console.log("options", options)
     return (
         <div className="field ">
             <label className="label">{options.name} </label>

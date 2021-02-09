@@ -1,13 +1,6 @@
 @import "~bulma"
 
 @font-face 
-  font-family: 'Pacifico'
-  font-style: normal
-  font-weight: 400
-  src: local('Pacifico Regular'), local('Pacifico-Regular'), url(https://fonts.gstatic.com/s/pacifico/v12/FwZY7-Qmy14u9lezJ-6H6MmBp0u-.woff2) format('woff2')
-  font-display: swap
-
-@font-face 
   font-family: "EinaBold";
   src: url("../fonts/EinaBold.otf");
   font-style: normal
@@ -22,34 +15,43 @@
 
 body 
     overflow: scroll
-    font-family: "EinaBold"
+    font-family: "EinaBold", Arial, sans-serif
 
 .page-content 
     min-width: 900px
-    overflow: hidden
+    overflow: scroll
 
 .bodylight
   --bg: white;
   --textNormal: #00040A;
   --borderNormal: #00040A;
-  --textTitle: #222;
-  --textLink: blue;
+  --textTitle: black;
+  --textLink: #8c8ca5;
   --hr: hsla(0, 0%, 0%, 0.2);
   background-color: var(--bg);
+  --c1: #00A1C6;
+  --c2: white;
+  --hover2: #002244;
+  --adjGrad: linear-gradient(315deg, #537895 0%, #dadada 74%);
 
 
 
 .bodydark 
   -webkit-font-smoothing: antialiased;
-  --bg: darkslategray;
+  --bg: #002244;
   --secondarybg: #00040A;
   --textNormal: #FFFFFF;
   --borderNormal: #FFFFFF;
   --textTitle: white;
-  --textLink: yellow;
+  --textLink: ##FFBA00;
+  --c1: #FFBA00;
+  --c2: #002244;
   --hr: hsla(0, 0%, 100%, 0.2);
+  --hover2: #00040A;
+  --adjGrad: linear-gradient(315deg, #537895 0%, #09203f 74%);
 
-
+.container
+    text-align: -webkit-center;
 
 .link-button 
   background-color: transparent
@@ -70,22 +72,22 @@ body
     padding: 0px 
 
 .shopping-bag-quantity
-    position: absolute
-    top: 8px
-    right: 2px
-    width: 15px
-    box-sizing: content-box
-    height: 15px
-    text-align: center
-    color: white
-    font-size: 10px
-    line-height: 15px
-    background-color: red
-    border-width: 1px
-    border-style: solid
-    border-color: white
-    border-image: initial
-    border-radius: 20px
+    width: 15px;
+    box-sizing: content-box;
+    height: 15px;
+    text-align: center;
+    color: white;
+    font-size: 10px;
+    line-height: 15px;
+    background-color: var(--c1);
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--textTitle);
+    -o-border-image: initial;
+    border-image: initial;
+    border-radius: 20px;
+    align-self: center;
+    margin-bottom: 20px;
      
 .img-hover-zoom--zoom-n-rotate .imgProduct 
   transition: transform 2s
@@ -104,6 +106,7 @@ body
 .box
     padding: 0
     width: 225px
+    border-radius: 10px;
 @keyframes zoomIn 
     from
         opacity: 0.7
@@ -133,6 +136,8 @@ body
     animation-direction: alternate
     transition: 0.5s
     color: black
+    height: 300px;
+    border-radius: 10px;
 
 .productBox:hover
     animation-duration: .35s
@@ -142,8 +147,16 @@ body
     transition: 1s ease
 
 .p-title
-    
     line-height: 18px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
 .p-price
     color: #002244;
@@ -182,6 +195,7 @@ body
     background: linear-gradient(350deg, #002244 55%, rgba(255, 255, 255, 0.5) 55%);
     background-position-y: 50%;
     background-size: 200% 200%;
+    border-radius: 10px;
 
 @keyframes hoverProduct 
     0%
