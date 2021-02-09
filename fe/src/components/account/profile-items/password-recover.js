@@ -1,6 +1,11 @@
 import React, { useState } from "react"
 import gql from "graphql-tag"
 import { Mutation } from "react-apollo"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronLeft
+} from "@fortawesome/free-solid-svg-icons";
+import './password-recover.sass'
 
 const PASSWORD_RECOVER = gql`
   mutation customerRecover($email: String!) {
@@ -45,17 +50,21 @@ const PasswordRecover = ({forgot}) => {
                     console.error(err)
                   })
               }}
-            >
+            >   
                <input
               placeholder="Email"
                 type="email"
                 onChange={e => setEmail(e.target.value)}
               ></input>
-              <button type="submit">Recover Password</button>
+
+
             </form>
-            <div>
-              
-              <button onClick={()=>forgot("login")}>Return</button>
+            <div className="recover-button-wrapper">
+              <button className="password-recover-return" onClick={()=>forgot("login")}>
+                <div className="recover-circle-button"><FontAwesomeIcon icon={faChevronLeft} /></div>
+                <span>Return</span>
+              </button> 
+              <button className="password-recover-button" type="submit">Recover Password</button>
             </div>
           </div>
         )
