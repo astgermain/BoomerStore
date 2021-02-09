@@ -4,8 +4,8 @@ import React, { useContext, useState, useEffect } from "react";
 import StoreContext from "../context/store";
 import logo from "../images/boomerstorelogo.png";
 import ToggleButton from "./UI/toogleButton";
-import CartSection from "./HomeItems/cartSection"
-import AccountSection from "./HomeItems/accountSection"
+import CartSection from "./HomeItems/cartSection";
+import AccountSection from "./HomeItems/accountSection";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faShoppingBag,
@@ -38,7 +38,7 @@ const Header = ({ setTheme }) => {
   const [menu, setMenu] = useState(false);
 
   const handleMenuClick = () => {
-    setMenu(true);
+    setMenu(!menu);
   };
 
   useEffect(() => {
@@ -46,24 +46,21 @@ const Header = ({ setTheme }) => {
   }, [checkout]);
 
   const cartHover = () => {
-    if(cartState == ""){
-      setAccountState("")
-      setCartState('cart-hovered')
+    if (cartState == "") {
+      setAccountState("");
+      setCartState("cart-hovered");
+    } else {
+      setCartState("");
     }
-    else {
-      setCartState("")
-    }
-  }
+  };
   const accountHover = () => {
-    if(accountState == ""){
-      setCartState("")
-      setAccountState('account-hovered')
+    if (accountState == "") {
+      setCartState("");
+      setAccountState("account-hovered");
+    } else {
+      setAccountState("");
     }
-    else {
-      setAccountState("")
-    }
-    
-  }
+  };
 
   return (
     <>
@@ -150,53 +147,91 @@ const Header = ({ setTheme }) => {
             style={{ color: "var(--textTitle)", width: "calc(30vw/3)" }}
             onClick={() => accountHover()}
           >
-            <h2 style={{marginRight: "10px"}}>Sign In</h2>
-            <FontAwesomeIcon icon={faUser} style={{color: "var(--c1)", display: "flex", alginSelf: "center"}}/>
+            <h2 style={{ marginRight: "10px" }}>Sign In</h2>
+            <FontAwesomeIcon
+              icon={faUser}
+              style={{
+                color: "var(--c1)",
+                display: "flex",
+                alginSelf: "center",
+              }}
+            />
           </div>
           <div
-              className={`cart ${cartState}`}
-              aria-label={`cart ${cartState}`}
-              style={{ display: "flex", color: "var(--textTitle)", display: "flex" }}
-              onClick={() => cartHover()}
-            >
-          <div
-            className="navbar-item"
-            style={{ color: "var(--textTitle)", width: "calc(30vw/3)" }}
+            className={`cart ${cartState}`}
+            aria-label={`cart ${cartState}`}
+            style={{
+              display: "flex",
+              color: "var(--textTitle)",
+              display: "flex",
+            }}
+            onClick={() => cartHover()}
           >
-            
+            <div
+              className="navbar-item"
+              style={{ color: "var(--textTitle)", width: "calc(30vw/3)" }}
+            >
               {quantity > 0 ? (
                 <>
-                {cartState != "" ? <h2 style={{marginRight: "10px", display: "flex", alignItems: "center", color: "white"}}>Cart</h2> 
-                :
-                <h2 style={{marginRight: "10px", display: "flex", alignItems: "center"}}>Cart</h2>
-                }
-                  
+                  {cartState != "" ? (
+                    <h2
+                      style={{
+                        marginRight: "10px",
+                        display: "flex",
+                        alignItems: "center",
+                        color: "white",
+                      }}
+                    >
+                      Cart
+                    </h2>
+                  ) : (
+                    <h2
+                      style={{
+                        marginRight: "10px",
+                        display: "flex",
+                        alignItems: "center",
+                      }}
+                    >
+                      Cart
+                    </h2>
+                  )}
+
                   <FontAwesomeIcon
                     icon={faShoppingBag}
                     className="is-size-5"
-                    style={{color: "var(--c1)", display: "flex", alignSelf: "center"}}
+                    style={{
+                      color: "var(--c1)",
+                      display: "flex",
+                      alignSelf: "center",
+                    }}
                   />
                   <div className="shopping-bag-quantity">{quantity}</div>
                 </>
               ) : (
                 <>
-                  <h2 style={{marginRight: "10px"}}>Cart</h2>
+                  <h2 style={{ marginRight: "10px" }}>Cart</h2>
                   <FontAwesomeIcon
                     icon={faShoppingBag}
                     className="is-size-5"
-                    style={{color: "var(--c1)", display: "flex", alignSelf: "center"}}
+                    style={{
+                      color: "var(--c1)",
+                      display: "flex",
+                      alignSelf: "center",
+                    }}
                   />
                 </>
               )}
+            </div>
           </div>
-          </div>
-          {cartState != '' && <CartSection quantity={quantity} cartState={setCartState} />}
-          {accountState != '' && <AccountSection />}
+          {cartState != "" && (
+            <CartSection quantity={quantity} cartState={setCartState} />
+          )}
+          {accountState != "" && <AccountSection />}
           <div
             className="navbar-item"
             style={{ color: "var(--textTitle)", width: "calc(30vw/3)" }}
           >
-            <h2 style={{marginRight: "10px"}}>Theme</h2>
+            <h2 style={{ marginRight: "10px" }}>Theme</h2>
             <ToggleButton
               selected={selected}
               toggleSelected={() => {
@@ -207,22 +242,26 @@ const Header = ({ setTheme }) => {
           </div>
         </div>
       </nav>
-      <div className="category-bar" onClick={() => handleClick()}>
-        <a className="cat-btn-top btn-border" onClick={() => handleMenuClick}>
-          <h1 style={{display: 'flex', alignItems: 'center'}}>Categories
-          <FontAwesomeIcon
-            icon={faStream}
-            style={{
-              marginLeft: "10px",
-              marginTop: "1px",
-              transform: "rotate(90deg)",
-              color: "#FFBA00",
-            }}
-          />
+      <div className="category-bar">
+        <a className="cat-btn-top btn-border" onClick={() => handleMenuClick()}>
+          <h1 style={{ display: "flex", alignItems: "center" }}>
+            Categories
+            <FontAwesomeIcon
+              icon={faStream}
+              style={{
+                marginLeft: "10px",
+                marginTop: "1px",
+                transform: "rotate(90deg)",
+                color: "#FFBA00",
+              }}
+            />
           </h1>
         </a>
-        
       </div>
+      {menu && 
+        <div className="category-sidebar">
+          <button onClick={() => handleMenuClick()}>Back</button>
+        </div>}
       {/*
       <div className={` ${modal === true ? "modal is-active" : "modal"}`}>
         <div className="modal-background" onClick={closeSearchBar}></div>

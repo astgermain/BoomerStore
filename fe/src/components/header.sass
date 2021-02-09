@@ -1,13 +1,42 @@
 $tablet: 1200px;
 $desktop: 1800px;
 
+.category-sidebar
+    background: var(--c2);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 100vh;
+    z-index: 324;
+    transition: .5s ease
+    animation-duration: .35s ease
+    animation-name: sidebarKeyframe
+    animation-direction: alternate
+
+.category-sidebar:hover
+    animation-duration: .35s
+    animation-timing-function: ease
+    animation-name: randomKeyframe
+    animation-direction: alternate
+    transition: 1s ease
+
+@keyframes sidebarKeyframe
+    0%
+        transform: translateX(-400px)
+    100%
+        transform: translateX(0px)
+
+
+
 .category-bar
     margin-right: 30px
     margin-left: 30px
     position: relative
     display: flex
     z-index: 3
-    height: 35px
+    height: 
+    
 .cart-hovered, .account-hovered
     background: var(--hover2)
     color: white !important
