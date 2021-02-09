@@ -27,6 +27,14 @@ const PasswordRecover = ({forgot}) => {
     <Mutation mutation={PASSWORD_RECOVER}>
       {passwordRecover => {
         return (
+          <div className="recover-password-container">
+          <button className="password-recover-return" onClick={()=>forgot("login")}>
+                <div className="recover-circle-button"><FontAwesomeIcon icon={faChevronLeft} /></div>
+                <span>Return</span>
+              </button> 
+
+          <div>Forgot Password?</div> 
+    
           <div className="recover-form">
             <form
               onSubmit={e => {
@@ -58,14 +66,10 @@ const PasswordRecover = ({forgot}) => {
               ></input>
 
 
-            </form>
-            <div className="recover-button-wrapper">
-              <button className="password-recover-return" onClick={()=>forgot("login")}>
-                <div className="recover-circle-button"><FontAwesomeIcon icon={faChevronLeft} /></div>
-                <span>Return</span>
-              </button> 
               <button className="password-recover-button" type="submit">Recover Password</button>
-            </div>
+            </form>
+            
+          </div>
           </div>
         )
       }}

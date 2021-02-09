@@ -1,6 +1,11 @@
 import React, { useState } from "react"
 import gql from "graphql-tag"
 import { Mutation } from "react-apollo"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronLeft
+} from "@fortawesome/free-solid-svg-icons";
+import './register.sass'
 
 const CUSTOMER_REGISTER = gql`
   mutation customerCreate($input: CustomerCreateInput!) {
@@ -26,6 +31,13 @@ const RegisterForm = ({login}) => {
       {customerRegister => {
         return (
           <div className="login-form, register-form">
+            <button className="register-login-return" onClick={()=>login("login")}>
+                <div className="recover-circle-button"><FontAwesomeIcon icon={faChevronLeft} /></div>
+                <span>Login</span>
+              </button>
+
+              <div><span className="gold-text">Welcome! </span>Please Fill In Your Details</div>
+
             <form
               onSubmit={e => {
                 e.preventDefault()
@@ -66,11 +78,9 @@ const RegisterForm = ({login}) => {
                 onChange={e => setPassword(e.target.value)}
               ></input>
               </div>
-
-              <button type="submit">Sign Up</button>
             </form>
             <div>
-              <button onClick={() => login("login")}>Click here to login</button>
+              <button className="register-signup-button" type="submit">Create Account</button>
             </div>
           </div>
         )

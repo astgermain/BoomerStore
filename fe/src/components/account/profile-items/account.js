@@ -16,6 +16,10 @@ import Button from "@material-ui/core/Button"
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Collapse from '@material-ui/core/Collapse';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronLeft
+} from "@fortawesome/free-solid-svg-icons";
 import "./account.sass"
 
 const GET_CUSTOMER_OBJECT = gql`
@@ -117,7 +121,7 @@ const GET_CUSTOMER_OBJECT = gql`
   }
 `
 
-const Account = () => {
+const Account = ({forgot}) => {
   const { customerAccessToken, setValue } = useContext(StoreContext)
   const [checked, setChecked] = React.useState(false)
   const [sign, setSign] = React.useState("login")
@@ -444,13 +448,12 @@ const Account = () => {
           )
           case "register": return (
             <>
-            <div><span className="gold-text">Welcome!</span>Please Fill In Your Details</div>
               <Register login={setSign}/>
             </>
           )
           case "forgot":  return (
             <>
-            <div>Forgot Password?</div>
+
             <PasswordRecover forgot={setSign}/>
             </>
           )
