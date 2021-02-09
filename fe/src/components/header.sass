@@ -5,27 +5,22 @@ $desktop: 1800px;
     background: var(--c2);
     position: absolute;
     top: 0;
-    left: 0;
     width: 400px;
     height: 100vh;
     z-index: 324;
     transition: .5s ease
     animation-duration: .5s ease
-    animation-name: sidebarKeyframe
-    animation-direction: alternate
+    position: absolute;
+    left: -400px;
+    height: 100vh;
+    -webkit-animation: sidebarKeyframe 0.5s forwards;
+    animation: sidebarKeyframe 0.5s forwards;
 
-.category-sidebar:hover
-    animation-duration: .5s
-    animation-timing-function: ease
-    animation-name: sidebarKeyframe
-    animation-direction: alternate
-    transition: 1s ease
 
 @keyframes sidebarKeyframe
-    0%
-        transform: translateX(-400px)
+
     100%
-        transform: translateX(0px)
+        left: 0
 
 
 
