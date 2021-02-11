@@ -52,11 +52,19 @@ body
 
 .gold-text 
     color: var(--c1)
-  
-
+.top-prods
+    max-height: 325px;
+    overflow: hidden;
+    
+.contain
+    min-width: 1050px;
+    padding: 25px;
+.hero-body
+    padding: 0 0 !important;
 .container
     text-align: -webkit-center;
-
+.product-input-button
+    background: var(--c1)
 .link-button 
   background-color: transparent
   border: none
@@ -65,6 +73,36 @@ body
   display: inline
   margin: 0
   padding: 0
+.image
+    display: flex;
+    align-items: center;
+
+.product-input 
+    font-size: .875rem;
+    font-family: "EinaBold", Arial, sans-serif
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: none;
+    width: 175px;
+    padding: 5px 25px 5px 10px;
+    outline: none;
+    box-shadow: #6b69691c 0px 0px 5px 3px;
+
+.product-input-button
+    font-size: .875rem;
+    font-family: "EinaBold", Arial, sans-serif;
+    background: var(--c1);
+    padding: 5px 15px 5px 15px;
+    border: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: #6b69691c 0px 0px 5px 3px;
+    outline: none
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
 
 .link-button:hover, .link-button:focus
     text-decoration: none
@@ -111,6 +149,7 @@ body
     padding: 0
     width: 225px
     border-radius: 10px;
+    box-shadow: #6b69691c 0px 0px 5px 3px;
 @keyframes zoomIn 
     from
         opacity: 0.7
@@ -120,11 +159,12 @@ body
         opacity: 1
         transform: scale3d(0.7, 0.7, 0)
 .image-box
-    width: auto;
+    width: 100%;
     height: 100px;
-    padding: 5px 10px 5px 10px;
+    min-height: 100px;
     display: flex;
     justify-content: center;
+    max-width: 100px;
 .productBox
     animation-duration: .35s ease
     background: linear-gradient(350deg, #00000008 50%, #ffffffde 50%)
@@ -142,6 +182,10 @@ body
     color: black
     height: 300px;
     border-radius: 10px;
+    align-items: center
+    
+.give-border
+    border: 1px solid #3b3a3a;
 
 .productBox:hover
     animation-duration: .35s
@@ -161,6 +205,8 @@ body
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+    min-height: 35px;
+    margin-top: 5px;
 
 .p-price
     color: #002244;
@@ -179,14 +225,14 @@ body
     border-radius: 3px
 
 .p-view-more
-    font-family: "EinaReg";
+    font-family: "EinaReg", Arial, sans-serif;
     color: #00040A;
     width: 75%;
     display: flex;
     align-self: center;
     justify-content: center;
     padding: 5px;
-    margin-top: 10px;
+    margin: 7.5px;
     font-size: 14px;
     border-radius: 3px;
     border: 1px solid #002244;
@@ -234,6 +280,103 @@ body
     animation-duration: 2.5s
     flex-direction: row
 
+.columns.is-multiline 
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+.productBoxH 
+  animation-duration: .35s ease;
+  background: linear-gradient(0deg, #00000008 50%, #ffffffde 50%);
+  background-size: 200% 200%;
+  animation-fill-mode: both;
+  -webkit-animation-fill-mode: both;
+  padding: 1rem;
+  background-position-y: 0%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  animation-name: bounceOutH;
+  animation-direction: alternate;
+  transition: 0.5s;
+  color: black;
+  height: 100px;
+  border-radius: 10px;
+  border: 1px solid #3b3a3a;
+
+.productBoxH:hover 
+  animation-duration: .35s;
+  animation-timing-function: ease;
+  animation-name: hoverProductH;
+  animation-direction: alternate;
+  transition: 1s ease; 
+
+.p-titleH 
+  line-height: 18px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 35px; 
+
+.p-priceH 
+  color: #002244;
+  font-size: 18px;
+  margin-top: 5px; 
+
+.productBoxH:hover .p-titleH 
+  color: white !important; 
+
+.productBoxH:hover .p-priceH 
+  color: #FFBA00 !important; 
+
+.productBoxH:hover .p-view-moreH 
+  color: #002244;
+  background: #FFBA00;
+  border-radius: 3px; 
+
+.p-view-moreH 
+    font-family: "EinaReg", Arial, sans-serif;
+    color: #00040A;
+    display: flex;
+    padding: 5px 35px;
+    margin-top: 18px;
+    font-size: 14px;
+    border-radius: 3px;
+    /* border: 1px solid #002244; */
+    align-self: center;
+    background: var(--c1);
+
+.productBoxH:hover 
+  color: #00040A; 
+
+.box-backgroundH
+    background: linear-gradient(0deg, #002244 54%, rgba(255, 255, 255, 0.5) 55%);
+    background-position-y: 40%;
+    background-size: 200% 200%;
+    border-radius: 10px;
+
+@keyframes hoverProductH
+    0%
+        background-position: 0% 0%
+    100%
+        background-position: 5% 55%
+
+@keyframes bounceOutH
+   0%
+        opacity: 0
+        background-position: 5% 55%
+
+
+   100%
+        opacity: 1 
+        background-position: 0% 0%
+
 @media only screen and (max-width:770px)
     .allpictures
         flex-direction: column
@@ -241,9 +384,6 @@ body
     .box
         padding: 0
         box-shadow: none
-
-    .productBox
-        padding: 30px
 
     .hero-body
         padding: 3rem 0.5rem

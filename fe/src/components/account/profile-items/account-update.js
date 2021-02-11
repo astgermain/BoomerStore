@@ -126,6 +126,8 @@ const AccountUpdate = ({
                     <input
                       defaultValue={firstName}
                       type="text"
+                      name="first-name"
+                      autoComplete="off"
                       onChange={e => setFirstName(e.target.value)}
                     ></input>
                   </div>
@@ -134,6 +136,8 @@ const AccountUpdate = ({
                     <input
                       defaultValue={lastName}
                       type="text"
+                      name="last-name"
+                      autoComplete="off"
                       onChange={e => setLastName(e.target.value)}
                     ></input>
                   </div>
@@ -144,6 +148,8 @@ const AccountUpdate = ({
                     <div className="profile-bold">New Password</div>
                     <input
                       type="password"
+                      name="npassword1"
+                      autoComplete="off"
                       onChange={e => setPassword(e.target.value)}
                     ></input>
                   </div>
@@ -151,6 +157,8 @@ const AccountUpdate = ({
                     <div className="profile-bold">Confirm Password</div>
                     <input
                       type="password"
+                      name="npassword2"
+                      autoComplete="off"
                       onChange={e => setPassword2(e.target.value)}
                     ></input>
                   </div>

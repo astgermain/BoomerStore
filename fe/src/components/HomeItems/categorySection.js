@@ -1,4 +1,5 @@
 import React from "react";
+import CategoryBox from "./categoryBox"
 import "./categorySection.sass";
 import { Flex } from "rebass";
 
@@ -6,24 +7,19 @@ const CategorySection = ({ data }) => {
   //Data is allShopifyProduct
   return (
     <section className="categorySection" style={{ margin: "0" }}>
-      <div style={{ display: "flex", flexDirection: "row", flexFlow: "wrap", justifyContent: "space-evenly" }}>
-        <a className="cat-btn btn-border">Cat 1</a>
-        <a className="cat-btn btn-border">Cat 1</a>
-        <a className="cat-btn btn-border">Cat 1</a>
-        <a className="cat-btn btn-border">Cat 1</a>
+      <div style={{ display: "flex", flexDirection: "row", flexFlow: "wrap", justifyContent: "space-evenly", padding: "12.5px" }}>
+      <CategoryBox title="Naturals" />
+      <CategoryBox title="Vietnamese Coffee" />
+      <CategoryBox title="Pets" />
+      <CategoryBox  title="Supplements" />
       </div>
-      <div style={{ display: "flex", flexDirection: "row", flexFlow: "wrap", justifyContent: "space-evenly"}}>
-        <a className="cat-btn btn-border">Cat 1</a>
-        <a className="cat-btn btn-border">Cat 1</a>
-        <a className="cat-btn btn-border">Cat 1</a>
-        <a className="cat-btn btn-border">Cat 1</a>
+      <div style={{ display: "flex", flexDirection: "row", flexFlow: "wrap", justifyContent: "space-evenly", padding: "12.5px"}}>
+      <CategoryBox title="Bedding" />
+      <CategoryBox title="Electronics" />
+      <CategoryBox title="Apparel" />
+      <CategoryBox title="Botanics" />
       </div>
-      <div style={{ display: "flex", flexDirection: "row", flexFlow: "wrap", justifyContent: "space-evenly" }}>
-        <a className="cat-btn btn-border">Cat 1</a>
-        <a className="cat-btn btn-border">Cat 1</a>
-        <a className="cat-btn btn-border">Cat 1</a>
-        <a className="cat-btn btn-border">Cat 1</a>
-      </div>
+      
     </section>
   );
 };

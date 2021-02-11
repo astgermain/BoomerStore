@@ -4,11 +4,15 @@ import silverLogo from "../../images/boomersilver.png"
 
 const ProductBox = (props) => {
   const product = props.product;
+  let value = ""
+  if(props.give){
+    value = "give-border"
+  }
   return (
     <a href={`/product/${product.node.handle}`}>
       <div className="box" key={product.node.title}>
         <div className="box-background">
-          <div className="productBox">
+          <div className={`productBox ${value}`}>
                 <div className="plogo-box"><img
                 src={silverLogo}
                 alt="Boomer Silver logo"
@@ -21,7 +25,7 @@ const ProductBox = (props) => {
               fadeIn={false}
               loading="eager"
               alt={product.node.title}
-              style={{width: "75%", alignSelf: "center", maxHeight: "100px"}}
+              style={{width: "100%", alignSelf: "center", maxHeight: "100px"}}
             />
             </div>
             <p className="has-text-weight-semibold p-title">
@@ -30,9 +34,9 @@ const ProductBox = (props) => {
             <p className="has-text-weight-light p-price">
               ${product.node.variants[0].price}
             </p>
-            <a className="p-view-more">
-              View More Details
-            </a>
+            <div className="p-view-more">
+              View Product
+            </div>
           </div>
         </div>
       </div>

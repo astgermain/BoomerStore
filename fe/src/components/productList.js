@@ -4,12 +4,12 @@ import Sort from "./Filter/sort"
 import Collection from './Filter/collection';
 import StoreContext from '../context/store'
 
-const ProductList = ({ data, total }) => {
+const ProductList = ({ data, total, give, top}) => {
   const { edges: products } = data.allShopifyProduct
   const context = useContext(StoreContext);
   let cur = 0
   return (
-    <section className="hero">
+    <section className={`hero ${top == true && `top-prods`}`}>
       <div className="hero-body">
         <div className="container">
           <div className="columns is-multiline" style={{ margin: "0", justifyContent: "center", maxHeight: "350px",overflow: "hidden" }}>
@@ -30,8 +30,8 @@ const ProductList = ({ data, total }) => {
                     return ""
                   }
                   return (
-                    <div className={`column is-3 pro-${i}`} style={{ marginBottom: "40px" }} key={i}>
-                      <ProductBox product={product} />
+                    <div className={`column is-3 pro-${i}`} key={i}>
+                      <ProductBox product={product} give={give}/>
                     </div>
                   )
                 })}

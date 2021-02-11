@@ -25,12 +25,12 @@ $desktop: 1800px;
 
 
 .category-bar
-    margin-right: 30px
-    margin-left: 30px
+    padding-right: 30px
+    padding-left: 30px
     position: relative
     display: flex
     z-index: 3
-    height: 
+    min-width: 1050px
     
 .cart-hovered, .account-hovered
     background: var(--hover2)
@@ -101,12 +101,13 @@ $desktop: 1800px;
     height: calc(100% + 15px)
     border-color: #FFBA00
 
-
+.navbar
+    min-width: 1050px
 .navbar-start 
     width: 70vw
-    min-width: 600px
+    min-width: 625px
 .navbar-end
-    min-width: 400px
+    min-width: 425px
 .navbar-item
     flex-grow: 0;
     flex-shrink: 0;
@@ -124,9 +125,10 @@ $desktop: 1800px;
     border-bottom-left-radius: 5px
     border: none
     width: 30vw
-    max-width: 400px
+    max-width: 700px
     padding: 0 25px 0 10px
     outline: none
+    min-width: 250px;
 
 @media only screen and (max-width: $tablet) 
     .input-search

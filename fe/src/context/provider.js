@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { navigate } from "@reach/router"
 import StoreContext, { defaultStoreContext } from './store'
 const isBrowser = typeof window !== 'undefined'
@@ -91,6 +91,21 @@ const Provider = ({ children }) => {
                                 return { ...state, checkout, adding: false }
                             })
                             navigate(checkout.webUrl)
+                        })
+                },
+
+                addDiscount: (discountCode) => {
+                    updateStore(state => {
+                        return { ...state, adding: true }
+                    })
+                    const { checkout, client } = store
+                    const checkoutId = checkout.id
+                    return client.checkout
+                        .addDiscount(checkoutId, discountCode)
+                        .then(checkout => {
+                            updateStore(state => {
+                                return { ...state, checkout, adding: false, errorMessage: checkout?.userErrors[0]?.message }
+                            })
                         })
                 },
                 removeLineItem: (checkoutID, lineItemID) => {

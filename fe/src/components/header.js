@@ -25,7 +25,7 @@ const countQuantity = (lineItems) => {
   return quantity;
 };
 
-const Header = ({ setTheme }) => {
+const Header = ({ path, setTheme }) => {
   const [selected, setSelected] = useState(false);
   const [cartState, setCartState] = useState("");
   const [accountState, setAccountState] = useState("");
@@ -61,18 +61,20 @@ const Header = ({ setTheme }) => {
       setAccountState("");
     }
   };
-
+let bgcolor = "transparent"
+if(path != "/"){
+  bgcolor = "#002244"
+}
   return (
-    <>
+    <> 
       <nav
         className="navbar"
         role="navigation"
         aria-label="main navigation"
         style={{
           display: "flex",
-          width: "100vw",
           height: "65px",
-          backgroundColor: "transparent",
+          backgroundColor: bgcolor,
         }}
       >
         <div
@@ -86,7 +88,6 @@ const Header = ({ setTheme }) => {
         >
           <h1 className="" style={{ marginLeft: "30px", marginRight: "30px" }}>
             <Link
-              aria-label="search"
               className="has-text-black has-text-weight-bold"
               to="/"
             >
@@ -125,7 +126,9 @@ const Header = ({ setTheme }) => {
                     backgroundColor: "var(--c1)",
                     boxShadow: "0 0 0.125em 0.075em rgb(10 10 10 / 12%)",
                     outline: "none",
+                    width: "30px"
                   }}
+                  className="button"
                 >
                   <FontAwesomeIcon icon={faSearch} />
                 </button>
@@ -147,7 +150,11 @@ const Header = ({ setTheme }) => {
             style={{ color: "var(--textTitle)", width: "calc(30vw/3)" }}
             onClick={() => accountHover()}
           >
+            {context?.customerAccessToken?.accessToken ? 
+            <h2 style={{ marginRight: "10px" }}>Account</h2>
+            :
             <h2 style={{ marginRight: "10px" }}>Sign In</h2>
+            }
             <FontAwesomeIcon
               icon={faUser}
               style={{
@@ -226,7 +233,7 @@ const Header = ({ setTheme }) => {
           {cartState != "" && (
             <CartSection quantity={quantity} cartState={setCartState} />
           )}
-          {accountState != "" && <AccountSection />}
+          {accountState != "" && <AccountSection side={accountHover}/>}
           <div
             className="navbar-item"
             style={{ color: "var(--textTitle)", width: "calc(30vw/3)" }}

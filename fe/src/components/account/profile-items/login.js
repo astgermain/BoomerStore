@@ -1,8 +1,8 @@
-import React, { useState, useContext } from "react"
-import { Mutation } from "react-apollo"
-import gql from "graphql-tag"
-import StoreContext from "../../../context/store"
-import './login.sass'
+import React, { useState, useContext } from "react";
+import { Mutation } from "react-apollo";
+import gql from "graphql-tag";
+import StoreContext from "../../../context/store";
+import "./login.sass";
 
 const LOGIN_USER = gql`
   mutation customerAccessTokenCreate($input: CustomerAccessTokenCreateInput!) {
@@ -18,31 +18,28 @@ const LOGIN_USER = gql`
       }
     }
   }
-`
+`;
 
-
-
-const Login = ({reg}) => {
+const Login = ({ reg, confirm, confirm2 }) => {
   /* eslint-disable no-unused-vars */
-  const { setValue } = useContext(StoreContext)
-  const [email, setEmail] = useState(``)
-  const [password, setPassword] = useState(``)
+  const { setValue } = useContext(StoreContext);
+  const [email, setEmail] = useState(``);
+  const [password, setPassword] = useState(``);
   // const [message, setMessage] = useState(``)
-  const [incorrectCredMsg, setIncorrectCredMsg] = useState(null)
-  const handleCustomerAccessToken = value => {
-    setValue(value)
-  }
-
+  const [incorrectCredMsg, setIncorrectCredMsg] = useState(null);
+  const handleCustomerAccessToken = (value) => {
+    setValue(value);
+  };
 
   return (
     <Mutation mutation={LOGIN_USER}>
-      {loginFunc => {
+      {(loginFunc) => {
         return (
           <>
-          <form
+            <form
               className="login-form"
-              onSubmit={e => {
-                e.preventDefault()
+              onSubmit={(e) => {
+                e.preventDefault();
                 loginFunc({
                   variables: {
                     input: {
@@ -51,51 +48,62 @@ const Login = ({reg}) => {
                     },
                   },
                 })
-                  .then(result => {
+                  .then((result) => {
                     handleCustomerAccessToken(
                       result.data.customerAccessTokenCreate.customerAccessToken
-                    )
+                    );
                     if (
                       result.data.customerAccessTokenCreate.customerUserErrors
                         .length
                     ) {
-                      setIncorrectCredMsg("Username or Password is incorrect")
-                      alert(incorrectCredMsg)
+                      setIncorrectCredMsg("Username or Password is incorrect");
+                      alert(incorrectCredMsg);
                     }
                   })
-                  .catch(err => {
-                    alert(err)
-                    console.error(err)
-                  })
+                  .catch((err) => {
+                    alert(err);
+                    console.error(err);
+                  });
               }}
             >
-              
+              {confirm && <p className="reset-text">Your Account Has Been Created</p>}
+              {confirm2 && <p className="reset-text">An E-Mail should have been sent to the provided E-Mail address</p>}
               <div className="wrap-input-login">
-                    <input
-                      type="email"
-                      placeholder="E-Mail"
-                      onChange={e => setEmail(e.target.value)}
-                    ></input>
-                    <input
-                      type="password"
-                      placeholder="Password"
-                      onChange={e => setPassword(e.target.value)}
-                    ></input>
+                <input
+                  type="email"
+                  placeholder="E-Mail"
+                  name="email"
+                  autoComplete="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                ></input>
+                <input
+                  type="password"
+                  placeholder="Password"
+                  name="password"
+                  autoComplete="password"
+                  onChange={(e) => setPassword(e.target.value)}
+                ></input>
               </div>
-              <div className="login-row">
-                <button onClick={() => reg("forgot")} className="forgot-button">Forgot your password?</button>
-                <button type="submit" className="account-button">Login</button>
+              <div className="reverse-row">
+                <button type="submit" className="account-button">
+                  Login
+                </button>
+                <button onClick={() => reg("forgot")} className="forgot-button">
+                  Forgot your password?
+                </button>
               </div>
             </form>
 
             <div className="login-reg-section">
-              <button onClick={() => reg("register")} className="reg-button">Don't Have An Account?</button>
-              
+              <button onClick={() => reg("register")} className="reg-button">
+                Don't Have An Account?
+              </button>
             </div>
           </>
-        )
+        );
       }}
     </Mutation>
-  )}
+  );
+};
 
-export default Login
+export default Login;

@@ -17,8 +17,7 @@ const IndexPage = ({ data }) => {
         <SideSection data={data} />
       </section>
       <CategorySection />
-      <FeaturedSection />
-      <ProductList data={data} />
+      <FeaturedSection data={data}/>
     </>
   );
 };

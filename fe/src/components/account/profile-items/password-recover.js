@@ -1,6 +1,7 @@
-import React, { useState } from "react"
-import gql from "graphql-tag"
-import { Mutation } from "react-apollo"
+import React, { useState } from "react";
+import gql from "graphql-tag";
+import { Mutation } from "react-apollo";
+import "./login.sass";
 
 const PASSWORD_RECOVER = gql`
   mutation customerRecover($email: String!) {
@@ -12,56 +13,66 @@ const PASSWORD_RECOVER = gql`
       }
     }
   }
-`
+`;
 
-const PasswordRecover = ({forgot}) => {
-  const [email, setEmail] = useState(null)
-  const [incorrectCredMsg, setIncorrectCredMsg] = useState(null)
+const PasswordRecover = ({ forgot, confirm2 }) => {
+  const [email, setEmail] = useState(null);
+  const [incorrectCredMsg, setIncorrectCredMsg] = useState(null);
 
   return (
     <Mutation mutation={PASSWORD_RECOVER}>
-      {passwordRecover => {
+      {(passwordRecover) => {
         return (
           <div className="recover-form">
             <form
-              onSubmit={e => {
-                e.preventDefault()
+              className="rec-form"
+              onSubmit={(e) => {
+                e.preventDefault();
                 passwordRecover({
                   variables: {
-                      email: email,
+                    email: email,
                   },
                 })
-                  .then(result => {
+                  .then((result) => {
                     if (result.data.customerRecover.customerUserErrors.length) {
-                      setIncorrectCredMsg("E-Mail doesn't exist")
-                      alert({incorrectCredMsg})
-                    }
-                    else {
-                        alert('An E-Mail should have been sent to the provided E-Mail address')
+                      setIncorrectCredMsg("E-Mail doesn't exist");
+                      alert({ incorrectCredMsg });
+                    } else {
+                      confirm2(true)
+                      forgot("login")
                     }
                   })
-                  .catch(err => {
-                    alert(err)
-                    console.error(err)
-                  })
+                  .catch((err) => {
+                    alert(err);
+                    console.error(err);
+                  });
               }}
             >
-               <input
-              placeholder="Email"
-                type="email"
-                onChange={e => setEmail(e.target.value)}
-              ></input>
-              <button type="submit">Recover Password</button>
+              <div className="wrap-input-login">
+                <input
+                  placeholder="Email"
+                  type="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                ></input>
+              </div>
+              <div className="reverse-row">
+                <button type="submit" className="account-button">
+                  Recover Password
+                </button>
+                <button
+                  onClick={() => forgot("login")}
+                  className="forgot-button"
+                >
+                  Return To Login
+                </button>
+              </div>
             </form>
-            <div>
-              
-              <button onClick={()=>forgot("login")}>Return</button>
-            </div>
+            <div></div>
           </div>
-        )
+        );
       }}
     </Mutation>
-  )
-}
+  );
+};
 
-export default PasswordRecover  
+export default PasswordRecover;

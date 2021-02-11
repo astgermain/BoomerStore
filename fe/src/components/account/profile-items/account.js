@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from "react"
 import { Query } from "react-apollo"
+import { Link } from "gatsby"; /* eslint-disable */
 import gql from "graphql-tag"
 import StoreContext from "../../../context/store"
 import AccountUpdate from "./account-update"
@@ -17,6 +18,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Collapse from '@material-ui/core/Collapse';
 import "./account.sass"
+import "./login.sass";
 
 const GET_CUSTOMER_OBJECT = gql`
   query($customerAccessToken: String!) {
@@ -117,10 +119,12 @@ const GET_CUSTOMER_OBJECT = gql`
   }
 `
 
-const Account = () => {
+const Account = ({side}) => {
   const { customerAccessToken, setValue } = useContext(StoreContext)
   const [checked, setChecked] = React.useState(false)
   const [sign, setSign] = React.useState("login")
+  const [confirm, setConfirm] = React.useState(false)
+  const [confirm2, setConfirm2] = React.useState(false)
   const [updatedModal, setUpdateModal] = React.useState(false)
   const [message, setMessage] = React.useState("")
   const [closed, setClosed] = React.useState("")
@@ -256,176 +260,11 @@ const Account = () => {
             return (
 
               <>
-              
-                <section className="account-section">
-                  <div className="account-alert-row">
-                    {checked === true && (
-                      <Grow in={checked}>
-                        <Alert
-                          severity={severity}
-                          action={
-                            <Button
-                              color="inherit"
-                              size="small"
-                              onClick={handleChange}
-                            >
-                              {closed}
-                            </Button>
-                          }
-                        >
-                          {message}
-                        </Alert>
-                      </Grow>
-                    )}
-                  </div>
-
-                  <div className="account-content">
-                    <div className="account-left">
-                      {NAV_LIST_ITEMS}
-                      {/*
-                      <MainButtonEvent
-                                text="Logout"
-                                func={()=>handleCustomerAccessToken(null)}
-                              />
-                      */}
-                    </div>
-                    <div className="account-right">
-                      {
-                        //Start main Account
-                      }
-                      {curPage === "My Account" && (
-                        <>
-                          <h1>My Account</h1>
-                          {updatedModal == true && (
-                            <>
-                          <div className="hi">
-                            <Collapse in={updatedModal} appear={true}>
-                              <AccountUpdate
-                                data={data}
-                                oFirstName={firstName}
-                                oLastName={lastName}
-                                oEmail={email}
-                                oPhone={phone}
-                                handleAlert={handleAlert}
-                              />
-                              <button
-                                onClick={() => handleEditModal()} className="blue-text-field">
-                                Back To Account
-                                </button>
-                            </Collapse>
-                            </div>
-                            </>
-                          )}
-                          {updatedModal === false && (
-                            <>
-                              <div className="account-row">
-                                <div className="account-col first">
-                                  <div className="profile-bold">Name</div>
-                                  <div className="profile-reg">
-                                    {firstName} {lastName}
-                                  </div>
-                                </div>
-                                <div className="account-col">
-                                  <div className="profile-bold">E-Mail</div>
-                                  <div className="profile-reg">{email}</div>
-                                </div>
-                              </div>
-                              <br></br>
-                              <div className="profile-bold">
-                                Default Address: <br></br>
-                                {name ? (
-                                  <div className="profile-reg">
-                                    {name}
-                                    <br></br>
-                                  </div>
-                                ) : (
-                                  ""
-                                )}
-                                {company ? (
-                                  <div className="profile-reg">
-                                    {company}
-                                    <br></br>
-                                  </div>
-                                ) : (
-                                  ""
-                                )}
-                                {address1 ? (
-                                  <div className="profile-reg">
-                                    {address1}
-                                    <br></br>
-                                  </div>
-                                ) : (
-                                  ""
-                                )}
-                                {address2 ? (
-                                  <div className="profile-reg">
-                                    {address2}
-                                    <br></br>
-                                  </div>
-                                ) : (
-                                  ""
-                                )}
-                                <div className="profile-reg">
-                                  {city ? <>{city} </> : ""}
-                                  {provinceCode ? provinceCode : ""}
-                                  {zip ? (
-                                    <>
-                                      {zip}
-                                      <br></br>
-                                    </>
-                                  ) : (
-                                    ""
-                                  )}
-                                </div>
-                                {country ? (
-                                  <div className="profile-reg">
-                                    {country}
-                                    <br></br>
-                                  </div>
-                                ) : (
-                                  ""
-                                )}
-                                {phone1 ? (
-                                  <div className="profile-reg">
-                                    {phone1}
-                                    <br></br>
-                                  </div>
-                                ) : (
-                                  ""
-                                )}
-                              </div>
-                              <br></br>
-                              {/*
-                              <MainButtonEvent
-                                text="Update Account"
-                                func={handleEditModal}
-                              />
-                              */}
-                            </>
-                          )}
-                        </>
-                      )}
-                      {
-                        //Start Addresses
-                      }
-                      {curPage === "Addresses" && (
-                        <>
-                          <h1>Addresses</h1>
-                          <Addresses data={data} id={id} handleAlert={handleAlert}/>
-                        </>
-                      )}
-                      {
-                        //Start Order History
-                      }
-                      {curPage === "Order History" && (
-                        <>
-                          <h1>Order History</h1>
-                          <OrderHistory data={data} />
-                        </>
-                      )}
-                    </div>
-                  </div>
-                </section>
+              <div>
+                <div>{data?.data?.customer?.firstName == null ? <div><span className="gold-text">Welcome! </span></div>  : <div><span className="gold-text">Hi, </span>{data?.data?.customer?.firstName}</div>}</div>
+                <button onClick={() => {handleCustomerAccessToken(null)}}>Logout</button>
+                <Link to="/account" onClick={() => side()}>Dashboard</Link>
+              </div>
               </>
             )
           }}
@@ -439,19 +278,19 @@ const Account = () => {
           case "login":   return (
             <>
             <div><span className="gold-text">Welcome! </span>Sign In To Continue</div>
-              <Login reg={setSign}/>
+              <Login reg={setSign} confirm={confirm} confirm2={confirm2}/>
             </>
           )
           case "register": return (
             <>
             <div><span className="gold-text">Welcome!</span>Please Fill In Your Details</div>
-              <Register login={setSign}/>
+              <Register login={setSign} confirm={setConfirm}/>
             </>
           )
           case "forgot":  return (
             <>
             <div>Forgot Password?</div>
-            <PasswordRecover forgot={setSign}/>
+            <PasswordRecover forgot={setSign} confirm2={setConfirm2}/>
             </>
           )
           default:      return "There seems to be an error";

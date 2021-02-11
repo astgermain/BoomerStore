@@ -6,7 +6,7 @@ import Provider from "../context/provider";
 import "./layout.sass";
 import Helmet from "react-helmet";
 
-const Layout = ({ children }) => {
+const Layout = ({ path, children }) => {
     const [theme, setTheme] = useState(false)
   return (
 
@@ -25,7 +25,7 @@ const Layout = ({ children }) => {
       />
     }
     <div className="page-content">
-      <Header setTheme={setTheme}/>
+      <Header setTheme={setTheme} path={path}/>
       {children}
       <Footer />
     </div>

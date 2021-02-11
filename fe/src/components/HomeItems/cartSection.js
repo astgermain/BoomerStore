@@ -9,6 +9,7 @@ const CartSection = ({ data, quantity, cartState }) => {
   console.log("Cart Context", context.store.checkout);
   let line = context.store.checkout.lineItems;
   let check = context.store.checkout;
+  let priceFormat = price => parseFloat(price).toFixed(2)
 
   const firstTwoCart = () => {
     if (line.length == 0) {
@@ -21,14 +22,24 @@ const CartSection = ({ data, quantity, cartState }) => {
               src={`${line[0]?.variant.image.src}`}
               className="cart-img"
             ></img>
-            <div>Title: {line[0]?.title}</div>
-            <div className="small-text margin-left">
-              Qty: {line[0]?.quantity}
+            <div className="inner-cart-box">
+              <div className="small-text margin-left">
+                Qty: {line[0]?.quantity}
+              </div>
+              <div className="cart-product-title">
+                {line[0]?.title}
+              </div>
             </div>
-            <div className="small-text float-right">
-              Price Per: ${line[0]?.variant.price}
+            <div>
+              <div className="small-text float-right">
+                ${line[0]?.variant.price}
+              </div>
+              <div>
+                $
+                {priceFormat(line[0]?.variant.price *
+                  line[0]?.quantity)}
+              </div>
             </div>
-            <div>Subtotal: ${line[0]?.variant.price * line[0]?.quantity}</div>
           </div>
         </>
       );
@@ -37,49 +48,49 @@ const CartSection = ({ data, quantity, cartState }) => {
         <>
           <div className="cart-product-box">
             <img
-              src={`${line[line.length - 1]?.variant.image.src}`}
+              src={`${line[0]?.variant.image.src}`}
               className="cart-img"
             ></img>
             <div className="inner-cart-box">
               <div className="small-text margin-left">
-                Qty: {line[line.length - 1]?.quantity}
+                Qty: {line[0]?.quantity}
               </div>
               <div className="cart-product-title">
-                {line[line.length - 1]?.title}
+                {line[0]?.title}
               </div>
             </div>
             <div>
               <div className="small-text float-right">
-                ${line[line.length - 1]?.variant.price}
+                ${line[0]?.variant.price}
               </div>
               <div>
                 $
-                {line[line.length - 1]?.variant.price *
-                  line[line.length - 1]?.quantity}
+                {priceFormat(line[0]?.variant.price *
+                  line[0]?.quantity)}
               </div>
             </div>
           </div>
           <div className="cart-product-box">
             <img
-              src={`${line[line.length - 2]?.variant.image.src}`}
+              src={`${line[1]?.variant.image.src}`}
               className="cart-img"
             ></img>
             <div className="inner-cart-box">
               <div className="small-text margin-left">
-                Qty: {line[line.length - 2]?.quantity}
+                Qty: {line[1]?.quantity}
               </div>
               <div className="cart-product-title">
-                {line[line.length - 2]?.title}
+                {line[1]?.title}
               </div>
             </div>
             <div>
               <div className="small-text float-right">
-                ${line[line.length - 2]?.variant.price}
+                ${line[1]?.variant.price}
               </div>
               <div>
                 $
-                {line[line.length - 2]?.variant.price *
-                  line[line.length - 2]?.quantity}
+                {priceFormat(line[1]?.variant.price *
+                  line[1]?.quantity)}
               </div>
             </div>
           </div>

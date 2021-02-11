@@ -14,12 +14,14 @@ export const defaultStoreContext = {
   shop: {},
   filteredType: 'all',
   filteredSort: 'featured',
+  errorMessage: '',
   customerAccessToken: null,
   setValue: () => { },
   addVariantToCart: () => { },
   addVariantToCartAndBuyNow: () => { },
   removeLineItem: () => { },
   updateLineItem: () => { },
+  addDiscount: () => { },
 }
 
 const StoreContext = React.createContext(defaultStoreContext)
