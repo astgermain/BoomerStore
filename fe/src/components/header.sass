@@ -15,7 +15,57 @@ $desktop: 1800px;
     height: 100vh;
     -webkit-animation: sidebarKeyframe 0.5s forwards;
     animation: sidebarKeyframe 0.5s forwards;
+.category-container
+    margin: 0
+    display: flex
+    flex-direction: column
 
+
+.categories-circle-button
+    color: black;
+    background: var(--c1);
+    font-family: "EinaBold", Arial, sans-serif;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    align-self: flex-end;
+    margin: 20px 20px 0px 0px
+
+.categories-logo
+    align-self: center;
+.categorie-type-container
+    margin: 30px 30px 30px 125px;
+.categorie-header
+    font-size: 20px;
+    color: var(--c1)
+    align-self: center
+    display: block;
+    margin-bottom: 10px;
+.product-categories
+    margin-top: 30px;
+.categories-option  
+    margin-bottom: 20px
+.categories-option a
+    color: white
+    display: flex 
+.categories-option a:hover
+    color: white
+.categories-option
+    display: flex;
+.categories-option a:hover
+    &:before
+        position: absolute
+        content: " "
+        width: 10px
+        height: 10px
+        border-radius: 50%
+        background: var(--c1)
+        align-self: center;
+        left: 105px;
+        outline: none
 
 @keyframes sidebarKeyframe
 

@@ -13,6 +13,7 @@ import {
   faSearch,
   faAngleDown,
   faStream,
+  faChevronLeft
 } from "@fortawesome/free-solid-svg-icons";
 import "./header.sass";
 
@@ -267,7 +268,70 @@ if(path != "/"){
       </div>
       {menu && 
         <div className="category-sidebar">
-          <button onClick={() => handleMenuClick()}>Back</button>
+          <div className="category-container">
+               <button className="categories-circle-button" onClick={() => handleMenuClick()}><FontAwesomeIcon icon={faChevronLeft} /></button>
+                
+                
+                  <Link
+                  aria-label="search"
+                  className="categories-logo has-text-black has-text-weight-bold"
+                  to="/"
+                >
+                  
+                  <img
+                    src={logo}
+                    alt="Boomer Store logo"
+                    style={{ maxWidth: "150px" }}
+                  ></img>
+                </Link>
+
+
+                <h1 style={{ display: "flex", alignSelf: "center", alignItems: "center", color: "white", marginTop: "15px" }}>
+            Categories
+            <FontAwesomeIcon
+              icon={faStream}
+              style={{
+                marginLeft: "10px",
+                marginTop: "1px",
+                transform: "rotate(90deg)",
+                color: "#FFBA00",
+              }}
+            />
+          </h1>
+
+          <div className="categorie-type-container">
+          <div className="department-categories">
+            <span className="categorie-header">Department</span>
+            <div className="categories-option"><a href="">Boomer Silver</a></div>
+            <div className="categories-option"><a href="">Boomer Supplements</a></div>
+            <div className="categories-option"><a href="">Vietnamese Coffee</a></div>
+            <div className="categories-option"><a href="">Boomer Naturals</a></div>
+            <div className="categories-option"><a href="">Silver Aid</a></div>
+
+          </div>
+
+          <div className="product-categories">
+            <span className="categorie-header">Products</span>
+            <div className="categories-option"><a href="">Boomer Silver</a></div>
+            <div className="categories-option"><a href="" >Boomer Supplements</a></div>
+            <div className="categories-option"><a href="">Vietnamese Coffee</a></div>
+            <div className="categories-option"><a href="">Boomer Naturals</a></div>
+            <div className="categories-option"><a href="">Silver Aid</a></div>
+          </div>
+          
+          </div>    
+                
+          </div>
+          
+
+
+          
+
+
+
+
+
+          
         </div>}
       {/*
       <div className={` ${modal === true ? "modal is-active" : "modal"}`}>
