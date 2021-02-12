@@ -43,7 +43,7 @@ const Header = ({ path, setTheme }) => {
     setMenu(!menu);
   };
   let bgcolor = "transparent";
-  if (path != "/") {
+  if (path != `/`) {
     bgcolor = "#002244";
   }
   useEffect(() => {
