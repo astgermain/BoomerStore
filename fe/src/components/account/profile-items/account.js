@@ -304,7 +304,7 @@ const Account = ({side}) => {
 
   useEffect(() => { }, [])
 
-  return <div>{queryFunc()}</div>
+  return <div className="a-wrap">{queryFunc()}</div>
 }
 
 export default Account

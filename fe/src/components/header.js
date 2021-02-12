@@ -88,6 +88,7 @@ const Header = ({ path, setTheme }) => {
             alignItems: "center",
             display: "flex",
             justifyContent: "space-between",
+            minWidth: "625px"
           }}
         >
           <h1 className="" style={{ marginLeft: "30px" }}>
@@ -99,8 +100,6 @@ const Header = ({ path, setTheme }) => {
               ></img>
             </Link>
           </h1>
-          {path != "/" || path != "/index.html"  && (
-            <>
               <a
                 className="cat-btn-top btn-border"
                 onClick={() => handleMenuClick()}
@@ -118,8 +117,6 @@ const Header = ({ path, setTheme }) => {
                   />
                 </h1>
               </a>
-            </>
-          )}
           <div className="field" style={{ margin: "auto", display: "flex" }}>
             <div className="control has-icons-right">
               <form
@@ -165,11 +162,12 @@ const Header = ({ path, setTheme }) => {
             width: "30vw",
             background: "var(--bg)",
             color: "white",
+            minWidth: "425px"
           }}
         >
           <div
             className={`navbar-item ${accountState}`}
-            style={{ color: "var(--textTitle)", width: "calc(30vw/3)" }}
+            style={{ color: "var(--textTitle)", width: "calc(100%/3)" }}
             onClick={() => accountHover()}
           >
             {context?.customerAccessToken?.accessToken ? (
@@ -200,7 +198,7 @@ const Header = ({ path, setTheme }) => {
           >
             <div
               className="navbar-item"
-              style={{ color: "var(--textTitle)", width: "calc(30vw/3)" }}
+              style={{ color: "var(--textTitle)", width: "calc(100%/3)" }}
             >
               {quantity > 0 ? (
                 <>
@@ -264,7 +262,7 @@ const Header = ({ path, setTheme }) => {
           {accountState != "" && <AccountSection side={accountHover} />}
           <div
             className="navbar-item"
-            style={{ color: "var(--textTitle)", width: "calc(30vw/3)" }}
+            style={{ color: "var(--textTitle)", width: "calc(100%/3)" }}
           >
             <h2 style={{ marginRight: "10px" }}>Theme</h2>
             <ToggleButton
@@ -277,27 +275,7 @@ const Header = ({ path, setTheme }) => {
           </div>
         </div>
       </nav>
-      {path == "/" || path == "/index.html" && (
-        <div className="category-bar">
-          <a
-            className="cat-btn-top btn-border"
-            onClick={() => handleMenuClick()}
-          >
-            <h1 style={{ display: "flex", alignItems: "center" }}>
-              Categories
-              <FontAwesomeIcon
-                icon={faStream}
-                style={{
-                  marginLeft: "10px",
-                  marginTop: "1px",
-                  transform: "rotate(90deg)",
-                  color: "#FFBA00",
-                }}
-              />
-            </h1>
-          </a>
-        </div>
-      )}
+     
       {menu && (
         <div className="category-sidebar">
           <div className="category-container">
