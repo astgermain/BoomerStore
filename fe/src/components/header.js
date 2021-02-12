@@ -43,10 +43,11 @@ const Header = ({ path, setTheme }) => {
     setMenu(!menu);
   };
   let bgcolor = "transparent";
+  if (path != "/") {
+    bgcolor = "#002244";
+  }
   useEffect(() => {
-    if (path != "/" || path == "") {
-      bgcolor = "#002244";
-    }
+    
     setQuantity(countQuantity(checkout ? checkout.lineItems : []));
   }, [checkout]);
 
