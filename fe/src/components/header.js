@@ -180,6 +180,8 @@ const Header = ({ path, setTheme }) => {
                 color: "var(--c1)",
                 display: "flex",
                 alginSelf: "center",
+                width: "0.875em;",
+                height: "1em",
               }}
             />
           </div>
@@ -229,6 +231,8 @@ const Header = ({ path, setTheme }) => {
                       color: "var(--c1)",
                       display: "flex",
                       alignSelf: "center",
+                      width: "0.875em;",
+                      height: "1em",
                     }}
                   />
                   <div className="shopping-bag-quantity">{quantity}</div>
@@ -243,6 +247,8 @@ const Header = ({ path, setTheme }) => {
                       color: "var(--c1)",
                       display: "flex",
                       alignSelf: "center",
+                      width: "0.875em;",
+                      height: "1em",
                     }}
                   />
                 </>
@@ -269,22 +275,25 @@ const Header = ({ path, setTheme }) => {
         </div>
       </nav>
       {path == "/" && (
-      <div className="category-bar">
-        <a className="cat-btn-top btn-border" onClick={() => handleMenuClick()}>
-          <h1 style={{ display: "flex", alignItems: "center" }}>
-            Categories
-            <FontAwesomeIcon
-              icon={faStream}
-              style={{
-                marginLeft: "10px",
-                marginTop: "1px",
-                transform: "rotate(90deg)",
-                color: "#FFBA00",
-              }}
-            />
-          </h1>
-        </a>
-      </div>
+        <div className="category-bar">
+          <a
+            className="cat-btn-top btn-border"
+            onClick={() => handleMenuClick()}
+          >
+            <h1 style={{ display: "flex", alignItems: "center" }}>
+              Categories
+              <FontAwesomeIcon
+                icon={faStream}
+                style={{
+                  marginLeft: "10px",
+                  marginTop: "1px",
+                  transform: "rotate(90deg)",
+                  color: "#FFBA00",
+                }}
+              />
+            </h1>
+          </a>
+        </div>
       )}
       {menu && (
         <div className="category-sidebar">
