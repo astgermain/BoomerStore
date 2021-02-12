@@ -42,8 +42,11 @@ const Header = ({ path, setTheme }) => {
   const handleMenuClick = () => {
     setMenu(!menu);
   };
-
+  let bgcolor = "transparent";
   useEffect(() => {
+    if (path != "/" || path == "") {
+      bgcolor = "#002244";
+    }
     setQuantity(countQuantity(checkout ? checkout.lineItems : []));
   }, [checkout]);
 
@@ -63,10 +66,8 @@ const Header = ({ path, setTheme }) => {
       setAccountState("");
     }
   };
-  let bgcolor = "transparent";
-  if (path != "/") {
-    bgcolor = "#002244";
-  }
+  
+  
   return (
     <>
       <nav
@@ -88,7 +89,7 @@ const Header = ({ path, setTheme }) => {
             justifyContent: "space-between",
           }}
         >
-          <h1 className="" style={{ marginLeft: "30px", marginRight: "30px" }}>
+          <h1 className="" style={{ marginLeft: "30px" }}>
             <Link className="has-text-black has-text-weight-bold" to="/">
               <img
                 src={logo}
