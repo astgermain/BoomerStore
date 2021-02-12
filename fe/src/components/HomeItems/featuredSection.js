@@ -40,11 +40,11 @@ const FeaturedSection = ({ data }) => {
         </div>
         <div className="f-row-p">
           {/*offers 1 collection */}
-              <ProductList data={data} total={6} />
+              <ProductList data={data} total={6} top={true} />
         </div>
         <div className="f-row-p">
           {/*offers 2 collection */}
-              <ProductList data={data} total={6} />
+              <ProductList data={data} total={6} top={true} />
         </div>
       </div>
       <div className="featured-content3">

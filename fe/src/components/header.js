@@ -13,7 +13,7 @@ import {
   faSearch,
   faAngleDown,
   faStream,
-  faChevronLeft
+  faChevronLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import "./header.sass";
 
@@ -62,12 +62,12 @@ const Header = ({ path, setTheme }) => {
       setAccountState("");
     }
   };
-let bgcolor = "transparent"
-if(path != "/"){
-  bgcolor = "#002244"
-}
+  let bgcolor = "transparent";
+  if (path != "/") {
+    bgcolor = "#002244";
+  }
   return (
-    <> 
+    <>
       <nav
         className="navbar"
         role="navigation"
@@ -88,10 +88,7 @@ if(path != "/"){
           }}
         >
           <h1 className="" style={{ marginLeft: "30px", marginRight: "30px" }}>
-            <Link
-              className="has-text-black has-text-weight-bold"
-              to="/"
-            >
+            <Link className="has-text-black has-text-weight-bold" to="/">
               <img
                 src={logo}
                 alt="Boomer Store logo"
@@ -99,6 +96,27 @@ if(path != "/"){
               ></img>
             </Link>
           </h1>
+          {path != "/" && (
+            <>
+              <a
+                className="cat-btn-top btn-border"
+                onClick={() => handleMenuClick()}
+              >
+                <h1 style={{ display: "flex", alignItems: "center" }}>
+                  Categories
+                  <FontAwesomeIcon
+                    icon={faStream}
+                    style={{
+                      marginLeft: "10px",
+                      marginTop: "1px",
+                      transform: "rotate(90deg)",
+                      color: "#FFBA00",
+                    }}
+                  />
+                </h1>
+              </a>
+            </>
+          )}
           <div className="field" style={{ margin: "auto", display: "flex" }}>
             <div className="control has-icons-right">
               <form
@@ -127,7 +145,7 @@ if(path != "/"){
                     backgroundColor: "var(--c1)",
                     boxShadow: "0 0 0.125em 0.075em rgb(10 10 10 / 12%)",
                     outline: "none",
-                    width: "30px"
+                    width: "30px",
                   }}
                   className="button"
                 >
@@ -151,11 +169,11 @@ if(path != "/"){
             style={{ color: "var(--textTitle)", width: "calc(30vw/3)" }}
             onClick={() => accountHover()}
           >
-            {context?.customerAccessToken?.accessToken ? 
-            <h2 style={{ marginRight: "10px" }}>Account</h2>
-            :
-            <h2 style={{ marginRight: "10px" }}>Sign In</h2>
-            }
+            {context?.customerAccessToken?.accessToken ? (
+              <h2 style={{ marginRight: "10px" }}>Account</h2>
+            ) : (
+              <h2 style={{ marginRight: "10px" }}>Sign In</h2>
+            )}
             <FontAwesomeIcon
               icon={faUser}
               style={{
@@ -234,7 +252,7 @@ if(path != "/"){
           {cartState != "" && (
             <CartSection quantity={quantity} cartState={setCartState} />
           )}
-          {accountState != "" && <AccountSection side={accountHover}/>}
+          {accountState != "" && <AccountSection side={accountHover} />}
           <div
             className="navbar-item"
             style={{ color: "var(--textTitle)", width: "calc(30vw/3)" }}
@@ -250,6 +268,7 @@ if(path != "/"){
           </div>
         </div>
       </nav>
+      {path == "/" && (
       <div className="category-bar">
         <a className="cat-btn-top btn-border" onClick={() => handleMenuClick()}>
           <h1 style={{ display: "flex", alignItems: "center" }}>
@@ -266,18 +285,23 @@ if(path != "/"){
           </h1>
         </a>
       </div>
-      {menu && 
+      )}
+      {menu && (
         <div className="category-sidebar">
           <div className="category-container">
-               <button className="categories-circle-button" onClick={() => handleMenuClick()}><FontAwesomeIcon icon={faChevronLeft} /></button>
-                
-                
-                  <Link
+            <div className="category-bar-top">
+              <button
+                className="categories-circle-button"
+                onClick={() => handleMenuClick()}
+              >
+                <FontAwesomeIcon icon={faChevronLeft} />
+              </button>
+              <div className="row">
+                <Link
                   aria-label="search"
                   className="categories-logo has-text-black has-text-weight-bold"
                   to="/"
                 >
-                  
                   <img
                     src={logo}
                     alt="Boomer Store logo"
@@ -285,54 +309,76 @@ if(path != "/"){
                   ></img>
                 </Link>
 
+                <button
+                  className="EBold"
+                  style={{
+                    display: "flex",
+                    alignSelf: "center",
+                    alignItems: "center",
+                    color: "white",
+                    marginTop: "15px",
+                    background: "none",
+                    border: "none",
+                    outline: "none",
+                  }}
+                  onClick={() => handleMenuClick()}
+                >
+                  Back
+                  <FontAwesomeIcon
+                    icon={faStream}
+                    style={{
+                      marginLeft: "10px",
+                      marginTop: "3px",
+                      transform: "rotate(0deg)",
+                      color: "#FFBA00",
+                    }}
+                  />
+                </button>
+              </div>
+            </div>
 
-                <h1 style={{ display: "flex", alignSelf: "center", alignItems: "center", color: "white", marginTop: "15px" }}>
-            Categories
-            <FontAwesomeIcon
-              icon={faStream}
-              style={{
-                marginLeft: "10px",
-                marginTop: "1px",
-                transform: "rotate(90deg)",
-                color: "#FFBA00",
-              }}
-            />
-          </h1>
+            <div className="categorie-type-container">
+              <div className="department-categories">
+                <span className="categorie-header">Department</span>
+                <div className="categories-option">
+                  <a href="">Boomer Silver</a>
+                </div>
+                <div className="categories-option">
+                  <a href="">Boomer Supplements</a>
+                </div>
+                <div className="categories-option">
+                  <a href="">Vietnamese Coffee</a>
+                </div>
+                <div className="categories-option">
+                  <a href="">Boomer Naturals</a>
+                </div>
+                <div className="categories-option">
+                  <a href="">Silver Aid</a>
+                </div>
+              </div>
 
-          <div className="categorie-type-container">
-          <div className="department-categories">
-            <span className="categorie-header">Department</span>
-            <div className="categories-option"><a href="">Boomer Silver</a></div>
-            <div className="categories-option"><a href="">Boomer Supplements</a></div>
-            <div className="categories-option"><a href="">Vietnamese Coffee</a></div>
-            <div className="categories-option"><a href="">Boomer Naturals</a></div>
-            <div className="categories-option"><a href="">Silver Aid</a></div>
-
+              <div className="product-categories">
+                <span className="categorie-header">Products</span>
+                <div className="categories-option">
+                  <a href="">Boomer Silver</a>
+                </div>
+                <div className="categories-option">
+                  <a href="">Boomer Supplements</a>
+                </div>
+                <div className="categories-option">
+                  <a href="">Vietnamese Coffee</a>
+                </div>
+                <div className="categories-option">
+                  <a href="">Boomer Naturals</a>
+                </div>
+                <div className="categories-option">
+                  <a href="">Silver Aid</a>
+                </div>
+              </div>
+            </div>
           </div>
-
-          <div className="product-categories">
-            <span className="categorie-header">Products</span>
-            <div className="categories-option"><a href="">Boomer Silver</a></div>
-            <div className="categories-option"><a href="" >Boomer Supplements</a></div>
-            <div className="categories-option"><a href="">Vietnamese Coffee</a></div>
-            <div className="categories-option"><a href="">Boomer Naturals</a></div>
-            <div className="categories-option"><a href="">Silver Aid</a></div>
-          </div>
-          
-          </div>    
-                
-          </div>
-          
-
-
-          
-
-
-
-
-
-          
-        </div>}
+        </div>
+      )}
       {/*
       <div className={` ${modal === true ? "modal is-active" : "modal"}`}>
         <div className="modal-background" onClick={closeSearchBar}></div>
