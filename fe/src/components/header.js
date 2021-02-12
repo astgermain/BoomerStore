@@ -96,7 +96,7 @@ const Header = ({ path, setTheme }) => {
               ></img>
             </Link>
           </h1>
-          {path != "/" && (
+          {path != "/" || path != "/index.html"  && (
             <>
               <a
                 className="cat-btn-top btn-border"
@@ -274,7 +274,7 @@ const Header = ({ path, setTheme }) => {
           </div>
         </div>
       </nav>
-      {path == "/" && (
+      {path == "/" || path == "/index.html" && (
         <div className="category-bar">
           <a
             className="cat-btn-top btn-border"
