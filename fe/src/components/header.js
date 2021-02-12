@@ -27,6 +27,7 @@ const countQuantity = (lineItems) => {
 };
 
 const Header = ({ path, setTheme }) => {
+  console.log("Path: ", path)
   const [selected, setSelected] = useState(false);
   const [cartState, setCartState] = useState("");
   const [accountState, setAccountState] = useState("");
