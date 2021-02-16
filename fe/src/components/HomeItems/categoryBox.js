@@ -20,13 +20,15 @@ const CategoryBox = (props) => {
       <div className="box" key={props.title}>
         <div className="box-backgroundH">
           <div className="productBoxH">
-            <div className="plogo-boxH">{props.title} <FontAwesomeIcon
+            <div className="EBold plogo-boxH">{props.title} <FontAwesomeIcon
                     icon={faArrowRight}
                     className="p-icon"
                     style={{
                       marginLeft: "10px",
                       marginTop: "1px",
                       color: "black",
+                      width: "0.875em;",
+                      height: "1em",
                     }}
                 /></div>
           </div>
