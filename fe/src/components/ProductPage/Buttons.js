@@ -10,10 +10,10 @@ const Buttons = ({ context, available, productVariant,  quantity}) => {
     }
 
     return (
-        <div className="columns">
+        <div className="columns" style={{margin: "auto"}}>
             <div className="column">
                 <button
-                    className="button is-medium is-fullwidth"
+                    className="EBold product-buttons button is-medium is-fullwidth"
                     disabled={!available}
                     onClick={handleAddToCart}
                 >
@@ -22,7 +22,7 @@ const Buttons = ({ context, available, productVariant,  quantity}) => {
             </div>
             <div className="column">
                 <button
-                    className="button is-dark is-medium is-fullwidth"
+                    className="EBold product-buttons gold button is-dark is-medium is-fullwidth"
                     disabled={!available}
                     onClick={handleAddToCart_BuyNow}
                 >

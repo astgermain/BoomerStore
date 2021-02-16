@@ -109,7 +109,7 @@ const Products = ({ checkout }) => {
           {console.log({ checkout })}
         </div>
       </div>
-      <div className="has-text-right">
+      <div className="has-text-right checkout-button-check">
         <br />
         <a className="button checkout-button" href={checkout.webUrl}>
           Checkout

@@ -20,11 +20,11 @@ const productPage = ({ data }) => {
   const product = data.shopifyProduct;
   const [quantity, setQuantity] = useState(1);
   const [variant, setVariant] = useState(product.variants[0]);
+  const [chosen, setChosen] = useState(product.variants[0]);
   const productVariant =
     context.store.client.product.helpers.variantForOptions(product, variant) ||
     variant;
   const [available, setAvailable] = useState(productVariant.availableForSale);
-  console.log("data", data);
   useEffect(() => {
     let defaultOptionValues = {};
     product.options.forEach((selector) => {
@@ -52,10 +52,27 @@ const productPage = ({ data }) => {
     setVariant((prevState) => ({
       ...prevState,
       [target.name]: target.value,
-      ...console.log(variant),
     }));
+    let x = 0;
+    product.variants.map((variant1) => {
+      x = 0;
+      variant1.selectedOptions.map((option) => {
+        if (option.name == target.name) {
+          if (option.value == target.value) {
+            x++;
+          }
+        }
+        if (option.name != target.name) {
+          if (option.value == variant[`${option.name}`]) {
+            x++;
+          }
+        }
+        if (x == 2) {
+          setChosen(variant1);
+        }
+      });
+    });
   };
-
   return (
     <>
       <SEO title={product.title} />
@@ -63,8 +80,14 @@ const productPage = ({ data }) => {
         <div className="hero-body" style={{ display: "block" }}>
           <div className="container">
             <div className="top-product">
-              <Flex flexDirection={["column", null, "row"]} pt={3} px={4}>
-                <Gallery product={product} />
+              <div className="product-pagination">Paginations Here</div>
+              <Flex
+                flexDirection={["column", null, "row"]}
+                pt={3}
+                px={4}
+                className="product-box-area"
+              >
+                <Gallery product={product} chosen={chosen} />
 
                 <Box
                   flexDirection="column"
@@ -72,71 +95,68 @@ const productPage = ({ data }) => {
                   px={2}
                   data-product-info
                   order={3}
+                  className="product-info-area"
                 >
-                  <div>
+                  <div className="product-brand-logo">
                     {product.productType == "Boomer Silver" && (
                       <>
-                        <img src={BoomerSilver}></img>
+                        <img
+                          src={BoomerSilver}
+                          style={{ maxWidth: "400px" }}
+                        ></img>
                       </>
                     )}
                     <ProductInfo product={product} />
-                    <div className="columns">
-                      {product.options.map((options) => (
-                        <div className="column">
-                          <VariantSelectors
-                            key={options.id.toString()}
-                            onChange={handleOptionChange}
-                            options={options}
-                          />
-                        </div>
-                      ))}
-                      <div className="column is-3">
-                        <QuantityButton
-                          quantity={quantity}
-                          setQuantity={setQuantity}
-                        />
-                      </div>
-                    </div>
-                    <br />
-
-                    <Buttons
-                      context={context}
-                      available={available}
-                      quantity={quantity}
-                      productVariant={productVariant}
-                    />
-                    <hr />
+                    <br></br>
                     <div
                       key={`body`}
                       id="content"
-                      className="content"
+                      className="content EReg lAlign"
                       dangerouslySetInnerHTML={{
                         __html: product.descriptionHtml,
                       }}
                     />
+
+                    <hr />
                   </div>
                 </Box>
               </Flex>
             </div>
+            <div className="product-selector">
+              {variant[`Title`] != "Default Title" && (product.options.map((options) => (
+                <div className="column">
+                  <VariantSelectors
+                    key={options.id.toString()}
+                    onChange={handleOptionChange}
+                    options={options}
+                  />
+                </div>
+              )))}
+              <div className="column is-3">
+                <QuantityButton quantity={quantity} setQuantity={setQuantity} />
+              </div>
+              <div className="column">
+              <label className="label">Price</label>
+                <p
+                  className="is-size-4 has-text-grey-dark"
+                  style={{ textAlign: "left" }}
+                >
+                  ${chosen.price}
+                </p>
+              </div>
+              <Buttons
+                context={context}
+                available={available}
+                quantity={quantity}
+                productVariant={productVariant}
+              />
+            </div>
           </div>
-          <div className="product-page-section2">
-                2
-          </div>
-          <div className="product-page-section3">
-                3
-          </div>
-          <div className="product-page-section4">
-                4
-          </div>
-          <div className="product-page-section5">
-                5
-          </div>
-          <div className="container has-text-centered">
-            <a className="is-medium button" href="/">
-              {" "}
-              ← Back to the Store
-            </a>
-          </div>
+          <div className="product-page-section2">2</div>
+          <div className="product-page-section3">3</div>
+          <div className="product-page-section4">4</div>
+          <div className="product-page-section5">5</div>
+         
         </div>
       </section>
     </>
@@ -163,6 +183,9 @@ export const query = graphql`
       variants {
         id
         title
+        image {
+          originalSrc
+        }
         price
         availableForSale
         shopifyId

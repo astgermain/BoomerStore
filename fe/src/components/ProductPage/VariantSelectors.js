@@ -1,20 +1,19 @@
 import React from 'react'; /* eslint-disable */
 
 const VariantSelector = ({key, onChange, options}) => {
-    console.log("options", options)
     return (
         <div className="field ">
             <label className="label">{options.name} </label>
 
             <div className="control">
                 <div className="select is-fullwidth">
-                    <select onChange={onChange} name={(options.name)} key={options.id}>
+                    <select onChange={(e) => (onChange(e, options))} name={(options.name)} key={options.id}>
                         {
-                            options.values.map(value => (
+                            options.values.map((value, index) => (
                                 <option 
-                                    key={`${options.name}-${value}`}
+                                    key={`${options.name}-${value}-${index}`}
                                     value={value}
-                                    className="is-medium"
+                                    className={`is-medium ${options.name}-${value}-${index}`}
                                 >
                                     {`${value}`}
                                 </option>

@@ -9,6 +9,7 @@ import FeaturedSection from '../components/HomeItems/featuredSection'
 import "./indexPage.sass";
 
 const IndexPage = ({ data }) => {
+  console.log("Index Data", data)
   return (
     <>
       <SEO title="Home" />
@@ -57,6 +58,32 @@ export const query = graphql`
             title
             price
           }
+        }
+      }
+    }
+    allShopifyCollection {
+      nodes {
+        id
+        descriptionHtml
+        description
+        shopifyId
+        title
+        products {
+          id
+          images {
+            originalSrc
+          }
+          priceRange {
+            maxVariantPrice {
+              amount
+            }
+            minVariantPrice {
+              amount
+            }
+          }
+          productType
+          shopifyId
+          title
         }
       }
     }

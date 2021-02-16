@@ -12,11 +12,24 @@ const ThumbnailFlex = styled(Flex)(() => ({
     transition: '0.5s ease all',
 }));
 
-const Gallery = ({ product }) => {
+const Gallery = ({ product, chosen }) => {
     const [currentImage, setCurrentImage] = useState(product.images[0]);
 
     return (
         <>
+            <Box
+                width={[5 / 5, null, 3 / 5]}
+                style={{ margin: "auto", marginTop: "0" }}
+                ml="auto"
+                py={2}
+                px={[2, null, 3]}
+                order={[1, null, 2]}
+                className="img-hover-zoom--zoom-n-rotate img-hover-zoom"
+            >
+                <img src={`${chosen.image.originalSrc}`} />
+               
+            </Box>
+            {/*
             <Box
                 width={[1 / 2, null, .5 / 5]}
                 py={2}
@@ -71,25 +84,7 @@ const Gallery = ({ product }) => {
                     </ThumbnailFlex>
                 </Box>
             </Box>
-
-            <Box
-                width={[5 / 5, null, 3 / 5]}
-                style={{ margin: "auto", marginTop: "0" }}
-                ml="auto"
-                py={2}
-                px={[2, null, 3]}
-                order={[1, null, 2]}
-                className="img-hover-zoom--zoom-n-rotate img-hover-zoom"
-            >
-                <Img
-                    fluid={currentImage.localFile.childImageSharp.fluid}
-                    key={currentImage.localFile.id}
-                    alt={product.title}
-                    fadeIn={false} 
-                    loading="eager"
-                    className="imgProduct"
-                />
-            </Box>
+            */}
         </>
     );
 };

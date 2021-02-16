@@ -100,23 +100,7 @@ const Header = ({ path, setTheme }) => {
               ></img>
             </Link>
           </h1>
-              <a
-                className="cat-btn-top btn-border"
-                onClick={() => handleMenuClick()}
-              >
-                <h1 style={{ display: "flex", alignItems: "center" }}>
-                  Categories
-                  <FontAwesomeIcon
-                    icon={faStream}
-                    style={{
-                      marginLeft: "10px",
-                      marginTop: "1px",
-                      transform: "rotate(90deg)",
-                      color: "#FFBA00",
-                    }}
-                  />
-                </h1>
-              </a>
+              
           <div className="field" style={{ margin: "auto", display: "flex" }}>
             <div className="control has-icons-right">
               <form
@@ -193,6 +177,8 @@ const Header = ({ path, setTheme }) => {
               display: "flex",
               color: "var(--textTitle)",
               display: "flex",
+              width: "calc(100%/3)",
+              justifyContent: "center"
             }}
             onClick={() => cartHover()}
           >
@@ -264,6 +250,23 @@ const Header = ({ path, setTheme }) => {
             className="navbar-item"
             style={{ color: "var(--textTitle)", width: "calc(100%/3)" }}
           >
+            <a
+                className="cat-btn-top btn-border"
+                onClick={() => handleMenuClick()}
+              >
+                <h1 style={{ display: "flex", alignItems: "center" }}>
+                  Shop
+                  <FontAwesomeIcon
+                    icon={faStream}
+                    style={{
+                      marginLeft: "10px",
+                      marginTop: "1px",
+                      color: "#FFBA00",
+                    }}
+                  />
+                </h1>
+              </a>
+            {/*
             <h2 style={{ marginRight: "10px" }}>Theme</h2>
             <ToggleButton
               selected={selected}
@@ -272,6 +275,7 @@ const Header = ({ path, setTheme }) => {
               }}
               setTheme={setTheme}
             />
+            */}
           </div>
         </div>
       </nav>
@@ -284,7 +288,7 @@ const Header = ({ path, setTheme }) => {
                 className="categories-circle-button"
                 onClick={() => handleMenuClick()}
               >
-                <FontAwesomeIcon icon={faChevronLeft} />
+                <FontAwesomeIcon icon={faChevronLeft} style={{transform: "rotate(180deg)",}} />
               </button>
               <div className="row">
                 <Link
@@ -319,7 +323,7 @@ const Header = ({ path, setTheme }) => {
                     style={{
                       marginLeft: "10px",
                       marginTop: "3px",
-                      transform: "rotate(0deg)",
+                      transform: "rotate(90deg)",
                       color: "#FFBA00",
                     }}
                   />
