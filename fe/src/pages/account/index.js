@@ -148,7 +148,7 @@ const Index = () => {
             <span className={isActive.toString()}></span>
           </div>
           <button
-            className={`carousel-nav-btn ${isActive.toString()} account-button`}
+            className={`EBold carousel-nav-btn ${isActive.toString()} black-text less-button nav-button`}
             onClick={handleNavClick}
             value={title}
           >
@@ -215,6 +215,7 @@ const Index = () => {
               <>
                 <Layout>
                   <section className="account-page-section">
+                    {/*
                     <div className="account-alert-row">
                       {checked === true && (
                         <Grow in={checked}>
@@ -235,33 +236,21 @@ const Index = () => {
                         </Grow>
                       )}
                     </div>
+                          */}
                     <div className="account-page-top">
                       <div style={{ marginRight: "15px" }}>
-                        {data?.data?.customer?.firstName == null ? (
-                          <span className="black-text">Welcome! </span>
-                        ) : (
-                          <>
-                            <span className="black-text">Hi, </span>
-                            {data?.data?.customer?.firstName}
-                          </>
-                        )}
+                        
                       </div>
-                      <button
-                        onClick={() => handleCustomerAccessToken(null)}
-                        className="account-button"
-                      >
-                        Logout
-                      </button>
                     </div>
                     <div className="account-content">
                       <div className="account-left">
                         {NAV_LIST_ITEMS}
-                        {/*
-                      <MainButtonEvent
-                                text="Logout"
-                                func={()=>handleCustomerAccessToken(null)}
-                              />
-                      */}
+                        <button
+                        onClick={() => handleCustomerAccessToken(null)}
+                        className="account-button3"
+                      >
+                        Logout
+                      </button>
                       </div>
                       <div className="account-right">
                         {
@@ -284,7 +273,7 @@ const Index = () => {
                                     />
                                     <button
                                       onClick={() => handleEditModal()}
-                                      className="blue-text-field"
+                                      className="margin-top account-button3"
                                     >
                                       Back To Account
                                     </button>
@@ -310,7 +299,7 @@ const Index = () => {
                                   </div>
                                 </div>
                                 <br></br>
-                                <div className="EBold">
+                                <div className="EBold account-row">
                                   Default Address: <br></br>
                                   {name ? (
                                     <div className="EReg">

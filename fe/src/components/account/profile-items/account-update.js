@@ -142,7 +142,6 @@ const AccountUpdate = ({
                     ></input>
                   </div>
                 </div>
-                <br></br>
                 <div className="account-row">
                   <div className="account-col first">
                     <div className="profile-bold">New Password</div>

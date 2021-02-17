@@ -14,7 +14,7 @@
   font-display: swap
 html
     overflow-x: auto;
-    overflow-y: scroll;
+    overflow-y: auto;
 
 body 
     font-family: "EinaBold", Arial, sans-serif
@@ -37,8 +37,6 @@ body
   --hover2: #002244;
   --adjGrad: linear-gradient(315deg, #537895 0%, #dadada 74%);
 
-
-
 .bodydark 
   -webkit-font-smoothing: antialiased;
   --bg: #002244;
@@ -60,7 +58,6 @@ body
 .top-prods
     max-height: 325px;
     overflow: hidden;
-    
 .contain
     min-width: 1050px;
     padding: 25px;  
@@ -83,7 +80,42 @@ body
     align-items: center;
 .select select
     width: revert !important;
-
+.less-button    
+    background: none;
+    border: none;
+    outline: none;
+.account-button 
+    color: black
+    background: var(--c1)
+    padding: 5px 20px;
+    font-family: "EinaBold", Arial, sans-serif
+    border-radius: 5px;
+    outline: none
+    border: none
+    max-width: 150px;
+    box-shadow: #6b69691c 0px 0px 5px 3px;
+.account-button2
+    color: black;
+    background: #ababab;
+    padding: 5px 20px;
+    font-family: "EinaBold", Arial, sans-serif;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    font-size: .8rem;
+    max-width: 150px;
+    box-shadow: #6b69691c 0px 0px 5px 3px;
+.account-button3
+    color: black;
+    background: none;
+    padding: 5px 20px;
+    font-family: "EinaBold", Arial, sans-serif;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid black;
+    font-size: .8rem;
+    max-width: 150px;
+    box-shadow: #6b69691c 0px 0px 5px 3px;
 .product-input 
     font-size: .875rem;
     font-family: "EinaBold", Arial, sans-serif
@@ -96,7 +128,6 @@ body
     padding: 5px 25px 5px 10px;
     outline: none;
     box-shadow: #6b69691c 0px 0px 5px 3px;
-
 .product-input-button
     font-size: .875rem;
     font-family: "EinaBold", Arial, sans-serif;
@@ -128,13 +159,11 @@ body
     text-align: left
 .link-button:hover, .link-button:focus
     text-decoration: none
-
 .img-shop
     padding: 5px
 
 .img-shop :hover
     padding: 0px 
-
 .shopping-bag-quantity
     width: 15px;
     box-sizing: content-box;
