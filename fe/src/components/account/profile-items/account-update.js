@@ -41,7 +41,7 @@ const AccountUpdate = ({
   const [password, setPassword] = useState(``)
   const [password2, setPassword2] = useState(``)
   const [firstName, setFirstName] = useState("")
-  const [lastName, setLastName] = useState(``)
+  const [lastName, setLastName] = useState("")
   // const [checked, setChecked] = React.useState(false)
   const handleCustomerAccessToken = value => {
     setValue(value)
@@ -164,9 +164,7 @@ const AccountUpdate = ({
                   </div>
                 </div>
                 <br></br>
-                {/*
-                <MainButtonStyle text="Save Changes" />
-                */}
+                <button type="submit" className="account-button">Save Changes</button>
                 <br></br>
               </form>
             </div>

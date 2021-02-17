@@ -1,9 +1,13 @@
 import React from "react";
 import ProductList from "../productList";
+import HorizontalBox from "../ProductList/horizontalBox"
 import "./featuredSection.sass";
 
 const FeaturedSection = ({ data }) => {
-  //Data is allShopifyProduct
+  const { edges: products } = data.allShopifyProduct
+  let r = products.map(product => {
+    return product
+  })
   return (
     <div className="featured-section" style={{ margin: "0" }}>
       <div className="featured-content1">
@@ -17,7 +21,7 @@ const FeaturedSection = ({ data }) => {
           </div>
           <div className="f-column-p col-2">
             <div className="horizontal-box-container">
-              <div className="horizontal-box"></div>
+              <HorizontalBox product={r[0]} give={true}/>
             </div>
             <div className="horizontal-product-container">
               <ProductList data={data} total={2} give={true}/>
@@ -25,7 +29,7 @@ const FeaturedSection = ({ data }) => {
           </div>
           <div className="f-column-p col-3">
             <div className="horizontal-box-container">
-              <div className="horizontal-box"></div>
+              <HorizontalBox product={r[0]} give={true}/>
             </div>
             <div className="horizontal-product-container">
               <ProductList data={data} total={2} give={true}/>

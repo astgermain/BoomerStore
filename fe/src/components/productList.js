@@ -29,11 +29,13 @@ const ProductList = ({ data, total, give, top}) => {
                   if(cur > total){
                     return ""
                   }
-                  return (
-                    <div className={`column is-3 pro-${i}`} key={i}>
-                      <ProductBox product={product} give={give}/>
-                    </div>
-                  )
+                  else{
+                    return (
+                      <div className={`column is-3 pro-${i}`} key={i}>
+                        <ProductBox product={product} give={give}/>
+                      </div>
+                    )
+                  }
                 })}
           </div>
         </div>

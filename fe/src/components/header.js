@@ -109,7 +109,7 @@ const Header = ({ path, setTheme }) => {
                 style={{ display: "flex", alignItems: "center" }}
               >
                 <input
-                  className="input-search"
+                  className="EBold input-search"
                   name="value"
                   type="text"
                   value={search}

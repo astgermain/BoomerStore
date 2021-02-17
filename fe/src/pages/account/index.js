@@ -3,24 +3,25 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import StoreContext from "../../context/store";
 import Layout from "../../components/account/Layout";
-import AccountUpdate from "../../components/account/profile-items/account-update"
-import Register from "../../components/account/profile-items/register"
-import Login from "../../components/account/profile-items/login"
-import PasswordRecover from "../../components/account/profile-items/password-recover"
-import Addresses from "../../components/account/profile-items/addresses"
-import OrderHistory from "../../components/account/profile-items/order-history"
-import Alert from "@material-ui/lab/Alert"
-import Grow from "@material-ui/core/Grow"
-import Button from "@material-ui/core/Button"
-import { makeStyles } from '@material-ui/core/styles';
-import Collapse from '@material-ui/core/Collapse';
-import "../../components/account/profile-items/account.sass"
+import AccountUpdate from "../../components/account/profile-items/account-update";
+import Register from "../../components/account/profile-items/register";
+import Login from "../../components/account/profile-items/login";
+import PasswordRecover from "../../components/account/profile-items/password-recover";
+import Addresses from "../../components/account/profile-items/addresses";
+import OrderHistory from "../../components/account/profile-items/order-history";
+import Alert from "@material-ui/lab/Alert";
+import Grow from "@material-ui/core/Grow";
+import Button from "@material-ui/core/Button";
+import { makeStyles } from "@material-ui/core/styles";
+import Collapse from "@material-ui/core/Collapse";
+import "../../components/account/profile-items/account.sass";
 
 const CUSTOMER_INFO = gql`
   query($customerAccessToken: String!) {
     customer(customerAccessToken: $customerAccessToken) {
       email
       firstName
+      lastName
       phone
       defaultAddress {
         firstName
@@ -76,27 +77,27 @@ const CUSTOMER_INFO = gql`
   }
 `;
 const Index = () => {
-  const { customerAccessToken, setValue } = useContext(StoreContext)
-  const [checked, setChecked] = React.useState(false)
-  const [sign, setSign] = React.useState("login")
-  const [updatedModal, setUpdateModal] = React.useState(false)
-  const [message, setMessage] = React.useState("")
-  const [closed, setClosed] = React.useState("")
-  const [severity, setSeverity] = React.useState("")
+  const { customerAccessToken, setValue } = useContext(StoreContext);
+  const [checked, setChecked] = React.useState(false);
+  const [sign, setSign] = React.useState("login");
+  const [updatedModal, setUpdateModal] = React.useState(false);
+  const [message, setMessage] = React.useState("");
+  const [closed, setClosed] = React.useState("");
+  const [severity, setSeverity] = React.useState("");
+
   const handleChange = (value) => {
-    if(value){
-      setChecked(value)
+    if (value) {
+      setChecked(value);
+    } else {
+      setChecked((prev) => !prev);
     }
-    else{
-      setChecked(prev => !prev)
-    }
-  }
+  };
   const useStyles = makeStyles((theme) => ({
     root: {
       height: 180,
     },
     container: {
-      display: 'flex',
+      display: "flex",
     },
     paper: {
       margin: theme.spacing(1),
@@ -112,60 +113,59 @@ const Index = () => {
     },
   }));
   const handleEditModal = (value) => {
-    if(value){
-      setUpdateModal(value)
+    if (value) {
+      setUpdateModal(value);
+    } else {
+      setUpdateModal((prev) => !prev);
     }
-    else{
-      setUpdateModal(prev => !prev)
-    }
-  }
+  };
   const handleAlert = ({ message = "", close = "", severity = "" }) => {
-    if(checked === true){
-      handleChange()
+    if (checked === true) {
+      handleChange();
     }
-    setMessage(message)
-    setClosed(close)
-    setSeverity(severity)
-    handleChange()
-    if(severity === "success") handleEditModal(false)
-  }
-  const handleCustomerAccessToken = value => {
-    setValue(value)
-  }
-  const [curPage, setCurPage] = useState("My Account")
-  const handleNavClick = e => {
+    setMessage(message);
+    setClosed(close);
+    setSeverity(severity);
+    handleChange();
+    if (severity === "success") handleEditModal(false);
+  };
+  const handleCustomerAccessToken = (value) => {
+    setValue(value);
+  };
+  const [curPage, setCurPage] = useState("My Account");
+  const handleNavClick = (e) => {
     // value constant is the title of the clicked nav btn
-    const { value } = e.target
-    setCurPage(value)
-  }
-  const NAV_TITLE_ARR = ["My Account", "Addresses", "Order History"]
+    const { value } = e.target;
+    setCurPage(value);
+  };
+  const NAV_TITLE_ARR = ["My Account", "Addresses", "Order History"];
   const NAV_LIST_ITEMS = NAV_TITLE_ARR.map((title, index) => {
-    const isActive = curPage === title && "active"
+    const isActive = curPage === title && "active";
     return (
       <>
-      <li key={index} className={`nav-btn-list-items ${isActive.toString()}`}>
-        <div>
-          <span className={isActive.toString()}></span>
-        </div>
-        <button
-          className={`carousel-nav-btn ${isActive.toString()}`}
-          onClick={handleNavClick}
-          value={title}
-        >
-          {title}
-        </button>
-      </li>
-      <br></br>
+        <li key={index} className={`nav-btn-list-items ${isActive.toString()}`}>
+          <div>
+            <span className={isActive.toString()}></span>
+          </div>
+          <button
+            className={`carousel-nav-btn ${isActive.toString()} account-button`}
+            onClick={handleNavClick}
+            value={title}
+          >
+            {title}
+          </button>
+        </li>
+        <br></br>
       </>
-    )
-  })
+    );
+  });
   let queryFunc = () => {
     if (customerAccessToken !== null) {
-      var firstDate = new Date(Date.now())
-      var secondDate = new Date(customerAccessToken.expiresAt)
+      var firstDate = new Date(Date.now());
+      var secondDate = new Date(customerAccessToken.expiresAt);
       if (secondDate <= firstDate) {
-        alert("Login has expired, please relog")
-        handleCustomerAccessToken(null)
+        alert("Login has expired, please relog");
+        handleCustomerAccessToken(null);
       }
     }
     try {
@@ -176,14 +176,14 @@ const Index = () => {
             customerAccessToken: customerAccessToken.accessToken,
           }}
         >
-          {data => {
-            let updatedCustomer
+          {(data) => {
+            console.log(data)
+            let updatedCustomer;
             try {
-              updatedCustomer = data.data.customer
+              updatedCustomer = data.data.customer;
             } catch {
-              updatedCustomer = {}
+              updatedCustomer = {};
             }
-
             let {
               firstName,
               lastName,
@@ -192,7 +192,7 @@ const Index = () => {
               // addresses,
               defaultAddress,
               // orders,
-            } = updatedCustomer || ""
+            } = updatedCustomer || "";
             let {
               address1,
               address2,
@@ -204,229 +204,258 @@ const Index = () => {
               zip,
               // formattedArea,
               provinceCode,
-            } = defaultAddress || ""
-            let phone1
+            } = defaultAddress || "";
+            let phone1;
             try {
-              phone1 = defaultAddress.phone
+              phone1 = defaultAddress.phone;
             } catch {
-              phone1 = ""
+              phone1 = "";
             }
             return (
-
               <>
-              <Layout>
-                <section className="account-section">
-                  <div className="account-alert-row">
-                    {checked === true && (
-                      <Grow in={checked}>
-                        <Alert
-                          severity={severity}
-                          action={
-                            <Button
-                              color="inherit"
-                              size="small"
-                              onClick={handleChange}
-                            >
-                              {closed}
-                            </Button>
-                          }
-                        >
-                          {message}
-                        </Alert>
-                      </Grow>
-                    )}
-                  </div>
-                  <div className="">
-                    <button onClick={() => handleCustomerAccessToken(null)}>Logout</button>
-                  </div>
-                  <div className="account-content">
-                    <div className="account-left">
-                      {NAV_LIST_ITEMS}
-                      {/*
+                <Layout>
+                  <section className="account-page-section">
+                    <div className="account-alert-row">
+                      {checked === true && (
+                        <Grow in={checked}>
+                          <Alert
+                            severity={severity}
+                            action={
+                              <Button
+                                color="inherit"
+                                size="small"
+                                onClick={handleChange}
+                              >
+                                {closed}
+                              </Button>
+                            }
+                          >
+                            {message}
+                          </Alert>
+                        </Grow>
+                      )}
+                    </div>
+                    <div className="account-page-top">
+                      <div style={{ marginRight: "15px" }}>
+                        {data?.data?.customer?.firstName == null ? (
+                          <span className="black-text">Welcome! </span>
+                        ) : (
+                          <>
+                            <span className="black-text">Hi, </span>
+                            {data?.data?.customer?.firstName}
+                          </>
+                        )}
+                      </div>
+                      <button
+                        onClick={() => handleCustomerAccessToken(null)}
+                        className="account-button"
+                      >
+                        Logout
+                      </button>
+                    </div>
+                    <div className="account-content">
+                      <div className="account-left">
+                        {NAV_LIST_ITEMS}
+                        {/*
                       <MainButtonEvent
                                 text="Logout"
                                 func={()=>handleCustomerAccessToken(null)}
                               />
                       */}
-                    </div>
-                    <div className="account-right">
-                      {
-                        //Start main Account
-                      }
-                      {curPage === "My Account" && (
-                        <>
-                          <h1>My Account</h1>
-                          {updatedModal == true && (
-                            <>
-                          <div className="hi">
-                            <Collapse in={updatedModal} appear={true}>
-                              <AccountUpdate
-                                data={data}
-                                oFirstName={firstName}
-                                oLastName={lastName}
-                                oEmail={email}
-                                oPhone={phone}
-                                handleAlert={handleAlert}
-                              />
-                              <button
-                                onClick={() => handleEditModal()} className="blue-text-field">
-                                Back To Account
-                                </button>
-                            </Collapse>
-                            </div>
-                            </>
-                          )}
-                          {updatedModal === false && (
-                            <>
-                              <div className="account-row">
-                                <div className="account-col first">
-                                  <div className="profile-bold">Name</div>
-                                  <div className="profile-reg">
-                                    {firstName} {lastName}
+                      </div>
+                      <div className="account-right">
+                        {
+                          //Start main Account
+                        }
+                        {curPage === "My Account" && (
+                          <>
+                            <h1 className="account-h1">My Account</h1>
+                            {updatedModal == true && (
+                              <>
+                                <div className="hi">
+                                  <Collapse in={updatedModal} appear={true}>
+                                    <AccountUpdate
+                                      data={data}
+                                      oFirstName={firstName}
+                                      oLastName={lastName}
+                                      oEmail={email}
+                                      oPhone={phone}
+                                      handleAlert={handleAlert}
+                                    />
+                                    <button
+                                      onClick={() => handleEditModal()}
+                                      className="blue-text-field"
+                                    >
+                                      Back To Account
+                                    </button>
+                                  </Collapse>
+                                </div>
+                              </>
+                            )}
+                            {updatedModal === false && (
+                              <>
+                                <div className="account-row">
+                                  <div className="account-col first">
+                                    <div className="EBold">Name</div>
+                                    <div className="EReg">
+                                      {(firstName == ("" || null)) ? <><p>*Incomplete Name*</p></>
+                                      :
+                                      <>{firstName} {lastName}</>
+                                      }
+                                    </div>
+                                  </div>
+                                  <div className="account-col">
+                                    <div className="EBold">E-Mail</div>
+                                    <div className="EReg">{email}</div>
                                   </div>
                                 </div>
-                                <div className="account-col">
-                                  <div className="profile-bold">E-Mail</div>
-                                  <div className="profile-reg">{email}</div>
-                                </div>
-                              </div>
-                              <br></br>
-                              <div className="profile-bold">
-                                Default Address: <br></br>
-                                {name ? (
-                                  <div className="profile-reg">
-                                    {name}
-                                    <br></br>
-                                  </div>
-                                ) : (
-                                  ""
-                                )}
-                                {company ? (
-                                  <div className="profile-reg">
-                                    {company}
-                                    <br></br>
-                                  </div>
-                                ) : (
-                                  ""
-                                )}
-                                {address1 ? (
-                                  <div className="profile-reg">
-                                    {address1}
-                                    <br></br>
-                                  </div>
-                                ) : (
-                                  ""
-                                )}
-                                {address2 ? (
-                                  <div className="profile-reg">
-                                    {address2}
-                                    <br></br>
-                                  </div>
-                                ) : (
-                                  ""
-                                )}
-                                <div className="profile-reg">
-                                  {city ? <>{city} </> : ""}
-                                  {provinceCode ? provinceCode : ""}
-                                  {zip ? (
-                                    <>
-                                      {zip}
+                                <br></br>
+                                <div className="EBold">
+                                  Default Address: <br></br>
+                                  {name ? (
+                                    <div className="EReg">
+                                      {name}
                                       <br></br>
-                                    </>
+                                    </div>
+                                  ) : (
+                                    ""
+                                  )}
+                                  {company ? (
+                                    <div className="EReg">
+                                      {company}
+                                      <br></br>
+                                    </div>
+                                  ) : (
+                                    ""
+                                  )}
+                                  {address1 ? (
+                                    <div className="EReg">
+                                      {address1}
+                                      <br></br>
+                                    </div>
+                                  ) : (
+                                    ""
+                                  )}
+                                  {address2 ? (
+                                    <div className="EReg">
+                                      {address2}
+                                      <br></br>
+                                    </div>
+                                  ) : (
+                                    ""
+                                  )}
+                                  <div className="EReg">
+                                    {city ? <>{city} </> : ""}
+                                    {provinceCode ? provinceCode : ""}
+                                    {zip ? (
+                                      <>
+                                        {zip}
+                                        <br></br>
+                                      </>
+                                    ) : (
+                                      ""
+                                    )}
+                                  </div>
+                                  {country ? (
+                                    <div className="EReg">
+                                      {country}
+                                      <br></br>
+                                    </div>
+                                  ) : (
+                                    ""
+                                  )}
+                                  {phone1 ? (
+                                    <div className="EReg">
+                                      {phone1}
+                                      <br></br>
+                                    </div>
                                   ) : (
                                     ""
                                   )}
                                 </div>
-                                {country ? (
-                                  <div className="profile-reg">
-                                    {country}
-                                    <br></br>
-                                  </div>
-                                ) : (
-                                  ""
-                                )}
-                                {phone1 ? (
-                                  <div className="profile-reg">
-                                    {phone1}
-                                    <br></br>
-                                  </div>
-                                ) : (
-                                  ""
-                                )}
-                              </div>
-                              <br></br>
-                              {/*
-                              <MainButtonEvent
-                                text="Update Account"
-                                func={handleEditModal}
-                              />
-                              */}
-                            </>
-                          )}
-                        </>
-                      )}
-                      {
-                        //Start Addresses
-                      }
-                      {curPage === "Addresses" && (
-                        <>
-                          <h1>Addresses</h1>
-                          <Addresses data={data} id={id} handleAlert={handleAlert}/>
-                        </>
-                      )}
-                      {
-                        //Start Order History
-                      }
-                      {curPage === "Order History" && (
-                        <>
-                          <h1>Order History</h1>
-                          <OrderHistory data={data} />
-                        </>
-                      )}
+                                <br></br>
+                              <button className="account-button" onClick={() => handleEditModal(true)}>
+                                Update Account
+                              </button>
+                              </>
+                            )}
+                          </>
+                        )}
+                        {
+                          //Start Addresses
+                        }
+                        {curPage === "Addresses" && (
+                          <>
+                            <h1 className="account-h1">Addresses</h1>
+                            <Addresses
+                              data={data}
+                              id={id}
+                              handleAlert={handleAlert}
+                            />
+                          </>
+                        )}
+                        {
+                          //Start Order History
+                        }
+                        {curPage === "Order History" && (
+                          <>
+                            <h1 className="account-h1">Order History</h1>
+                            <OrderHistory data={data} />
+                          </>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                </section>
+                  </section>
                 </Layout>
               </>
-            )
+            );
           }}
         </Query>
-      )
+      );
     } catch {
       return (
         <div className="login-wrapper">
           {(() => {
-        switch (sign) {
-          case "login":   return (
-            <>
-            <div><span className="gold-text">Welcome! </span>Sign In To Continue</div>
-              <Login reg={setSign}/>
-            </>
-          )
-          case "register": return (
-            <>
-            <div><span className="gold-text">Welcome!</span>Please Fill In Your Details</div>
-              <Register login={setSign}/>
-            </>
-          )
-          case "forgot":  return (
-            <>
-            <div>Forgot Password?</div>
-            <PasswordRecover forgot={setSign}/>
-            </>
-          )
-          default:      return "There seems to be an error";
-        }
-      })()}
-          
+            switch (sign) {
+              case "login":
+                return (
+                  <>
+                    <div>
+                      <span className="gold-text">Welcome! </span>Sign In To
+                      Continue
+                    </div>
+                    <Login reg={setSign} />
+                  </>
+                );
+              case "register":
+                return (
+                  <>
+                    <div>
+                      <span className="gold-text">Welcome!</span>Please Fill In
+                      Your Details
+                    </div>
+                    <Register login={setSign} />
+                  </>
+                );
+              case "forgot":
+                return (
+                  <>
+                    <div>Forgot Password?</div>
+                    <PasswordRecover forgot={setSign} />
+                  </>
+                );
+              default:
+                return "There seems to be an error";
+            }
+          })()}
         </div>
-      )
+      );
     }
-  }
+  };
 
-  useEffect(() => { }, [])
+  useEffect(() => {}, []);
 
-  return <div>{queryFunc()}</div>
+  return <div>{queryFunc()}</div>;
 };
 
 export default Index;

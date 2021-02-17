@@ -2,9 +2,17 @@ import React, { useState, useEffect } from "react";
 import SEO from "../components/seo";
 import { graphql } from "gatsby";
 import ProductBox from "../components/ProductList/productBox";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faShoppingBag,
+  faUser,
+  faSearch,
+} from "@fortawesome/free-solid-svg-icons";
+import './searchPage.sass'
 
 const SearchPage = ({ data }) => {
   const [search, setSearch] = useState("");
+  const [number, setNumber] = useState(0);
 
   useEffect(() => {
     setSearch(
@@ -18,22 +26,24 @@ const SearchPage = ({ data }) => {
   return (
     <>
       <SEO title="Home" />
-      <section className="hero is-dark">
+      <section className="hero">
         <div className="hero-body">
           <div className="container">
-            <div className="">
-              <div className="field">
+            <div className="searchbar-area">
+              <div className="field" style={{maxWidth: "500px", borderRadius: "5px"}}>
                 <p className="control has-icons-right">
                   <input
-                    className="input is-large"
+                    className="EBold search-over input"
                     name="value"
                     type="text"
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                     placeholder="Search"
+                    style={{fontSize: "1rem", boxShadow: "#6b69691c 0px 0px 5px 3px;"}}
                   />
-                  <span className="icon is-right">
-                    <i className="fas fa-search"></i>
+                  
+                  <span className="icon is-right search-icon">
+                  <FontAwesomeIcon icon={faSearch} />
                   </span>
                 </p>
               </div>
@@ -41,14 +51,17 @@ const SearchPage = ({ data }) => {
           </div>
         </div>
       </section>
-      <section className="hero is-dark">
+      <section className="hero">
         <div className="hero-body">
-          <div className="hero-body">
-            <h1 className="is-size-5 has-text-medium">
-              RESULTS FOR "{search.toUpperCase()}" :
+          <div className="hero-body with-margin-bottom">
+            <h1 className="EBold result-text">
+              Results For "{search.toUpperCase()}" :
+            </h1>
+            <h1 className="EReg result-text2">
+              <>Browse<b>&nbsp;{number}&nbsp;</b> {search}&nbsp;Products:</>
             </h1>
           </div>
-          <div className="container">
+          <div className="container search-container">
             <div className="columns is-multiline ">
               {products
                 .filter(

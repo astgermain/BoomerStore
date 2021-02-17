@@ -176,6 +176,7 @@ const Account = ({side}) => {
     if(severity === "success") handleEditModal(false)
   }
   const handleCustomerAccessToken = value => {
+    side()
     setValue(value)
   }
   const [curPage, setCurPage] = useState("My Account")
@@ -260,10 +261,12 @@ const Account = ({side}) => {
             return (
 
               <>
-              <div>
-                <div>{data?.data?.customer?.firstName == null ? <div><span className="gold-text">Welcome! </span></div>  : <div><span className="gold-text">Hi, </span>{data?.data?.customer?.firstName}</div>}</div>
-                <button onClick={() => {handleCustomerAccessToken(null)}}>Logout</button>
-                <Link to="/account" onClick={() => side()}>Dashboard</Link>
+              <div className="logged-wrapper">
+              {data?.data?.customer?.firstName == null ? <div><span className="gold-text">Welcome! </span></div>  : <div><span className="gold-text">Hi, </span>{data?.data?.customer?.firstName}</div>}
+                <div className="logged-bottom" >
+                  <Link to="/account" onClick={() => side()}><button className="account-button" style={{margin: "10px"}}>Dashboard</button></Link>
+                  <button onClick={() => {handleCustomerAccessToken(null)}} className="account-button" style={{margin: "10px"}}>Logout</button>
+                </div>
               </div>
               </>
             )
