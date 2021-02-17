@@ -17,7 +17,7 @@ const FeaturedSection = ({ data }) => {
         </div>
         <div className="f-row-p">
           <div className="f-column-p col-1">
-            <div className="f-ad-box"></div>
+            <div className="f-ad-box give-border"></div>
           </div>
           <div className="f-column-p col-2">
             <div className="horizontal-box-container">
@@ -44,19 +44,19 @@ const FeaturedSection = ({ data }) => {
         </div>
         <div className="f-row-p">
           {/*offers 1 collection */}
-              <ProductList data={data} total={6} top={true} />
+              <ProductList data={data} total={6} top={true} give={true}/>
         </div>
         <div className="f-row-p">
           {/*offers 2 collection */}
-              <ProductList data={data} total={6} top={true} />
+              <ProductList data={data} total={6} top={true} give={true}/>
         </div>
       </div>
       <div className="featured-content3">
 
 
       <div className="f-row-top">
-          <span className="f-top-title">New Arrivals</span>
-          <button className="f-button">See More</button>
+          <span className="f-top-title3">New Arrivals</span>
+          <button className="f-button3">See More</button>
         </div>
         <div className="f-row-p">
           <div className="f-column-p b-col-1">

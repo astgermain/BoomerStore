@@ -233,7 +233,7 @@ body
     align-items: center
     
 .give-border
-    border: 1px solid #3b3a3a;
+    border: 1px solid #cacaca;
 
 .productBox:hover
     animation-duration: .35s
@@ -293,7 +293,7 @@ body
     background: linear-gradient(350deg, #002244 55%, rgba(255, 255, 255, 0.5) 55%);
     background-position-y: 50%;
     background-size: 200% 200%;
-    border-radius: 10px;
+    border-radius: 11px;
 
 @keyframes hoverProduct 
     0%
@@ -423,7 +423,7 @@ body
     background: linear-gradient(300deg, #03366a73 61%, rgba(255, 255, 255, 0.5) 55%);
     background-position-y: 15%;
     background-size: 200% 200%;
-    border-radius: 10px;
+    border-radius: 11px;
 
 @keyframes hoverProductH
     0%
@@ -445,6 +445,7 @@ body
     width: 100%;
     height: 180px;
     box-shadow: #6b69691c 0px 0px 5px 3px;
+    border-radius: 10px;
 
 .hor-half
     width: 50%
@@ -542,7 +543,7 @@ body
     background: linear-gradient(355deg, #002244 55%, rgba(255, 255, 255, 0.5) 55%);
     background-position-y: 50%;
     background-size: 200% 200%;
-    border-radius: 10px;
+    border-radius: 11px;
 
 @keyframes hoverProductHor 
     0%
@@ -571,29 +572,42 @@ body
     .hero-body
         padding: 3rem 0.5rem
     .productBox
-        animation-duration: .35s ease;
-        background: linear-gradient(350deg, #00000008 50%, #ffffffde 50%);
+        background: linear-gradient(350deg, #00000008 80%, #ffffffde 50%);
         background-size: 200% 200%;
-        animation-fill-mode: both;
-        -webkit-animation-fill-mode: both;
         padding: .5rem;
         background-position-y: 10%;
         display: flex;
         flex-direction: column;
         text-align: center;
-        animation-name: bounceOut;
-        animation-direction: alternate;
         transition: 0.5s;
+        animation-name: none
         color: black;
         border-radius: 10px;
         align-items: center;
         height: auto;
     .productBox:hover
-        animation-duration: .35s
-        animation-timing-function: ease
-        animation-name: hoverProductM
-        animation-direction: alternate
-        transition: 1s ease
+        animation-name: none
+    .productBoxH
+        background: linear-gradient(350deg, #00000008 80%, #ffffffde 50%);
+        background-size: 200% 200%;
+        padding: .5rem;
+        background-position-y: 10%;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        transition: 0.5s;
+        animation-name: none
+        color: black;
+        border-radius: 10px;
+        align-items: center;
+        height: auto;
+    .productBoxH:hover
+        animation-name: none
+    .productBoxHor
+        animation-name: non
+        background: linear-gradient(355deg, #00000008 74%, #ffffffde 50%);
+    .productBoxHor:hover
+        animation-name: none
     .plogo-boxHor
         max-width: 115px
     .plogo-box
@@ -630,3 +644,36 @@ body
         background-position-y: 50%;
         background-size: 200% 200%;
         border-radius: 10px;
+
+    .productBox .p-title
+        color: white !important
+
+    .productBox .p-price
+        color: #FFBA00 !important
+
+    .productBox .p-view-more
+        color: #002244
+        background: #FFBA00
+        border-radius: 3px
+
+    .productBoxH .p-titleH
+        color: white !important
+
+    .productBoxH .p-priceH
+        color: #FFBA00 !important
+
+    .productBoxH .p-view-moreH
+        color: #002244
+        background: #FFBA00
+        border-radius: 3px
+
+    .productBoxHor .p-titleHor
+        color: black !important
+
+    .productBoxHor .p-priceHor
+        color: #FFBA00 !important
+
+    .productBoxHor .p-view-moreHor
+        color: #002244
+        background: #FFBA00
+        border-radius: 3px
