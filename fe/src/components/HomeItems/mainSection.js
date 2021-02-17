@@ -8,11 +8,9 @@ const MainSection = ({ data }) => {
     <div className="mainSection" style={{ margin: "0", }}>
       <div className="header-adjustment">
               <div className="main-text-section">
-                <h1 className="top-text"><span className="text-reg">Girl You’re My Angel,</span> You’re My Darling <span className="text-gold">Angel</span></h1>
-                
+               
               </div>
-              <h2 className="bottom-text">Items We Know You'll Love</h2>
-            <ProductList data={data} total={4} top={true}/>
+
           </div>
     </div>
   );

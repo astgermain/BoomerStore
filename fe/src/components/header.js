@@ -27,7 +27,7 @@ const countQuantity = (lineItems) => {
 };
 
 const Header = ({ path, setTheme }) => {
-  console.log("Path: ", path)
+  console.log("Path: ", path);
   const [selected, setSelected] = useState(false);
   const [cartState, setCartState] = useState("");
   const [accountState, setAccountState] = useState("");
@@ -47,7 +47,6 @@ const Header = ({ path, setTheme }) => {
     bgcolor = "#002244";
   }
   useEffect(() => {
-    
     setQuantity(countQuantity(checkout ? checkout.lineItems : []));
   }, [checkout]);
 
@@ -67,10 +66,84 @@ const Header = ({ path, setTheme }) => {
       setAccountState("");
     }
   };
-  
-  
+
   return (
     <>
+      <nav className="mobile-navbar">
+        <div className="mobile-nav-left">
+          <FontAwesomeIcon
+            icon={faStream}
+            style={{
+              marginLeft: "0px",
+              marginTop: "1px",
+              color: "#FFBA00",
+              transform: "rotate(90deg)",
+            }}
+          />
+        </div>
+        <h1 className="" style={{ margin: "auto" }}>
+          <Link className="has-text-black has-text-weight-bold" to="/">
+            <img
+              src={logo}
+              alt="Boomer Store logo"
+              style={{ maxWidth: "115px" }}
+            ></img>
+          </Link>
+        </h1>
+        <div className="mobile-nav-right">
+          <FontAwesomeIcon
+            icon={faUser}
+            style={{
+              color: "var(--c1)",
+              display: "flex",
+              alginSelf: "center",
+              width: "0.875em;",
+              height: "1em",
+            }}
+          />
+          <hr
+            style={{
+              backgroundColor: "var(--c1)",
+              border: "none",
+              display: "block",
+              height: "15px",
+              zIndex: "40",
+              width: ".5px",
+              margin: "0"
+            }}
+          ></hr>
+          {quantity > 0 ? (
+            <>
+              <FontAwesomeIcon
+                icon={faShoppingBag}
+                className="is-size-5"
+                style={{
+                  color: "var(--c1)",
+                  display: "flex",
+                  alignSelf: "center",
+                  width: "0.875em;",
+                  height: "1em",
+                }}
+              />
+              <div className="shopping-bag-quantity">{quantity}</div>
+            </>
+          ) : (
+            <>
+              <FontAwesomeIcon
+                icon={faShoppingBag}
+                className="is-size-5"
+                style={{
+                  color: "var(--c1)",
+                  display: "flex",
+                  alignSelf: "center",
+                  width: "0.875em;",
+                  height: "1em",
+                }}
+              />
+            </>
+          )}
+        </div>
+      </nav>
       <nav
         className="navbar"
         role="navigation"
@@ -88,7 +161,7 @@ const Header = ({ path, setTheme }) => {
             alignItems: "center",
             display: "flex",
             justifyContent: "space-between",
-            minWidth: "625px"
+            minWidth: "625px",
           }}
         >
           <h1 className="" style={{ marginLeft: "30px" }}>
@@ -100,7 +173,7 @@ const Header = ({ path, setTheme }) => {
               ></img>
             </Link>
           </h1>
-              
+
           <div className="field" style={{ margin: "auto", display: "flex" }}>
             <div className="control has-icons-right">
               <form
@@ -146,7 +219,7 @@ const Header = ({ path, setTheme }) => {
             width: "30vw",
             background: "var(--bg)",
             color: "white",
-            minWidth: "425px"
+            minWidth: "425px",
           }}
         >
           <div
@@ -178,7 +251,7 @@ const Header = ({ path, setTheme }) => {
               color: "var(--textTitle)",
               display: "flex",
               width: "calc(100%/3)",
-              justifyContent: "center"
+              justifyContent: "center",
             }}
             onClick={() => cartHover()}
           >
@@ -251,21 +324,21 @@ const Header = ({ path, setTheme }) => {
             style={{ color: "var(--textTitle)", width: "calc(100%/3)" }}
           >
             <a
-                className="cat-btn-top btn-border"
-                onClick={() => handleMenuClick()}
-              >
-                <h1 style={{ display: "flex", alignItems: "center" }}>
-                  Shop
-                  <FontAwesomeIcon
-                    icon={faStream}
-                    style={{
-                      marginLeft: "10px",
-                      marginTop: "1px",
-                      color: "#FFBA00",
-                    }}
-                  />
-                </h1>
-              </a>
+              className="cat-btn-top btn-border"
+              onClick={() => handleMenuClick()}
+            >
+              <h1 style={{ display: "flex", alignItems: "center" }}>
+                Shop
+                <FontAwesomeIcon
+                  icon={faStream}
+                  style={{
+                    marginLeft: "10px",
+                    marginTop: "1px",
+                    color: "#FFBA00",
+                  }}
+                />
+              </h1>
+            </a>
             {/*
             <h2 style={{ marginRight: "10px" }}>Theme</h2>
             <ToggleButton
@@ -279,7 +352,7 @@ const Header = ({ path, setTheme }) => {
           </div>
         </div>
       </nav>
-     
+
       {menu && (
         <div className="category-sidebar">
           <div className="category-container">
@@ -288,7 +361,10 @@ const Header = ({ path, setTheme }) => {
                 className="categories-circle-button"
                 onClick={() => handleMenuClick()}
               >
-                <FontAwesomeIcon icon={faChevronLeft} style={{transform: "rotate(180deg)",}} />
+                <FontAwesomeIcon
+                  icon={faChevronLeft}
+                  style={{ transform: "rotate(180deg)" }}
+                />
               </button>
               <div className="row">
                 <Link

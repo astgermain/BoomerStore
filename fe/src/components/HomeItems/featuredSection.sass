@@ -79,7 +79,7 @@
     height: 100%
 .b-col-1
     height: 350px
-    padding: 0 10px
+    padding: 10px
     display: flex
     align-items: center
     justify-content: center
@@ -104,22 +104,63 @@
 .f-ad-box
     background: white
     border-radius: 5px
-    width: 100%
+    width: 400px
     height: 100%
-    max-width: 450px
-    min-width: 450px
 .f-ad-box2
-    background: #001220
-    border-radius: 5px
-    width: 100%
-    height: 100%
-    max-width: 525px;
-    min-width: 525px;
+    background: #001220;
+    border-radius: 5px;
+    width: calc((50vw) - 20px);
+    height: 100%;
+    max-width: 475px;
+    min-width: 300px;
 
 @media only screen and (max-width:1500px)
     .col-1
         display: none
     .f-column-p
-        min-width: 500px
+        
     .featured-section
-        min-width: 1050px
+    
+@media only screen and (max-width:768px)
+    .f-row-p
+        flex-direction: column
+    .f-row-top 
+        width: 100%;
+        display: flex;
+        padding: 15px;
+        justify-content: flex-start;
+        align-items: center;
+    .f-top-title
+        margin: 0
+    .f-ad-box
+        height: 200px
+        width: 100%
+    .f-ad-box2
+        width: calc((100vw) - 30px);
+    .col-1
+        height: 100%
+        padding: 10px
+    .horizontal-box-container 
+        width: 100%;
+        padding: 0 10px;
+        height: auto
+    .featured-content1
+        padding: 15px 0px;
+    .f-ad-box2
+        min-width: 0px !important
+    .horizontal-product-container 
+        width: 100%;
+        padding: 10px 0;
+    .productBoxHor
+        height: auto
+    .boxHor
+        height: auto
+    .featured-content2 
+        padding: 15px 0px;
+        flex-direction: column;
+        background: white;
+        margin: 0;
+    .f-row-top2
+        padding: 10px;
+    .featured-content3
+        padding: 15px 0px;

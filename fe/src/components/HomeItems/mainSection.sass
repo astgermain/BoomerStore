@@ -3,7 +3,7 @@
     height: 700px
     background-image: url(../../images/background.png)
     background-size: cover
-    min-width: 625px
+    min-width: 625px;
 
 .main-section-adjustment-layer
     width: 70vw
@@ -14,7 +14,6 @@
     background-color: #537895
     background-image: var(--adjGrad)
     opacity: 0.9;
-    min-width: 600px;
     display: table-cell;
     position: absolute
 
@@ -49,3 +48,8 @@
     color: white;
 .column.is-3, .column.is-3-tablet 
     width: auto !important;
+
+@media only screen and (max-width:768px)
+    .mainSection
+        min-width: 0 !important;
+        width: 100vw;

@@ -20,7 +20,7 @@ body
     font-family: "EinaBold", Arial, sans-serif
 
 .page-content 
-    min-width: 900px
+    min-width: 1050px
 .column
     flex-grow: 0 !important
     margin: auto;
@@ -187,6 +187,7 @@ body
     
 .plogo-box
     margin: 25px 0 10px 0;
+    max-width: 150px
 
 .box
     padding: 0
@@ -208,6 +209,7 @@ body
     width: 100%;
     height: 100px;
     min-height: 100px;
+    max-height: 100px;
     display: flex;
     justify-content: center;
     max-width: 100px;
@@ -299,6 +301,12 @@ body
     100%
         background-position: 5% 55%
 
+@keyframes hoverProductM
+    0%
+        background-position: 0% 0%
+    100%
+        background-position: 5% 70%
+
 @keyframes bounceOut 
    0%
         opacity: 0
@@ -330,6 +338,7 @@ body
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    max-height: 350px;
 
 .productBoxH 
   animation-duration: .35s ease;
@@ -440,6 +449,11 @@ body
 .hor-half
     width: 50%
 
+.hor-half2
+    width: 50%
+    display: flex;
+    justify-content: center;
+
 .productBoxHor
     animation-duration: .35s ease
     background: linear-gradient(355deg, #00000008 50%, #ffffffde 50%)
@@ -449,7 +463,7 @@ body
     padding: 1rem;
     background-position-y: 0%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     text-align: left;
     animation-name: bounceOutHor
     animation-direction: alternate
@@ -482,10 +496,11 @@ body
     min-height: 35px;
     margin-top: 5px;
     margin-right: 10px;
-
+.plogo-boxHor
+        max-width: 150px
 .hor-row
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     flex-direction: row;
     align-items: center;
 
@@ -517,6 +532,7 @@ body
     font-size: 14px;
     border-radius: 3px;
     border: 1px solid #002244;
+    max-width: 150px;
 
 .productBoxHor:hover
     color: #00040A
@@ -543,14 +559,74 @@ body
         opacity: 1 
         background-position: 0% 0%
 
-@media only screen and (max-width:770px)
+@media only screen and (max-width:768px)
+    .page-content 
+        min-width: 300px
     .allpictures
         flex-direction: column
         width: 1
     .box
         padding: 0
-        box-shadow: none
-
+        width: calc(50vw - 20px);
     .hero-body
         padding: 3rem 0.5rem
-
+    .productBox
+        animation-duration: .35s ease;
+        background: linear-gradient(350deg, #00000008 50%, #ffffffde 50%);
+        background-size: 200% 200%;
+        animation-fill-mode: both;
+        -webkit-animation-fill-mode: both;
+        padding: .5rem;
+        background-position-y: 10%;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        animation-name: bounceOut;
+        animation-direction: alternate;
+        transition: 0.5s;
+        color: black;
+        border-radius: 10px;
+        align-items: center;
+        height: auto;
+    .productBox:hover
+        animation-duration: .35s
+        animation-timing-function: ease
+        animation-name: hoverProductM
+        animation-direction: alternate
+        transition: 1s ease
+    .plogo-boxHor
+        max-width: 115px
+    .plogo-box
+        max-width: 115px
+        margin: 5px;
+    .image-box
+        height: 75px
+        min-height: 75px
+    .columns.is-multiline 
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        max-height: none;
+    .column
+        margin: 0
+        padding: 5px 5px
+    .p-view-more 
+        font-family: "EinaReg", Arial, sans-serif;
+        color: #00040A;
+        width: 90%;
+        display: flex;
+        align-self: center;
+        justify-content: center;
+        padding: 5px;
+        margin: 7.5px 0;
+        font-size: 14px;
+        border-radius: 3px;
+        border: 1px solid #002244;
+        white-space: nowrap;
+    .pro-2, .pro-3, .pro-4, .pro-5
+        display: none !important
+    .box-background 
+        background: linear-gradient(350deg, #002244 60%, rgba(255, 255, 255, 0.5) 55%);
+        background-position-y: 50%;
+        background-size: 200% 200%;
+        border-radius: 10px;

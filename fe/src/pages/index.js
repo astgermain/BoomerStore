@@ -1,24 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import SEO from "../components/seo";
 import { graphql } from "gatsby";
 import ProductList from "../components/productList";
 import MainSection from "../components/HomeItems/mainSection";
 import SideSection from "../components/HomeItems/sideSection";
 import CategorySection from "../components/HomeItems/categorySection";
-import FeaturedSection from '../components/HomeItems/featuredSection'
+import FeaturedSection from "../components/HomeItems/featuredSection";
 import "./indexPage.sass";
 
 const IndexPage = ({ data }) => {
-  console.log("Index Data", data)
   return (
     <>
       <SEO title="Home" />
       <section className="home-top">
-          <MainSection data={data} />
+        <MainSection data={data} />
         <SideSection data={data} />
       </section>
+      {/*
       <CategorySection />
-      <FeaturedSection data={data}/>
+      */}
+      <FeaturedSection data={data} />
     </>
   );
 };

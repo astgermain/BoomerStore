@@ -16,7 +16,7 @@ const ProductBox = (props) => {
                 <div className="plogo-box"><img
                 src={silverLogo}
                 alt="Boomer Silver logo"
-                style={{ maxWidth: "150px", alignSelf: "center" }}
+                style={{ alignSelf: "center" }}
               ></img></div>
               <div className="image-box">
             <Img
@@ -25,7 +25,7 @@ const ProductBox = (props) => {
               fadeIn={false}
               loading="eager"
               alt={product.node.title}
-              style={{width: "100%", alignSelf: "center", maxHeight: "100px"}}
+              style={{width: "100%", alignSelf: "center", height: "100%"}}
             />
             </div>
             <p className="has-text-weight-semibold p-title">
