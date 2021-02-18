@@ -33,9 +33,9 @@ const HorizontalBox = (props) => {
                 <div className="image-box">
                   <Img
                     fluid={
-                      product.node.images[0].localFile.childImageSharp.fluid
+                      product?.node?.images[0]?.localFile?.childImageSharp?.fluid
                     }
-                    key={product.node.images[0].localFile.id}
+                    key={product?.node?.images[0]?.localFile?.id}
                     fadeIn={false}
                     loading="eager"
                     alt={product.node.title}
