@@ -161,7 +161,6 @@ const Header = ({ path, setTheme }) => {
             alignItems: "center",
             display: "flex",
             justifyContent: "space-between",
-            minWidth: "625px",
           }}
         >
           <h1 className="" style={{ marginLeft: "30px" }}>

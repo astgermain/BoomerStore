@@ -3,7 +3,7 @@
     height: 700px
     background-image: url(../../images/background.png)
     background-size: cover
-    min-width: 625px;
+    min-width: 775px;
 
 .main-section-adjustment-layer
     width: 70vw
@@ -25,15 +25,19 @@
     padding: 0
 
 .main-text-section
-    height: 250px;
+    height: 100%;
     display: flex;
     color: var(--textTitle);
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5em;
+    padding: 1.5em 0;
     position: relative;
     justify-content: center;
+    max-width: 775px;
+    margin: auto;
+.main-text-mobile
+    display: none
 .top-text
     font-size: 3em;
     max-width: 600px;
@@ -48,8 +52,56 @@
     color: white;
 .column.is-3, .column.is-3-tablet 
     width: auto !important;
+.cat-top-half
+    display: flex
+    width: 50%
+    height: 100%
+    flex-direction: column
+.cat-row
+    width: 100%
+    display: flex
+    height: calc(100%/3);
+.cat-half
+    width: 50%;
+    margin: 10px;
+    background: white;
+    border-radius: 5px;
+    color: black;
+.cat-text
+    width: 50%
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    border-radius: 5px;
+    text-align: justify
+    font-size: xxx-large;
+    line-height: 1.05em;
+.cat-text:after 
+  content: "";
+  display: inline-block;
+  width: 100%;
+
+.cat-full
+    width: 100%;
+    margin: 10px;
+    background: white;
+    border-radius: 5px;
+    color: black;
+.cat-icon-bottom
+    display: flex;
+    justify-content: flex-end;
+    height: 80px;
+    font-size: 1.5em;
+    align-items: center;
+.cat-info-top
+    height: calc(100% - 80px)
 
 @media only screen and (max-width:768px)
     .mainSection
         min-width: 0 !important;
         width: 100vw;
+    .main-text-mobile
+        display: flex
+        color: white
+    .main-text-section
+        display: none
