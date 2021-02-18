@@ -18,6 +18,62 @@
     border-radius: 5px;
     box-shadow: 0 0 5px 1px #efebeb;
     width: fit-content;
+    margin: 15px 0;
 .product-info-area
     display: flex;
     justify-content: center;
+.product-box-area
+    display: flex;
+    align-items: center;
+.q-row
+    display: flex;
+    align-items: center;
+    width: 100% !important;
+    justify-content: center;
+.field
+    margin-bottom: 0 !important
+.price-div
+    margin-left: 25px    
+@media only screen and (max-width:768px)
+    .img-hover-zoom 
+        width: 100% !important;
+    .product-box-area
+        padding: 15px 0 0 0 !important;
+        flex-direction: column-reverse !important
+    .product-info-area 
+        width: 100% !important;
+        padding: 0px !important;
+    .is-size-2 
+        font-size: 1.5rem !important;
+    .content
+        display: none
+    .no-mobile
+        display: none
+    .lAlign
+        text-align: center
+        padding-top: 10px;
+    .product-pagination
+        display: none
+    .product-selector
+        margin: 15px 15px;
+        padding: 10px 0;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    .columns
+        display: flex
+        flex-direction: column;
+    .column
+        width: calc(50vw - 30px);
+        flex-basis: auto;
+        padding: 10px 5px !important
+    .select select
+        width: 100% !important;
+    .select select:not([multiple])
+        padding-right: 1.5em;
+        padding-left: 1.5em;
+    .select:not(.is-multiple):not(.is-loading)::after
+        display: inherit;
+        height: 0.625em;
+        margin-top: -0.32em;
+    .mobile-min
+        min-width: 250px

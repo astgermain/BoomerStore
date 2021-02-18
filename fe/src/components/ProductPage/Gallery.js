@@ -19,8 +19,7 @@ const Gallery = ({ product, chosen }) => {
         <>
             <Box
                 width={[5 / 5, null, 3 / 5]}
-                style={{ margin: "auto", marginTop: "0" }}
-                ml="auto"
+                style={{ marginTop: "0" }}
                 py={2}
                 px={[2, null, 3]}
                 order={[1, null, 2]}

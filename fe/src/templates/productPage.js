@@ -107,7 +107,6 @@ const productPage = ({ data }) => {
                       </>
                     )}
                     <ProductInfo product={product} />
-                    <br></br>
                     <div
                       key={`body`}
                       id="content"
@@ -117,32 +116,34 @@ const productPage = ({ data }) => {
                       }}
                     />
 
-                    <hr />
+                    <hr className="no-mobile" />
                   </div>
                 </Box>
               </Flex>
             </div>
             <div className="product-selector">
-              {variant[`Title`] != "Default Title" && (product.options.map((options) => (
-                <div className="column">
-                  <VariantSelectors
-                    key={options.id.toString()}
-                    onChange={handleOptionChange}
-                    options={options}
-                  />
-                </div>
-              )))}
-              <div className="column is-3">
+              {variant[`Title`] != "Default Title" &&
+                product.options.map((options) => (
+                  <div className="column">
+                    <VariantSelectors
+                      key={options.id.toString()}
+                      onChange={handleOptionChange}
+                      options={options}
+                    />
+                  </div>
+                ))}
+
+              <div className="column q-row">
                 <QuantityButton quantity={quantity} setQuantity={setQuantity} />
-              </div>
-              <div className="column">
-              <label className="label">Price</label>
-                <p
-                  className="is-size-4 has-text-grey-dark"
-                  style={{ textAlign: "left" }}
-                >
-                  ${chosen.price}
-                </p>
+                <div className="price-div">
+                  <label className="label">Price</label>
+                  <p
+                    className="is-size-4 has-text-grey-dark"
+                    style={{ textAlign: "left" }}
+                  >
+                    ${chosen.price}
+                  </p>
+                </div>
               </div>
               <Buttons
                 context={context}
@@ -156,7 +157,6 @@ const productPage = ({ data }) => {
           <div className="product-page-section3">3</div>
           <div className="product-page-section4">4</div>
           <div className="product-page-section5">5</div>
-         
         </div>
       </section>
     </>

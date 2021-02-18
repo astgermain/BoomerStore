@@ -97,7 +97,7 @@ const Header = ({ path, setTheme }) => {
               color: "var(--c1)",
               display: "flex",
               alginSelf: "center",
-              width: "0.875em;",
+              width: "0.875em",
               height: "1em",
             }}
           />
@@ -109,7 +109,7 @@ const Header = ({ path, setTheme }) => {
               height: "15px",
               zIndex: "40",
               width: ".5px",
-              margin: "0"
+              margin: "0",
             }}
           ></hr>
           {quantity > 0 ? (
@@ -121,7 +121,7 @@ const Header = ({ path, setTheme }) => {
                   color: "var(--c1)",
                   display: "flex",
                   alignSelf: "center",
-                  width: "0.875em;",
+                  width: "0.875em",
                   height: "1em",
                 }}
               />
@@ -136,7 +136,7 @@ const Header = ({ path, setTheme }) => {
                   color: "var(--c1)",
                   display: "flex",
                   alignSelf: "center",
-                  width: "0.875em;",
+                  width: "0.875em",
                   height: "1em",
                 }}
               />
@@ -172,42 +172,43 @@ const Header = ({ path, setTheme }) => {
               ></img>
             </Link>
           </h1>
-
-          <div className="field" style={{ margin: "auto", display: "flex" }}>
-            <div className="control has-icons-right">
-              <form
-                action="../search"
-                method="GET"
-                style={{ display: "flex", alignItems: "center" }}
-              >
-                <input
-                  className="EBold input-search"
-                  name="value"
-                  type="text"
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                  placeholder="Search"
-                  style={{
-                    boxShadow: "0 0 0.125em 0.075em rgb(10 10 10 / 12%)",
-                  }}
-                />
-                <button
-                  type="submit"
-                  style={{
-                    border: "none",
-                    borderRadius: "0 5px 5px 0",
-                    borderLeft: "none",
-                    height: "25px",
-                    backgroundColor: "var(--c1)",
-                    boxShadow: "0 0 0.125em 0.075em rgb(10 10 10 / 12%)",
-                    outline: "none",
-                    width: "30px",
-                  }}
-                  className="button"
+          <div className="reg-search-center">
+            <div className="field" style={{ margin: "auto", display: "flex" }}>
+              <div className="control has-icons-right">
+                <form
+                  action="../search"
+                  method="GET"
+                  style={{ display: "flex", alignItems: "center" }}
                 >
-                  <FontAwesomeIcon icon={faSearch} />
-                </button>
-              </form>
+                  <input
+                    className="EBold input-search"
+                    name="value"
+                    type="text"
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                    placeholder="Search"
+                    style={{
+                      boxShadow: "0 0 0.125em 0.075em rgb(10 10 10 / 12%)",
+                    }}
+                  />
+                  <button
+                    type="submit"
+                    style={{
+                      border: "none",
+                      borderRadius: "0 5px 5px 0",
+                      borderLeft: "none",
+                      height: "25px",
+                      backgroundColor: "var(--c1)",
+                      boxShadow: "0 0 0.125em 0.075em rgb(10 10 10 / 12%)",
+                      outline: "none",
+                      width: "30px",
+                    }}
+                    className="button"
+                  >
+                    <FontAwesomeIcon icon={faSearch} />
+                  </button>
+                </form>
+              </div>
             </div>
           </div>
         </div>
@@ -237,7 +238,7 @@ const Header = ({ path, setTheme }) => {
                 color: "var(--c1)",
                 display: "flex",
                 alginSelf: "center",
-                width: "0.875em;",
+                width: "0.875em",
                 height: "1em",
               }}
             />
@@ -290,7 +291,7 @@ const Header = ({ path, setTheme }) => {
                       color: "var(--c1)",
                       display: "flex",
                       alignSelf: "center",
-                      width: "0.875em;",
+                      width: "0.875em",
                       height: "1em",
                     }}
                   />
@@ -306,7 +307,7 @@ const Header = ({ path, setTheme }) => {
                       color: "var(--c1)",
                       display: "flex",
                       alignSelf: "center",
-                      width: "0.875em;",
+                      width: "0.875em",
                       height: "1em",
                     }}
                   />

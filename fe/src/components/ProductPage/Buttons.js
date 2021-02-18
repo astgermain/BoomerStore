@@ -11,7 +11,7 @@ const Buttons = ({ context, available, productVariant,  quantity}) => {
 
     return (
         <div className="columns" style={{margin: "auto"}}>
-            <div className="column">
+            <div className="column mobile-min">
                 <button
                     className="EBold product-buttons button is-medium is-fullwidth"
                     disabled={!available}
@@ -20,7 +20,7 @@ const Buttons = ({ context, available, productVariant,  quantity}) => {
                     Add to Cart
                 </button>
             </div>
-            <div className="column">
+            <div className="column mobile-min">
                 <button
                     className="EBold product-buttons gold button is-dark is-medium is-fullwidth"
                     disabled={!available}
