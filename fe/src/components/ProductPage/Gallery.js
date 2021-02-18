@@ -13,7 +13,7 @@ const ThumbnailFlex = styled(Flex)(() => ({
 }));
 
 const Gallery = ({ product, chosen }) => {
-    const [currentImage, setCurrentImage] = useState(product.images[0]);
+    const [currentImage, setCurrentImage] = useState(product?.images[0]);
 
     return (
         <>
@@ -25,7 +25,7 @@ const Gallery = ({ product, chosen }) => {
                 order={[1, null, 2]}
                 className="img-hover-zoom--zoom-n-rotate img-hover-zoom"
             >
-                <img src={`${chosen.image.originalSrc}`} />
+                <img src={`${chosen?.image?.originalSrc}`} />
                
             </Box>
             {/*
