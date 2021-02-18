@@ -20,8 +20,8 @@ const ProductBox = (props) => {
               ></img></div>
               <div className="image-box">
             <Img
-              fluid={product.node.images[0].localFile.childImageSharp.fluid}
-              key={product.node.images[0].localFile.id}
+              fluid={product?.node?.images[0]?.localFile?.childImageSharp?.fluid}
+              key={product?.node?.images[0]?.localFile?.id}
               fadeIn={false}
               loading="eager"
               alt={product.node.title}
