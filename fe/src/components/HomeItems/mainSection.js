@@ -10,6 +10,14 @@ import {
   faStream,
   faChevronLeft,
 } from "@fortawesome/free-solid-svg-icons";
+import PetImg from "../../images/categories/catPet.png"
+import ApImg from "../../images/categories/catAp.png"
+import CofImg from "../../images/categories/catCof.png"
+import ElecImg from "../../images/categories/catElec.png"
+import MaskImg from "../../images/categories/catMask.png"
+import SkinImg from "../../images/categories/catSkin.png"
+import SupImg from "../../images/categories/catSup.png"
+import BedImg from "../../images/categories/catBed.png"
 import "./mainSection.sass";
 
 const MainSection = ({ data }) => {
@@ -24,8 +32,8 @@ const MainSection = ({ data }) => {
               <div className="cat-text">
                 <p>browse.</p> <p>buy.</p> <p className="gold-text">boom.</p>
               </div>
-              <div className="cat-half">
-                <div className="cat-info-top">Half</div>
+              <div className="cat-half"  style={{ backgroundImage: `url(${MaskImg})`, backgroundSize: `cover` }}>
+                <div className="cat-info-top">Face Covers</div>
                 <div className="cat-icon-bottom">
                   <div className="boxH">
                     <div className="box-backgroundH">
@@ -47,8 +55,8 @@ const MainSection = ({ data }) => {
               </div>
             </div>
             <div className="cat-row">
-              <div className="cat-half">
-                <div className="cat-info-top">Half</div>
+              <div className="cat-half" style={{ backgroundImage: `url(${PetImg})`, backgroundSize: `cover` }}>
+                <div className="cat-info-top">Pet</div>
                 <div className="cat-icon-bottom">
                   <div className="boxH">
                     <div className="box-backgroundH">
@@ -68,8 +76,8 @@ const MainSection = ({ data }) => {
                   </div>
                 </div>
               </div>
-              <div className="cat-half">
-                <div className="cat-info-top">Half</div>
+              <div className="cat-half" style={{ backgroundImage: `url(${SkinImg})`, backgroundSize: `cover` }}>
+                <div className="cat-info-top">Skin Care</div>
                 <div className="cat-icon-bottom">
                   <div className="boxH">
                     <div className="box-backgroundH">
@@ -91,8 +99,8 @@ const MainSection = ({ data }) => {
               </div>
             </div>
             <div className="cat-row">
-              <div className="cat-full">
-                <div className="cat-info-top">Full</div>
+              <div className="cat-full" style={{ backgroundImage: `url(${ElecImg})`, backgroundSize: `cover` }}>
+                <div className="cat-info-top">Electronics</div>
                 <div className="cat-icon-bottom">
                   <div className="boxHF">
                     <div className="box-backgroundHF">
@@ -116,8 +124,8 @@ const MainSection = ({ data }) => {
           </div>
           <div className="cat-top-half">
             <div className="cat-row">
-              <div className="cat-full">
-                <div className="cat-info-top">Full</div>
+              <div className="cat-full" style={{ backgroundImage: `url(${BedImg})`, backgroundSize: `cover` }}>
+                <div className="cat-info-top">Bed & Bath</div>
                 <div className="cat-icon-bottom">
                   <div className="boxHF">
                     <div className="box-backgroundHF">
@@ -139,8 +147,8 @@ const MainSection = ({ data }) => {
               </div>
             </div>
             <div className="cat-row">
-              <div className="cat-half">
-                <div className="cat-info-top">Half</div>
+              <div className="cat-half" style={{ backgroundImage: `url(${SupImg})`, backgroundSize: `cover` }}>
+                <div className="cat-info-top">Supplements</div>
                 <div className="cat-icon-bottom">
                 <div className="boxH">
                     <div className="box-backgroundH">
@@ -160,8 +168,8 @@ const MainSection = ({ data }) => {
                   </div>
                 </div>
               </div>
-              <div className="cat-half">
-                <div className="cat-info-top">Half</div>
+              <div className="cat-half" style={{ backgroundImage: `url(${CofImg})`, backgroundSize: `cover` }}>
+                <div className="cat-info-top">Coffee</div>
                 <div className="cat-icon-bottom">
                 <div className="boxH">
                     <div className="box-backgroundH">
@@ -183,8 +191,8 @@ const MainSection = ({ data }) => {
               </div>
             </div>
             <div className="cat-row">
-              <div className="cat-full">
-                <div className="cat-info-top">Full</div>
+              <div className="cat-full" style={{ backgroundImage: `url(${ApImg})`, backgroundSize: `cover` }}>
+                <div className="cat-info-top">Apparel</div>
                 <div className="cat-icon-bottom">
                   <div className="boxHF">
                     <div className="box-backgroundHF">
