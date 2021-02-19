@@ -102,7 +102,7 @@ const productPage = ({ data }) => {
                       <>
                         <img
                           src={BoomerSilver}
-                          style={{ maxWidth: "400px" }}
+                          className="brand-logo-max"
                         ></img>
                       </>
                     )}

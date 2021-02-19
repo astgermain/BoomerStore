@@ -47,14 +47,13 @@ const Product = ({ line_item }) => {
         <div className="cart-product-half-1">
           <div className="cart-product-image">{imageItem}</div>
           <div className="cart-product-title-section">
-            <p className="cart-page-product-title">
-              {line_item.title}
-            </p>
+            <p className="cart-page-product-title">{line_item.title}</p>
             <p className="cart-page-product-subtitle">
-              {line_item.variant.title != "Default Title" && line_item.variant.title}
+              {line_item.variant.title != "Default Title" &&
+                line_item.variant.title}
             </p>
             <button
-              className="has-text-weight-normal has-text-danger link-button"
+              className="has-text-weight-normal has-text-danger link-button reg-remove"
               type="button"
               onClick={removeItem}
             >
@@ -63,14 +62,17 @@ const Product = ({ line_item }) => {
           </div>
         </div>
         <div className="cart-product-half-1">
-          <div style={{ verticalAlign: "inherit" }} className="unit-price">
+          <div
+            style={{ verticalAlign: "inherit" }}
+            className="unit-price reg-remove"
+          >
             <span className="cart-product-column-title">Unit Price</span>
             <span className="cart-product-column-value">
               ${line_item.variant.price}
             </span>
           </div>
-          <div className="unit-price">
-          <span className="cart-product-column-title">Quantity</span>
+          <div className="unit-price reg-remove">
+            <span className="cart-product-column-title">Quantity</span>
             <div className="product-quantity">
               <button onClick={() => handleMinus()} className="quantity-button">
                 -
@@ -81,19 +83,66 @@ const Product = ({ line_item }) => {
               </button>
             </div>
           </div>
-          <div style={{ verticalAlign: "inherit" }} className="unit-price">
+          <div
+            style={{ verticalAlign: "inherit" }}
+            className="unit-price reg-remove"
+          >
             <span className="cart-product-column-title">Total</span>
             <span className="cart-product-column-value">
               {`$${(line_item.quantity * line_item.variant.price).toFixed(2)}`}
             </span>
           </div>
+          <div className="mobile-remove mobile-cart-info">
+            <div className="unit-price">
+              <span className="cart-product-column-title">Quantity</span>
+              <div className="product-quantity">
+                <button
+                  onClick={() => handleMinus()}
+                  className="quantity-button"
+                >
+                  -
+                </button>
+                <div className="quantity-value">{quantity}</div>
+                <button
+                  onClick={() => handlePlus()}
+                  className="quantity-button"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+            <div style={{ verticalAlign: "inherit" }} className="unit-price">
+              <span className="cart-product-column-title">Total</span>
+              <span className="cart-product-column-value">
+                {`$${(line_item.quantity * line_item.variant.price).toFixed(
+                  2
+                )}`}
+              </span>
+            </div>
+          </div>
           <button
-            className="button checkout-button"
+            className="button checkout-button reg-remove"
             type="button"
             onClick={updateItem}
           >
             Update
           </button>
+          <div className="mobile-cart-buttons mobile-cart-info">
+            <button
+              className="button checkout-button"
+              type="button"
+              onClick={updateItem}
+            >
+              Update
+            </button>
+            <button
+              className="mobile-remove button account-button4 mobile-cart-info"
+              type="button"
+              onClick={removeItem}
+            >
+              Remove
+            </button>
+          </div>
         </div>
       </div>
       {/*

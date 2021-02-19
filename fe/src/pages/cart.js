@@ -11,8 +11,8 @@ const Cart = () => {
     return (
         <>
             <SEO title="Shopping Cart" />
-            <section className="hero contain">
-                <div className="hero-body">
+            <section className="hero contain shop-now">
+                <div className="cart-body">
                     <div className="container">
                         {
                             checkout.lineItems.length !== 0 ?

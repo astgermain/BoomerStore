@@ -112,6 +112,7 @@ const Header = ({ path, setTheme }) => {
               margin: "0",
             }}
           ></hr>
+          <Link className="" to="/cart">
           {quantity > 0 ? (
             <>
               <FontAwesomeIcon
@@ -142,6 +143,7 @@ const Header = ({ path, setTheme }) => {
               />
             </>
           )}
+          </Link>
         </div>
       </nav>
       <nav
