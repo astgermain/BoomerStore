@@ -1,11 +1,12 @@
-$background-color: #002244
+$lighter-background: #002244
+$darker-background: #001220
 $tablet: 1200px
 
 .main-footer
     display: flex
     font-family: "EinaReg"
     justify-content: space-between
-    background-color: $background-color
+    background-color: $darker-background
     color: #fff
     font-weight: lighter
     font-size: .8rem
@@ -14,11 +15,23 @@ $tablet: 1200px
     display: flex
     flex-direction: column
     margin: 0 4rem
+    span
+        width: 100%
+        background-color: $lighter-background
+        height: 1rem
     li
         margin: 1rem 0
     h6
         font-family: "EinaBold"
         font-size: 1rem
+        margin-bottom: 1rem
+
+.spacer
+    position: absolute
+    top: 1
+    width: 100vw
+    background-color: green
+    height: 1rem
 
 // @media only screen and (max-width: $tablet) 
 //     .input-search

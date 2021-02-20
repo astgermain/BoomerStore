@@ -6,6 +6,7 @@ const Footer = () => {
     const FooterSection = ({ title, children }) => (
         <div className="footer-section">
             <h6>{title}</h6>
+            <span> </span>
             <ul>
                 {children}
             </ul>
@@ -15,6 +16,9 @@ const Footer = () => {
 
     return (
         <footer className="main-footer" style={{ padding: "3rem 1.5rem 2rem" }}>
+            <div className="spacer">
+                
+            </div>
             <FooterSection title={'Contact Us'}>
                 <li>8670 W Cheyenne Ave. # 120 <br></br>Las Vegas, NV 89129</li>
                 <li>Call: (702) 960-4843</li>
