@@ -7,9 +7,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const HorizontalBox = (props) => {
-  const product = props.product;
+  const product = props?.product;
   let value = "";
-  if (props.give) {
+  if (props?.give) {
     value = "give-border";
   }
   let logo;
@@ -24,8 +24,8 @@ const HorizontalBox = (props) => {
     alt = "Boomer Naturals Logo"
   }
   return (
-    <a href={`/product/${product.node.handle}`}>
-      <div className="boxHor" key={props.title}>
+    <a href={`/product/${product?.node?.handle}`}>
+      <div className="boxHor" key={props?.title}>
         <div className="box-backgroundHor">
           <div className={`productBoxHor  ${value}`}>
             <div className="hor-row">
@@ -38,7 +38,7 @@ const HorizontalBox = (props) => {
                   ></img>
                 </div>
                 <p className="has-text-weight-semibold p-titleHor">
-                  {product.node.title}
+                  {product?.node?.title}
                 </p>
               </div>
               <div className="hor-half2">
@@ -50,7 +50,7 @@ const HorizontalBox = (props) => {
                     key={product?.node?.images[0]?.localFile?.id}
                     fadeIn={false}
                     loading="eager"
-                    alt={product.node.title}
+                    alt={product?.node?.title}
                     style={{
                       width: "100%",
                       alignSelf: "center",
@@ -62,7 +62,7 @@ const HorizontalBox = (props) => {
             </div>
             <div className="hor-row">
               <p className="has-text-weight-light p-priceHor">
-                ${priceFormat(product.node.variants[0].price)}
+                ${priceFormat(product?.node?.variants[0]?.price)}
               </p>
               <div className="p-view-moreHor">View Product</div>
             </div>

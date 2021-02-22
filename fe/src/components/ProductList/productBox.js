@@ -4,9 +4,9 @@ import silverLogo from "../../images/boomersilver.webp";
 import naturalsLogo from "../../images/boomernaturals.webp"
 
 const ProductBox = (props) => {
-  const product = props.product;
+  const product = props?.product;
   let value = "";
-  if (props.give) {
+  if (props?.give) {
     value = "give-border";
   }
   let logo;
@@ -21,8 +21,8 @@ const ProductBox = (props) => {
     alt = "Boomer Naturals Logo"
   }
   return (
-    <a href={`/product/${product.node.handle}`}>
-      <div className="box" key={product.node.title}>
+    <a href={`/product/${product?.node?.handle}`}>
+      <div className="box" key={product?.node?.title}>
         <div className="box-background">
           <div className={`productBox ${value}`}>
             <div className="plogo-box">
@@ -40,15 +40,15 @@ const ProductBox = (props) => {
                 key={product?.node?.images[0]?.localFile?.id}
                 fadeIn={false}
                 loading="eager"
-                alt={product.node.title}
+                alt={product?.node?.title}
                 style={{ width: "100%", alignSelf: "center", height: "100%" }}
               />
             </div>
             <p className="has-text-weight-semibold p-title">
-              {product.node.title}
+              {product?.node?.title}
             </p>
             <p className="has-text-weight-light p-price">
-              ${priceFormat(product.node.variants[0].price)}
+              ${priceFormat(product?.node?.variants[0]?.price)}
             </p>
             <div className="p-view-more">View Product</div>
           </div>
