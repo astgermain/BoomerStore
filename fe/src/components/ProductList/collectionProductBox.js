@@ -20,7 +20,7 @@ const CollectionProductBox = (props) => {
     alt = "Boomer Naturals Logo"
   }
   return (
-    <a href={`/product/${product.handle}`} style={{padding: "10px"}}>
+    <a href={`/product/${product.handle}`} style={{padding: "5px"}}>
       <div className="box" key={product.title}>
         <div className="box-background">
           <div className={`productBox ${value}`}>

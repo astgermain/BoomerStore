@@ -18,7 +18,7 @@ const collectionPage = ({ data }) => {
   return (
     <>
       <SEO title={collection.title} />
-      <section className="hero is-fullheight-with-navbar">
+      <section className="hero">
         <div
         className="collection-box"
           style={{ display: "flex", flexDirection: "column" }}
