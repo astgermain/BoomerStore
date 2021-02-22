@@ -14,9 +14,13 @@ const SearchPage = ({ data, location }) => {
   const [search, setSearch] = useState("");
   const [number, setNumber] = useState(0);
   useEffect(() => {
-    setSearch(
-        location?.state?.search
-    );
+    if(location?.state?.search != undefined){
+      setSearch(location?.state?.search);
+    }
+    else{
+      setSearch("")
+    }
+    
   }, []);
 
   const { edges: products } = data.allShopifyProduct;
