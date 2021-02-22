@@ -16,9 +16,8 @@ const SearchPage = ({ data, location }) => {
   console.log("Location", location)
   useEffect(() => {
     setSearch(
-      typeof document !== undefined
-        ? location.search.substring(7).split("=")[0]
-        : ""
+    location.search.substring(7).split("=")[0]
+        
     );
   }, []);
 
