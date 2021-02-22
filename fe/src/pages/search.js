@@ -13,10 +13,9 @@ import './searchPage.sass'
 const SearchPage = ({ data, location }) => {
   const [search, setSearch] = useState("");
   const [number, setNumber] = useState(0);
-  let h = ""
   useEffect(() => {
     setSearch(
-        location.state.search
+        location?.state?.search
     );
   }, []);
 
