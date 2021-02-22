@@ -13,11 +13,10 @@ import './searchPage.sass'
 const SearchPage = ({ data, location }) => {
   const [search, setSearch] = useState("");
   const [number, setNumber] = useState(0);
-  console.log("Location", location)
+  let h = ""
   useEffect(() => {
     setSearch(
-    location.search.substring(7).split("=")[0]
-        
+        location.state.search
     );
   }, []);
 

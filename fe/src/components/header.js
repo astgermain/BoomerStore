@@ -204,6 +204,7 @@ const Header = ({ path, setTheme }) => {
                       boxShadow: "0 0 0.125em 0.075em rgb(10 10 10 / 12%)",
                     }}
                   />
+                  <Link to="/search" state={{search: search}}>
                   <button
                     type="submit"
                     style={{
@@ -220,6 +221,7 @@ const Header = ({ path, setTheme }) => {
                   >
                     <FontAwesomeIcon icon={faSearch} />
                   </button>
+                  </Link>
                 </form>
               </div>
             </div>
