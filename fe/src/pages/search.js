@@ -10,14 +10,13 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import './searchPage.sass'
 
-const SearchPage = ({ data }) => {
+const SearchPage = ({ data, location }) => {
   const [search, setSearch] = useState("");
   const [number, setNumber] = useState(0);
-
   useEffect(() => {
     setSearch(
       typeof document !== undefined
-        ? document.location.search.substring(7).split("=")[0]
+        ? location.search.substring(7).split("=")[0]
         : ""
     );
   }, []);
