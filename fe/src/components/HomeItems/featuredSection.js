@@ -103,7 +103,7 @@ const FeaturedSection = ({ data }) => {
             <button className="f-button2">See More</button>
           </a>
         </div>
-        <div className="f-row-p">
+        <div className="f-row-p" style={{justifyContent: "flex-start", flexFlow: "wrap"}}>
           {/*offers 1 collection */}
           {offers.map((product) => {
             return <CollectionProductBox product={product} />;

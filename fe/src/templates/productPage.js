@@ -167,14 +167,14 @@ const productPage = ({ data }) => {
           </div>
           <div className="product-page-section2">
             <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
-              <div style={{backgroundImage: `url(${Bnad1}`, width: "1080px", height: "375px"}}></div>
+              <div style={{backgroundImage: `url(${Bnad1})`, width: "1080px", height: "375px"}}></div>
               <div style={{background: "var(--darker)", width: "950px", height: "250px", marginTop: "-75px", color: "white", padding: "25px 50px", display: "flex", flexDirection: "column", justifyContent: "space-evenly"}}>
                 <p style={{fontSize: "2rem", textAlign: "center"}}>About Boomer Naturals</p>
                 <p className="EReg">Boomer Naturals™ is a full-service wellness company committed to providing holistic solutions to improve your life and promote overall health. We offer a wide spectrum of naturally-derived wellness products to improve sleep, energy, and emotional well-being. Among our team are mindful wellness practitioners on a mission to help you live the healthiest life possible. </p>
                 </div>
             </div>
             <div style={{display: "flex", flexDirection: "row", padding: "25px 50px 0 50px", justifyContent: "space-evenly", alignItems: "center"}}>
-              <div style={{backgroundImage: `url(${Bnad2}`, width: "435px", height: "560px"}}></div>
+              <div style={{backgroundImage: `url(${Bnad2})`, width: "435px", height: "560px"}}></div>
               <div style={{width: "550px", color: "white", display: "flex", flexDirection: "column"}}>
                 <p style={{fontSize: "2rem", textAlign: "flex-start", padding: "15px 0"}}>We're Here For You</p>
                 <p className="EReg">We aim to become an integral part of our local community and build long-lasting relationships with our customers. At Boomer Naturals, we look forward to being a part of and supporting your wellness journey. </p>
