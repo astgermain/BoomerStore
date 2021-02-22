@@ -419,7 +419,7 @@ const Index = () => {
                 return (
                   <>
                     <div>
-                      <span className="gold-text">Welcome!</span>Please Fill In
+                      <span className="gold-text">Welcome! &nbsp;</span>Please Fill In
                       Your Details
                     </div>
                     <Register login={setSign} />
