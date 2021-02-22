@@ -2,7 +2,7 @@ import { Link } from "gatsby"; /* eslint-disable */
 import PropTypes from "prop-types";
 import React, { useContext, useState, useEffect } from "react";
 import StoreContext from "../context/store";
-import logo from "../images/boomerstorelogo.png";
+import logo from "../images/boomerstorelogo.webp";
 import ToggleButton from "./UI/toogleButton";
 import CartSection from "./HomeItems/cartSection";
 import AccountSection from "./HomeItems/accountSection";
@@ -27,7 +27,6 @@ const countQuantity = (lineItems) => {
 };
 
 const Header = ({ path, setTheme }) => {
-  console.log("Path: ", path);
   const [selected, setSelected] = useState(false);
   const [cartState, setCartState] = useState("");
   const [accountState, setAccountState] = useState("");
@@ -38,9 +37,15 @@ const Header = ({ path, setTheme }) => {
   );
   const [search, setSearch] = useState("");
   const [menu, setMenu] = useState(false);
+  const [mobileMenu, setMobileMenu] = useState(false);
 
   const handleMenuClick = () => {
+    setMobileMenu(false)
     setMenu(!menu);
+  };
+  const handleMobileMenuClick = () => {
+    setMenu(false)
+    setMobileMenu(!mobileMenu);
   };
   let bgcolor = "transparent";
   if (path != `/`) {
@@ -71,6 +76,9 @@ const Header = ({ path, setTheme }) => {
     <>
       <nav className="mobile-navbar">
         <div className="mobile-nav-left">
+          <a
+              onClick={() => handleMobileMenuClick()}
+            >
           <FontAwesomeIcon
             icon={faStream}
             style={{
@@ -80,6 +88,7 @@ const Header = ({ path, setTheme }) => {
               transform: "rotate(90deg)",
             }}
           />
+          </a>
         </div>
         <h1 className="" style={{ margin: "auto" }}>
           <Link className="has-text-black has-text-weight-bold" to="/">
@@ -91,6 +100,7 @@ const Header = ({ path, setTheme }) => {
           </Link>
         </h1>
         <div className="mobile-nav-right">
+          <a href="/account">
           <FontAwesomeIcon
             icon={faUser}
             style={{
@@ -101,6 +111,7 @@ const Header = ({ path, setTheme }) => {
               height: "1em",
             }}
           />
+          </a>
           <hr
             style={{
               backgroundColor: "var(--c1)",
@@ -165,7 +176,7 @@ const Header = ({ path, setTheme }) => {
             justifyContent: "space-between",
           }}
         >
-          <h1 className="" style={{ marginLeft: "30px" }}>
+          <h1 className="reg-logo-1" >
             <Link className="has-text-black has-text-weight-bold" to="/">
               <img
                 src={logo}
@@ -178,7 +189,7 @@ const Header = ({ path, setTheme }) => {
             <div className="field" style={{ margin: "auto", display: "flex" }}>
               <div className="control has-icons-right">
                 <form
-                  action="../search"
+                  action="/search"
                   method="GET"
                   style={{ display: "flex", alignItems: "center" }}
                 >
@@ -357,6 +368,7 @@ const Header = ({ path, setTheme }) => {
 
       {menu && (
         <div className="category-sidebar">
+          
           <div className="category-container">
             <div className="category-bar-top">
               <button
@@ -380,7 +392,7 @@ const Header = ({ path, setTheme }) => {
                     style={{ maxWidth: "150px" }}
                   ></img>
                 </Link>
-
+                {/*
                 <button
                   className="EBold"
                   style={{
@@ -406,6 +418,117 @@ const Header = ({ path, setTheme }) => {
                     }}
                   />
                 </button>
+                */}
+              </div>
+            </div>
+
+            <div className="categorie-type-container">
+              {/*
+              <div className="department-categories">
+                <span className="categorie-header">Department</span>
+                <div className="categories-option">
+                  <a href="">Boomer Silver</a>
+                </div>
+                <div className="categories-option">
+                  <a href="">Boomer Supplements</a>
+                </div>
+                <div className="categories-option">
+                  <a href="">Vietnamese Coffee</a>
+                </div>
+                <div className="categories-option">
+                  <a href="">Boomer Naturals</a>
+                </div>
+                <div className="categories-option">
+                  <a href="">Silver Aid</a>
+                </div>
+              </div>
+              */}
+
+              <div className="product-categories">
+                <span className="categorie-header">Products</span>
+                <div className="categories-option">
+                  <a href="collection/face-covers">Face Covers</a>
+                </div>
+                <div className="categories-option">
+                  <a href="collection/coffee">Vietnamese Coffee</a>
+                </div>
+                <div className="categories-option">
+                  <a href="collection/bed-and-bath">Bed & Bath</a>
+                </div>
+                <div className="categories-option">
+                  <a href="collection/supplements">Boomer Supplements</a>
+                </div>
+                <div className="categories-option">
+                  <a href="collection/apparel">Boomer Silver Apparel</a>
+                </div>
+                <div className="categories-option">
+                  <a href="collection/skin-care">Skin Care</a>
+                </div>
+                <div className="categories-option">
+                  <a href="collection/pet">Pet</a>
+                </div>
+              </div>
+              <p style={{color: "var(--c1)", fontSize: "2em", padding: "25px"}}>More Info and Products Coming Soon!</p>
+            </div>
+          </div>
+          <div className="category-offclick" onClick={() => handleMenuClick()}>
+            
+          </div>
+        </div>
+      )}
+      {mobileMenu && (
+        <div className="category-sidebar">
+          
+          <div className="category-container">
+            <div className="category-bar-top">
+              <button
+                className="categories-circle-button"
+                onClick={() => handleMobileMenuClick()}
+              >
+                <FontAwesomeIcon
+                  icon={faChevronLeft}
+                  style={{ transform: "rotate(180deg)" }}
+                />
+              </button>
+              <div className="row">
+                <Link
+                  aria-label="search"
+                  className="categories-logo has-text-black has-text-weight-bold"
+                  to="/"
+                >
+                  <img
+                    src={logo}
+                    alt="Boomer Store logo"
+                    style={{ maxWidth: "150px" }}
+                  ></img>
+                </Link>
+                {/*
+                <button
+                  className="EBold"
+                  style={{
+                    display: "flex",
+                    alignSelf: "center",
+                    alignItems: "center",
+                    color: "white",
+                    marginTop: "15px",
+                    background: "none",
+                    border: "none",
+                    outline: "none",
+                  }}
+                  onClick={() => handleMenuClick()}
+                >
+                  Back
+                  <FontAwesomeIcon
+                    icon={faStream}
+                    style={{
+                      marginLeft: "10px",
+                      marginTop: "3px",
+                      transform: "rotate(90deg)",
+                      color: "#FFBA00",
+                    }}
+                  />
+                </button>
+                */}
               </div>
             </div>
 
@@ -448,6 +571,9 @@ const Header = ({ path, setTheme }) => {
                 </div>
               </div>
             </div>
+          </div>
+          <div className="category-offclick" onClick={() => handleMobileMenuClick()}>
+            
           </div>
         </div>
       )}

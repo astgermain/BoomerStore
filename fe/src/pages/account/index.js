@@ -177,7 +177,6 @@ const Index = () => {
           }}
         >
           {(data) => {
-            console.log(data)
             let updatedCustomer;
             try {
               updatedCustomer = data.data.customer;

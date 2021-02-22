@@ -1,7 +1,8 @@
 import React from "react";
 import Img from "gatsby-image";
-import silverLogo from "../../images/boomersilver.png";
-import supLogo from "../../images/boomersup.png";
+import silverLogo from "../../images/boomersilver.webp"
+import naturalsLogo from "../../images/boomernaturals.webp"
+import supLogo from "../../images/boomersupplements.webp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
@@ -10,6 +11,16 @@ const HorizontalBox = (props) => {
   let value = "";
   if (props.give) {
     value = "give-border";
+  }
+  let logo;
+  let alt = ""
+  if(product?.node?.vendor == "Boomer Silver"){
+    logo = silverLogo
+    alt = "Boomer Silver logo"
+  }
+  else if(product?.node?.vendor == "Boomer Naturals"){
+    logo = naturalsLogo
+    alt = "Boomer Naturals Logo"
   }
   return (
     <a href={`/product/${product.node.handle}`}>
@@ -20,8 +31,8 @@ const HorizontalBox = (props) => {
               <div className="hor-half">
                 <div className="plogo-boxHor">
                   <img
-                    src={silverLogo}
-                    alt="Boomer Silver logo"
+                    src={logo}
+                    alt={alt}
                     style={{ alignSelf: "center" }}
                   ></img>
                 </div>

@@ -71,8 +71,16 @@ export const query = graphql`
         title
         products {
           id
+          handle
           images {
             originalSrc
+            localFile {
+              childImageSharp {
+                fluid(maxWidth: 910) {
+                  ...GatsbyImageSharpFluid_withWebp_noBase64
+                }
+              }
+            }
           }
           priceRange {
             maxVariantPrice {
@@ -85,6 +93,7 @@ export const query = graphql`
           productType
           shopifyId
           title
+          vendor
         }
       }
     }

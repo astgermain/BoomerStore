@@ -34,9 +34,7 @@ const Provider = ({ children }) => {
             const fetchCheckout = id => store.client.checkout.fetch(id)
             if (existingCheckoutID) {
                 try {
-                    console.log(existingCheckoutID);
                     const checkout = await fetchCheckout(existingCheckoutID)
-                    console.log("checkout : ", checkout);
 
                     // Make sure this cart hasn’t already been purchased.
                     if (!checkout.completedAt) {

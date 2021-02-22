@@ -31,6 +31,12 @@ $desktop: 1800px;
     background: #000000a3;
     display: flex;
     flex-direction: row-reverse;
+.category-offclick
+    display: flex;
+    flex-direction: column;
+    background: #000000a3;
+    width: calc(100vw);
+    height: 100vh;
 .reg-search-center
     margin: auto;
 .category-container
@@ -40,6 +46,8 @@ $desktop: 1800px;
     background: var(--c2);
     width: 400px
     height: 100vh
+.reg-logo-1
+    margin-left: 75px
 
 .categories-circle-button
     color: black;
@@ -214,6 +222,8 @@ $desktop: 1800px;
 @media only screen and (max-width: $tablet) 
     .input-search
         width: 40vw
+    .reg-logo-1
+        margin-left: 15px
 
 @media only screen and (max-width: $mobile) 
     .navbar
@@ -240,3 +250,4 @@ $desktop: 1800px;
         position: absolute;
         right: 5px;
         top: 0;
+    

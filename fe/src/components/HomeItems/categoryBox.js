@@ -1,7 +1,7 @@
 import React from "react";
 import Img from "gatsby-image";
-import silverLogo from "../../images/boomersilver.png";
-import supLogo from "../../images/boomersup.png";
+import silverLogo from "../../images/boomersilver.webp";
+import supLogo from "../../images/boomersupplements.webp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 

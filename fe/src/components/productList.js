@@ -5,7 +5,7 @@ import Collection from './Filter/collection';
 import StoreContext from '../context/store'
 
 const ProductList = ({ data, total, give, top}) => {
-  const { edges: products } = data.allShopifyProduct
+  const { edges: products } = data?.allShopifyProduct
   const context = useContext(StoreContext);
   let cur = 0
   return (
