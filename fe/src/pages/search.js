@@ -13,6 +13,7 @@ import './searchPage.sass'
 const SearchPage = ({ data, location }) => {
   const [search, setSearch] = useState("");
   const [number, setNumber] = useState(0);
+  console.log("Location", location)
   useEffect(() => {
     setSearch(
       typeof document !== undefined
@@ -50,7 +51,7 @@ const SearchPage = ({ data, location }) => {
           </div>
         </div>
       </section>
-      <section className="hero">
+      <section className="hero search-section-1">
         <div className="hero-body">
           <div className="hero-body with-margin-bottom">
             <h1 className="EBold result-text">
