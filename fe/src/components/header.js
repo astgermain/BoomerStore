@@ -27,6 +27,7 @@ const countQuantity = (lineItems) => {
 };
 
 const Header = ({ path, setTheme }) => {
+  console.log("Header Location", path);
   const [selected, setSelected] = useState(false);
   const [cartState, setCartState] = useState("");
   const [accountState, setAccountState] = useState("");
@@ -40,11 +41,11 @@ const Header = ({ path, setTheme }) => {
   const [mobileMenu, setMobileMenu] = useState(false);
 
   const handleMenuClick = () => {
-    setMobileMenu(false)
+    setMobileMenu(false);
     setMenu(!menu);
   };
   const handleMobileMenuClick = () => {
-    setMenu(false)
+    setMenu(false);
     setMobileMenu(!mobileMenu);
   };
   let bgcolor = "transparent";
@@ -76,18 +77,16 @@ const Header = ({ path, setTheme }) => {
     <>
       <nav className="mobile-navbar">
         <div className="mobile-nav-left">
-          <a
-              onClick={() => handleMobileMenuClick()}
-            >
-          <FontAwesomeIcon
-            icon={faStream}
-            style={{
-              marginLeft: "0px",
-              marginTop: "1px",
-              color: "#FFBA00",
-              transform: "rotate(90deg)",
-            }}
-          />
+          <a onClick={() => handleMobileMenuClick()}>
+            <FontAwesomeIcon
+              icon={faStream}
+              style={{
+                marginLeft: "0px",
+                marginTop: "1px",
+                color: "#FFBA00",
+                transform: "rotate(90deg)",
+              }}
+            />
           </a>
         </div>
         <h1 className="" style={{ margin: "auto" }}>
@@ -101,16 +100,16 @@ const Header = ({ path, setTheme }) => {
         </h1>
         <div className="mobile-nav-right">
           <a href="/account">
-          <FontAwesomeIcon
-            icon={faUser}
-            style={{
-              color: "var(--c1)",
-              display: "flex",
-              alginSelf: "center",
-              width: "0.875em",
-              height: "1em",
-            }}
-          />
+            <FontAwesomeIcon
+              icon={faUser}
+              style={{
+                color: "var(--c1)",
+                display: "flex",
+                alginSelf: "center",
+                width: "0.875em",
+                height: "1em",
+              }}
+            />
           </a>
           <hr
             style={{
@@ -124,36 +123,36 @@ const Header = ({ path, setTheme }) => {
             }}
           ></hr>
           <Link className="" to="/cart">
-          {quantity > 0 ? (
-            <>
-              <FontAwesomeIcon
-                icon={faShoppingBag}
-                className="is-size-5"
-                style={{
-                  color: "var(--c1)",
-                  display: "flex",
-                  alignSelf: "center",
-                  width: "0.875em",
-                  height: "1em",
-                }}
-              />
-              <div className="shopping-bag-quantity">{quantity}</div>
-            </>
-          ) : (
-            <>
-              <FontAwesomeIcon
-                icon={faShoppingBag}
-                className="is-size-5"
-                style={{
-                  color: "var(--c1)",
-                  display: "flex",
-                  alignSelf: "center",
-                  width: "0.875em",
-                  height: "1em",
-                }}
-              />
-            </>
-          )}
+            {quantity > 0 ? (
+              <>
+                <FontAwesomeIcon
+                  icon={faShoppingBag}
+                  className="is-size-5"
+                  style={{
+                    color: "var(--c1)",
+                    display: "flex",
+                    alignSelf: "center",
+                    width: "0.875em",
+                    height: "1em",
+                  }}
+                />
+                <div className="shopping-bag-quantity">{quantity}</div>
+              </>
+            ) : (
+              <>
+                <FontAwesomeIcon
+                  icon={faShoppingBag}
+                  className="is-size-5"
+                  style={{
+                    color: "var(--c1)",
+                    display: "flex",
+                    alignSelf: "center",
+                    width: "0.875em",
+                    height: "1em",
+                  }}
+                />
+              </>
+            )}
           </Link>
         </div>
       </nav>
@@ -176,7 +175,7 @@ const Header = ({ path, setTheme }) => {
             justifyContent: "space-between",
           }}
         >
-          <h1 className="reg-logo-1" >
+          <h1 className="reg-logo-1">
             <Link className="has-text-black has-text-weight-bold" to="/">
               <img
                 src={logo}
@@ -185,47 +184,52 @@ const Header = ({ path, setTheme }) => {
               ></img>
             </Link>
           </h1>
-          <div className="reg-search-center">
-            <div className="field" style={{ margin: "auto", display: "flex" }}>
-              <div className="control has-icons-right">
-                <form
-                  action="/search"
-                  method="GET"
-                  style={{ display: "flex", alignItems: "center" }}
-                >
-                  <input
-                    className="EBold input-search"
-                    name="value"
-                    type="text"
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                    placeholder="Search"
-                    style={{
-                      boxShadow: "0 0 0.125em 0.075em rgb(10 10 10 / 12%)",
-                    }}
-                  />
-                  <Link to="/search" state={{search: search}}>
-                  <button
-                    type="submit"
-                    style={{
-                      border: "none",
-                      borderRadius: "0 5px 5px 0",
-                      borderLeft: "none",
-                      height: "25px",
-                      backgroundColor: "var(--c1)",
-                      boxShadow: "0 0 0.125em 0.075em rgb(10 10 10 / 12%)",
-                      outline: "none",
-                      width: "30px",
-                    }}
-                    className="button"
+          {path != "/search/" && (
+            <div className="reg-search-center">
+              <div
+                className="field"
+                style={{ margin: "auto", display: "flex" }}
+              >
+                <div className="control has-icons-right">
+                  <form
+                    action="/search"
+                    method="GET"
+                    style={{ display: "flex", alignItems: "center" }}
                   >
-                    <FontAwesomeIcon icon={faSearch} />
-                  </button>
-                  </Link>
-                </form>
+                    <input
+                      className="EBold input-search"
+                      name="value"
+                      type="text"
+                      value={search}
+                      onChange={(e) => setSearch(e.target.value)}
+                      placeholder="Search"
+                      style={{
+                        boxShadow: "0 0 0.125em 0.075em rgb(10 10 10 / 12%)",
+                      }}
+                    />
+                    <Link to="/search" state={{ search: search }}>
+                      <button
+                        type="submit"
+                        style={{
+                          border: "none",
+                          borderRadius: "0 5px 5px 0",
+                          borderLeft: "none",
+                          height: "25px",
+                          backgroundColor: "var(--c1)",
+                          boxShadow: "0 0 0.125em 0.075em rgb(10 10 10 / 12%)",
+                          outline: "none",
+                          width: "30px",
+                        }}
+                        className="button"
+                      >
+                        <FontAwesomeIcon icon={faSearch} />
+                      </button>
+                    </Link>
+                  </form>
+                </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
         <div
           className="navbar-end"
@@ -370,7 +374,6 @@ const Header = ({ path, setTheme }) => {
 
       {menu && (
         <div className="category-sidebar">
-          
           <div className="category-container">
             <div className="category-bar-top">
               <button
@@ -470,17 +473,21 @@ const Header = ({ path, setTheme }) => {
                   <a href="collection/pet">Pet</a>
                 </div>
               </div>
-              <p style={{color: "var(--c1)", fontSize: "2em", padding: "25px"}}>More Info and Products Coming Soon!</p>
+              <p
+                style={{ color: "var(--c1)", fontSize: "2em", padding: "25px" }}
+              >
+                More Info and Products Coming Soon!
+              </p>
             </div>
           </div>
-          <div className="category-offclick" onClick={() => handleMenuClick()}>
-            
-          </div>
+          <div
+            className="category-offclick"
+            onClick={() => handleMenuClick()}
+          ></div>
         </div>
       )}
       {mobileMenu && (
         <div className="category-sidebar">
-          
           <div className="category-container">
             <div className="category-bar-top">
               <button
@@ -574,9 +581,10 @@ const Header = ({ path, setTheme }) => {
               </div>
             </div>
           </div>
-          <div className="category-offclick" onClick={() => handleMobileMenuClick()}>
-            
-          </div>
+          <div
+            className="category-offclick"
+            onClick={() => handleMobileMenuClick()}
+          ></div>
         </div>
       )}
       {/*
