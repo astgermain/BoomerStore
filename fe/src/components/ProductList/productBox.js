@@ -11,6 +11,7 @@ const ProductBox = (props) => {
   }
   let logo;
   let alt = ""
+  let priceFormat = price => parseFloat(price).toFixed(2)
   if(product?.node?.vendor == "Boomer Silver"){
     logo = silverLogo
     alt = "Boomer Silver logo"
@@ -47,7 +48,7 @@ const ProductBox = (props) => {
               {product.node.title}
             </p>
             <p className="has-text-weight-light p-price">
-              ${product.node.variants[0].price}
+              ${priceFormat(product.node.variants[0].price)}
             </p>
             <div className="p-view-more">View Product</div>
           </div>

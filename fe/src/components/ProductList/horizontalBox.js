@@ -14,6 +14,7 @@ const HorizontalBox = (props) => {
   }
   let logo;
   let alt = ""
+  let priceFormat = price => parseFloat(price).toFixed(2)
   if(product?.node?.vendor == "Boomer Silver"){
     logo = silverLogo
     alt = "Boomer Silver logo"
@@ -61,7 +62,7 @@ const HorizontalBox = (props) => {
             </div>
             <div className="hor-row">
               <p className="has-text-weight-light p-priceHor">
-                ${product.node.variants[0].price}
+                ${priceFormat(product.node.variants[0].price)}
               </p>
               <div className="p-view-moreHor">View Product</div>
             </div>

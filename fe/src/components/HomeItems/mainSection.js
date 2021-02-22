@@ -125,7 +125,7 @@ const MainSection = ({ data }) => {
           <div className="cat-top-half">
             <div className="cat-row">
               <a className="cat-full" href="collection/bed-and-bath" style={{ backgroundImage: `url(${BedImg})`, backgroundSize: `cover` }}>
-                <div className="cat-info-top">Bed & Bath</div>
+                <div className="cat-info-top">Silver-Infused Bed & Bath</div>
                 <div className="cat-icon-bottom">
                   <div className="boxHF">
                     <div className="box-backgroundHF">
@@ -192,7 +192,7 @@ const MainSection = ({ data }) => {
             </div>
             <div className="cat-row">
               <a className="cat-full" href="collection/apparel" style={{ backgroundImage: `url(${ApImg})`, backgroundSize: `cover` }}>
-                <div className="cat-info-top">Apparel</div>
+                <div className="cat-info-top">Silver-Infused Apparel</div>
                 <div className="cat-icon-bottom">
                   <div className="boxHF">
                     <div className="box-backgroundHF">

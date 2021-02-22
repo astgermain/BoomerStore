@@ -6,7 +6,6 @@ import "./cartSection.sass";
 const CartSection = ({ data, quantity, cartState }) => {
   const context = useContext(StoreContext);
   //Data is allShopifyProduct
-  console.log("Cart Context", context.store.checkout);
   let line = context.store.checkout.lineItems;
   let check = context.store.checkout;
   let priceFormat = price => parseFloat(price).toFixed(2)

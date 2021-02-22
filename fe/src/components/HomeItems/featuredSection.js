@@ -8,6 +8,7 @@ import "./featuredSection.sass";
 const FeaturedSection = ({ data }) => {
   const { edges: products } = data.allShopifyProduct;
   let arrivals, offers, featured;
+  let priceFormat = price => parseFloat(price).toFixed(2)
   let collections = data.allShopifyCollection.nodes.map((node) => {
     if (node?.title == "New Arrivals") {
       arrivals = node;
@@ -103,7 +104,7 @@ const FeaturedSection = ({ data }) => {
             <button className="f-button2">See More</button>
           </a>
         </div>
-        <div className="f-row-p" style={{justifyContent: "flex-start", flexFlow: "wrap"}}>
+        <div className="f-row-p" style={{justifyContent: "space-between", flexFlow: "wrap"}}>
           {/*offers 1 collection */}
           {offers.map((product) => {
             return <CollectionProductBox product={product} />;
@@ -134,8 +135,8 @@ const FeaturedSection = ({ data }) => {
                       <p className="EReg" style={{ marginBottom: "10px" }}>
                         From{" "}
                         {
-                          arrivals?.products[0]?.priceRange?.minVariantPrice
-                            ?.amount
+                          priceFormat(arrivals?.products[0]?.priceRange?.minVariantPrice
+                            ?.amount)
                         }
                       </p>
                       <button
@@ -176,8 +177,8 @@ const FeaturedSection = ({ data }) => {
                     <p className="EReg" style={{ marginBottom: "10px" }}>
                       From{" "}
                       {
-                        arrivals?.products[1]?.priceRange?.minVariantPrice
-                          ?.amount
+                        priceFormat(arrivals?.products[1]?.priceRange?.minVariantPrice
+                          ?.amount)
                       }
                     </p>
                     <button

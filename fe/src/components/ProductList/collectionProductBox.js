@@ -19,6 +19,7 @@ const CollectionProductBox = (props) => {
     logo = naturalsLogo
     alt = "Boomer Naturals Logo"
   }
+  let priceFormat = price => parseFloat(price).toFixed(2)
   return (
     <a href={`/product/${product.handle}`} style={{padding: "5px"}}>
       <div className="box" key={product.title}>
@@ -44,9 +45,9 @@ const CollectionProductBox = (props) => {
             </p>
             <p className="has-text-weight-light p-price">
               {product?.variants == undefined ?
-              <p>From ${product?.priceRange?.minVariantPrice?.amount}</p>
+              <p>From ${priceFormat(product?.priceRange?.minVariantPrice?.amount)}</p>
             :
-              <>${product?.variants[0]?.price}</>
+              <>${priceFormat(product?.variants[0]?.price)}</>
             }
             </p>
             <div className="p-view-more">
