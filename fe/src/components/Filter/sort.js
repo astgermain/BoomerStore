@@ -7,6 +7,9 @@ const Sort = ({context}) => {
 
   sorts.push(
     <>
+      <option key={0} value="featured">
+        Sort By:
+        </option>
       <option key={1} value="A-Z">
         Alphabetically, A-Z
         </option>
@@ -28,7 +31,6 @@ const Sort = ({context}) => {
   }
   
   return (
-    <label htmlFor="sortBy" className="has-text-weight-semibold is-uppercase" style={{ margin: "-20px" }}>SORT BY :
       <div className="field">
         <div className="control">
           <div className="select">
@@ -43,7 +45,6 @@ const Sort = ({context}) => {
           </div>
         </div>
       </div>
-    </label>
   );
 };
 
