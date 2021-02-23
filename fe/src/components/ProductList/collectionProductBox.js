@@ -2,7 +2,7 @@ import React from "react";
 import Img from "gatsby-image";
 import silverLogo from "../../images/boomersilver.webp"
 import naturalsLogo from "../../images/boomernaturals.webp"
-
+import './productboxes.sass'
 const CollectionProductBox = (props) => {
   const product = props.product;
   let value = ""
@@ -21,7 +21,7 @@ const CollectionProductBox = (props) => {
   }
   let priceFormat = price => parseFloat(price).toFixed(2)
   return (
-    <a href={`/product/${product.handle}`} style={{padding: "5px"}}>
+    <a href={`/product/${product.handle}`} className="pad5-10">
       <div className="box" key={product.title}>
         <div className="box-background">
           <div className={`productBox ${value}`}>
