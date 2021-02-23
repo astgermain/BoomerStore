@@ -162,7 +162,7 @@ const Header = ({ path, setTheme }) => {
         style={{
           display: "flex",
           height: "65px",
-          backgroundColor: bgcolor,
+          backgroundColor: "var(--darker)",
         }}
       >
         <div
@@ -235,7 +235,7 @@ const Header = ({ path, setTheme }) => {
           style={{
             display: "flex",
             width: "30vw",
-            background: "var(--bg)",
+            background: "var(--darker)",
             color: "white",
             minWidth: "425px",
           }}
