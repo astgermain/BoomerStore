@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './sort.sass'
 
 const Sort = ({context}) => {
   const [sort, setSort] = useState(context.filteredSort)
@@ -11,16 +12,16 @@ const Sort = ({context}) => {
         Sort By:
         </option>
       <option key={1} value="A-Z">
-        Alphabetically, A-Z
+        Name - A to Z
         </option>
       <option key={2} value="Z-A">
-        Alphabetically, Z-A
+        Name - Z to A
         </option>
       <option key={3} value="low">
-        Price, low to high
+        Price - Low to High
         </option>
       <option key={4} value="high">
-        Price, high to low
+        Price - High to Low
         </option>
     </>
   )
@@ -33,12 +34,13 @@ const Sort = ({context}) => {
   return (
       <div className="field">
         <div className="control">
-          <div className="select">
+          <div className="select" style={{border: "none"}}>
             <select
               defaultvalues={sort}
               onChange={e => handleFilterSort(e.target.value)}
               onBlur={e => handleFilterSort(e.target.value)}
               id="sortBy"
+              style={{border: "none", outline: "none"}}
             >
               {sorts}
             </select>
