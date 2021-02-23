@@ -25,7 +25,7 @@ const collectionPage = ({ data }) => {
           style={{ display: "flex", flexDirection: "column" }}
         >
           <div className="collection-title">
-            <p style={{ fontSize: "2rem", color: "black" }}>
+            <p style={{ fontSize: "1.5rem", color: "black", textAlign: "center" }}>
               {collection.title}
             </p>
             <Sort context={context}/>
