@@ -245,6 +245,7 @@ const Header = ({ path, setTheme }) => {
             style={{ color: "var(--textTitle)", width: "calc(100%/3)" }}
             onClick={() => accountHover()}
           >
+            <div className="cat-btn-top2 btn-border2">
             {context?.customerAccessToken?.accessToken ? (
               <h2 style={{ marginRight: "10px" }}>Account</h2>
             ) : (
@@ -260,23 +261,15 @@ const Header = ({ path, setTheme }) => {
                 height: "1em",
               }}
             />
+            </div>
           </div>
           <div
-            className={`cart ${cartState}`}
-            aria-label={`cart ${cartState}`}
-            style={{
-              display: "flex",
-              color: "var(--textTitle)",
-              display: "flex",
-              width: "calc(100%/3)",
-              justifyContent: "center",
-            }}
-            onClick={() => cartHover()}
-          >
-            <div
-              className="navbar-item"
+              className={`navbar-item ${cartState}`}
               style={{ color: "var(--textTitle)", width: "calc(100%/3)" }}
             >
+          
+            
+              <div className={`cat-btn-top2 btn-border2`} onClick={() => cartHover()}>
               {quantity > 0 ? (
                 <>
                   {cartState != "" ? (
@@ -314,6 +307,7 @@ const Header = ({ path, setTheme }) => {
                     }}
                   />
                   <div className="shopping-bag-quantity">{quantity}</div>
+                  
                 </>
               ) : (
                 <>
@@ -331,7 +325,7 @@ const Header = ({ path, setTheme }) => {
                   />
                 </>
               )}
-            </div>
+              </div>
           </div>
           {cartState != "" && (
             <CartSection quantity={quantity} cartState={setCartState} />
@@ -346,7 +340,7 @@ const Header = ({ path, setTheme }) => {
               onClick={() => handleMenuClick()}
             >
               <h1 style={{ display: "flex", alignItems: "center" }}>
-                Shop
+                Menu
                 <FontAwesomeIcon
                   icon={faStream}
                   style={{

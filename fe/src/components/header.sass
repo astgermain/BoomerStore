@@ -121,8 +121,7 @@ $desktop: 1800px;
     min-width: 1050px
     
 .cart-hovered, .account-hovered
-    background: var(--hover2)
-    color: white !important
+    background: black !important
 
 .cat-btn-top
     position: relative;
@@ -134,7 +133,7 @@ $desktop: 1800px;
     text-decoration: none;
     color: var(--textNormal);
     background: none;
-    border: 1px solid var(--borderNormal);
+    border: 3px solid var(--c1);
     cursor: pointer;
     transition: ease-out 0.5s;
     -webkit-transition: ease-out 0.5s;
@@ -160,41 +159,92 @@ $desktop: 1800px;
     width: 0
     height: 0
     transition: .5s
-
+.cat-btn-top2.btn-border2
+    display: flex
+    justify-content: center;
+    align-items: center;
+.navbar-item:hover .cat-btn-top2.btn-border2 .fa-user, .navbar-item:hover .cat-btn-top2.btn-border2 .fa-shopping-bag
+    animation-duration: .5s
+    animation-timing-function: ease
+    animation-name: wiggle
+    animation-direction: alternate
+    transition: 1s ease
+    color: var(--c1)
+.navbar-item:hover
+    cursor: pointer
+.navbar-item:hover .cat-btn-top2.btn-border2::after, .navbar-item:hover .cat-btn-top2.btn-border2::before
+    border-color: var(--c1)
+    width: calc(25px);
+    height: calc(25px);
+    
+.cat-btn-top2.btn-border2::after 
+    bottom: 10px;
+    right: 10px;
+    border-bottom: 2px solid transparent;
+    border-right: 2px solid transparent;
+    width: calc(0px);
+    height: calc(0px);
+    content: ""
+    transition: .5s
+    position: absolute
+.cat-btn-top2.btn-border2::before
+    top: 10px;
+    left: 10px;
+    border-top: 2px solid transparent;
+    border-left: 2px solid transparent;
+    width: calc(0px);
+    height: calc(0px);
+    content: ""
+    transition: .5s
+    position: absolute
 
 .cat-btn-top.btn-border::after 
-    top: -6px
-    left: -6px
+    top: -8px
+    left: -8px
     border-top: 2px solid transparent
     border-left: 2px solid transparent
 
 
 .cat-btn-top.btn-border::before 
-    bottom: -6px;
-    right: -6px;
+    bottom: -8px;
+    right: -8px;
     border-bottom: 2px solid transparent
     border-right: 2px solid transparent
 
-
+.navbar-item:hover .cat-btn-top
+    background: var(--c1)
+    color: white
 .cat-btn-top.btn-border:hover 
     color: #001321;
     background: var(--c1);
     border-color: transparent;
 
-.cat-btn-top.btn-border:hover  .fa-stream
+.navbar-item:hover .fa-stream
     color: black !important
-    transform: rotate(90deg)
-    transition: .5s ease
+    animation-duration: .5s
+    animation-timing-function: ease
+    animation-name: wiggle
+    animation-direction: alternate
+    transition: 1s ease
+@keyframes wiggle
+    from
+        transform: rotate(0deg)
+    33%
+        transform: rotate(15deg)
+    66%
+        transform: rotate(-15deg)
+    100%
+        transform: rotate(0deg)
 
 
-.cat-btn-top.btn-border:hover::after
-    width: calc(35px);
-    height: calc(35px);
+.navbar-item:hover .cat-btn-top.btn-border::after
+    width: calc(25px);
+    height: calc(25px);
     border-color: #FFBA00;
 
-.cat-btn-top.btn-border:hover::before 
-    width: calc(35px);
-    height: calc(35px);
+.navbar-item:hover .cat-btn-top.btn-border::before 
+    width: calc(25px);
+    height: calc(25px);
     border-color: #FFBA00;
 
 .navbar
