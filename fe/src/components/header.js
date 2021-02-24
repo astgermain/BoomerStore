@@ -213,11 +213,11 @@ const Header = ({ path, setTheme }) => {
                           border: "none",
                           borderRadius: "0 5px 5px 0",
                           borderLeft: "none",
-                          height: "25px",
+                          height: "35px",
                           backgroundColor: "var(--c1)",
                           boxShadow: "0 0 0.125em 0.075em rgb(10 10 10 / 12%)",
                           outline: "none",
-                          width: "30px",
+                          width: "40px",
                         }}
                         className="button"
                       >

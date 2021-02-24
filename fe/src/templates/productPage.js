@@ -106,7 +106,7 @@ const productPage = ({ data }) => {
                       <>
                         <img
                           src={BoomerSilver}
-                          className="brand-logo-max"
+                          className="brand-logo-max fade-in"
                         ></img>
                       </>
                     )}
@@ -114,7 +114,7 @@ const productPage = ({ data }) => {
                       <>
                         <img
                           src={BoomerNaturals}
-                          className="brand-logo-max"
+                          className="brand-logo-max fade-in"
                         ></img>
                       </>
                     )}
@@ -122,7 +122,7 @@ const productPage = ({ data }) => {
                     <div
                       key={`body`}
                       id="content"
-                      className="content EReg lAlign"
+                      className="content EReg lAlign fade-in3"
                       dangerouslySetInnerHTML={{
                         __html: product.descriptionHtml,
                       }}
