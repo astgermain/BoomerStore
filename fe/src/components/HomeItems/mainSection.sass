@@ -101,6 +101,23 @@
     padding: 10px;
     font-size: 1.15em;
 
+.cat-full:hover .fa-arrow-right, .cat-half:hover .fa-arrow-right
+    animation-duration: .5s
+    animation-timing-function: ease
+    animation-name: wiggle
+    animation-direction: alternate
+    transition: 1s ease
+@keyframes wiggle
+    from
+        transform: rotate(0deg)
+    33%
+        transform: rotate(15deg)
+    66%
+        transform: rotate(-15deg)
+    100%
+        transform: rotate(0deg)
+    
+
 @media only screen and (max-width:768px)
     .mainSection
         min-width: 0 !important;

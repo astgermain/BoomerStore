@@ -146,6 +146,7 @@ $desktop: 1800px;
     align-items: center;
     margin: auto;
     
+    
 .cat-btn-top.btn-border::after
     position: absolute
     content: ""
@@ -162,32 +163,39 @@ $desktop: 1800px;
 
 
 .cat-btn-top.btn-border::after 
-    top: -9px
-    left: -9px
-    border-top: 3px solid transparent
-    border-left: 3px solid transparent
+    top: -6px
+    left: -6px
+    border-top: 2px solid transparent
+    border-left: 2px solid transparent
 
 
 .cat-btn-top.btn-border::before 
-    bottom: -9px;
-    right: -9px;
-    border-bottom: 3px solid transparent
-    border-right: 3px solid transparent
+    bottom: -6px;
+    right: -6px;
+    border-bottom: 2px solid transparent
+    border-right: 2px solid transparent
 
 
 .cat-btn-top.btn-border:hover 
-    color: #FFBA00;
+    color: #001321;
+    background: var(--c1);
+    border-color: transparent;
+
+.cat-btn-top.btn-border:hover  .fa-stream
+    color: black !important
+    transform: rotate(90deg)
+    transition: .5s ease
 
 
 .cat-btn-top.btn-border:hover::after
-    width: calc(100% + 15px)
-    height: calc(100% + 15px)
-    border-color: #FFBA00
+    width: calc(35px);
+    height: calc(35px);
+    border-color: #FFBA00;
 
 .cat-btn-top.btn-border:hover::before 
-    width: calc(100% + 15px)
-    height: calc(100% + 15px)
-    border-color: #FFBA00
+    width: calc(35px);
+    height: calc(35px);
+    border-color: #FFBA00;
 
 .navbar
     min-width: 1050px
