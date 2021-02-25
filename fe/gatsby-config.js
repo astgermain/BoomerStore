@@ -45,7 +45,6 @@ module.exports = {
                   cursor
                   node {
                     availableForSale
-                    createdAt
                     description
                     descriptionHtml
                     handle
@@ -79,16 +78,10 @@ module.exports = {
                     tags
                     title
                     totalInventory
-                    updatedAt
                     variants(first: 250) {
                       edges {
                         node {
                           availableForSale
-                          compareAtPrice
-                          compareAtPriceV2 {
-                            amount
-                            currencyCode
-                          }
                           id
                           image {
                             altText

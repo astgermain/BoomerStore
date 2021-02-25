@@ -68,7 +68,6 @@ export const query = graphql`
       shopifyId
       title
       products {
-        createdAt
         id
         descriptionHtml
         description
