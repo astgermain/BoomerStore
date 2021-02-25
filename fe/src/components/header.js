@@ -14,6 +14,7 @@ import {
   faAngleDown,
   faStream,
   faChevronLeft,
+  faTimes
 } from "@fortawesome/free-solid-svg-icons";
 import "./header.sass";
 
@@ -38,6 +39,7 @@ const Header = ({ path, setTheme }) => {
   const [search, setSearch] = useState("");
   const [menu, setMenu] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
+ 
 
   const handleMenuClick = () => {
     setMobileMenu(false);
@@ -155,6 +157,7 @@ const Header = ({ path, setTheme }) => {
           </Link>
         </div>
       </nav>
+      <div className="mobile-fixed-space"></div>
       <nav
         className="navbar"
         role="navigation"
@@ -488,7 +491,7 @@ const Header = ({ path, setTheme }) => {
                 onClick={() => handleMobileMenuClick()}
               >
                 <FontAwesomeIcon
-                  icon={faChevronLeft}
+                  icon={faTimes}
                   style={{ transform: "rotate(180deg)" }}
                 />
               </button>
@@ -544,32 +547,17 @@ const Header = ({ path, setTheme }) => {
                   <a href="">Boomer Supplements</a>
                 </div>
                 <div className="categories-option">
-                  <a href="">Vietnamese Coffee</a>
-                </div>
-                <div className="categories-option">
-                  <a href="">Boomer Naturals</a>
-                </div>
-                <div className="categories-option">
-                  <a href="">Silver Aid</a>
+                  <a href="">Boomer Electronics</a>
                 </div>
               </div>
 
               <div className="product-categories">
                 <span className="categorie-header">Products</span>
                 <div className="categories-option">
-                  <a href="">Boomer Silver</a>
+                  <a href="">Apparel</a>
                 </div>
                 <div className="categories-option">
-                  <a href="">Boomer Supplements</a>
-                </div>
-                <div className="categories-option">
-                  <a href="">Vietnamese Coffee</a>
-                </div>
-                <div className="categories-option">
-                  <a href="">Boomer Naturals</a>
-                </div>
-                <div className="categories-option">
-                  <a href="">Silver Aid</a>
+                  <a href="">Pet & Bed</a>
                 </div>
               </div>
             </div>
