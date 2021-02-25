@@ -34,8 +34,6 @@ export const query = graphql`
           id
           title
           handle
-          createdAt(fromNow: true)
-          publishedAt
           productType
           vendor
           priceRange {
