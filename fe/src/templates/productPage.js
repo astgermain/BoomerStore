@@ -145,7 +145,7 @@ const productPage = ({ data }) => {
                   </div>
                 ))}
 
-              <div className="column q-row">
+              <div className="column q-row" style={{display: "flex"}}>
                 <QuantityButton product={chosen} quantity={quantity} setQuantity={setQuantity} />
                 <div className="price-div">
                   <label className="label">Price</label>
@@ -204,7 +204,7 @@ const productPage = ({ data }) => {
   );
 };
 
-export default productPage; 
+export default productPage;
 
 export const query = graphql`
   query($id: String!) {
@@ -237,6 +237,7 @@ export const query = graphql`
             title
             price
             availableForSale
+            quantityAvailable
           }
         }
       }
@@ -258,6 +259,8 @@ export const query = graphql`
       variants {
         id
         title
+        availableForSale
+        quantityAvailable
         image {
           originalSrc
         }

@@ -3,8 +3,9 @@ import React from 'react';
 const QuantityButton = ({ product, quantity, setQuantity }) => {
     
     const increaseQuantity = () => {
+        if(product.quantityAvailable > quantity){
             setQuantity(q => q + 1);
-        
+        }
     }
     const decreaseQuantity = () => {
         setQuantity(q => (q <= 1 ? 1 : q - 1));
