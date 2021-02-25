@@ -31,9 +31,93 @@ module.exports = {
       options: {
         shopName: process.env.SHOP_NAME,
         accessToken: process.env.SHOPIFY_ACCESS_TOKEN,
-        apiVersion: "2020-01",
+        apiVersion: "2020-10",
         paginationSize: 250,
-        includeCollections: ["shop", "content"]
+        includeCollections: ["shop", "content", "product"],
+        shopifyQueries: {
+          products: `
+            query GetProducts($first: Int!, $after: String) {
+              products(first: $first, after: $after) {
+                pageInfo {
+                  hasNextPage
+                }
+                edges {
+                  cursor
+                  node {
+                    availableForSale
+                    createdAt
+                    description
+                    descriptionHtml
+                    handle
+                    id
+                    images(first: 250) {
+                      edges {
+                        node {
+                          id
+                          altText
+                          originalSrc
+                        }
+                      }
+                    }
+                    onlineStoreUrl
+                    options {
+                      id
+                      name
+                      values
+                    }
+                    priceRange {
+                      minVariantPrice {
+                        amount
+                        currencyCode
+                      }
+                      maxVariantPrice {
+                        amount
+                        currencyCode
+                      }
+                    }
+                    productType
+                    tags
+                    title
+                    totalInventory
+                    updatedAt
+                    variants(first: 250) {
+                      edges {
+                        node {
+                          availableForSale
+                          compareAtPrice
+                          compareAtPriceV2 {
+                            amount
+                            currencyCode
+                          }
+                          id
+                          image {
+                            altText
+                            id
+                            originalSrc
+                          }
+                          price
+                          priceV2 {
+                            amount
+                            currencyCode
+                          }
+                          quantityAvailable
+                          requiresShipping
+                          selectedOptions {
+                            name
+                            value
+                          }
+                          sku
+                          title
+                        }
+                      }
+                    }
+                    vendor
+                  }
+                }
+              }
+            }
+          `,
+          }
       }
     },
     {

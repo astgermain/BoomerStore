@@ -45,7 +45,7 @@ const productPage = ({ data }) => {
   const checkAvailability = (productId) => {
     context.store.client.product.fetch(productId).then((product) => {
       // this checks the currently selected variant for availability
-      const result = product.variants.filter(
+      const result = product?.variants?.filter(
         (variant) => variant.id === productVariant.shopifyId
       );
       setAvailable(result[0].available);
@@ -146,7 +146,7 @@ const productPage = ({ data }) => {
                 ))}
 
               <div className="column q-row">
-                <QuantityButton quantity={quantity} setQuantity={setQuantity} />
+                <QuantityButton product={chosen} quantity={quantity} setQuantity={setQuantity} />
                 <div className="price-div">
                   <label className="label">Price</label>
                   <p
@@ -238,6 +238,8 @@ export const query = graphql`
             id
             title
             price
+            availableForSale
+            quantityAvailable
           }
         }
       }
@@ -259,6 +261,8 @@ export const query = graphql`
       variants {
         id
         title
+        availableForSale
+        quantityAvailable
         image {
           originalSrc
         }

@@ -21,8 +21,8 @@ const CollectionProductBox = (props) => {
   }
   let priceFormat = price => parseFloat(price).toFixed(2)
   return (
-    <a href={`/product/${product.handle}`} className="pad5-10">
-      <div className="box" key={product.title}>
+    <a href={`/product/${product?.handle}`} className="pad5-10">
+      <div className="box" key={product?.title}>
         <div className="box-background">
           <div className={`productBox ${value}`}>
                 <div className="plogo-box"><img
@@ -36,12 +36,12 @@ const CollectionProductBox = (props) => {
               key={product?.images[0]?.localFile?.id}
               fadeIn={false}
               loading="eager"
-              alt={product.title}
+              alt={product?.title}
               style={{width: "100%", alignSelf: "center", height: "100%"}}
             />
             </div>
             <p className="has-text-weight-semibold p-title">
-              {product.title}
+              {product?.title}
             </p>
             <p className="has-text-weight-light p-price">
               {product?.variants == undefined ?
