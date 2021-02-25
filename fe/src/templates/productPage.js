@@ -237,7 +237,6 @@ export const query = graphql`
             title
             price
             availableForSale
-            quantityAvailable
           }
         }
       }
@@ -259,8 +258,6 @@ export const query = graphql`
       variants {
         id
         title
-        availableForSale
-        quantityAvailable
         image {
           originalSrc
         }
