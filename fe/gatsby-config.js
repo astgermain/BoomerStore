@@ -31,9 +31,9 @@ module.exports = {
       options: {
         shopName: process.env.SHOP_NAME,
         accessToken: process.env.SHOPIFY_ACCESS_TOKEN,
-        apiVersion: "2020-10",
+        apiVersion: "2020-04",
         paginationSize: 250,
-        includeCollections: ["shop", "content", "product"],
+        includeCollections: ["shop", "content"],
         shopifyQueries: {
           products: `
             query GetProducts($first: Int!, $after: String) {

@@ -1,16 +1,7 @@
 import React, {useState} from 'react';
 import Img from "gatsby-image"
 import { Flex, Box } from 'rebass';
-import styled from 'styled-components';
 
-const ThumbnailBox = styled(Box)(() => ({
-    transition: '0.5s ease all',
-    cursor: 'pointer',
-}));
-
-const ThumbnailFlex = styled(Flex)(() => ({
-    transition: '0.5s ease all',
-}));
 
 const Gallery = ({ product, chosen }) => {
     const [currentImage, setCurrentImage] = useState(product?.images[0]);
