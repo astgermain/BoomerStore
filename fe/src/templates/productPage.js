@@ -204,7 +204,7 @@ const productPage = ({ data }) => {
   );
 };
 
-export default productPage;
+export default productPage; 
 
 export const query = graphql`
   query($id: String!) {
