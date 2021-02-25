@@ -31,7 +31,7 @@ module.exports = {
       options: {
         shopName: process.env.SHOP_NAME,
         accessToken: process.env.SHOPIFY_ACCESS_TOKEN,
-        apiVersion: "2020-04",
+        apiVersion: "2020-01",
         paginationSize: 250,
         includeCollections: ["shop", "content"]
       }
