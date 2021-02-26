@@ -8,7 +8,6 @@ const Buttons = ({ context, available, productVariant,  quantity}) => {
     const handleAddToCart_BuyNow = () => {
         context.addVariantToCartAndBuyNow(productVariant.shopifyId, quantity)
     }
-
     return (
         <div className="columns" style={{margin: "auto"}}>
             <div className="column mobile-min">

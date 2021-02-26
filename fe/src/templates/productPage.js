@@ -26,10 +26,12 @@ const productPage = ({ data }) => {
   const [quantity, setQuantity] = useState(1);
   const [variant, setVariant] = useState(product.variants[0]);
   const [chosen, setChosen] = useState(product.variants[0]);
+  let curData
   const productVariant =
     context.store.client.product.helpers.variantForOptions(product, variant) ||
     variant;
   const [available, setAvailable] = useState(productVariant.availableForSale);
+  const [disable, setDisabled] = useState(false)
   useEffect(() => {
     let defaultOptionValues = {};
     product.options.forEach((selector) => {
@@ -40,11 +42,21 @@ const productPage = ({ data }) => {
 
   useEffect(() => {
     checkAvailability(product.shopifyId);
+    apiCall(query).then((response) => {
+      response.data.products.edges[0].node.variants.edges.map(variant => {
+          if(variant.node.id == productVariant.shopifyId){
+            if(variant.node.quantityAvailable == 0){
+              setAvailable(true)
+            }
+          }
+      })
+    });
   }, [productVariant]);
 
   const checkAvailability = (productId) => {
     context.store.client.product.fetch(productId).then((product) => {
       // this checks the currently selected variant for availability
+      
       const result = product?.variants?.filter(
         (variant) => variant.id === productVariant.shopifyId
       );
@@ -79,26 +91,40 @@ const productPage = ({ data }) => {
     });
   };
   const query = `{
-    shop {
-      name
+    products(first: 5, query:"title:${product.title}") {
+      edges{
+        node{
+          id
+          handle
+          variants(first:100) {
+            edges {
+              node {
+                title
+                quantityAvailable
+                id
+              }
+            }
+          }
+        }
+      }
     }
   }`;
 
   function apiCall(query) {
-    return fetch("https://boomerstorebrand.myshopify.com/api/graphql.json", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/graphql",
-        "Access-Control-Origin": "*",
-        "X-Shopify-Storefront-Access-Token": "16772eb20007c9362f7d0cfd46a79211",
-      },
-      body: query,
-    }).then((response) => response.json());
+    return fetch(
+      "https://boomerstorebrand.myshopify.com/api/2020-10/graphql.json",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/graphql",
+          "X-Shopify-Storefront-Access-Token":
+            "16772eb20007c9362f7d0cfd46a79211",
+        },
+        body: query,
+      }
+    ).then((response) => response.json());
   }
 
-  apiCall(query).then((response) => {
-    console.log(response);
-  });
   return (
     <>
       <SEO title={product.title} />
