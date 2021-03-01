@@ -32,7 +32,6 @@ const Header = ({ path, setTheme }) => {
   const [selected, setSelected] = useState(false);
   const [cartState, setCartState] = useState("");
   const [accountState, setAccountState] = useState("");
-  const [bgColor, setBgColor] = useState("transparent")
   const context = useContext(StoreContext);
   const { checkout } = context.store;
   const [quantity, setQuantity] = useState(
@@ -53,13 +52,9 @@ const Header = ({ path, setTheme }) => {
   };
   
   useEffect(() => {
-    if ((path != "/")) {
-      setBgColor("#003C78");
-    }else {
-      setBgColor("transparent")
-    }
+    
     setQuantity(countQuantity(checkout ? checkout.lineItems : []));
-  }, [checkout, path]);
+  }, [checkout]);
 
   const cartHover = () => {
     if (cartState == "") {
@@ -169,7 +164,7 @@ const Header = ({ path, setTheme }) => {
         style={{
           display: "flex",
           height: "65px",
-          backgroundColor: bgColor,
+          backgroundColor: `${path != "/" ? "#003C78" : "transparent"}`,
         }}
       >
         <div
