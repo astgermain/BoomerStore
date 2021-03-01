@@ -12,6 +12,7 @@ import {
   faUser,
   faSearch,
   faAngleDown,
+  faShoppingCart,
   faStream,
   faChevronLeft,
   faTimes
@@ -50,8 +51,10 @@ const Header = ({ path, setTheme }) => {
     setMobileMenu(!mobileMenu);
   };
   let bgcolor = "transparent";
-  if (path != `/`) {
-    bgcolor = "#002244";
+  console.log(path)
+  if ((path != `/`) || (path != ``)) {
+
+    bgcolor = "#003C78";
   }
   useEffect(() => {
     setQuantity(countQuantity(checkout ? checkout.lineItems : []));
@@ -127,7 +130,7 @@ const Header = ({ path, setTheme }) => {
             {quantity > 0 ? (
               <>
                 <FontAwesomeIcon
-                  icon={faShoppingBag}
+                  icon={faShoppingCart}
                   className="is-size-5"
                   style={{
                     color: "var(--c1)",
@@ -142,7 +145,7 @@ const Header = ({ path, setTheme }) => {
             ) : (
               <>
                 <FontAwesomeIcon
-                  icon={faShoppingBag}
+                  icon={faShoppingCart}
                   className="is-size-5"
                   style={{
                     color: "var(--c1)",
@@ -165,7 +168,7 @@ const Header = ({ path, setTheme }) => {
         style={{
           display: "flex",
           height: "65px",
-          backgroundColor: "var(--darker)",
+          backgroundColor: bgcolor,
         }}
       >
         <div
@@ -299,7 +302,7 @@ const Header = ({ path, setTheme }) => {
                   )}
 
                   <FontAwesomeIcon
-                    icon={faShoppingBag}
+                    icon={faShoppingCart}
                     className="is-size-5"
                     style={{
                       color: "var(--c1)",
@@ -316,7 +319,7 @@ const Header = ({ path, setTheme }) => {
                 <>
                   <h2 style={{ marginRight: "10px" }}>Cart</h2>
                   <FontAwesomeIcon
-                    icon={faShoppingBag}
+                    icon={faShoppingCart}
                     className="is-size-5"
                     style={{
                       color: "var(--c1)",

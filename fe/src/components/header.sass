@@ -171,13 +171,56 @@ $desktop: 1800px;
     display: flex
     justify-content: center;
     align-items: center;
-.navbar-item:hover .cat-btn-top2.btn-border2 .fa-user, .navbar-item:hover .cat-btn-top2.btn-border2 .fa-shopping-bag
+.navbar-item .cat-btn-top2.btn-border2 .fa-shopping-cart
+    animation-direction: forwards;
     animation-duration: .5s
+    animation-name: cart2
+    -webkit-animation-fill-mode: alternate;
+    transition: .5s
+    overflow: hidden
+    width: 40px
+.navbar-item:hover .cat-btn-top2.btn-border2 .fa-shopping-cart
+    animation-duration: .35s
     animation-timing-function: ease
-    animation-name: wiggle
-    animation-direction: alternate
-    transition: 1s ease
-    color: var(--c1)
+    animation-name: cart
+    animation-direction: forwards
+    -webkit-animation-fill-mode: forwards;
+    transition: .35s
+    overflow: hidden
+    width: 40px
+        
+@keyframes cart
+    from
+        transform: translateY(20px);
+    100%
+        transform: translateY(0px);
+
+.navbar-item .cat-btn-top2.btn-border2 .fa-user
+    animation-direction: forwards;
+    animation-duration: .5s
+    animation-name: user2
+    -webkit-animation-fill-mode: alternate;
+    transition: .5s
+    overflow: hidden
+    width: 40px
+.navbar-item:hover .cat-btn-top2.btn-border2 .fa-user
+    animation-duration: .35s
+    animation-timing-function: ease
+    animation-name: user
+    animation-direction: forwards
+    -webkit-animation-fill-mode: forwards;
+    transition: .35s
+    overflow: hidden
+    width: 40px
+        
+@keyframes user
+    from
+        transform: translateX(20px);
+    100%
+        transform: translateX(0px);
+
+
+
 .navbar-item:hover
     cursor: pointer
 .navbar-item:hover .cat-btn-top2.btn-border2::after, .navbar-item:hover .cat-btn-top2.btn-border2::before
@@ -227,22 +270,32 @@ $desktop: 1800px;
     background: var(--c1);
     border-color: transparent;
 
+.navbar-item .fa-stream
+    animation-direction: forwards;
+    animation-duration: .5s
+    animation-name: menuRotate2
+    -webkit-animation-fill-mode: alternate;
+    transition: .5s
+
 .navbar-item:hover .fa-stream
     color: black !important
-    animation-duration: .5s
+    animation-duration: .35s
     animation-timing-function: ease
-    animation-name: wiggle
-    animation-direction: alternate
-    transition: 1s ease
-@keyframes wiggle
+    animation-name: menuRotate
+    animation-direction: forwards
+    -webkit-animation-fill-mode: forwards;
+    transition: .35s
+@keyframes menuRotate2
     from
-        transform: rotate(0deg)
-    33%
-        transform: rotate(15deg)
-    66%
-        transform: rotate(-15deg)
+        transform: rotate(180deg);
     100%
         transform: rotate(0deg)
+
+@keyframes menuRotate
+    from
+        transform: rotate(0deg);
+    100%
+        transform: rotate(180deg)
 
 
 .navbar-item:hover .cat-btn-top.btn-border::after
@@ -271,6 +324,11 @@ $desktop: 1800px;
     justify-content: center;
     align-items: center;
     min-width: calc(400px/3)
+    background: #003C78
+
+.navbar-item:hover
+    background: #006FDE
+
 .input-search
     font-size: .875rem
     height: 35px

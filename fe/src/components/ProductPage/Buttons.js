@@ -14,7 +14,7 @@ const Buttons = ({ context, available, productVariant,  quantity}) => {
                 <button
                     className="EBold product-buttons button is-medium is-fullwidth"
                     disabled={!available}
-                    onClick={handleAddToCart}
+                    onClick={() => handleAddToCart()}
                 >
                     Add to Cart
                 </button>
@@ -23,7 +23,7 @@ const Buttons = ({ context, available, productVariant,  quantity}) => {
                 <button
                     className="EBold product-buttons gold button is-dark is-medium is-fullwidth"
                     disabled={!available}
-                    onClick={handleAddToCart_BuyNow}
+                    onClick={() => handleAddToCart_BuyNow()}
                 >
                     Buy It Now
                 </button>
