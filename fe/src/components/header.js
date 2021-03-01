@@ -51,7 +51,7 @@ const Header = ({ path, setTheme }) => {
     setMobileMenu(!mobileMenu);
   };
   let bgcolor = "transparent";
-  if (path.length > 3) {
+  if ((path != "/") || (path != " /") || (path != "/ ")) {
     bgcolor = "#003C78";
   }
   useEffect(() => {
