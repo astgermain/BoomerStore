@@ -164,7 +164,7 @@ const Header = ({ path, setTheme }) => {
         style={{
           display: "flex",
           height: "65px",
-          backgroundColor: `${path != "/" ? "#003C78" : "transparent"}`,
+          backgroundColor: `${((path == "/") || (path == "")) ? "transparent" : "#003C78"}`,
         }}
       >
         <div
