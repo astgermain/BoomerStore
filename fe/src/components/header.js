@@ -28,7 +28,7 @@ const countQuantity = (lineItems) => {
   return quantity;
 };
 
-const Header = ({ path, setTheme }) => {
+const Header = ({ path, setTheme, location}) => {
   const [selected, setSelected] = useState(false);
   const [cartState, setCartState] = useState("");
   const [accountState, setAccountState] = useState("");
@@ -41,7 +41,8 @@ const Header = ({ path, setTheme }) => {
   const [menu, setMenu] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
  
-
+  const url = location.href ? location.href : '';
+  console.log(url)
   const handleMenuClick = () => {
     setMobileMenu(false);
     setMenu(!menu);
@@ -164,7 +165,7 @@ const Header = ({ path, setTheme }) => {
         style={{
           display: "flex",
           height: "65px",
-          backgroundColor: `${((path == "/") || (path == "/index.html")) ? "transparent" : "#003C78"}`,
+          backgroundColor: `${((path == "/") || (path == "/index.html") || (path == "")) ? "transparent" : "#003C78"}`,
         }}
       >
         <div
