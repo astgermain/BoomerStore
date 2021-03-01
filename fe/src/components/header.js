@@ -32,6 +32,7 @@ const Header = ({ path, setTheme }) => {
   const [selected, setSelected] = useState(false);
   const [cartState, setCartState] = useState("");
   const [accountState, setAccountState] = useState("");
+  const [bgColor, setBgColor] = useState("transparent")
   const context = useContext(StoreContext);
   const { checkout } = context.store;
   const [quantity, setQuantity] = useState(
@@ -50,13 +51,15 @@ const Header = ({ path, setTheme }) => {
     setMenu(false);
     setMobileMenu(!mobileMenu);
   };
-  let bgcolor = "transparent";
-  if ((path != "/") || (path != " /") || (path != "/ ")) {
-    bgcolor = "#003C78";
-  }
+  
   useEffect(() => {
+    if ((path != "/")) {
+      setBgColor("#003C78");
+    }else {
+      setBgColor("transparent")
+    }
     setQuantity(countQuantity(checkout ? checkout.lineItems : []));
-  }, [checkout]);
+  }, [checkout, path]);
 
   const cartHover = () => {
     if (cartState == "") {
@@ -166,7 +169,7 @@ const Header = ({ path, setTheme }) => {
         style={{
           display: "flex",
           height: "65px",
-          backgroundColor: bgcolor,
+          backgroundColor: bgColor,
         }}
       >
         <div
