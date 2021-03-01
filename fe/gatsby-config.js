@@ -135,7 +135,7 @@ module.exports = {
       options: {
         name: `gatsby-shopify-theme`,
         short_name: `gatsby-shopify`,
-        start_url: `/`,
+        start_url: ``,
         background_color: `#FFFFFF`,
         theme_color: `#FFFFFF`,
         display: `minimal-ui`,
