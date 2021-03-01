@@ -52,7 +52,7 @@ const Header = ({ path, setTheme }) => {
   };
   let bgcolor = "transparent";
   console.log(path)
-  if (path.length > 0) {
+  if (path.length > 2) {
     bgcolor = "#003C78";
   }
   useEffect(() => {
