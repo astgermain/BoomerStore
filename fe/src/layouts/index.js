@@ -9,6 +9,7 @@ import Helmet from "react-helmet";
 
 const Layout = ({ path, children }) => {
     const [theme, setTheme] = useState(false)
+    console.log("Layout Path: ", path)
   return (
 
     <Provider>
