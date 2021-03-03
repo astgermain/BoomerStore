@@ -191,8 +191,10 @@ $desktop: 1800px;
         
 @keyframes cart
     from
+        color: var(--darker)
         transform: translateY(20px);
     100%
+        color: var(--c1)
         transform: translateY(0px);
 
 .navbar-item .cat-btn-top2.btn-border2 .fa-user
@@ -215,8 +217,10 @@ $desktop: 1800px;
         
 @keyframes user
     from
+        color: var(--darker)
         transform: translateX(20px);
     100%
+        color: var(--c1)
         transform: translateX(0px);
 
 
@@ -262,12 +266,8 @@ $desktop: 1800px;
     border-bottom: 2px solid transparent
     border-right: 2px solid transparent
 
-.navbar-item:hover .cat-btn-top
-    background: var(--c1)
-    color: black !important
 .cat-btn-top.btn-border:hover 
-    color: #001321;
-    background: var(--c1);
+    color: white;
     border-color: transparent;
 
 .navbar-item .fa-stream
@@ -278,7 +278,6 @@ $desktop: 1800px;
     transition: .5s
 
 .navbar-item:hover .fa-stream
-    color: black !important
     animation-duration: .35s
     animation-timing-function: ease
     animation-name: menuRotate
@@ -327,7 +326,6 @@ $desktop: 1800px;
     background: #011220
 
 .navbar-item:hover
-    background: #003C78
 
 .input-search
     font-size: .875rem
