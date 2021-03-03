@@ -162,7 +162,7 @@ const Header = ({ path, setTheme, loc}) => {
         style={{
           display: "flex",
           height: "65px",
-          backgroundColor: `${((loc.pathname == "/") || (loc.pathname == "/index.html") || (loc.pathname == "")) ? "transparent" : "#003C78"}`,
+          backgroundColor: `${((loc.pathname == "/") || (loc.pathname == "/index.html") || (loc.pathname == "")) ? "transparent" : "#001220"}`,
         }}
       >
         <div

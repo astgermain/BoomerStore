@@ -1,7 +1,7 @@
 import React from "react";
 import Img from "gatsby-image";
 import silverLogo from "../../images/boomersilver.webp";
-import naturalsLogo from "../../images/boomernaturals.webp"
+import naturalsLogo from "../../images/boomernaturals.webp";
 
 const ProductBox = (props) => {
   const product = props?.product;
@@ -10,15 +10,14 @@ const ProductBox = (props) => {
     value = "give-border";
   }
   let logo;
-  let alt = ""
-  let priceFormat = price => parseFloat(price).toFixed(2)
-  if(product?.node?.vendor == "Boomer Silver"){
-    logo = silverLogo
-    alt = "Boomer Silver logo"
-  }
-  else if(product?.node?.vendor == "Boomer Naturals"){
-    logo = naturalsLogo
-    alt = "Boomer Naturals Logo"
+  let alt = "";
+  let priceFormat = (price) => parseFloat(price).toFixed(2);
+  if (product?.node?.vendor == "Boomer Silver") {
+    logo = silverLogo;
+    alt = "Boomer Silver logo";
+  } else if (product?.node?.vendor == "Boomer Naturals") {
+    logo = naturalsLogo;
+    alt = "Boomer Naturals Logo";
   }
   return (
     <a href={`/product/${product?.node?.handle}`}>
@@ -26,11 +25,7 @@ const ProductBox = (props) => {
         <div className="box-background">
           <div className={`productBox ${value}`}>
             <div className="plogo-box">
-              <img
-                src={logo}
-                alt={alt}
-                style={{ alignSelf: "center" }}
-              ></img>
+              <img src={logo} alt={alt} style={{ alignSelf: "center" }}></img>
             </div>
             <div className="image-box">
               <Img
@@ -47,10 +42,14 @@ const ProductBox = (props) => {
             <p className="has-text-weight-semibold p-title">
               {product?.node?.title}
             </p>
-            <p className="has-text-weight-light p-price">
-              ${priceFormat(product?.node?.variants[0]?.price)}
-            </p>
-            <div className="p-view-more">View Product</div>
+            <div className="product-bar">
+              <div className="product-overlay">
+                <p className="has-text-weight-light p-price">
+                  From ${priceFormat(product?.node?.variants[0]?.price)}
+                </p>
+                <div className="p-view-more">View</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

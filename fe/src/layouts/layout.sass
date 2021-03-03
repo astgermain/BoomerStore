@@ -247,22 +247,17 @@ img
     justify-content: center;
     max-width: 100px;
 .productBox
-    animation-duration: .35s ease
-    background: linear-gradient(350deg, #00000008 50%, #ffffffde 50%)
-    background-size: 200% 200%;
-    animation-fill-mode: both;
-    -webkit-animation-fill-mode: both;
-    padding: 1rem;
+    padding-top: 1rem;
     background-position-y: 0%;
     display: flex;
     flex-direction: column;
     text-align: center;
-    animation-name: bounceOut
     animation-direction: alternate
+    justify-content: space-between
     transition: 0.5s
     color: black
     height: 300px;
-    border-radius: 10px;
+    border-radius: 0px;
     align-items: center
     
 .give-border
@@ -271,7 +266,6 @@ img
 .productBox:hover
     animation-duration: .35s
     animation-timing-function: ease
-    animation-name: hoverProduct
     animation-direction: alternate
     transition: 1s ease
 
@@ -290,15 +284,16 @@ img
     margin-top: 5px;
 
 .p-price
-    color: #002244;
-    font-size: 18px;
-    margin-top: 5px;
+    color: white;
+    font-size: 16px;
+    width: 50%
+    text-align: left
+    padding-left: 5px;
 
 .productBox:hover .p-title
-    color: white !important
+    color: black !important
 
 .productBox:hover .p-price
-    color: #FFBA00 !important
 
 .productBox:hover .p-view-more
     color: #002244
@@ -306,27 +301,63 @@ img
     border-radius: 3px
 
 .p-view-more
-    font-family: "EinaReg", Arial, sans-serif;
-    color: #00040A;
-    width: 75%;
+    font-family: "EinaBold", Arial, sans-serif;
+    color: black;
+    background: var(--c1);
     display: flex;
     align-self: center;
     justify-content: center;
-    padding: 5px;
-    margin: 7.5px;
+    padding: 5px 35px;
     font-size: 14px;
-    border-radius: 3px;
-    border: 1px solid #002244;
+    border-radius: 5px;
+    width: 50%;
+    transition: .25s ease;
+    transform: translateY(0px);
+    margin-right: 25px
+
+.p-view-container
+    width: 25%
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 31px;
 
 .productBox:hover
     color: #00040A
 
 
+  
+
+
+.box:hover .p-view-more
+    
+    transition: .25s ease;
+    transform: translateX(100px);
+
+.product-overlay .p-icon
+    display: none
+    transition: .25s ease;
+    transform: translateX(0px);
+
+.box:hover .p-price
+    width: 75%;
+
+.box:hover .p-icon
+    display: flex
+    animation-duration: .5s
+    animation-timing-function: ease
+    animation-direction: alternate
+    animation-name: arrowSlide
+    transition: 1s ease
+
 .box-background
-    background: linear-gradient(350deg, #002244 55%, rgba(255, 255, 255, 0.5) 55%);
-    background-position-y: 46%;
-    background-size: 200% 200%;
-    border-radius: 11px;
+    border-radius: 0px;
+
+@keyframes arrowSlide
+    0%  
+        transform: translateX(50px);    
+    100%
+        transform: translateX(0px);
 
 @keyframes hoverProduct 
     0%
@@ -378,8 +409,8 @@ img
 
 .productBoxHF
     animation-duration: .35s ease;
-    background: linear-gradient(315deg, var(--c1) 50%, rgba(255, 255, 255, 0) 50%);
-    background-size: 240% 200%;
+    background: linear-gradient(315deg, var(--c1) 76.75%, rgba(255, 255, 255, 0) 50%);
+    background-size: 250% 200%;
     animation-fill-mode: both;
     -webkit-animation-fill-mode: both;
     padding: .5rem;
@@ -458,13 +489,12 @@ img
     background-position-y: 12%;
     background-size: 200% 200%;
     border-radius: 0 0 10px 0;
-    background: linear-gradient( 315deg, #dde2e6 50%, rgba(255, 255, 255, 0) 50%);
 
 @keyframes hoverProductHF
     0%
         background-position: 0% 0%
     100%
-        background-position: 80% 0%
+        background-position: 0% 0%
 
 @keyframes bounceOutHF
    0%
@@ -487,8 +517,8 @@ img
 
 .productBoxH 
     animation-duration: .35s ease;
-    background: linear-gradient(315deg, var(--c1) 50%, rgba(255, 255, 255, 0) 50%);
-    background-size: 240% 200%;
+    background: linear-gradient(315deg, var(--c1) 76.75%, rgba(255, 255, 255, 0) 50%);
+    background-size: 250% 200%;
     animation-fill-mode: both;
     -webkit-animation-fill-mode: both;
     padding: .5rem;
@@ -542,8 +572,11 @@ img
 .productBoxH:hover .p-priceH 
   color: #FFBA00 !important; 
 
+.cat-half .p-icon 
+  color: black !important; 
+
 .cat-half:hover .p-icon 
-  color: var(--c2) !important; 
+  color: black !important; 
 
 .productBoxH:hover .p-view-moreH 
   color: #002244;
@@ -568,14 +601,13 @@ img
 .box-backgroundH
     background-position-y: 12%;
     background-size: 200% 200%;
-    border-radius: 0 0 10px 0;
-    background: linear-gradient( 315deg, #dde2e6 50%, rgba(255, 255, 255, 0) 50%);
+    border-radius: 0 0 5px 0;
 
 @keyframes hoverProductH
     0%
         background-position: 0% 0%
     100%
-        background-position: 80% 0%
+        background-position: 0% 0%
 
 @keyframes bounceOutH
    0%
@@ -595,6 +627,10 @@ img
 
 .hor-half
     width: 50%
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
 
 .hor-half2
     width: 50%
@@ -603,11 +639,10 @@ img
 
 .productBoxHor
     animation-duration: .35s ease
-    background: linear-gradient(355deg, #00000008 50%, #ffffffde 50%)
+    background: linear-gradient(357deg, var(--c1) 43%, #ffffff00 40%);
     background-size: 200% 200%;
     animation-fill-mode: both;
     -webkit-animation-fill-mode: both;
-    padding: 1rem;
     background-position-y: 0%;
     display: flex;
     flex-direction: column;
@@ -617,17 +652,13 @@ img
     transition: 0.5s
     color: black
     height: 180px;
-    border-radius: 10px;
+    border-radius: 6px;
+    justify-content: space-between;
     
 .give-borderHor
     border: 1px solid #3b3a3a;
 
 .productBoxHor:hover
-    animation-duration: .35s
-    animation-timing-function: ease
-    animation-name: hoverProductHor
-    animation-direction: alternate
-    transition: 1s ease
 
 .p-titleHor
     line-height: 18px;
@@ -651,45 +682,97 @@ img
     flex-direction: row;
 
 .p-priceHor
-    color: #002244;
+    color: white;
     font-size: 18px;
     display: flex;
     align-items: center;
+    margin-right: 15px
+    
 
 .productBoxHor:hover .p-titleHor
-    color: black !important
+    color: black !important    
 
 .productBoxHor:hover .p-priceHor
-    color: #FFBA00 !important
+    transform: translateX(14px);
+
+.boxHor:hover .p-priceHor
 
 .productBoxHor:hover .p-view-moreHor
     color: #002244
     background: #FFBA00
     border-radius: 3px
+    border-color: var(--c1)
+    transition: .25s ease;
+    transform: translateX(0px);
 
 .p-view-moreHor
-    font-family: "EinaReg", Arial, sans-serif;
-    color: #00040A;
-    width: 75%;
+    font-family: "EinaBold", Arial, sans-serif;
+    color: black;
+    background: var(--c1);
     display: flex;
     align-self: center;
     justify-content: center;
-    padding: 5px;
-    margin: 7.5px;
+    padding: 5px 15px;
     font-size: 14px;
-    border-radius: 3px;
-    border: 1px solid #002244;
-    max-width: 150px;
+    border-radius: 5px;
+    width: 50%;
+    transition: .5s ease;
+    transform: translateY(0px);
+    margin-right: 5px;
+    max-width: 75px;
+    transition: .25s ease;
+    transform: translateX(0px);
+
+.boxHor:hover .p-view-moreHor
+    transition: .25s ease;
+    transform: translateX(300px);
+    color: var(--c1)
 
 .productBoxHor:hover
     color: #00040A
 
+.boxHor .p-icon
+    display: none
+    transition: .25s ease;
+    transform: translateX(0px);
+
+.boxHor:hover .p-icon
+    display: flex
+    animation-duration: .5s
+    animation-timing-function: ease
+    animation-direction: alternate
+    animation-name: arrowSlide
+    transition: 1s ease
 
 .box-backgroundHor
-    background: linear-gradient(355deg, #002244 55%, rgba(255, 255, 255, 0.5) 55%);
-    background-position-y: 46%;
+    background: linear-gradient(357deg, #003C78 50%, rgba(255, 255, 255, 1.5) 50.2%);
+    background-position-y: 40%;
     background-size: 200% 200%;
     border-radius: 11px;
+
+
+@keyframes arrowSlide2
+    0%  
+        transform: translateX(0px); 
+
+    100%
+        transform: translateX(40px);
+
+@keyframes priceSlide
+    0%  
+        transform: translateX(0px);  
+    33%
+        transform: translateX(0px)  
+    100%
+        transform: translateX(0px);
+
+@keyframes priceSlide2
+    0%  
+        transform: translateX(25px);  
+    33%
+        transform: translateX(30px)  
+    100%
+        transform: translateX(0px);
 
 @keyframes hoverProductHor 
     0%

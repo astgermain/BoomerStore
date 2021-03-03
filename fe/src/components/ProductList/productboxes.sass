@@ -1,5 +1,97 @@
 .pad5-10
     padding: 10px;
+.product-bar
+    width: 100%;
+    justify-content: space-around;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    height: 51px
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top: 3px solid var(--c1);
+
+.product-overlay
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(310deg, var(--c1) 34%, #002244 34.1%);
+    background-size: 200% 200%
+    animation-duration: .4s
+    animation-timing-function: ease
+    animation-direction: alternate
+    animation-name: newHover2
+    transition: 1s ease
+    background-position: 0% 100%
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+.product-overlay2
+    justify-content: flex-end;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(310deg, var(--c1) 34%, #002244 34.1%);
+    background-size: 200% 200%
+    animation-duration: .4s
+    animation-timing-function: ease
+    animation-direction: alternate
+    animation-name: newHover4
+    transition: 1s ease
+    background-position: 0% 100%
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+.box:hover .product-overlay
+    animation-duration: .75s
+    animation-timing-function: ease
+    animation-direction: alternate
+    animation-name: newHover
+    transition: 1s ease
+    background-position: 50% 100%
+
+.boxHor:hover .product-overlay2
+    animation-duration: .75s
+    animation-timing-function: ease
+    animation-direction: alternate
+    animation-name: newHover3
+    transition: 1s ease
+    background-position: 42% 100%
+
+@keyframes newHover2
+    0%
+        background-position: 50% 100%
+    20%
+        background-position: 60% 100%
+    100%
+        background-position: 0% 100%
+
+@keyframes newHover4
+    0%
+        background-position: 42% 100%
+    20%
+        background-position: 52% 100%
+    100%
+        background-position: 0% 100%
+
+@keyframes newHover
+    0%
+        background-position: 0% 0%
+    33%
+        background-position: 55% 100%
+    100%
+        background-position: 50% 100%
+
+@keyframes newHover3
+    0%
+        background-position: 0% 0%
+    33%
+        background-position: 47% 100%
+    100%
+        background-position: 42% 100%
 
 @media only screen and (max-width:768px)
     .pad5-10
