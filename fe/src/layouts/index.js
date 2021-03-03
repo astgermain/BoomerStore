@@ -9,10 +9,12 @@ import Helmet from "react-helmet";
 
 const Layout = ({ path, children, location }) => {
     const [theme, setTheme] = useState(false)
+    const [body, setBody] = useState("preload")
     useEffect(() => {
-      $(window).load(function() {
-        $("body").removeClass("preload");
-      });s
+      setTimeout(() => {
+        setBody("")
+      }, 500)
+        
     }, [])
   return (
 
@@ -20,13 +22,13 @@ const Layout = ({ path, children, location }) => {
         {theme ?
       <Helmet
         bodyAttributes={{
-          class: "bodylight preload",
+          class: `bodylight ${body}`,
         }}
       />
       :
       <Helmet
         bodyAttributes={{
-          class: "bodydark preload",
+          class: `bodydark ${body}`,
         }}
       />
     }
