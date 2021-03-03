@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { StaticQuery, graphql } from "gatsby";
 import Header from "../components/header";
 import Footer from "../components/footer";
@@ -9,7 +9,11 @@ import Helmet from "react-helmet";
 
 const Layout = ({ path, children, location }) => {
     const [theme, setTheme] = useState(false)
-    console.log("Layout Location: ", location)
+    useEffect(() => {
+      $(window).load(function() {
+        $("body").removeClass("preload");
+      });s
+    }, [])
   return (
 
     <Provider>
