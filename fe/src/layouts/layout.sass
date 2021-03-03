@@ -62,7 +62,18 @@ img
   --hover2: #00040A;
   --darker: #001220
   --adjGrad: linear-gradient(315deg, #537895 0%, #09203f 74%);
-
+  
+.button
+    transition: .25s ease;
+.f-button:hover, .f-button2:hover
+    background: #002244;
+    color: white;
+    opacity: 1;
+    transition: .25s ease;
+.f-button3:hover
+    background: white
+    color: black
+    transition: .25s ease;
 .gold-text 
     color: var(--c1)
 .black-text 
@@ -319,7 +330,7 @@ img
     font-size: 14px;
     border-radius: 5px;
     width: 50%;
-    transition: .75s ease;
+    transition: .5s ease;
     transform: translateY(0px);
     width: 75px
 
@@ -331,10 +342,6 @@ img
 
 .productBox:hover
     color: #00040A
-
-
-  
-
 
 .box:hover .p-view-more
     color: var(--c1)
@@ -631,6 +638,7 @@ img
     height: 180px;
     box-shadow: #6b69691c 0px 0px 5px 3px;
     border-radius: 10px;
+    background: #002244
 
 .hor-half
     width: 50%;
@@ -690,7 +698,10 @@ img
     display: flex;
     justify-content: flex-end;
     flex-direction: row;
-    height: calc(100% - 51px);
+    height: calc(100% - 48px);
+    background: white;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 
 .p-priceHor
     color: white;

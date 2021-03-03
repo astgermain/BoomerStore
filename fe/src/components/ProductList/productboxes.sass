@@ -9,15 +9,16 @@
     height: 51px
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
-    border-top: 3px solid var(--c1);
+    border-top: 4px solid var(--c1);
+    background: #002244
 
 .product-overlay
+    background: #002244
     justify-content: space-between;
     display: flex;
     align-items: center;
     width: 100%;
     padding: 10px;
-    background: linear-gradient(310deg, var(--c1) 34%, #002244 34.1%);
     background-size: 200% 200%
     animation-duration: .4s
     animation-timing-function: ease
@@ -29,12 +30,12 @@
     border-bottom-left-radius: 5px;
 
 .product-overlay2
+    background: #002244
     justify-content: flex-end;
     display: flex;
     align-items: center;
     width: 100%;
     padding: 10px;
-    background: linear-gradient(310deg, var(--c1) 34%, #002244 34.1%);
     background-size: 200% 200%
     animation-duration: .4s
     animation-timing-function: ease
@@ -46,6 +47,9 @@
     border-bottom-left-radius: 5px;
 
 .box:hover .product-overlay
+    background: linear-gradient(310deg, var(--c1) 34%, #002244 34.1%);
+    background-size: 200% 200%
+    background-position: 0% 100%
     animation-duration: .75s
     animation-timing-function: ease
     animation-direction: alternate
@@ -54,6 +58,9 @@
     background-position: 50% 100%
 
 .boxHor:hover .product-overlay2
+    background: linear-gradient(310deg, var(--c1) 34%, #002244 34.1%);
+    background-size: 200% 200%
+    background-position: 0% 100%
     animation-duration: .75s
     animation-timing-function: ease
     animation-direction: alternate
@@ -71,10 +78,13 @@
 
 @keyframes newHover4
     0%
+        background: #002244
         background-position: 42% 100%
     20%
+        background: #002244
         background-position: 52% 100%
     100%
+        background: #002244
         background-position: 0% 100%
 
 @keyframes newHover
