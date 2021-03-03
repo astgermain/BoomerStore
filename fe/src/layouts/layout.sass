@@ -19,6 +19,13 @@ html
 body 
     font-family: "EinaBold", Arial, sans-serif
 
+.preload * 
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+
+
 img
     max-height: 300px;
 .is-size-2
@@ -314,10 +321,9 @@ img
     width: 50%;
     transition: 1.0s ease;
     transform: translateY(0px);
-    margin-right: 25px
+    width: 75px
 
 .p-view-container
-    width: 25%
     display: flex
     justify-content: center
     align-items: center

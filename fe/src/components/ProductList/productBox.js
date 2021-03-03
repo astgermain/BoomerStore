@@ -2,6 +2,8 @@ import React from "react";
 import Img from "gatsby-image";
 import silverLogo from "../../images/boomersilver.webp";
 import naturalsLogo from "../../images/boomernaturals.webp";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const ProductBox = (props) => {
   const product = props?.product;
@@ -48,6 +50,16 @@ const ProductBox = (props) => {
                   From ${priceFormat(product?.node?.variants[0]?.price)}
                 </p>
                 <div className="p-view-more">View</div>
+                <FontAwesomeIcon
+                  icon={faArrowRight}
+                  className="p-icon"
+                  style={{
+                    marginTop: "1px",
+                    color: "black",
+                    width: "0.875em;",
+                    height: "1em",
+                  }}
+                />
               </div>
             </div>
           </div>

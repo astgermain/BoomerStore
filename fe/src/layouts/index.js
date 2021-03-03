@@ -16,13 +16,13 @@ const Layout = ({ path, children, location }) => {
         {theme ?
       <Helmet
         bodyAttributes={{
-          class: "bodylight",
+          class: "bodylight preload",
         }}
       />
       :
       <Helmet
         bodyAttributes={{
-          class: "bodydark",
+          class: "bodydark preload",
         }}
       />
     }
