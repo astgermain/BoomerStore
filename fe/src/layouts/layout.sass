@@ -281,7 +281,8 @@ img
     overflow: hidden;
     text-overflow: ellipsis;
     min-height: 35px;
-    margin-top: 5px;
+    margin-top: 0px;
+    padding: 0px 10px;
 
 .p-price
     color: white;
@@ -311,7 +312,7 @@ img
     font-size: 14px;
     border-radius: 5px;
     width: 50%;
-    transition: .25s ease;
+    transition: 1.0s ease;
     transform: translateY(0px);
     margin-right: 25px
 
@@ -330,8 +331,8 @@ img
 
 
 .box:hover .p-view-more
-    
-    transition: .25s ease;
+    color: var(--c1)
+    transition: .75s ease;
     transform: translateX(100px);
 
 .product-overlay .p-icon
@@ -626,16 +627,19 @@ img
     border-radius: 10px;
 
 .hor-half
-    width: 50%
-    display: flex
-    justify-content: center
-    align-items: center
-    flex-direction: column
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+
 
 .hor-half2
     width: 50%
     display: flex;
     justify-content: center;
+    align-items: center;
 
 .productBoxHor
     animation-duration: .35s ease
@@ -680,6 +684,7 @@ img
     display: flex;
     justify-content: flex-end;
     flex-direction: row;
+    height: calc(100% - 51px);
 
 .p-priceHor
     color: white;
@@ -720,11 +725,11 @@ img
     transform: translateY(0px);
     margin-right: 5px;
     max-width: 75px;
-    transition: .25s ease;
+    transition: .75s ease;
     transform: translateX(0px);
 
 .boxHor:hover .p-view-moreHor
-    transition: .25s ease;
+    transition: 1.0s ease;
     transform: translateX(300px);
     color: var(--c1)
 
