@@ -2,6 +2,9 @@
     width: 70vw
     height: 700px
     background: #002244
+    min-width: 775px;
+    display: flex;
+    justify-content: center;
 
 .main-section-adjustment-layer
     width: 70vw
@@ -16,8 +19,15 @@
     position: absolute
 
 .header-adjustment
-    margin-top: 100px
-    height: 600px
+    margin-top: 50px;
+    height: 600px;
+    position: absolute;
+    top: 0;
+    width: 775px;
+
+.home-ani
+    height: 700px
+    width: 100%;
 
 .hero-body
     padding: 0
@@ -114,6 +124,48 @@
         transform: rotate(-15deg)
     100%
         transform: rotate(0deg)
+
+@keyframes svg1
+    from
+        transform: translate3d(-10px, 310px, 10px) rotate(0deg) scale(1.1)
+    33%
+        transform: translate3d(-60px, 10px, 10px) rotate(90deg) scale(1.5)
+    66%
+        transform: translate3d(-40px, 280px, 15px) rotate(180deg) scale(.8)
+    100%
+        transform: translate3d(-85px, 45px, 15px) rotate(270deg) scale(2.0)
+
+@keyframes svg2
+    from
+        transform: translate3d(-10px, 310px, 0px) rotate(0deg) scale(1.1)
+    33%
+        transform: translate3d(-60px, 10px, 0px) rotate(90deg) scale(1.5)
+    66%
+        transform: translate3d(-40px, 280px, 0px) rotate(180deg) scale(.8)
+    100%
+        transform: translate3d(-85px, 45px, 0px) rotate(270deg) scale(2.0)
+
+.home-svg-1
+    fill: var(--darker);
+    width: 250px;
+    position: absolute;
+    top: 50px;
+    left: -75px;
+    animation: svg1 15.5s infinite
+    animation-direction: alternate
+    transition: 1s ease
+    opacity: .8
+
+.home-svg-1-shadow
+    fill: #003C78;
+    width: 250px;
+    position: absolute;
+    top: 51px;
+    left: -76px;
+    animation: svg1 15.5s infinite
+    animation-direction: alternate
+    transition: 1s ease
+    opacity: .8
     
 
 @media only screen and (max-width:768px)
@@ -133,6 +185,7 @@
         padding: 5vw;
     .header-adjustment
         height: auto
+        width: auto
     .mobile-top
         margin-top: 35px
         display: flex;
