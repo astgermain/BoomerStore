@@ -40,6 +40,9 @@ const Header = ({ path, setTheme, loc}) => {
   const [search, setSearch] = useState("");
   const [menu, setMenu] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
+  
+  const pageContent = document.getElementsByClassName('page-content')[0]
+ 
   const handleMenuClick = () => {
     setMobileMenu(false);
     setMenu(!menu);
@@ -47,6 +50,11 @@ const Header = ({ path, setTheme, loc}) => {
   const handleMobileMenuClick = () => {
     setMenu(false);
     setMobileMenu(!mobileMenu);
+    if(!mobileMenu){
+      pageContent.style.position = "fixed"
+    }else if (mobileMenu){
+      pageContent.style.position = "relative"
+    }
   };
   
   useEffect(() => {
@@ -367,7 +375,7 @@ const Header = ({ path, setTheme, loc}) => {
 
       {menu && (
         <div className="category-sidebar">
-          <div className="category-container">
+          <div className="category-container category-color">
             <div className="category-bar-top">
               <button
                 className="categories-circle-button"
@@ -481,7 +489,7 @@ const Header = ({ path, setTheme, loc}) => {
       )}
       {mobileMenu && (
         <div className="category-sidebar">
-          <div className="category-container">
+          <div className="category-container category-color">
             <div className="category-bar-top">
               <button
                 className="categories-circle-button"

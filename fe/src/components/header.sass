@@ -44,9 +44,10 @@ $desktop: 1800px;
     margin: 0
     display: flex
     flex-direction: column
-    background: var(--c2)
     width: 400px
     height: 100vh
+.category-color
+    background: var(--c2)!important   
 .reg-logo-1
     margin-left: 75px
 
@@ -346,6 +347,8 @@ $desktop: 1800px;
         width: 40vw
     .reg-logo-1
         margin-left: 15px
+    .categories-option a:hover:before
+        display: none
 
 @media only screen and (max-width: $mobile) 
     .navbar
@@ -394,7 +397,7 @@ $desktop: 1800px;
 	    margin-left: 50px
     .categories-circle-button
         position: absolute
-        bottom: 10%
+        bottom: 20%
         right: 2%
         z-index: 1
     .mobile-navbar
