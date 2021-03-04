@@ -8,6 +8,7 @@ import "./layout.sass";
 import Helmet from "react-helmet";
 
 const Layout = ({ path, children, location }) => {
+    const [menuMobile, setMenuMobile] = useState("")
     const [theme, setTheme] = useState(false)
     const [body, setBody] = useState("preload")
     useEffect(() => {
@@ -22,18 +23,19 @@ const Layout = ({ path, children, location }) => {
         {theme ?
       <Helmet
         bodyAttributes={{
-          class: `bodylight ${body}`,
+          class: `bodylight ${body} ${menuMobile}`, 
         }}
       />
       :
       <Helmet
         bodyAttributes={{
-          class: `bodydark ${body}`,
+          class: `bodydark ${body} ${menuMobile}`,
+         
         }}
       />
     }
     <div className="page-content">
-      <Header setTheme={setTheme} path={path} loc={location}/>
+      <Header setTheme={setTheme} path={path} loc={location} setMenuMobile={setMenuMobile}/>
       {children}
       <Footer />
     </div>

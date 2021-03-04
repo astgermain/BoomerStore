@@ -28,7 +28,7 @@ const countQuantity = (lineItems) => {
   return quantity;
 };
 
-const Header = ({ path, setTheme, loc}) => {
+const Header = ({ path, setTheme, loc, setMenuMobile}) => {
   const [selected, setSelected] = useState(false);
   const [cartState, setCartState] = useState("");
   const [accountState, setAccountState] = useState("");
@@ -41,7 +41,6 @@ const Header = ({ path, setTheme, loc}) => {
   const [menu, setMenu] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
   
-  const pageContent = document.getElementsByClassName('page-content')[0]
  
   const handleMenuClick = () => {
     setMobileMenu(false);
@@ -50,11 +49,10 @@ const Header = ({ path, setTheme, loc}) => {
   const handleMobileMenuClick = () => {
     setMenu(false);
     setMobileMenu(!mobileMenu);
-    if(!mobileMenu){
-      pageContent.style.position = "fixed"
-    }else if (mobileMenu){
-      pageContent.style.position = "relative"
-    }
+    !mobileMenu ? setMenuMobile('noscroll') :  setMenuMobile('')
+    
+      
+
   };
   
   useEffect(() => {
