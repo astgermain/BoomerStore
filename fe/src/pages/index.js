@@ -91,6 +91,11 @@ export const query = graphql`
           productType
           shopifyId
           title
+          variants {
+            id
+            title
+            price
+          }
           vendor
         }
       }

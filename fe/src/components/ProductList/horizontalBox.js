@@ -9,21 +9,22 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 const HorizontalBox = (props) => {
   const product = props?.product;
   let value = "";
+  console.log("fsadfas", product)
   if (props?.give) {
     value = "give-border";
   }
   let logo;
   let alt = "";
   let priceFormat = (price) => parseFloat(price).toFixed(2);
-  if (product?.node?.vendor == "Boomer Silver") {
+  if (product?.vendor == "Boomer Silver") {
     logo = silverLogo;
     alt = "Boomer Silver logo";
-  } else if (product?.node?.vendor == "Boomer Naturals") {
+  } else if (product?.vendor == "Boomer Naturals") {
     logo = naturalsLogo;
     alt = "Boomer Naturals Logo";
   }
   return (
-    <a href={`/product/${product?.node?.handle}`}>
+    <a href={`/product/${product?.handle}`}>
       <div className="boxHor" key={props?.title}>
         <div className={`productBoxHor  ${value}`}>
           <div className="hor-row">
@@ -31,12 +32,12 @@ const HorizontalBox = (props) => {
               <div className="image-box">
                 <Img
                   fluid={
-                    product?.node?.images[0]?.localFile?.childImageSharp?.fluid
+                    product?.images[0]?.localFile?.childImageSharp?.fluid
                   }
-                  key={product?.node?.images[0]?.localFile?.id}
+                  key={product?.images[0]?.localFile?.id}
                   fadeIn={false}
                   loading="eager"
-                  alt={product?.node?.title}
+                  alt={product?.title}
                   style={{
                     width: "100%",
                     alignSelf: "center",
@@ -50,7 +51,7 @@ const HorizontalBox = (props) => {
                 <img src={logo} alt={alt} style={{ alignSelf: "center" }}></img>
               </div>
               <p className="has-text-weight-semibold p-titleHor">
-                {product?.node?.title}
+                {product?.title}
               </p>
             </div>
           </div>
@@ -58,7 +59,7 @@ const HorizontalBox = (props) => {
           <div className="product-bar">
             <div className="product-overlay2">
               <p className="has-text-weight-light p-priceHor">
-                ${priceFormat(product?.node?.variants[0]?.price)}
+                ${priceFormat(product?.variants[0]?.price)}
               </p>
               <div className="p-view-moreHor">View</div>
               <FontAwesomeIcon

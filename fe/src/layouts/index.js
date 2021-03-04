@@ -10,7 +10,6 @@ import Helmet from "react-helmet";
 const Layout = ({ path, children, location }) => {
     const [theme, setTheme] = useState(false)
     const [body, setBody] = useState("preload")
-    const [body, setBody] = useState("")
     useEffect(() => {
       setTimeout(() => {
         setBody("")
@@ -29,12 +28,12 @@ const Layout = ({ path, children, location }) => {
       :
       <Helmet
         bodyAttributes={{
-          class: `bodydark ${body} ${mobile}`,
+          class: `bodydark ${body}`,
         }}
       />
     }
     <div className="page-content">
-      <Header  setTheme={setTheme} path={path} loc={location}/>
+      <Header setTheme={setTheme} path={path} loc={location}/>
       {children}
       <Footer />
     </div>
