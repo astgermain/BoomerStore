@@ -102,7 +102,6 @@ const Login = ({ reg, confirm, confirm2 }) => {
                   <div className="hasInput">E-Mail</div>
                 )}
               </div>
-              <br></br>
               <div className="formField">
                 <input
                   className="form-control"
@@ -120,7 +119,6 @@ const Login = ({ reg, confirm, confirm2 }) => {
                   <div className="hasInput">Password</div>
                 )}
               </div>
-              <br></br>
               <div className="reverse-row">
                 <button type="submit" className="account-button">
                   Login
