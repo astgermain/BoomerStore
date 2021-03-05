@@ -6,6 +6,7 @@ import logo from "../images/boomerstorelogo.webp";
 import ToggleButton from "./UI/toogleButton";
 import CartSection from "./HomeItems/cartSection";
 import AccountSection from "./HomeItems/accountSection";
+import CategorieListItem from "./CategoryListItem"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faShoppingBag,
@@ -450,27 +451,13 @@ const Header = ({ path, setTheme, loc, setMenuMobile}) => {
 
               <div className="product-categories">
                 <span className="categorie-header">Products</span>
-                <div className="categories-option">
-                  <a href="collection/face-covers">Face Covers</a>
-                </div>
-                <div className="categories-option">
-                  <a href="collection/coffee">Vietnamese Coffee</a>
-                </div>
-                <div className="categories-option">
-                  <a href="collection/bed-and-bath">Bed & Bath</a>
-                </div>
-                <div className="categories-option">
-                  <a href="collection/supplements">Boomer Supplements</a>
-                </div>
-                <div className="categories-option">
-                  <a href="collection/apparel">Boomer Silver Apparel</a>
-                </div>
-                <div className="categories-option">
-                  <a href="collection/skin-care">Skin Care</a>
-                </div>
-                <div className="categories-option">
-                  <a href="collection/pet">Pet</a>
-                </div>
+                <CategorieListItem url={"collection/face-covers"} title={"Face Covers"} />
+                <CategorieListItem url={"collection/coffee"} title={"Vietnamese Coffee"} />
+                <CategorieListItem url={"collection/bed-and-bath"} title={"Bed & Bath"} />
+                <CategorieListItem url={"collection/supplements"} title={"Boomer Supplements"} />
+                <CategorieListItem url={"collection/apparel"} title={"Boomer Silver Apparel"} />
+                <CategorieListItem url={"collection/skin-care"} title={"Skin Care"} />
+                <CategorieListItem url={"collection/pet"} title={"Pet"} />
               </div>
               <p
                 style={{ color: "var(--c1)", fontSize: "2em", padding: "25px" }}
