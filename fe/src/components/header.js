@@ -166,13 +166,7 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
         style={{
           display: "flex",
           height: "65px",
-          backgroundColor: `${
-            loc.pathname == "/" ||
-            loc.pathname == "/index.html" ||
-            loc.pathname == ""
-              ? "#002244"
-              : "#001220"
-          }`,
+          backgroundColor: `#002244`,
         }}
       >
         <div
