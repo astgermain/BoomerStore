@@ -2,6 +2,17 @@ import React, { useState, useContext } from "react";
 import { Mutation } from "react-apollo";
 import gql from "graphql-tag";
 import StoreContext from "../../../context/store";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faKey,
+  faEnvelope,
+  faSearch,
+  faAngleDown,
+  faShoppingCart,
+  faStream,
+  faChevronLeft,
+  faTimes,
+} from "@fortawesome/free-solid-svg-icons";
 import "./login.sass";
 
 const LOGIN_USER = gql`
@@ -66,24 +77,50 @@ const Login = ({ reg, confirm, confirm2 }) => {
                   });
               }}
             >
-              {confirm && <p className="reset-text">Your Account Has Been Created</p>}
-              {confirm2 && <p className="reset-text">An E-Mail should have been sent to the provided E-Mail address</p>}
-              <div className="wrap-input-login">
+              {confirm && (
+                <p className="reset-text">Your Account Has Been Created</p>
+              )}
+              {confirm2 && (
+                <p className="reset-text">
+                  An E-Mail should have been sent to the provided E-Mail address
+                </p>
+              )}
+              <div className="formField">
                 <input
+                  className="form-control"
                   type="email"
-                  placeholder="E-Mail"
+                  placeholder=""
                   name="email"
-                  autoComplete="email"
                   onChange={(e) => setEmail(e.target.value)}
                 ></input>
+                <label className="labelIcon">
+                  <FontAwesomeIcon icon={faEnvelope} style={{color: "black"}} />
+                </label>
+                {email === "" ? (
+                  <div className="selectedInput">E-Mail</div>
+                ) : (
+                  <div className="hasInput">E-Mail</div>
+                )}
+              </div>
+              <br></br>
+              <div className="formField">
                 <input
+                  className="form-control"
                   type="password"
-                  placeholder="Password"
+                  placeholder=""
                   name="password"
-                  autoComplete="password"
                   onChange={(e) => setPassword(e.target.value)}
                 ></input>
+                <label className="labelIcon">
+                  <FontAwesomeIcon icon={faKey} style={{color: "black"}} />
+                </label>
+                {password === "" ? (
+                  <div className="selectedInput">Password</div>
+                ) : (
+                  <div className="hasInput">Password</div>
+                )}
               </div>
+              <br></br>
               <div className="reverse-row">
                 <button type="submit" className="account-button">
                   Login

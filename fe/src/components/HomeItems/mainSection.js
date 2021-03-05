@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "gatsby"; /* eslint-disable */
 import ProductList from "../productList";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -23,8 +24,12 @@ import "./mainSection.sass";
 const MainSection = ({ data }) => {
   const [search, setSearch] = useState("");
   //Data is allShopifyProduct
+  const onChange = (e) => {
+    setSearch(e.target.value);
+  };
   return (
     <div className="mainSection" style={{ margin: "0" }}>
+      
       <div className="home-ani">
         <div className="home-svg-1">
           <svg
@@ -589,43 +594,45 @@ const MainSection = ({ data }) => {
         </div>
         <div className="main-text-mobile">
           <div className="mobile-top">
-            <div className="field" style={{ margin: "auto", display: "flex" }}>
-              <div className="control has-icons-right">
-                <form
+          <div className="searchForm">
+          <form
+                  className="formField"
                   action="/search"
                   method="GET"
                   style={{ display: "flex", alignItems: "center" }}
                 >
-                  <input
-                    className="EBold input-search"
-                    name="value"
-                    type="text"
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                    placeholder="Search"
-                    style={{
-                      boxShadow: "0 0 0.125em 0.075em rgb(10 10 10 / 12%)",
-                    }}
-                  />
-                  <button
-                    type="submit"
-                    style={{
-                      border: "none",
-                      borderRadius: "0 5px 5px 0",
-                      borderLeft: "none",
-                      height: "35px",
-                      backgroundColor: "var(--c1)",
-                      boxShadow: "0 0 0.125em 0.075em rgb(10 10 10 / 12%)",
-                      outline: "none",
-                      width: "40px",
-                    }}
-                    className="button"
-                  >
-                    <FontAwesomeIcon icon={faSearch} />
-                  </button>
-                </form>
-              </div>
-            </div>
+              <input
+                onChange={onChange}
+                value={search}
+                id="search"
+                type="text"
+                className="form-control"
+              />
+              <label className="labelIcon">
+              <Link to="/search" state={{ search: search }} style={{width: "100%", height: "100%", padding: "0"}}>
+                      <button 
+                        type="submit"
+                        style={{width: "100%", height: "100%", background: "transparent", border: "none"}}>
+                <FontAwesomeIcon
+                  icon={faSearch}
+                  className="p-icon"
+                  style={{
+                    marginTop: "1px",
+                    color: "black",
+                    width: "0.875em;",
+                    height: "1em",
+                  }}
+                />
+                </button>
+                </Link>
+              </label>
+              {search === "" ? (
+                <div className="selectedInput">Search</div>
+              ) : (
+                <div className="hasInput">Search</div>
+              )}
+            </form>
+          </div>
           </div>
           <div className="cat-text">
             <p>browse.</p> <p>buy.</p> <p className="gold-text">boom.</p>

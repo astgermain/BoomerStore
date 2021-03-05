@@ -52,8 +52,11 @@ $desktop: 1800px;
     background: #000000a3;
     width: calc(100vw);
     height: 100vh;
-.reg-search-center
-    margin: auto;
+
+.reg-search-center 
+    /* margin: auto; */
+    width: 100%;
+
 .category-container
     margin: 0
     display: flex
@@ -132,10 +135,13 @@ $desktop: 1800px;
     z-index: 3
     min-width: 1050px
     
-.cart-hovered, .account-hovered
-    background: #003C78 !important
+.cart-hovered, .account-hovered 
+    background: #001321 !important;
+    border-bottom: none !important;
+    border-left: 3px solid var(--c1);
+    border-right: 3px solid var(--c1);
 
-.cat-btn-top
+.cat-btn-top 
     position: relative;
     display: flex;
     padding: 10px 50px;
@@ -145,7 +151,7 @@ $desktop: 1800px;
     text-decoration: none;
     color: var(--textNormal);
     background: none;
-    border: 3px solid var(--c1);
+    border: 2px solid var(--c1);
     cursor: pointer;
     transition: ease-out 0.5s;
     -webkit-transition: ease-out 0.5s;
@@ -157,6 +163,7 @@ $desktop: 1800px;
     align-items: center;
     margin: auto;
     height: 41px;
+
 .cat-btn-top2
     height: 41px;
     
@@ -315,21 +322,26 @@ $desktop: 1800px;
 
 .navbar
     min-width: 1050px
+
 .navbar-start 
-    width: 70vw
-    min-width: 775px
+    width: 70vw;
+    min-width: 775px;
+    border-bottom: 3px solid var(--c1);
+
 .navbar-end
     min-width: 425px
     justify-content: flex-start !important;
-.navbar-item
+
+.navbar-item 
     flex-grow: 0;
     flex-shrink: 0;
     height: 100%;
     display: flex !important;
     justify-content: center;
     align-items: center;
-    min-width: calc(400px/3)
-    background: #011220
+    min-width: calc(400px/3);
+    background: #002244;
+    border-bottom: 3px solid var(--c1);
 
 .navbar-item:hover
 

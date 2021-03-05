@@ -97,7 +97,7 @@ const FeaturedSection = ({ data }) => {
         </div>
       </div>
       <div className="featured-content2">
-        <div className="f-row-top2">
+        <div className="f-row-top2" style={{paddingBottom: "15px"}}>
           <span className="f-top-title2">New Arrivals</span>
           <a href="collection/new-arrivals">
             <button className="f-button2">See More</button>
@@ -105,7 +105,7 @@ const FeaturedSection = ({ data }) => {
         </div>
         <div
           className="f-row-p"
-          style={{ justifyContent: "space-between", flexFlow: "wrap" }}
+          style={{ justifyContent: "center", flexFlow: "wrap" }}
         >
           {/*offers 1 collection */}
           {arrivals.map((product) => {
@@ -127,7 +127,7 @@ const FeaturedSection = ({ data }) => {
             </div>
             <div className="horizontal-product-container">
               {s1.map((product) => {
-                return <CollectionProductBox product={product} />;
+                return <CollectionProductBox product={product} give={true} />;
               })}
             </div>
           </div>
@@ -137,14 +137,14 @@ const FeaturedSection = ({ data }) => {
             </div>
             <div className="horizontal-product-container">
               {s2.map((product) => {
-                return <CollectionProductBox product={product} />;
+                return <CollectionProductBox product={product} give={true} />;
               })}
             </div>
           </div>
           <div className="f-column-p col-1">
             <a href="/" className="second-ad" style={{ height: "100%" }}>
               <div
-                className="f-ad-box give-border"
+                className="f-ad-box"
                 style={{
                   backgroundImage: `url(${Ad2})`,
                   backgroundSize: `cover`,

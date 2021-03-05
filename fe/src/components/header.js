@@ -6,7 +6,7 @@ import logo from "../images/boomerstorelogo.webp";
 import ToggleButton from "./UI/toogleButton";
 import CartSection from "./HomeItems/cartSection";
 import AccountSection from "./HomeItems/accountSection";
-import CategorieListItem from "./CategoryListItem"
+import CategorieListItem from "./CategoryListItem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faShoppingBag,
@@ -16,7 +16,7 @@ import {
   faShoppingCart,
   faStream,
   faChevronLeft,
-  faTimes
+  faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 import "./header.sass";
 
@@ -29,7 +29,7 @@ const countQuantity = (lineItems) => {
   return quantity;
 };
 
-const Header = ({ path, setTheme, loc, setMenuMobile}) => {
+const Header = ({ path, setTheme, loc, setMenuMobile }) => {
   const [selected, setSelected] = useState(false);
   const [cartState, setCartState] = useState("");
   const [accountState, setAccountState] = useState("");
@@ -41,8 +41,7 @@ const Header = ({ path, setTheme, loc, setMenuMobile}) => {
   const [search, setSearch] = useState("");
   const [menu, setMenu] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
-  
- 
+
   const handleMenuClick = () => {
     setMobileMenu(false);
     setMenu(!menu);
@@ -50,14 +49,12 @@ const Header = ({ path, setTheme, loc, setMenuMobile}) => {
   const handleMobileMenuClick = () => {
     setMenu(false);
     setMobileMenu(!mobileMenu);
-    !mobileMenu ? setMenuMobile('noscroll') :  setMenuMobile('')
-    
-      
-
+    !mobileMenu ? setMenuMobile("noscroll") : setMenuMobile("");
   };
-  
+  const onChange = (e) => {
+    setSearch(e.target.value);
+  };
   useEffect(() => {
-    
     setQuantity(countQuantity(checkout ? checkout.lineItems : []));
   }, [checkout]);
 
@@ -169,7 +166,13 @@ const Header = ({ path, setTheme, loc, setMenuMobile}) => {
         style={{
           display: "flex",
           height: "65px",
-          backgroundColor: `${((loc.pathname == "/") || (loc.pathname == "/index.html") || (loc.pathname == "")) ? "#002244" : "#001220"}`,
+          backgroundColor: `${
+            loc.pathname == "/" ||
+            loc.pathname == "/index.html" ||
+            loc.pathname == ""
+              ? "#002244"
+              : "#001220"
+          }`,
         }}
       >
         <div
@@ -192,47 +195,45 @@ const Header = ({ path, setTheme, loc, setMenuMobile}) => {
           </h1>
           {path != "/search/" && (
             <div className="reg-search-center">
-              <div
-                className="field"
-                style={{ margin: "auto", display: "flex" }}
-              >
-                <div className="control has-icons-right">
-                  <form
-                    action="/search"
-                    method="GET"
-                    style={{ display: "flex", alignItems: "center" }}
-                  >
-                    <input
-                      className="EBold input-search"
-                      name="value"
-                      type="text"
-                      value={search}
-                      onChange={(e) => setSearch(e.target.value)}
-                      placeholder="Search"
-                      style={{
-                        boxShadow: "0 0 0.125em 0.075em rgb(10 10 10 / 12%)",
-                      }}
-                    />
-                    <Link to="/search" state={{ search: search }}>
-                      <button
+              <div className="searchForm">
+                <form
+                  className="formField"
+                  action="/search"
+                  method="GET"
+                  style={{ display: "flex", alignItems: "center" }}
+                >
+                  <input
+                    onChange={onChange}
+                    value={search}
+                    id="search"
+                    type="text"
+                    className="form-control"
+                  />
+                  <label className="labelIcon">
+                    <Link to="/search" state={{ search: search }} style={{width: "100%", height: "100%", padding: "0"}}>
+                      <button 
                         type="submit"
+                        style={{width: "100%", height: "100%", background: "transparent", border: "none"}}>
+
+                      <FontAwesomeIcon
+                        icon={faSearch}
+                        className="p-icon"
                         style={{
-                          border: "none",
-                          borderRadius: "0 5px 5px 0",
-                          borderLeft: "none",
-                          height: "35px",
-                          backgroundColor: "var(--c1)",
-                          boxShadow: "0 0 0.125em 0.075em rgb(10 10 10 / 12%)",
-                          outline: "none",
-                          width: "40px",
+                          marginTop: "1px",
+                          color: "black",
+                          width: "0.875em;",
+                          height: "1em",
                         }}
-                        className="button"
-                      >
-                        <FontAwesomeIcon icon={faSearch} />
+                      />
                       </button>
                     </Link>
-                  </form>
-                </div>
+                  </label>
+                  {search === "" ? (
+                    <div className="selectedInput">Search</div>
+                  ) : (
+                    <div className="hasInput">Search</div>
+                  )}
+                </form>
               </div>
             </div>
           )}
@@ -253,30 +254,31 @@ const Header = ({ path, setTheme, loc, setMenuMobile}) => {
             onClick={() => accountHover()}
           >
             <div className="cat-btn-top2 btn-border2">
-            {context?.customerAccessToken?.accessToken ? (
-              <h2 style={{ marginRight: "10px" }}>Account</h2>
-            ) : (
-              <h2 style={{ marginRight: "10px" }}>Sign In</h2>
-            )}
-            <FontAwesomeIcon
-              icon={faUser}
-              style={{
-                color: "var(--c1)",
-                display: "flex",
-                alginSelf: "center",
-                width: "0.875em",
-                height: "1em",
-              }}
-            />
+              {context?.customerAccessToken?.accessToken ? (
+                <h2 style={{ marginRight: "10px" }}>Account</h2>
+              ) : (
+                <h2 style={{ marginRight: "10px" }}>Sign In</h2>
+              )}
+              <FontAwesomeIcon
+                icon={faUser}
+                style={{
+                  color: "var(--c1)",
+                  display: "flex",
+                  alginSelf: "center",
+                  width: "0.875em",
+                  height: "1em",
+                }}
+              />
             </div>
           </div>
           <div
-              className={`navbar-item ${cartState}`}
-              style={{ color: "var(--textTitle)", width: "calc(100%/3)" }}
+            className={`navbar-item ${cartState}`}
+            style={{ color: "var(--textTitle)", width: "calc(100%/3)" }}
+            onClick={() => cartHover()}
+          >
+            <div
+              className={`cat-btn-top2 btn-border2`}
             >
-          
-            
-              <div className={`cat-btn-top2 btn-border2`} onClick={() => cartHover()}>
               {quantity > 0 ? (
                 <>
                   {cartState != "" ? (
@@ -314,7 +316,6 @@ const Header = ({ path, setTheme, loc, setMenuMobile}) => {
                     }}
                   />
                   <div className="shopping-bag-quantity">{quantity}</div>
-                  
                 </>
               ) : (
                 <>
@@ -332,7 +333,7 @@ const Header = ({ path, setTheme, loc, setMenuMobile}) => {
                   />
                 </>
               )}
-              </div>
+            </div>
           </div>
           {cartState != "" && (
             <CartSection quantity={quantity} cartState={setCartState} />
@@ -451,12 +452,30 @@ const Header = ({ path, setTheme, loc, setMenuMobile}) => {
 
               <div className="product-categories">
                 <span className="categorie-header">Products</span>
-                <CategorieListItem url={"collection/face-covers"} title={"Face Covers"} />
-                <CategorieListItem url={"collection/coffee"} title={"Vietnamese Coffee"} />
-                <CategorieListItem url={"collection/bed-and-bath"} title={"Bed & Bath"} />
-                <CategorieListItem url={"collection/supplements"} title={"Boomer Supplements"} />
-                <CategorieListItem url={"collection/apparel"} title={"Boomer Silver Apparel"} />
-                <CategorieListItem url={"collection/skin-care"} title={"Skin Care"} />
+                <CategorieListItem
+                  url={"collection/face-covers"}
+                  title={"Face Covers"}
+                />
+                <CategorieListItem
+                  url={"collection/coffee"}
+                  title={"Vietnamese Coffee"}
+                />
+                <CategorieListItem
+                  url={"collection/bed-and-bath"}
+                  title={"Bed & Bath"}
+                />
+                <CategorieListItem
+                  url={"collection/supplements"}
+                  title={"Boomer Supplements"}
+                />
+                <CategorieListItem
+                  url={"collection/apparel"}
+                  title={"Boomer Silver Apparel"}
+                />
+                <CategorieListItem
+                  url={"collection/skin-care"}
+                  title={"Skin Care"}
+                />
                 <CategorieListItem url={"collection/pet"} title={"Pet"} />
               </div>
               <p

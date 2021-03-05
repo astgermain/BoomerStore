@@ -412,6 +412,7 @@ const Index = () => {
                       <span className="gold-text">Welcome! </span>Sign In To
                       Continue
                     </div>
+                    <br></br>
                     <Login reg={setSign} />
                   </>
                 );
@@ -422,6 +423,7 @@ const Index = () => {
                       <span className="gold-text">Welcome! &nbsp;</span>Please Fill In
                       Your Details
                     </div>
+                    <br></br>
                     <Register login={setSign} />
                   </>
                 );
