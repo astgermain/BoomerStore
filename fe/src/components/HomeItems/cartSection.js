@@ -141,34 +141,51 @@ const CartSection = ({ data, quantity, cartState }) => {
 
   return (
     <div className="cart-section" style={{ margin: "0" }}>
-      <div className="small-text margin-left">Recently Added</div>
+      <div
+        style={{
+          width: "100%",
+          paddingRight: "25px",
+          paddingLeft: "25px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        <span style={{ fontSize: "24px" }}>Shopping Cart</span>
+        <div>
+          <span className="EBold small-text">{quantity} Items</span>
+        </div>
+      </div>
       <div>{firstTwoCart()}</div>
       <div className="cart-bottom">
-        <div style={{display: "flex", width: "100%", marginBottom: "5px"}}>
-          <div style={{margin: "auto"}}>
-            <span className="small-text">Total Items: </span>
-            <span>{quantity}</span>
-          </div>
-          <div style={{margin: "auto"}}>
-            <span className="small-text">Subtotal: </span>
+        <div style={{ display: "flex", width: "100%", marginBottom: "5px", alignItems: "center" }}>
+          <div style={{width: "100%"}}>
+            <span className="EBold small-text">Subtotal: </span>
             {priceCheck ? (
               <span>Recalculated At Checkout</span>
             ) : (
               <span>${check?.subtotalPrice}</span>
             )}
           </div>
-        </div>
-        <div style={{width: "100%", display: "flex", justifyContent: "space-evenly", marginBottom: "5px"}}>
-          <Link
-            to="/cart"
-            onClick={() => cartState("")}
-            className="cart-button"
+          <div
+            style={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "flex-end",
+            }}
           >
-            View Cart
-          </Link>{" "}
-          <Link to={check.webUrl} className="cart-button">
-            Checkout
-          </Link>
+            <Link
+              to="/cart"
+              onClick={() => cartState("")}
+              className="cart-button"
+              style={{ marginRight: "15px" }}
+            >
+              View Cart
+            </Link>{" "}
+            <Link to={check.webUrl} className="cart-button">
+              Checkout
+            </Link>
+          </div>
         </div>
       </div>
     </div>

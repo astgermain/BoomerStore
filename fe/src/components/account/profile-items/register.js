@@ -1,6 +1,17 @@
 import React, { useState } from "react";
 import gql from "graphql-tag";
 import { Mutation } from "react-apollo";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faKey,
+  faEnvelope,
+  faCheck,
+  faUser,
+  faShoppingCart,
+  faStream,
+  faChevronLeft,
+  faTimes,
+} from "@fortawesome/free-solid-svg-icons";
 import "./login.sass";
 
 const CUSTOMER_REGISTER = gql`
@@ -50,13 +61,18 @@ const RegisterForm = ({ login, confirm }) => {
                       result.data.customerCreate.customerAccessToken
                     )
                     */
-                    if (result?.data?.customerCreate?.customerUserErrors?.length) {
-                      setIncorrectCredMsg(result.data.customerCreate.customerUserErrors[0].message);
-                      alert(result.data.customerCreate.customerUserErrors[0].message);
-                    }
-                    else {
-                      confirm(true)
-                      login("login")
+                    if (
+                      result?.data?.customerCreate?.customerUserErrors?.length
+                    ) {
+                      setIncorrectCredMsg(
+                        result.data.customerCreate.customerUserErrors[0].message
+                      );
+                      alert(
+                        result.data.customerCreate.customerUserErrors[0].message
+                      );
+                    } else {
+                      confirm(true);
+                      login("login");
                     }
                   })
                   .catch((err) => {
@@ -65,40 +81,108 @@ const RegisterForm = ({ login, confirm }) => {
                   });
               }}
             >
-              <div className="wrap-input-login">
-                <div className="name-row">
+              <div className="name-row">
+                <div className="formField" style={{paddingRight: "25px"}}>
                   <input
-                    placeholder="First Name"
+                    className="form-control2"
+                    placeholder=""
                     type="text"
                     onChange={(e) => setFirstName(e.target.value)}
-                    style={{ width: "47.5%" }}
+                    style={{ width: "calc(100% - 50px)" }}
                   ></input>
+                  <label className="labelIcon">
+                  <FontAwesomeIcon
+                    icon={faUser}
+                    style={{ color: "black" }}
+                  />
+                </label>
+                  {firstName === "" ? (
+                    <div className="selectedInput">First Name</div>
+                  ) : (
+                    <div className="hasInput">First Name</div>
+                  )}
+                </div>
+                <div className="formField">
                   <input
-                    placeholder="Last Name"
+                    className="form-control2"
+                    placeholder=""
                     type="text"
                     onChange={(e) => setLastName(e.target.value)}
-                    style={{ width: "47.5%" }}
+                    style={{ width: "calc(100% - 50px)" }}
                   ></input>
+                  <label className="labelIcon">
+                  <FontAwesomeIcon
+                    icon={faUser}
+                    style={{ color: "black" }}
+                  />
+                </label>
+                  {lastName === "" ? (
+                    <div className="selectedInput">Last Name</div>
+                  ) : (
+                    <div className="hasInput">Last Name</div>
+                  )}
                 </div>
+              </div>
+              <div className="formField" style={{paddingRight: "25px", paddingLeft: "25px"}}>
                 <input
-                  placeholder="Email"
+                  className="form-control3"
+                  placeholder=""
                   type="email"
                   onChange={(e) => setEmail(e.target.value)}
                 ></input>
-                <input
-                  placeholder="Password"
-                  type="password"
-                  onChange={(e) => setPassword(e.target.value)}
-                ></input>
-                <input
-                  placeholder="Confirm Password"
-                  type="password"
-                  onChange={(e) => setPassword2(e.target.value)}
-                  className={`${firstName == "" && firstName}`}
-                ></input>
+                <label className="labelIcon">
+                  <FontAwesomeIcon
+                    icon={faEnvelope}
+                    style={{ color: "black" }}
+                  />
+                </label>
+                {email === "" || email == null ? (
+                  <div className="selectedInput">E-Mail</div>
+                ) : (
+                  <div className="hasInput">E-Mail</div>
+                )}
+              </div>
+              <div className="name-row">
+                <div className="formField" style={{paddingRight: "25px"}}>
+                  <input
+                    className="form-control2"
+                    placeholder=""
+                    type="password"
+                    onChange={(e) => setPassword(e.target.value)}
+                    style={{ width: "calc(100% - 50px)" }}
+                  ></input>
+                  <label className="labelIcon">
+                    <FontAwesomeIcon icon={faKey} style={{ color: "black" }} />
+                  </label>
+                  {password === "" || password == null ? (
+                    <div className="selectedInput">Password</div>
+                  ) : (
+                    <div className="hasInput">Password</div>
+                  )}
+                </div>
+                <div className="formField">
+                  <input
+                    className="form-control2"
+                    placeholder=""
+                    type="password"
+                    onChange={(e) => setPassword2(e.target.value)}
+                    style={{ width: "calc(100% - 50px)" }}
+                  ></input>
+                  <label className="labelIcon">
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      style={{ color: "black" }}
+                    />
+                  </label>
+                  {password2 === "" || password2 == null ? (
+                    <div className="selectedInput">Confirm</div>
+                  ) : (
+                    <div className="hasInput">Confirm</div>
+                  )}
+                </div>
               </div>
               <div className="reverse-row">
-                {((password != password2) || (email == null) || (email == "")) ? (
+                {password == null || password == "" || password2 == null || password2 == "" || email == null || email == "" ? (
                   <div className="account-button2">Sign Up</div>
                 ) : (
                   <button type="submit" className="account-button">

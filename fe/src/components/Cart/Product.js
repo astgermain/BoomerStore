@@ -5,7 +5,6 @@ const Product = ({ line_item }) => {
   const [quantity, setQuantity] = useState(0);
   const context = useContext(StoreContext);
   const checkoutID = context.store.checkout.id;
-  console.log(line_item)
   const imageItem = line_item.variant.image && (
     <figure className="image is-96x96" style={{ margin: "auto" }}>
       <img

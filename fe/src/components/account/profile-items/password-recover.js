@@ -1,6 +1,17 @@
 import React, { useState } from "react";
 import gql from "graphql-tag";
 import { Mutation } from "react-apollo";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faKey,
+  faEnvelope,
+  faSearch,
+  faAngleDown,
+  faShoppingCart,
+  faStream,
+  faChevronLeft,
+  faTimes,
+} from "@fortawesome/free-solid-svg-icons";
 import "./login.sass";
 
 const PASSWORD_RECOVER = gql`
@@ -48,12 +59,21 @@ const PasswordRecover = ({ forgot, confirm2 }) => {
                   });
               }}
             >
-              <div className="wrap-input-login">
+              <div className="formField" style={{paddingRight: "25px", paddingLeft: "25px"}}>
                 <input
-                  placeholder="Email"
+                  className="form-control"
+                  placeholder=""
                   type="email"
                   onChange={(e) => setEmail(e.target.value)}
                 ></input>
+                <label className="labelIcon">
+                  <FontAwesomeIcon icon={faEnvelope} style={{color: "black"}} />
+                </label>
+                {email === "" || email === null ? (
+                  <div className="selectedInput">E-Mail</div>
+                ) : (
+                  <div className="hasInput">E-Mail</div>
+                )}
               </div>
               <div className="reverse-row">
                 <button type="submit" className="account-button">

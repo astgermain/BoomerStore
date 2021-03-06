@@ -85,7 +85,7 @@ const Login = ({ reg, confirm, confirm2 }) => {
                   An E-Mail should have been sent to the provided E-Mail address
                 </p>
               )}
-              <div className="formField">
+              <div className="formField" style={{paddingRight: "25px", paddingLeft: "25px"}}>
                 <input
                   className="form-control"
                   type="email"
@@ -102,7 +102,7 @@ const Login = ({ reg, confirm, confirm2 }) => {
                   <div className="hasInput">E-Mail</div>
                 )}
               </div>
-              <div className="formField">
+              <div className="formField" style={{paddingRight: "25px", paddingLeft: "25px"}}>
                 <input
                   className="form-control"
                   type="password"

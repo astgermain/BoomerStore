@@ -280,19 +280,19 @@ const Account = ({side}) => {
         switch (sign) {
           case "login":   return (
             <>
-            <div><span className="gold-text">Welcome! </span>Sign In To Continue</div>
+            <div style={{width: "100%", paddingLeft: "25px"}}><span className="" style={{fontSize: "24px"}}>Sign In </span></div>
               <Login reg={setSign} confirm={confirm} confirm2={confirm2}/>
             </>
           )
           case "register": return (
             <>
-            <div><span className="gold-text">Welcome!</span>Please Fill In Your Details</div>
+            <div style={{width: "100%", paddingLeft: "25px"}}><span className="" style={{fontSize: "24px"}}>Register</span></div>
               <Register login={setSign} confirm={setConfirm}/>
             </>
           )
           case "forgot":  return (
             <>
-            <div>Forgot Password?</div>
+            <div style={{width: "100%", paddingLeft: "25px"}}><span className="" style={{fontSize: "24px"}}>Forgot Password?</span></div>
             <PasswordRecover forgot={setSign} confirm2={setConfirm2}/>
             </>
           )
