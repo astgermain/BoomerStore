@@ -402,15 +402,14 @@ const Index = () => {
       );
     } catch {
       return (
-        <div className="login-wrapper">
+        <div className="login-wrapper full-page-wrapper">
           {(() => {
             switch (sign) {
               case "login":
                 return (
                   <>
                     <div>
-                      <span className="gold-text">Welcome! </span>Sign In To
-                      Continue
+                      <span style={{fontSize: "24px", color: "white"}}>Sign In</span>
                     </div>
                     <br></br>
                     <Login reg={setSign} />
@@ -420,8 +419,7 @@ const Index = () => {
                 return (
                   <>
                     <div>
-                      <span className="gold-text">Welcome! &nbsp;</span>Please Fill In
-                      Your Details
+                      <span style={{fontSize: "24px", color: "white"}}>Register &nbsp;</span>
                     </div>
                     <br></br>
                     <Register login={setSign} />
@@ -430,7 +428,7 @@ const Index = () => {
               case "forgot":
                 return (
                   <>
-                    <div>Forgot Password?</div>
+                    <div style={{fontSize: "24px", color: "white"}}>Forgot Password?</div>
                     <PasswordRecover forgot={setSign} />
                   </>
                 );

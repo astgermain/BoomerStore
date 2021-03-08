@@ -12,9 +12,34 @@ $desktop: 1800px;
     animation-duration: .5s
     animation-timing-function: ease
     animation-direction: alternate
-    animation-name: arrowSlide
+    animation-name: arrowSlideMenu
     transition: 1s ease
     margin-left: 10px
+    transform: translateX(-35px);
+
+.categories-option .m-icon
+    display: flex
+    animation-duration: .5s
+    animation-timing-function: ease
+    animation-direction: alternate
+    animation-name: arrowSlideMenu2
+    transition: .25s ease
+    margin-left: 10px
+    transform: translateX(-150px);
+    position: absolute;
+
+@keyframes arrowSlideMenu
+    0%  
+        transform: translateX(-150px);    
+    100%
+        transform: translateX(-35px);
+
+
+@keyframes arrowSlideMenu2
+    0%  
+        transform: translateX(-35px);    
+    100%
+        transform: translateX(-150px);
 
 .row
     display: flex;
@@ -101,11 +126,10 @@ $desktop: 1800px;
     display: block;
     margin-bottom: 10px;
 .product-categories
-    margin-top: 30px;
     width: 50%
     margin-left: 50px;
 .categories-option  
-    margin-bottom: 20px
+    padding: 10px 0;
 .categories-option a
     color: white
     display: flex 
