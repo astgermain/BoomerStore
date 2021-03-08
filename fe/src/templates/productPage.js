@@ -122,7 +122,13 @@ const productPage = ({ data }) => {
         },
         body: query,
       }
-    ).then((response) => response.json());
+    ).then((response) => {
+      console.log('Product Fetch Response: ', response)
+      response.json()
+    })
+    .catch((error) => {
+      console.log('Product Fetch Error: ', error)
+    })
   }
 
   return (
