@@ -336,10 +336,11 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
           <div
             className="navbar-item"
             style={{ color: "var(--textTitle)", width: "calc(100%/3)" }}
+            onClick={() => handleMenuClick()}
           >
             <a
               className="cat-btn-top btn-border"
-              onClick={() => handleMenuClick()}
+              
             >
               <h1 style={{ display: "flex", alignItems: "center" }}>
                 Menu
@@ -377,7 +378,7 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
               >
                 <FontAwesomeIcon
                   icon={faChevronLeft}
-                  style={{ transform: "rotate(180deg)" }}
+                  style={{ transform: "rotate(180deg)", width: "100%" }}
                 />
               </button>
               <div className="row">

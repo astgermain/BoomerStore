@@ -10,7 +10,7 @@ const Empty = () => {
             </div>
             <div className="shopping-half">
                 <p className="is-size-3">Your cart is empty.</p>
-                <p className="is-size-3">I can fix that.</p>
+                <p className="is-size-3">We can fix that.</p>
                 <a className="button account-button" style={{ marginTop: "50px" }} href="/">Shop → </a>
             </div>
             

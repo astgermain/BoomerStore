@@ -125,48 +125,221 @@
     100%
         transform: rotate(0deg)
 
-@keyframes svg1
-    from
-        transform: translate3d(-10px, 310px, 10px) rotate(0deg) scale(1.1)
-    33%
-        transform: translate3d(-60px, 10px, 10px) rotate(90deg) scale(1.5)
-    66%
-        transform: translate3d(-40px, 280px, 15px) rotate(180deg) scale(.8)
-    100%
-        transform: translate3d(-85px, 45px, 15px) rotate(270deg) scale(2.0)
-
-@keyframes svg2
-    from
-        transform: translate3d(-10px, 310px, 0px) rotate(0deg) scale(1.1)
-    33%
-        transform: translate3d(-60px, 10px, 0px) rotate(90deg) scale(1.5)
-    66%
-        transform: translate3d(-40px, 280px, 0px) rotate(180deg) scale(.8)
-    100%
-        transform: translate3d(-85px, 45px, 0px) rotate(270deg) scale(2.0)
-
 .home-svg-1
     fill: var(--darker);
-    width: 250px;
+    width: 50px;
     position: absolute;
-    top: 50px;
-    left: -75px;
-    animation: svg1 15.5s infinite
+    top: 225px;
+    left: 65px;
+    animation: svg1 3.5s infinite
     animation-direction: alternate
     transition: 1s ease
     opacity: .8
 
 .home-svg-1-shadow
     fill: #003C78;
-    width: 250px;
+    width: 50px;
     position: absolute;
-    top: 51px;
-    left: -76px;
-    animation: svg1 15.5s infinite
+    top: 225px;
+    left: 66px;
+    animation: svg1 3.5s infinite
     animation-direction: alternate
     transition: 1s ease
     opacity: .8
     
+@keyframes svg1
+    from
+        opacity: .8
+    100%
+        opacity: 0.25
+
+
+.home-svg-2
+    fill: var(--darker);
+    width: 100px;
+    position: absolute;
+    top: 20px;
+    left: 15px;
+    animation: svg2 5.5s infinite
+    animation-direction: ease
+
+.home-svg-2-shadow
+    fill: #003C78;
+    width: 100px;
+    position: absolute;
+    top: 20px;
+    left: 16px;
+    animation: svg2 5.5s infinite
+    animation-direction: ease
+    
+    opacity: .8
+
+@keyframes svg2
+    from
+        transform: rotate(0deg)
+    100%
+        transform: rotate(360deg)
+
+.home-svg-3
+    fill: var(--darker);
+    width: 75px;
+    position: absolute;
+    top: 520px;
+    left: 15px;
+    animation: svg3 4s infinite
+    animation-direction: ease
+    transition: 1s ease
+    opacity: .8
+
+.home-svg-3-shadow
+    fill: #003C78;
+    width: 75px;
+    position: absolute;
+    top: 521px;
+    left: 16px;
+    animation: svg3-shadow 4s infinite
+    animation-direction: ease
+    transition: 1s ease
+    opacity: .8
+
+
+
+@keyframes svg3
+    from
+        transform: scale(.3)
+    50%
+        transform: scale(.8)
+    100%
+        transform: scale(.3)
+@keyframes svg3-shadow
+    from
+        transform: scale(.3)
+    50%
+        transform: scale(.8)
+    100%
+        transform: scale(.3)
+
+.home-svg-4
+    fill: var(--darker);
+    width: 40px;
+    position: absolute;
+    top: 240px;
+    left: 435px;
+    animation: svg4 7.5s infinite
+    animation-direction: ease
+
+.home-svg-4-shadow
+    fill: #003C78;
+    width: 40px;
+    position: absolute;
+    top: 241px;
+    left: 436px;
+    animation: svg4 7.5s infinite
+    animation-direction: ease
+    
+    opacity: .8
+
+@keyframes svg4
+    from
+        transform: rotate(0deg)
+    100%
+        transform: rotate(-360deg)
+
+.home-svg-5
+    fill: var(--darker);
+    width: 30px;
+    position: absolute;
+    top: 60px;
+    left: 335px;
+    animation: svg5 4.5s infinite
+    animation-direction: alternate
+    transition: 1s ease
+    opacity: .8
+
+.home-svg-5-shadow
+    fill: #003C78;
+    width: 30px;
+    position: absolute;
+    top: 61px;
+    left: 336px;
+    animation: svg5 4.5s infinite
+    animation-direction: alternate
+    transition: 1s ease
+    opacity: .8
+    
+@keyframes svg5
+    from
+        opacity: 1
+    100%
+        opacity: 0.45
+
+
+.home-svg-6
+    fill: var(--darker);
+    width: 105px;
+    position: absolute;
+    top: 125px;
+    left: 57vw;
+    animation: svg6 6.6s infinite
+    animation-direction: ease
+    transition: 1s ease
+    opacity: .8
+
+.home-svg-6-shadow
+    fill: #003C78;
+    width: 105px;
+    position: absolute;
+    top: 126px;
+    left: 57vw;
+    animation: svg6-shadow 6.6s infinite
+    animation-direction: ease
+    transition: 1s ease
+    opacity: .8
+
+
+
+@keyframes svg6
+    from
+        transform: scale(.3)
+    50%
+        transform: scale(.8)
+    100%
+        transform: scale(.3)
+@keyframes svg6-shadow
+    from
+        transform: scale(.3)
+    50%
+        transform: scale(.8)
+    100%
+        transform: scale(.3)
+
+
+.home-svg-7
+    fill: var(--darker);
+    width: 100px;
+    position: absolute;
+    top: 360px;
+    left: 60vw;
+    animation: svg7 8.5s infinite
+    animation-direction: ease
+
+.home-svg-7-shadow
+    fill: #003C78;
+    width: 100px;
+    position: absolute;
+    top: 360px;
+    left: 60vw;
+    animation: svg7 8.5s infinite
+    animation-direction: ease
+    
+    opacity: .8
+
+@keyframes svg7
+    from
+        transform: rotate(0deg)
+    100%
+        transform: rotate(-360deg)
+
 
 
 @media only screen and (max-width:768px)
@@ -184,9 +357,13 @@
         font-size: 20vw;
         width: 100%;
         padding: 5vw;
+    .home-ani
+        display: none;
     .header-adjustment
         height: auto
         width: auto
+        position: relative;
+        margin-top: 100px;
     .mobile-top
         margin-top: 35px
         display: flex;

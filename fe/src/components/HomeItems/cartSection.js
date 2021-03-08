@@ -9,8 +9,12 @@ const CartSection = ({ data, quantity, cartState }) => {
   //Data is allShopifyProduct
   let line = context.store.checkout.lineItems;
   let check = context.store.checkout;
+  const checkoutID = context.store.checkout.id;
   let priceFormat = (price) => parseFloat(price).toFixed(2);
   let priceCheck = false;
+  const removeItem = (value) => {
+    context.removeLineItem(checkoutID, value);
+  };
   line.map((l) => {
     if (l.variant == null) {
       priceCheck = true;
@@ -41,7 +45,7 @@ const CartSection = ({ data, quantity, cartState }) => {
   };
   const firstTwoCart = () => {
     if (line.length == 0) {
-      return <div>No Products In Cart</div>;
+      return <div style={{ padding: "25px 0" }}>No Products In Cart</div>;
     } else if (line.length == 1) {
       return (
         <>
@@ -58,6 +62,13 @@ const CartSection = ({ data, quantity, cartState }) => {
                   Qty: {line[0]?.quantity}
                 </div>
                 <div className="cart-product-title">{line[0]?.title}</div>
+                <button
+                  className="has-text-weight-normal has-text-danger link-button reg-remove"
+                  type="button"
+                  onClick={() => removeItem(line[0].id)}
+                >
+                  Remove Item
+                </button>
               </div>
               <div>
                 <div className="small-text float-right">
@@ -89,6 +100,13 @@ const CartSection = ({ data, quantity, cartState }) => {
                 <div className="cart-product-title">
                   {line[line.length - 2]?.title}
                 </div>
+                <button
+                  className="has-text-weight-normal has-text-danger link-button reg-remove"
+                  type="button"
+                  onClick={() => removeItem(line[line.length - 2].id)}
+                >
+                  Remove Item
+                </button>
               </div>
               <div>
                 <div className="small-text float-right">
@@ -119,6 +137,13 @@ const CartSection = ({ data, quantity, cartState }) => {
                 <div className="cart-product-title">
                   {line[line.length - 1]?.title}
                 </div>
+                <button
+                  className="has-text-weight-normal has-text-danger link-button reg-remove"
+                  type="button"
+                  onClick={() => removeItem(line[line.length - 1].id)}
+                >
+                  Remove Item
+                </button>
               </div>
               <div>
                 <div className="small-text float-right">
@@ -158,8 +183,15 @@ const CartSection = ({ data, quantity, cartState }) => {
       </div>
       <div>{firstTwoCart()}</div>
       <div className="cart-bottom">
-        <div style={{ display: "flex", width: "100%", marginBottom: "5px", alignItems: "center" }}>
-          <div style={{width: "100%"}}>
+        <div
+          style={{
+            display: "flex",
+            width: "100%",
+            marginBottom: "5px",
+            alignItems: "center",
+          }}
+        >
+          <div style={{ width: "100%" }}>
             <span className="EBold small-text">Subtotal: </span>
             {priceCheck ? (
               <span>Recalculated At Checkout</span>
