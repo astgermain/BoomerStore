@@ -59,7 +59,7 @@ const Provider = ({ children }) => {
         checkout,
         searchValue,
         customerAccessToken: getlocalStorage("customerAccessToken"),
-        addVariantToCart: (variantId, quantity) => {
+        addVariantToCart: async (variantId, quantity) => {
           updateStore((state) => {
             return { ...state, adding: true };
           });
@@ -68,7 +68,7 @@ const Provider = ({ children }) => {
           const lineItemsToUpdate = [
             { variantId, quantity: parseInt(quantity, 10) },
           ];
-          return client.checkout
+          return await client.checkout
             .addLineItems(checkoutId, lineItemsToUpdate)
             .then((checkout) => {
               console.log("ClientCheckout: ", client.checkout)
@@ -78,7 +78,7 @@ const Provider = ({ children }) => {
             })
             .catch((error) => console.log("ADD VARIANT TO CART ERROR, ", error))
         },
-        addVariantToCartAndBuyNow: (variantId, quantity) => {
+        addVariantToCartAndBuyNow: async (variantId, quantity) => {
           updateStore((state) => {
             return { ...state, adding: true };
           });
@@ -87,7 +87,7 @@ const Provider = ({ children }) => {
           const lineItemsToUpdate = [
             { variantId, quantity: parseInt(quantity, 10) },
           ];
-          return client.checkout
+          return await client.checkout
             .addLineItems(checkoutId, lineItemsToUpdate)
             .then((checkout) => {
               updateStore((state) => {
