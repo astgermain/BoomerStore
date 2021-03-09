@@ -5,5 +5,3 @@ node_modules
 package-lock.json
 yarn.lock
 .yarn.lock
-.env.development
-.env.production
