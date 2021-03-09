@@ -43,7 +43,7 @@ const productPage = ({ data }) => {
   useEffect(() => {
     checkAvailability(product.shopifyId);
     apiCall(query).then((response) => {
-      response.data.products.edges[0].node.variants.edges.map(variant => {
+      response?.data?.products?.edges[0]?.node?.variants?.edges?.map(variant => {
           if(variant.node.id == productVariant.shopifyId){
             if(variant.node.quantityAvailable == 0){
               setAvailable(true)
@@ -124,7 +124,6 @@ const productPage = ({ data }) => {
       }
     ).then((response) => {
       console.log('Product Fetch Response: ', response.json())
-      response.json()
     })
     .catch((error) => {
       console.log('Product Fetch Error: ', error)
