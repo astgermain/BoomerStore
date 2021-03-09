@@ -32,15 +32,12 @@ const productPage = ({ data }) => {
     variant;
   const [available, setAvailable] = useState(productVariant.availableForSale);
   const [disable, setDisabled] = useState(false)
-  useEffect(() => {
+  useEffect(async () => {
     let defaultOptionValues = {};
     product.options.forEach((selector) => {
       defaultOptionValues[selector.name] = selector.values[0];
     });
     setVariant(defaultOptionValues);
-  }, []);
-
-  useEffect(async () => {
     checkAvailability(product.shopifyId);
     let a = await apiCall(query).then((response) => {
       console.log("USE EFFECT RESPONSE: ", response)
