@@ -342,9 +342,10 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
               className="cat-btn-top btn-border"
               
             >
-              <h1 style={{ display: "flex", alignItems: "center" }}>
+              <h2 style={{ display: "flex", alignItems: "center" }}>
                 Menu
-                <FontAwesomeIcon
+              </h2>
+              <FontAwesomeIcon
                   icon={faStream}
                   style={{
                     marginLeft: "10px",
@@ -352,7 +353,6 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
                     color: "#FFBA00",
                   }}
                 />
-              </h1>
             </a>
             {/*
             <h2 style={{ marginRight: "10px" }}>Theme</h2>
