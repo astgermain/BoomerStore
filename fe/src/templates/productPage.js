@@ -110,8 +110,8 @@ const productPage = ({ data }) => {
     }
   }`;
 
-  function apiCall(query) {
-    return fetch(
+  async function apiCall(query) {
+    return await fetch(
       "https://boomerstorebrand.myshopify.com/api/2020-10/graphql.json",
       {
         method: "POST",
