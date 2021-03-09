@@ -40,12 +40,13 @@ const productPage = ({ data }) => {
     setVariant(defaultOptionValues);
   }, []);
 
-  useEffect(() => {
+  useEffect(async () => {
     checkAvailability(product.shopifyId);
-    apiCall(query).then((response) => {
+    let a = await apiCall(query).then((response) => {
+      console.log("USE EFFECT RESPONSE: ", response)
       response?.data?.products?.edges[0]?.node?.variants?.edges?.map(variant => {
-          if(variant.node.id == productVariant.shopifyId){
-            if(variant.node.quantityAvailable == 0){
+          if(variant?.node?.id == productVariant?.shopifyId){
+            if(variant.node.quantityAvailable > 0){
               setAvailable(true)
             }
           }
@@ -123,7 +124,7 @@ const productPage = ({ data }) => {
         body: query,
       }
     ).then((response) => {
-      console.log('Product Fetch Response: ', response.json())
+      return response.json()
     })
     .catch((error) => {
       console.log('Product Fetch Error: ', error)
