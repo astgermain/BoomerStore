@@ -71,10 +71,12 @@ const Provider = ({ children }) => {
           return client.checkout
             .addLineItems(checkoutId, lineItemsToUpdate)
             .then((checkout) => {
+              console.log("ClientCheckout: ", client.checkout)
               updateStore((state) => {
                 return { ...state, checkout, adding: true };
               });
-            });
+            })
+            .catch((error) => console.log("ADD VARIANT TO CART ERROR, ", error))
         },
         addVariantToCartAndBuyNow: (variantId, quantity) => {
           updateStore((state) => {

@@ -30,6 +30,7 @@ const productPage = ({ data }) => {
   const productVariant =
     context.store.client.product.helpers.variantForOptions(product, variant) ||
     variant;
+  console.log("PVAR,", productVariant)
   const [available, setAvailable] = useState(productVariant.availableForSale);
   const [disable, setDisabled] = useState(false)
   useEffect(async () => {
@@ -40,7 +41,6 @@ const productPage = ({ data }) => {
     setVariant(defaultOptionValues);
     checkAvailability(product.shopifyId);
     let a = await apiCall(query).then((response) => {
-      console.log("USE EFFECT RESPONSE: ", response)
       response?.data?.products?.edges[0]?.node?.variants?.edges?.map(variant => {
           if(variant?.node?.id == productVariant?.shopifyId){
             if(variant.node.quantityAvailable > 0){
@@ -56,7 +56,7 @@ const productPage = ({ data }) => {
       // this checks the currently selected variant for availability
       
       const result = product?.variants?.filter(
-        (variant) => variant.id === productVariant.shopifyId
+        (variant) => variant.id === productVariant?.shopifyId
       );
       setAvailable(result[0].available);
     });
