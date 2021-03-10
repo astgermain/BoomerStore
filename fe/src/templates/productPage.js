@@ -30,30 +30,35 @@ const productPage = ({ data }) => {
     context.store.client.product.helpers.variantForOptions(product, variant) ||
     variant;
   const [available, setAvailable] = useState(productVariant.availableForSale);
-  useEffect(async () => {
-    let defaultOptionValues = {};
+  let defaultOptionValues = {};
+  useEffect(() => {
+    console.log("VARIANT: ", variant)
+    console.log("PRODUCTVARIANT: ", productVariant)
+    
+    checkAvailability(product.shopifyId);
     product.options.forEach((selector) => {
       defaultOptionValues[selector.name] = selector.values[0];
     });
     setVariant(defaultOptionValues);
-    checkAvailability(product.shopifyId);
-    let a = await apiCall(query).then((response) => {
-      response?.data?.products?.edges[0]?.node?.variants?.edges?.map(variant => {
-          if(variant?.node?.id == productVariant?.shopifyId){
-            if(variant.node.quantityAvailable > 0){
-              setAvailable(true)
+    let a = apiCall(query).then((response) => {
+      response?.data?.products?.edges[0]?.node?.variants?.edges?.map(
+        (variant) => {
+          if (variant?.node?.id == productVariant?.shopifyId) {
+            if (variant.node.quantityAvailable > 0) {
+              setAvailable(true);
             }
           }
-      })
+        }
+      );
     });
   }, [productVariant]);
 
   const checkAvailability = (productId) => {
     context.store.client.product.fetch(productId).then((product) => {
       // this checks the currently selected variant for availability
-      
+
       const result = product?.variants?.filter(
-        (variant) => variant.id === productVariant?.shopifyId
+        (variant) => variant.id === chosen?.shopifyId
       );
       setAvailable(result[0].available);
     });
@@ -105,8 +110,8 @@ const productPage = ({ data }) => {
     }
   }`;
 
-  async function apiCall(query) {
-    return await fetch(
+  function apiCall(query) {
+    return fetch(
       "https://boomerstorebrand.myshopify.com/api/2020-10/graphql.json",
       {
         method: "POST",
@@ -117,12 +122,13 @@ const productPage = ({ data }) => {
         },
         body: query,
       }
-    ).then((response) => {
-      return response.json()
-    })
-    .catch((error) => {
-      console.log('Product Fetch Error: ', error)
-    })
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .catch((error) => {
+        console.log("Product Fetch Error: ", error);
+      });
   }
 
   return (
@@ -212,7 +218,7 @@ const productPage = ({ data }) => {
                 context={context}
                 available={available}
                 quantity={quantity}
-                productVariant={productVariant}
+                productVariant={chosen}
               />
             </div>
           </div>

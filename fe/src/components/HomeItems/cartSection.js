@@ -61,12 +61,16 @@ const CartSection = ({ data, quantity, cartState }) => {
                 <div className="small-text margin-left">
                   Qty: {line[0]?.quantity}
                 </div>
+                <div className="cart-product-title">
+                  {line[0]?.variant?.title}
+                </div>
                 <div className="cart-product-title">{line[0]?.title}</div>
+                <span style={{fontSize: "12px", marginLeft: "10px", color: "#3c3c3c", fontFamily: "'EinaReg', sans-serif, Arial"}}>{line[0]?.variant?.title}</span>
                 <button
                   className="has-text-weight-normal has-text-danger link-button reg-remove"
                   type="button"
                   onClick={() => removeItem(line[0].id)}
-                  style={{marginLeft: "10px"}}
+                  style={{ marginLeft: "10px" }}
                 >
                   Remove Item
                 </button>
@@ -101,11 +105,12 @@ const CartSection = ({ data, quantity, cartState }) => {
                 <div className="cart-product-title">
                   {line[line.length - 2]?.title}
                 </div>
+                <span style={{fontSize: "12px", marginLeft: "10px", color: "#3c3c3c", fontFamily: "'EinaReg', sans-serif, Arial"}}>{line[line.length - 2]?.variant?.title}</span>
                 <button
                   className="has-text-weight-normal has-text-danger link-button reg-remove"
                   type="button"
                   onClick={() => removeItem(line[line.length - 2].id)}
-                  style={{marginLeft: "10px"}}
+                  style={{ marginLeft: "10px" }}
                 >
                   Remove Item
                 </button>
@@ -139,11 +144,12 @@ const CartSection = ({ data, quantity, cartState }) => {
                 <div className="cart-product-title">
                   {line[line.length - 1]?.title}
                 </div>
+                <span style={{fontSize: "12px", marginLeft: "10px", color: "#3c3c3c", fontFamily: "'EinaReg', sans-serif, Arial"}}>{line[line.length - 1]?.variant?.title}</span>
                 <button
                   className="has-text-weight-normal has-text-danger link-button reg-remove"
                   type="button"
                   onClick={() => removeItem(line[line.length - 1].id)}
-                  style={{marginLeft: "10px"}}
+                  style={{ marginLeft: "10px" }}
                 >
                   Remove Item
                 </button>
