@@ -66,6 +66,7 @@ const CartSection = ({ data, quantity, cartState }) => {
                   className="has-text-weight-normal has-text-danger link-button reg-remove"
                   type="button"
                   onClick={() => removeItem(line[0].id)}
+                  style={{marginLeft: "10px"}}
                 >
                   Remove Item
                 </button>
@@ -104,6 +105,7 @@ const CartSection = ({ data, quantity, cartState }) => {
                   className="has-text-weight-normal has-text-danger link-button reg-remove"
                   type="button"
                   onClick={() => removeItem(line[line.length - 2].id)}
+                  style={{marginLeft: "10px"}}
                 >
                   Remove Item
                 </button>
@@ -141,6 +143,7 @@ const CartSection = ({ data, quantity, cartState }) => {
                   className="has-text-weight-normal has-text-danger link-button reg-remove"
                   type="button"
                   onClick={() => removeItem(line[line.length - 1].id)}
+                  style={{marginLeft: "10px"}}
                 >
                   Remove Item
                 </button>
