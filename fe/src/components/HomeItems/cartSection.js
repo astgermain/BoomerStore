@@ -61,9 +61,6 @@ const CartSection = ({ data, quantity, cartState }) => {
                 <div className="small-text margin-left">
                   Qty: {line[0]?.quantity}
                 </div>
-                <div className="cart-product-title">
-                  {line[0]?.variant?.title}
-                </div>
                 <div className="cart-product-title">{line[0]?.title}</div>
                 <span style={{fontSize: "12px", marginLeft: "10px", color: "#3c3c3c", fontFamily: "'EinaReg', sans-serif, Arial"}}>{line[0]?.variant?.title}</span>
                 <button

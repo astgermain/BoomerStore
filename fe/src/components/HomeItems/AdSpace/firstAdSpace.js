@@ -8,12 +8,12 @@ const FirstAdSpace = ({ data }) => {
       <div
         className="first-ad-space"
         style={{
-          margin: "0",
           display: "flex",
-          alignItems: "flex-end",
-          justifyContent: "center",
+          margin: "0",
           width: "100%",
           height: "100%",
+          justifyContent: "center",
+          alignItems: "flex-end",
           padding: "15px",
         }}
       >
