@@ -88,7 +88,7 @@ const FeaturedSection = ({ data }) => {
               <HorizontalBox product={featured[3]} give={true} />
             </div>
             <div className="horizontal-product-container">
-              {console.log("FEAT: ", featured),
+              {
               t2.map((product) => {
                 return <CollectionProductBox product={product} />;
               })}

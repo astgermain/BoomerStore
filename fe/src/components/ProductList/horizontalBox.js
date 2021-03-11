@@ -9,7 +9,6 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 const HorizontalBox = (props) => {
   const product = props?.product;
   let value = "";
-  console.log("fsadfas", product)
   if (props?.give) {
     value = "give-border";
   }

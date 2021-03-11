@@ -32,9 +32,6 @@ const productPage = ({ data }) => {
   const [available, setAvailable] = useState(productVariant.availableForSale);
   let defaultOptionValues = {};
   useEffect(() => {
-    console.log("VARIANT: ", variant)
-    console.log("PRODUCTVARIANT: ", productVariant)
-    
     checkAvailability(product.shopifyId);
     product.options.forEach((selector) => {
       defaultOptionValues[selector.name] = selector.values[0];

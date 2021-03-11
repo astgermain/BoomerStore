@@ -2,12 +2,10 @@ import React from 'react';
 
 const Buttons = ({ context, available, productVariant,  quantity}) => {
     const handleAddToCart = () => {
-        console.log("Product Variant in Buttons", productVariant)
         context.addVariantToCart(productVariant.shopifyId, quantity)
     }
 
     const handleAddToCart_BuyNow = () => {
-        console.log("Context", context)
         context.addVariantToCartAndBuyNow(productVariant.shopifyId, quantity)
     }
     return (
