@@ -232,7 +232,7 @@ const productPage = ({ data }) => {
           {product?.vendor == "Boomer Electronics" && (
                         <BElectronics/>
                     )}
-          {product?.vendor == "Boomer Supplement" && (
+          {product?.vendor == "Boomer Supplements" && (
                         <BSupplement/>
                     )}
           
