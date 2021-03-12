@@ -124,7 +124,7 @@ const productPage = ({ data }) => {
         return response.json();
       })
       .catch((error) => {
-        console.log("Product Fetch Error: ", error);
+        console.log("Product Fetch Error:", error);
       });
   }
 
