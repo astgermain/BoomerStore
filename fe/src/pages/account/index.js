@@ -7,7 +7,7 @@ import AccountUpdate from "../../components/account/profile-items/account-update
 import Register from "../../components/account/profile-items/register";
 import Login from "../../components/account/profile-items/login";
 import PasswordRecover from "../../components/account/profile-items/password-recover";
-import Addresses from "../../components/account/profile-items/addresses";
+import Addresses from "./addresses";
 import OrderHistory from "../../components/account/profile-items/order-history";
 import Alert from "@material-ui/lab/Alert";
 import Grow from "@material-ui/core/Grow";
@@ -78,12 +78,18 @@ const CUSTOMER_INFO = gql`
 `;
 const Index = () => {
   const { customerAccessToken, setValue } = useContext(StoreContext);
-  const [checked, setChecked] = React.useState(false);
-  const [sign, setSign] = React.useState("login");
-  const [updatedModal, setUpdateModal] = React.useState(false);
-  const [message, setMessage] = React.useState("");
-  const [closed, setClosed] = React.useState("");
-  const [severity, setSeverity] = React.useState("");
+  const [checked, setChecked] = useState(false);
+  const [sign, setSign] = useState("login");
+  const [updatedModal, setUpdateModal] = useState(false);
+  const [message, setMessage] = useState("");
+  const [closed, setClosed] = useState("");
+  const [severity, setSeverity] = useState("");
+  const [up, setUp] = useState(0)
+  const [lastUp, setLastUp] = useState(0)
+  const [updatedCustomer, setUpdatedCustomer] = useState({})
+
+
+  useEffect(() => {}, [updatedCustomer, curPage])
 
   const handleChange = (value) => {
     if (value) {
@@ -177,11 +183,16 @@ const Index = () => {
           }}
         >
           {(data) => {
-            let updatedCustomer;
+            let handleRefetch = () => {
+              setLastUp(up)
+              data.refetch()
+            }
+            up > lastUp && (handleRefetch())
+  
             try {
-              updatedCustomer = data.data.customer;
+              setUpdatedCustomer(data.data.customer);
             } catch {
-              updatedCustomer = {};
+              setUpdatedCustomer({});
             }
             let {
               firstName,
@@ -269,6 +280,8 @@ const Index = () => {
                                       oEmail={email}
                                       oPhone={phone}
                                       handleAlert={handleAlert}
+                                      setUp={setUp}
+                                      up={up}
                                     />
                                     <button
                                       onClick={() => handleEditModal()}
@@ -440,8 +453,6 @@ const Index = () => {
       );
     }
   };
-
-  useEffect(() => {}, []);
 
   return <div>{queryFunc()}</div>;
 };

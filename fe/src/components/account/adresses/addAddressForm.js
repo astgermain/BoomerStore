@@ -46,7 +46,7 @@ const AddAddressForm = () => {
 
     return (
         <>
-            <button className="button is-dark" onClick={() => setAddAdressForm(!addAdressForm)}>Add a new adress</button>
+            <button className="button is-dark" onClick={() => setAddAdressForm(!addAdressForm)}>Add a new address</button>
             {
             addAdressForm && (
             <div className="columns is-centered">
@@ -160,7 +160,7 @@ const AddAddressForm = () => {
                                             })
                                         }}
                                     >
-                                        Add adress</button>
+                                        Add address</button>
                                     <button className="link-button" onClick={() => setAddAdressForm(!addAdressForm)} onKeyPress={() => setAddAdressForm(!addAdressForm)}>Cancel</button>
                                 </form>
                             )

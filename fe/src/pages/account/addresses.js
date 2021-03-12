@@ -48,30 +48,28 @@ const Addresses = () => {
                 {({ loading, error, data }) => {
                     if (loading) return <div>Fetching</div>
                     if (error) return <div>Error</div>
-                    const { defaultAddress, addresses } = data.customer
+                    const { defaultAddress, addresses } = data?.customer
                     return (
                         <div className="has-text-centered">
-                            <h2 className="title is-uppercase">Your Addresses</h2>
-                            <Link to={"/account"}><p className="has-text-black" style={{ textDecoration: "underline" }}>Return to Account Details</p></Link>
                             <br />
                             <AddAddressForm />
                                 <div>
                                     {
                                     addresses != null && (
-                                        addresses.edges.map((address => (
-                                            <div key={address.node.id} className="columns is-centered">
+                                        addresses?.edges.map((address => (
+                                            <div key={address?.node?.id} className="columns is-centered">
                                                 <div className="column">
                                                     <br/>
                                                     {
-                                                        defaultAddress.id === address.node.id && 
+                                                        defaultAddress?.id === address?.node?.id && 
                                                             <h1 className="subtitle">DEFAULT</h1>                                                
                                                     }
-                                                    <p className="has-text-grey">{address.node.firstName} {address.node.lastName}</p>
-                                                    <p className="has-text-grey">{address.node.address1}</p>
-                                                    <p className="has-text-grey">{address.node.zip}, {address.node.city}</p>
-                                                    <p className="has-text-grey">{address.node.country}</p>
-                                                    <EditAddressForm address={address.node} />
-                                                    <DeleteAddress id={address.node.id}/>
+                                                    <p className="has-text-grey">{address?.node?.firstName} {address?.node?.lastName}</p>
+                                                    <p className="has-text-grey">{address?.node?.address1}</p>
+                                                    <p className="has-text-grey">{address?.node?.zip}, {address?.node?.city}</p>
+                                                    <p className="has-text-grey">{address?.node?.country}</p>
+                                                    <EditAddressForm address={address?.node} />
+                                                    <DeleteAddress id={address?.node?.id}/>
                                                 </div>
                                             </div>
                                         )))

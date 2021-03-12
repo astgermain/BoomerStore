@@ -19,6 +19,8 @@
     justify-content: center;
     align-items: center;
     background: #000;
+    border: 3px solid var(--c1);
+    border-top: none;
 .logged-bottom
     width: 100%;
     padding: 0 10%;
@@ -80,3 +82,23 @@
     font-size: 1rem
 .margin-top
     margin-top: 20px
+
+@media only screen and (max-width:768px)
+    .account-content
+        flex-direction: column
+    .account-left 
+        width: 100%;
+        border-right: 1px solid gainsboro;
+        list-style: none;
+        padding: 25px 5% 15px 5%;
+        background: #f3f2f2;
+        display: flex;
+        flex-direction: column;
+        white-space: nowrap;
+        align-items: center;
+    .account-right 
+        padding: 15px;
+        width: calc(100%);
+        display: flex;
+        flex-direction: column;
+        margin: 0;

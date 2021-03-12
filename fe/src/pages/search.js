@@ -58,9 +58,11 @@ const SearchPage = ({ data, location }) => {
             <h1 className="EBold result-text">
               Results For "{search.toUpperCase()}" :
             </h1>
+            {/*
             <h1 className="EReg result-text2">
               <>Browse<b>&nbsp;{number}&nbsp;</b> {search}&nbsp;Products:</>
             </h1>
+            */}
           </div>
           <div className="container search-container">
             <div className="columns is-multiline ">
@@ -79,9 +81,14 @@ const SearchPage = ({ data, location }) => {
                         .includes(search.toUpperCase()))
                 )
                 .map((p, i) =>
+                 
                   !p ? (
-                    <p>Nothings with : {search} </p>
+                    <>
+                    <p>Nothing with : {search} </p>
+                    </>
                   ) : (
+                    <>
+                    
                     <div
                       className="column is-3"
                       style={{ marginBottom: "40px" }}
@@ -89,6 +96,7 @@ const SearchPage = ({ data, location }) => {
                     >
                       <ProductBox product={p} />
                     </div>
+                    </>
                   )
                 )}
             </div>

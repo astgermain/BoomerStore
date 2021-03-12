@@ -14,18 +14,19 @@ const ProductBox = (props) => {
     value = "give-border";
   }
   let logo;
+  console.log(product)
   let alt = "";
   let priceFormat = (price) => parseFloat(price).toFixed(2);
-  if (product?.vendor == "Boomer Silver") {
+  if (product?.node?.vendor == "Boomer Silver") {
     logo = silverLogo;
     alt = "Boomer Silver logo";
-  } else if (product?.vendor == "Boomer Naturals") {
+  } else if (product?.node?.vendor == "Boomer Naturals") {
     logo = naturalsLogo;
     alt = "Boomer Naturals Logo";
-  } else if (product?.vendor == "Boomer Supplements") {
+  } else if (product?.node?.vendor == "Boomer Supplements") {
     logo = supLogo;
     alt = "Boomer Supplements Logo";
-  } else if (product?.vendor == "Boomer Electronics") {
+  } else if (product?.node?.vendor == "Boomer Electronics") {
     logo = elecLogo;
     alt = "Boomer Electronics Logo";
   }

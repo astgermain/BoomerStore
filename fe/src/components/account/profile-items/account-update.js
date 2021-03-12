@@ -35,6 +35,8 @@ const AccountUpdate = ({
   oLastName,
   oEmail,
   handleAlert,
+  setUp,
+  up
 }) => {
   const { customerAccessToken, setValue } = useContext(StoreContext)
   const [email, setEmail] = useState(``)
@@ -72,6 +74,7 @@ const AccountUpdate = ({
               <form
                 onSubmit={e => {
                   e.preventDefault()
+                  
                   // We weren't using password2 to check for accuracy
                   // Could use refactoring if we want to do something else
                   if(password === password2) {
@@ -103,6 +106,7 @@ const AccountUpdate = ({
                           close: "Close",
                           severity: "success",
                         })
+                        setUp(up + 1)
                       }
                     })
                     .catch(err => {
@@ -114,11 +118,11 @@ const AccountUpdate = ({
                     })
                     data.refetch()
                   }
+                
                   // would be useful to add a block that
                   // notifies user that their passwords don't match
                 }}
               >
-                {/*p = TtaJL5zi8ZeyXP! */}
 
                 <div className="account-row">
                   <div className="account-col first">
