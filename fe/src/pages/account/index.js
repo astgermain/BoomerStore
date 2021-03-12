@@ -87,7 +87,7 @@ const Index = () => {
   const [up, setUp] = useState(0)
   const [lastUp, setLastUp] = useState(0)
   const [updatedCustomer, setUpdatedCustomer] = useState({})
-
+  const [curPage, setCurPage] = useState("My Account");
 
   useEffect(() => {}, [updatedCustomer, curPage])
 
@@ -138,7 +138,6 @@ const Index = () => {
   const handleCustomerAccessToken = (value) => {
     setValue(value);
   };
-  const [curPage, setCurPage] = useState("My Account");
   const handleNavClick = (e) => {
     // value constant is the title of the clicked nav btn
     const { value } = e.target;
