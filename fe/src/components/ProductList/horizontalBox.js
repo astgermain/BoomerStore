@@ -3,6 +3,7 @@ import Img from "gatsby-image";
 import silverLogo from "../../images/boomersilver.webp";
 import naturalsLogo from "../../images/boomernaturals.webp";
 import supLogo from "../../images/boomersupplements.webp";
+import elecLogo from "../../images/boomerelectronics.webp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
@@ -21,6 +22,12 @@ const HorizontalBox = (props) => {
   } else if (product?.vendor == "Boomer Naturals") {
     logo = naturalsLogo;
     alt = "Boomer Naturals Logo";
+  } else if (product?.vendor == "Boomer Supplements") {
+    logo = supLogo;
+    alt = "Boomer Supplements Logo";
+  } else if (product?.vendor == "Boomer Electronics") {
+    logo = elecLogo;
+    alt = "Boomer Electronics Logo";
   }
   return (
     <a href={`/product/${product?.handle}`}>

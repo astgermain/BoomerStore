@@ -37,7 +37,7 @@ function BNaturals() {
               style={{
                 display: "flex",
                 flexDirection: "row",
-                padding: "25px 50px 0 50px",
+                padding: "25px 50px 25px 50px",
                 justifyContent: "space-evenly",
                 alignItems: "center",
               }}

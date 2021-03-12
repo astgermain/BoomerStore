@@ -14,6 +14,8 @@ import Gallery from "../components/ProductPage/Gallery";
 import { Flex, Box } from "rebass";
 import BoomerSilver from "../images/boomersilver.webp";
 import BoomerNaturals from "../images/boomernaturals.webp";
+import BoomerSupplements from "../images/boomersupplements.webp";
+import BoomerElectronics from "../images/boomerelectronics.webp";
 import ProductList from "../components/productList";
 import BNaturals from "../components/ProductPage/Section2/BNaturals"
 import BSilver from "../components/ProductPage/Section2/BSilver"
@@ -166,6 +168,22 @@ const productPage = ({ data }) => {
                       <>
                         <img
                           src={BoomerNaturals}
+                          className="brand-logo-max fade-in"
+                        ></img>
+                      </>
+                    )}
+                    {product?.vendor == "Boomer Supplements" && (
+                      <>
+                        <img
+                          src={BoomerSupplements}
+                          className="brand-logo-max fade-in"
+                        ></img>
+                      </>
+                    )}
+                    {product?.vendor == "Boomer Electronics" && (
+                      <>
+                        <img
+                          src={BoomerElectronics}
                           className="brand-logo-max fade-in"
                         ></img>
                       </>

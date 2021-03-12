@@ -2,6 +2,8 @@ import React from "react";
 import Img from "gatsby-image";
 import silverLogo from "../../images/boomersilver.webp";
 import naturalsLogo from "../../images/boomernaturals.webp";
+import supLogo from "../../images/boomersupplements.webp";
+import elecLogo from "../../images/boomerelectronics.webp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faShoppingBag,
@@ -26,7 +28,15 @@ const CollectionProductBox = (props) => {
   } else if (product?.vendor == "Boomer Naturals") {
     logo = naturalsLogo;
     alt = "Boomer Naturals Logo";
+  } else if (product?.vendor == "Boomer Supplements") {
+    logo = supLogo;
+    alt = "Boomer Supplements Logo";
+  } else if (product?.vendor == "Boomer Electronics") {
+    logo = elecLogo;
+    alt = "Boomer Electronics Logo";
   }
+
+  
   let priceFormat = (price) => parseFloat(price).toFixed(2);
   return (
     <a href={`/product/${product?.handle}`} className="pad5-10">
@@ -52,7 +62,7 @@ const CollectionProductBox = (props) => {
                 <p className="has-text-weight-light p-price">
                   {product?.variants == undefined ? (
                     `
-                      From $${priceFormat(
+                      $${priceFormat(
                         product?.priceRange?.minVariantPrice?.amount
                       )}
                     `
