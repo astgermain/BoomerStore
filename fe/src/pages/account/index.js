@@ -88,8 +88,9 @@ const Index = () => {
   const [lastUp, setLastUp] = useState(0)
   const [updatedCustomer, setUpdatedCustomer] = useState({})
   const [curPage, setCurPage] = useState("My Account");
+  const [lastD, setLastD] = useState({})
 
-  useEffect(() => {}, [updatedCustomer, curPage])
+  useEffect(() => {}, [curPage])
 
   const handleChange = (value) => {
     if (value) {
@@ -182,11 +183,8 @@ const Index = () => {
           }}
         >
           {(data) => {
-            let handleRefetch = () => {
-              setLastUp(up)
-              data.refetch()
-            }
-            up > lastUp && (handleRefetch())
+            data.refetch()
+            
   
             try {
               setUpdatedCustomer(data.data.customer);

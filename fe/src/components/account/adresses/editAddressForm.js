@@ -35,6 +35,7 @@ mutation customerDefaultAddressUpdate($customerAccessToken: String!, $addressId:
 `
 
 const EditAddressForm = ({ address }) => {
+    console.log(address)
     const [editAdressForm, setEditAdressForm] = useState(false);
     const [firstNameInput, setFirstNameInput] = useState(address.firstName);
     const [lastNameInput, setLastNameInput] = useState(address.lastName);

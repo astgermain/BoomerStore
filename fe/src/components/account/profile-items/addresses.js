@@ -93,6 +93,9 @@ const Addresses = ({ data, id, handleAlert }) => {
           {
             (addressRenders = data.data.customer.addresses.edges.map(
               (edge, index) => {
+                console.log(
+                  "Edge: ", edge
+                )
                 if(deleted.includes(index)){
                   
                 }
