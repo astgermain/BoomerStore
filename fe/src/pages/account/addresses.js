@@ -98,7 +98,7 @@ const Addresses = () => {
                         className="columns is-centered"
                         style={{ justifyContent: "space-between" }}
                       >
-                        <div>
+                        <div style={{textAlign: "left"}}>
                           <p className="has-text-grey">
                             {address?.node?.firstName} {address?.node?.lastName}
                           </p>
@@ -112,7 +112,7 @@ const Addresses = () => {
                             {address?.node?.country}
                           </p>
                         </div>
-                        <div>
+                        <div style={{display: "flex", flexDirection: "row"}}>
                           <EditAddressForm address={address?.node} />
                           <DeleteAddress id={address?.node?.id} />
                         </div>
