@@ -60,7 +60,7 @@ const EditAddressForm = ({ address }) => {
     }, []);
     return (
         <>
-            <button className="button is-dark" onClick={() => setEditAdressForm(!editAdressForm)}>EDIT</button>
+            <button className="button account-button" onClick={() => setEditAdressForm(!editAdressForm)}>EDIT</button>
             {
                 editAdressForm && (
                     <div className="columns is-centered">

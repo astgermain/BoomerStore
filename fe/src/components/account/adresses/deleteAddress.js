@@ -25,7 +25,7 @@ const DeleteAddress = ({ id }) => {
             {(customerAddressDelete) => {
                 return (
                     <button
-                        className="button"
+                        className="button account-button4"
                         onClick={() => {
                             customerAddressDelete({
                                 variables: {
