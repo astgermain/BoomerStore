@@ -14,7 +14,6 @@ const ProductBox = (props) => {
     value = "give-border";
   }
   let logo;
-  console.log(product)
   let alt = "";
   let priceFormat = (price) => parseFloat(price).toFixed(2);
   if (product?.node?.vendor == "Boomer Silver") {

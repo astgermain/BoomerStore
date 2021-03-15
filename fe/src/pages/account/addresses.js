@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "gatsby";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
@@ -38,7 +38,23 @@ const CUSTOMER_ADDRESS = gql`
 
 const Addresses = () => {
   const { customerAccessToken } = useContext(StoreContext);
-  
+  const [loadingValue, setLoadingValue] = useState(false);
+  const [errorValue, setErrorValue] = useState(false);
+  let loadingAlert = (value) => {
+    if (value) {
+      setLoadingValue(true);
+    } else {
+      setLoadingValue(false);
+    }
+  };
+
+  let errorAlert = (value) => {
+    if (value) {
+      setErrorValue(true);
+    } else {
+      setErrorValue(false);
+    }
+  };
 
   return (
     <Layout>
@@ -49,14 +65,19 @@ const Addresses = () => {
         }}
       >
         {({ loading, error, data }) => {
-            console.log("Loading", loading)
-            console.log("Data", data)
-            console.log("Error", error)
-          if (loading) return <div>Fetching</div>;
-          if (error) return <div>Error</div>;
+          if (loading) return <>{loadingAlert(true)}</>;
+          if (!loading) {
+            loadingAlert(false);
+          }
+          if (error) return <>{errorAlert(true)}</>
+          if (!error) {
+            errorAlert(false);
+          }
           const { defaultAddress, addresses } = data?.customer;
           return (
             <div className="has-text-centered">
+              {loadingValue && <div>Loading</div>}
+              {errorValue && <div>Error</div>}
               <br />
               <div>
                 {addresses != null &&

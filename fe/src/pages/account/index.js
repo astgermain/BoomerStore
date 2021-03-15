@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Query } from "react-apollo";
-import { NetworkStatus } from '@apollo/client';
+import { NetworkStatus } from "@apollo/client";
 import gql from "graphql-tag";
 import StoreContext from "../../context/store";
 import Layout from "../../components/account/Layout";
@@ -27,6 +27,7 @@ const CUSTOMER_INFO = gql`
       phone
       defaultAddress {
         firstName
+        id
         lastName
         address1
         city
@@ -37,6 +38,7 @@ const CUSTOMER_INFO = gql`
         edges {
           node {
             name
+            id
             totalPrice
             processedAt
             statusUrl
@@ -66,6 +68,7 @@ const CUSTOMER_INFO = gql`
         edges {
           node {
             address1
+            id
             city
             lastName
             firstName
@@ -86,11 +89,38 @@ const Index = () => {
   const [message, setMessage] = useState("");
   const [closed, setClosed] = useState("");
   const [severity, setSeverity] = useState("");
-  const [up, setUp] = useState(0)
+  const [up, setUp] = useState(0);
   const [curPage, setCurPage] = useState("My Account");
-  const [lastD, setLastD] = useState({})
+  const [lastD, setLastD] = useState({});
+  const [loadingValue, setLoadingValue] = useState(false);
+  const [errorValue, setErrorValue] = useState(false);
+  const [fetchingValue, setFetchingValue] = useState(false);
 
-  useEffect(() => {}, [])
+  let fetchingAlert = (value) => {
+    if (value) {
+      setFetchingValue(true);
+    } else {
+      setFetchingValue(false);
+    }
+  };
+
+  let loadingAlert = (value) => {
+    if (value) {
+      setLoadingValue(true);
+    } else {
+      setLoadingValue(false);
+    }
+  };
+
+  let errorAlert = (value) => {
+    if (value) {
+      setErrorValue(true);
+    } else {
+      setErrorValue(false);
+    }
+  };
+
+  useEffect(() => {}, []);
 
   const handleChange = (value) => {
     if (value) {
@@ -181,20 +211,59 @@ const Index = () => {
           variables={{
             customerAccessToken: customerAccessToken.accessToken,
           }}
-          notifyOnNetworkStatusChange={true}   
+          notifyOnNetworkStatusChange={true}
         >
-          { ({loading, error, data, refetch, networkStatus, startPolling, stopPolling}) => {
-            console.log("Refetch", refetch)
-            console.log("Loading", loading)
-            console.log("Data", data)
-            console.log("NetworkStatus", networkStatus)
-            
-            if (networkStatus === NetworkStatus.refetch) return 'Refetching!';
-            if (loading) return <div>Fetching</div>;
-            if (error) return <div>Error</div>;
-            
-            let updatedCustomer = data.customer
-            
+          {({
+            loading,
+            error,
+            data,
+            refetch,
+            networkStatus,
+            startPolling,
+            stopPolling,
+          }) => {
+            if (networkStatus === NetworkStatus.refetch) {
+              return (
+                <>
+                  {fetchingAlert(true)}
+                  <div style={{ height: "calc(100vh - 300px)", padding: "15px" }}>
+                    <h1>Refetching Data</h1>
+                  </div>
+                </>
+              );
+            }
+            if (!(networkStatus === NetworkStatus.refetch)) {
+              fetchingAlert(false);
+            }
+            if (loading) {
+              return (
+                <>
+                  {loadingAlert(true)}
+                  <div style={{ height: "calc(100vh - 300px)", padding: "15px" }}>
+                    <h1>Loading Data</h1>
+                  </div>
+                </>
+              )
+            }
+            if (!loading) {
+              loadingAlert(false);
+            }
+            if (error) {
+              return (
+                <>
+                  {errorAlert(true)}
+                  <div style={{ height: "calc(100vh - 300px)", padding: "15px" }}>
+                    <h1>Data Error, Please Refresh The Page or Try Clearing Your Browser Cookies.<><br></br></> Contact Support Using The Support Button At The Bottom Right Of Your Screen If Problems Persist.</h1>
+                  </div>
+                </>
+              )
+            }
+            if (!error) {
+              errorAlert(false);
+            }
+
+            let updatedCustomer = data.customer;
+
             let {
               firstName,
               lastName,
@@ -247,21 +316,19 @@ const Index = () => {
                         </Grow>
                       )}
                     </div>
-                          */}
+                    */}
                     <div className="account-page-top">
-                      <div style={{ marginRight: "15px" }}>
-                        
-                      </div>
+                      <div style={{ marginRight: "15px" }}></div>
                     </div>
                     <div className="account-content">
                       <div className="account-left">
                         {NAV_LIST_ITEMS}
                         <button
-                        onClick={() => handleCustomerAccessToken(null)}
-                        className="account-button3"
-                      >
-                        Logout
-                      </button>
+                          onClick={() => handleCustomerAccessToken(null)}
+                          className="account-button3"
+                        >
+                          Logout
+                        </button>
                       </div>
                       <div className="account-right">
                         {
@@ -270,6 +337,9 @@ const Index = () => {
                         {curPage === "My Account" && (
                           <>
                             <h1 className="account-h1">My Account</h1>
+                            {fetchingValue && <div>Fetching Data</div>}
+                            {loadingValue && <div>Loading</div>}
+                            {errorValue && <div>Error</div>}
                             {updatedModal == true && (
                               <>
                                 <div className="hi">
@@ -303,10 +373,15 @@ const Index = () => {
                                   <div className="account-col first">
                                     <div className="EBold">Name</div>
                                     <div className="EReg">
-                                      {(firstName == ("" || null)) ? <><p>*Incomplete Name*</p></>
-                                      :
-                                      <>{firstName} {lastName}</>
-                                      }
+                                      {firstName == ("" || null) ? (
+                                        <>
+                                          <p>*Incomplete Name*</p>
+                                        </>
+                                      ) : (
+                                        <>
+                                          {firstName} {lastName}
+                                        </>
+                                      )}
                                     </div>
                                   </div>
                                   <div className="account-col">
@@ -379,9 +454,12 @@ const Index = () => {
                                   )}
                                 </div>
                                 <br></br>
-                              <button className="account-button" onClick={() => handleEditModal(true)}>
-                                Update Account
-                              </button>
+                                <button
+                                  className="account-button"
+                                  onClick={() => handleEditModal(true)}
+                                >
+                                  Update Account
+                                </button>
                               </>
                             )}
                           </>
@@ -426,7 +504,9 @@ const Index = () => {
                 return (
                   <>
                     <div>
-                      <span style={{fontSize: "24px", color: "white"}}>Sign In</span>
+                      <span style={{ fontSize: "24px", color: "white" }}>
+                        Sign In
+                      </span>
                     </div>
                     <br></br>
                     <Login reg={setSign} />
@@ -436,7 +516,9 @@ const Index = () => {
                 return (
                   <>
                     <div>
-                      <span style={{fontSize: "24px", color: "white"}}>Register &nbsp;</span>
+                      <span style={{ fontSize: "24px", color: "white" }}>
+                        Register &nbsp;
+                      </span>
                     </div>
                     <br></br>
                     <Register login={setSign} />
@@ -445,7 +527,9 @@ const Index = () => {
               case "forgot":
                 return (
                   <>
-                    <div style={{fontSize: "24px", color: "white"}}>Forgot Password?</div>
+                    <div style={{ fontSize: "24px", color: "white" }}>
+                      Forgot Password?
+                    </div>
                     <PasswordRecover forgot={setSign} />
                   </>
                 );
