@@ -85,8 +85,6 @@ const Index = () => {
   const [closed, setClosed] = useState("");
   const [severity, setSeverity] = useState("");
   const [up, setUp] = useState(0)
-  const [lastUp, setLastUp] = useState(0)
-  const [updatedCustomer, setUpdatedCustomer] = useState({})
   const [curPage, setCurPage] = useState("My Account");
   const [lastD, setLastD] = useState({})
 
@@ -185,12 +183,8 @@ const Index = () => {
           {(loading, error, data) => {
             if (loading) return <div>Fetching</div>;
             if (error) return <div>Error</div>;
-  
-            try {
-              setUpdatedCustomer(data.data.customer);
-            } catch {
-              setUpdatedCustomer({});
-            }
+            let updatedCustomer = data?.data?.customer
+            
             let {
               firstName,
               lastName,
