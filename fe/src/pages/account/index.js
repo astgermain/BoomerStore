@@ -182,9 +182,9 @@ const Index = () => {
             customerAccessToken: customerAccessToken.accessToken,
           }}
         >
-          {(data) => {
-            data.refetch()
-            
+          {(loading, error, data) => {
+            if (loading) return <div>Fetching</div>;
+            if (error) return <div>Error</div>;
   
             try {
               setUpdatedCustomer(data.data.customer);
