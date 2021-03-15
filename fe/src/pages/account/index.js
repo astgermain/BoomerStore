@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Query } from "react-apollo";
+import { NetworkStatus } from '@apollo/client';
 import gql from "graphql-tag";
 import StoreContext from "../../context/store";
 import Layout from "../../components/account/Layout";
@@ -22,6 +23,7 @@ const CUSTOMER_INFO = gql`
       email
       firstName
       lastName
+      id
       phone
       defaultAddress {
         firstName
@@ -88,7 +90,7 @@ const Index = () => {
   const [curPage, setCurPage] = useState("My Account");
   const [lastD, setLastD] = useState({})
 
-  useEffect(() => {}, [curPage])
+  useEffect(() => {}, [])
 
   const handleChange = (value) => {
     if (value) {
@@ -179,11 +181,19 @@ const Index = () => {
           variables={{
             customerAccessToken: customerAccessToken.accessToken,
           }}
+          notifyOnNetworkStatusChange={true}   
         >
-          {(loading, error, data) => {
+          { ({loading, error, data, refetch, networkStatus, startPolling, stopPolling}) => {
+            console.log("Refetch", refetch)
+            console.log("Loading", loading)
+            console.log("Data", data)
+            console.log("NetworkStatus", networkStatus)
+            
+            if (networkStatus === NetworkStatus.refetch) return 'Refetching!';
             if (loading) return <div>Fetching</div>;
             if (error) return <div>Error</div>;
-            let updatedCustomer = data?.data?.customer
+            
+            let updatedCustomer = data.customer
             
             let {
               firstName,
@@ -266,6 +276,8 @@ const Index = () => {
                                   <Collapse in={updatedModal} appear={true}>
                                     <AccountUpdate
                                       data={data}
+                                      loading={loading}
+                                      refetch={refetch}
                                       oFirstName={firstName}
                                       oLastName={lastName}
                                       oEmail={email}
@@ -273,6 +285,7 @@ const Index = () => {
                                       handleAlert={handleAlert}
                                       setUp={setUp}
                                       up={up}
+                                      startPolling={startPolling}
                                     />
                                     <button
                                       onClick={() => handleEditModal()}

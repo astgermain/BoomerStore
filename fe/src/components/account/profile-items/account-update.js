@@ -31,11 +31,14 @@ const USER_UPDATE = gql`
 
 const AccountUpdate = ({
   data,
+  loading,
+  refetch,
   oFirstName,
   oLastName,
   oEmail,
   handleAlert,
   setUp,
+  startPolling,
   up
 }) => {
   const { customerAccessToken, setValue } = useContext(StoreContext)
@@ -45,6 +48,7 @@ const AccountUpdate = ({
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
   // const [checked, setChecked] = React.useState(false)
+  
   const handleCustomerAccessToken = value => {
     setValue(value)
   }
@@ -70,11 +74,15 @@ const AccountUpdate = ({
       {updateFunc => {
         return (
           <>
+    
             <div className="update-form">
               <form
                 onSubmit={e => {
-                  e.preventDefault()
                   
+                  e.preventDefault()
+                  setTimeout(()=> {
+                    refetch()
+                  },[500])
                   // We weren't using password2 to check for accuracy
                   // Could use refactoring if we want to do something else
                   if(password === password2) {
@@ -116,7 +124,6 @@ const AccountUpdate = ({
                         severity: "error",
                       })
                     })
-                    data.refetch()
                   }
                 
                   // would be useful to add a block that

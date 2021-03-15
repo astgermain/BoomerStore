@@ -11,6 +11,7 @@ import EditAddressForm from "../../components/account/adresses/editAddressForm";
 const CUSTOMER_ADDRESS = gql`
   query($customerAccessToken: String!) {
     customer(customerAccessToken: $customerAccessToken) {
+      id
       defaultAddress {
         id
       }
@@ -37,6 +38,7 @@ const CUSTOMER_ADDRESS = gql`
 
 const Addresses = () => {
   const { customerAccessToken } = useContext(StoreContext);
+  
 
   return (
     <Layout>
@@ -47,6 +49,9 @@ const Addresses = () => {
         }}
       >
         {({ loading, error, data }) => {
+            console.log("Loading", loading)
+            console.log("Data", data)
+            console.log("Error", error)
           if (loading) return <div>Fetching</div>;
           if (error) return <div>Error</div>;
           const { defaultAddress, addresses } = data?.customer;
