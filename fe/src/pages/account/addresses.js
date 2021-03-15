@@ -96,7 +96,7 @@ const Addresses = () => {
                       <div
                         key={address?.node?.id}
                         className="columns is-centered"
-                        style={{ justifyContent: "space-between" }}
+                        style={{ justifyContent: "space-between", alignItems: "center" }}
                       >
                         <div style={{textAlign: "left"}}>
                           <p className="has-text-grey">
