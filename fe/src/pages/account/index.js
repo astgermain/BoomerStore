@@ -227,7 +227,7 @@ const Index = () => {
                 <>
                   {fetchingAlert(true)}
                   <div style={{ height: "calc(100vh - 300px)", padding: "15px" }}>
-                    <h1>Refetching Data</h1>
+                    <h1>.</h1>
                   </div>
                 </>
               );
@@ -240,7 +240,7 @@ const Index = () => {
                 <>
                   {loadingAlert(true)}
                   <div style={{ height: "calc(100vh - 300px)", padding: "15px" }}>
-                    <h1>Loading Data</h1>
+                    <h1>.</h1>
                   </div>
                 </>
               )
@@ -390,7 +390,7 @@ const Index = () => {
                                   </div>
                                 </div>
                                 <br></br>
-                                <div className="EBold account-row">
+                                <div className="EBold account-row" style={{flexDirection: "column"}}>
                                   Default Address: <br></br>
                                   {name ? (
                                     <div className="EReg">
