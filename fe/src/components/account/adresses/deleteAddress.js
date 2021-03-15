@@ -26,6 +26,7 @@ const DeleteAddress = ({ id }) => {
                 return (
                     <button
                         className="button account-button4"
+                        style={{display: "flex", alignItems: "center"}}
                         onClick={() => {
                             customerAddressDelete({
                                 variables: {
@@ -37,6 +38,7 @@ const DeleteAddress = ({ id }) => {
                                     window.location.reload(); 
                             })
                         }}
+                        
                     >
                         Remove
                     </button>
