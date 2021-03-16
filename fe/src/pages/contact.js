@@ -32,7 +32,6 @@ const Contact = () => {
   } = methods;
 
   const onSubmit = async (data) => {
-    console.log("hu");
     try {
       await fetch(LAMBDA_URL, {
         method: "POST",

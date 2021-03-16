@@ -376,7 +376,7 @@ const AddAddressForm = () => {
                                         </div>
                                     </div>
                                     <button
-                                        className="button is-dark"
+                                        className="button account-button"
                                         onClick={() => {
                                             customerAddressCreate({
                                                 variables: {
