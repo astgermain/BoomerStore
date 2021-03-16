@@ -4,7 +4,7 @@ import TextField from "@material-ui/core/TextField";
 import Alert from "@material-ui/lab/Alert";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
-import Collapse from "@material-ui/core/Collapse";
+import "./contact.sass";
 
 const LAMBDA_URL =
   "https://0b10e00zn8.execute-api.us-west-1.amazonaws.com/Production";
@@ -15,9 +15,15 @@ const Contact = () => {
   const [openName, setOpenName] = useState(false);
   const [openE, setOpenE] = useState(false);
   const [openQ, setOpenQ] = useState(false);
-  const handleOpenName = () => {setOpenName(!openName)};
-  const handleOpenE = () => {setOpenE(!openE)};
-  const handleOpenQ = () => {setOpenQ(!openQ)};
+  const handleOpenName = () => {
+    setOpenName(!openName);
+  };
+  const handleOpenE = () => {
+    setOpenE(!openE);
+  };
+  const handleOpenQ = () => {
+    setOpenQ(!openQ);
+  };
   const handleChange = (event) => {
     setValue(event.target.value);
   };
@@ -75,6 +81,7 @@ const Contact = () => {
 
   const showForm = (
     <form onSubmit={handleSubmit(onSubmit)} method="post">
+        <br></br>
       <Grid item xs={12} className="spacing-contact">
         <label htmlFor="name">
           <TextField
@@ -103,6 +110,7 @@ const Contact = () => {
         */}
         </label>
       </Grid>
+      <br></br>
       <Grid item xs={12} className="spacing-contact">
         <label htmlFor="email">
           <TextField
@@ -120,6 +128,7 @@ const Contact = () => {
           />
         </label>
       </Grid>
+      <br></br>
       <Grid item xs={12} className="spacing-contact">
         <label htmlFor="question">
           <TextField
@@ -138,7 +147,7 @@ const Contact = () => {
           />
         </label>
       </Grid>
-
+        <br></br>
       <div className="submit-wrapper">
         <Button
           variant="contained"
@@ -155,16 +164,22 @@ const Contact = () => {
   );
 
   return (
-    <div className="contact-page">
-      {errors && errors.submit && (
-        <Alert variant="outlined" severity="error" className="spacing-contact">
-          Your message wasn't sent, there seems to be an issue!
-        </Alert>
-      )}
-      <div className="text-side">
-        <h2 className="align-left story-text">Contact Us</h2>
+    <div className="contact-wrapper">
+      <div className="contact-page">
+        {errors && errors.submit && (
+          <Alert
+            variant="outlined"
+            severity="error"
+            className="spacing-contact"
+          >
+            Your message wasn't sent, there seems to be an issue!
+          </Alert>
+        )}
+        <div className="text-side">
+          <h2 className="align-left story-text" style={{fontSize: "2.5em"}}>Contact Us</h2>
+        </div>
+        <div className="form-side">{submitted ? showThankYou : showForm}</div>
       </div>
-      <div className="form-side">{submitted ? showThankYou : showForm}</div>
     </div>
   );
 };
