@@ -207,7 +207,7 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
                     <Link to="/search" state={{ search: search }} style={{width: "100%", height: "100%", padding: "0"}}>
                       <button 
                         type="submit"
-                        style={{width: "100%", height: "100%", background: "transparent", border: "none"}}>
+                        style={{width: "100%", height: "100%", background: "transparent", border: "none", display: "flex", justifyContent: "center", alignItems: "center", outline: "none"}}>
 
                       <FontAwesomeIcon
                         icon={faSearch}
