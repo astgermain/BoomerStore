@@ -7,7 +7,7 @@ import Grid from "@material-ui/core/Grid";
 import Collapse from "@material-ui/core/Collapse";
 
 const LAMBDA_URL =
-  " https://0b10e00zn8.execute-api.us-west-1.amazonaws.com/Production";
+  "https://0b10e00zn8.execute-api.us-west-1.amazonaws.com/Production";
 const required = "This field is required";
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
