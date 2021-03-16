@@ -282,7 +282,7 @@ const AddAddressForm = () => {
 
     return (
         <>
-            <button className="button is-dark" onClick={() => setAddAdressForm(!addAdressForm)}>Add a new address</button>
+            <button className="button account-button" onClick={() => setAddAdressForm(!addAdressForm)}>Add a new address</button>
             {
             addAdressForm && (
             <div className="columns is-centered">

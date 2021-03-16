@@ -36,7 +36,11 @@ const Footer = () => {
           <div className="footer-link-column">
             <p>Contact Us</p>
             <div className="footer-sublinks EReg">
-              <p>About Boomer Store</p>
+            <Link
+          className="categories-link"
+          to="/contact"
+          style={{color: "white"}}
+        >Contact Form</Link>
             </div>
           </div>
         </div>
