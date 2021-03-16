@@ -27,6 +27,7 @@ const GET_CUSTOMER_OBJECT = gql`
       email
       firstName
       lastName
+      id
       phone
       defaultAddress {
         id
@@ -185,6 +186,7 @@ const Account = ({side}) => {
     const { value } = e.target
     setCurPage(value)
   }
+  let updatedCustomer
   const NAV_TITLE_ARR = ["My Account", "Addresses", "Order History"]
   const NAV_LIST_ITEMS = NAV_TITLE_ARR.map((title, index) => {
     const isActive = curPage === title && "active"
@@ -207,7 +209,7 @@ const Account = ({side}) => {
     )
   })
   let queryFunc = () => {
-    if (customerAccessToken !== null) {
+    if ((customerAccessToken !== null) && (customerAccessToken !== undefined)) {
       var firstDate = new Date(Date.now())
       var secondDate = new Date(customerAccessToken.expiresAt)
       if (secondDate <= firstDate) {
@@ -226,7 +228,6 @@ const Account = ({side}) => {
           {({loading, error, data}) => {
             if (loading) return <div>Fetching</div>
             if (error) return <div>Error</div>
-            let updatedCustomer
             try {
               updatedCustomer = data.data.customer
             } catch {

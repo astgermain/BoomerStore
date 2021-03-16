@@ -85,7 +85,10 @@ const Login = ({ reg, confirm, confirm2 }) => {
                   An E-Mail should have been sent to the provided E-Mail address
                 </p>
               )}
-              <div className="formField" style={{paddingRight: "25px", paddingLeft: "25px"}}>
+              <div
+                className="formField"
+                style={{ paddingRight: "25px", paddingLeft: "25px" }}
+              >
                 <input
                   className="form-control"
                   type="email"
@@ -94,7 +97,10 @@ const Login = ({ reg, confirm, confirm2 }) => {
                   onChange={(e) => setEmail(e.target.value)}
                 ></input>
                 <label className="labelIcon">
-                  <FontAwesomeIcon icon={faEnvelope} style={{color: "black"}} />
+                  <FontAwesomeIcon
+                    icon={faEnvelope}
+                    style={{ color: "black" }}
+                  />
                 </label>
                 {email === "" ? (
                   <div className="selectedInput">E-Mail</div>
@@ -102,7 +108,10 @@ const Login = ({ reg, confirm, confirm2 }) => {
                   <div className="hasInput">E-Mail</div>
                 )}
               </div>
-              <div className="formField" style={{paddingRight: "25px", paddingLeft: "25px"}}>
+              <div
+                className="formField"
+                style={{ paddingRight: "25px", paddingLeft: "25px" }}
+              >
                 <input
                   className="form-control"
                   type="password"
@@ -111,7 +120,7 @@ const Login = ({ reg, confirm, confirm2 }) => {
                   onChange={(e) => setPassword(e.target.value)}
                 ></input>
                 <label className="labelIcon">
-                  <FontAwesomeIcon icon={faKey} style={{color: "black"}} />
+                  <FontAwesomeIcon icon={faKey} style={{ color: "black" }} />
                 </label>
                 {password === "" ? (
                   <div className="selectedInput">Password</div>

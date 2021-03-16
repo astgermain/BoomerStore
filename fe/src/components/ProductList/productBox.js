@@ -64,7 +64,7 @@ const ProductBox = (props) => {
                   style={{
                     marginTop: "1px",
                     color: "black",
-                    width: "0.875em;",
+                    width: "0.875em",
                     height: "1em",
                   }}
                 />

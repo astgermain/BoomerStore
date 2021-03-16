@@ -79,7 +79,7 @@ const FeaturedSection = ({ data }) => {
             </div>
             <div className="horizontal-product-container">
               {t1.map((product) => {
-                return <CollectionProductBox product={product} />;
+                return <CollectionProductBox product={product} key={product?.id} />;
               })}
             </div>
           </div>
@@ -90,7 +90,7 @@ const FeaturedSection = ({ data }) => {
             <div className="horizontal-product-container">
               {
               t2.map((product) => {
-                return <CollectionProductBox product={product} />;
+                return <CollectionProductBox product={product} key={product?.id} />;
               })}
             </div>
           </div>
@@ -109,7 +109,8 @@ const FeaturedSection = ({ data }) => {
         >
           {/*offers 1 collection */}
           {arrivals.map((product) => {
-            return <CollectionProductBox product={product} />;
+            console.log(product)
+            return <CollectionProductBox product={product} key={product?.id} />;
           })}
         </div>
       </div>
@@ -127,7 +128,7 @@ const FeaturedSection = ({ data }) => {
             </div>
             <div className="horizontal-product-container">
               {s1.map((product) => {
-                return <CollectionProductBox product={product} give={true} />;
+                return <CollectionProductBox product={product} give={true} key={product?.id} />;
               })}
             </div>
           </div>
@@ -137,7 +138,7 @@ const FeaturedSection = ({ data }) => {
             </div>
             <div className="horizontal-product-container">
               {s2.map((product) => {
-                return <CollectionProductBox product={product} give={true} />;
+                return <CollectionProductBox product={product} give={true} key={product?.id} />;
               })}
             </div>
           </div>
