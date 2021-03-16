@@ -40,6 +40,7 @@ const Addresses = () => {
   const { customerAccessToken } = useContext(StoreContext);
   const [loadingValue, setLoadingValue] = useState(false);
   const [errorValue, setErrorValue] = useState(false);
+  const [modal, setModal] = useState("home")
   let loadingAlert = (value) => {
     if (value) {
       setLoadingValue(true);

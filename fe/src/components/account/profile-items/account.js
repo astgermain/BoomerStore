@@ -265,7 +265,7 @@ const Account = ({side}) => {
 
               <>
               <div className="logged-wrapper">
-              {data?.data?.customer?.firstName == null ? <div><span className="gold-text">Welcome! </span></div>  : <div><span className="gold-text">Hi, </span>{data?.data?.customer?.firstName}</div>}
+              {data?.data?.customer?.firstName == null ? <div><span className="" style={{fontSize: "24px"}}>Welcome! </span></div>  : <div><span className="gold-text">Hi, </span>{data?.data?.customer?.firstName}</div>}
                 <div className="logged-bottom" >
                   <Link to="/account" onClick={() => side()}><button className="account-button" style={{margin: "10px"}}>Dashboard</button></Link>
                   <button onClick={() => {handleCustomerAccessToken(null)}} className="account-button" style={{margin: "10px"}}>Logout</button>
