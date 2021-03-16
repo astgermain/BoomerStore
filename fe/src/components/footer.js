@@ -22,7 +22,7 @@ const Footer = () => {
         </Link>
         <div className="footer-links-section">
           <div className="footer-link-column">
-            <p>About</p>
+            <p style={{color: "var(--c1)", textDecoration: "underline"}}>About</p>
             <div className="footer-sublinks EReg">
             <Link
           className="categories-link"
@@ -32,13 +32,13 @@ const Footer = () => {
             </div>
           </div>
           <div className="footer-link-column">
-            <p>Wholesale</p>
+            <p style={{color: "var(--c1)", textDecoration: "underline"}}>Wholesale</p>
             <div className="footer-sublinks EReg">
-              <p>About Boomer Store</p>
+              <a className="categories-link" href="https://boomernaturalswholesale.com/" style={{color: "white"}}>Boomer Wholesale</a>
             </div>
           </div>
           <div className="footer-link-column">
-            <p>Contact Us</p>
+            <p style={{color: "var(--c1)", textDecoration: "underline"}}>Contact Us</p>
             <div className="footer-sublinks EReg">
             <Link
           className="categories-link"
