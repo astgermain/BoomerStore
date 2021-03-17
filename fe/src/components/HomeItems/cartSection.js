@@ -62,7 +62,16 @@ const CartSection = ({ data, quantity, cartState }) => {
                   Qty: {line[0]?.quantity}
                 </div>
                 <div className="cart-product-title">{line[0]?.title}</div>
-                <span style={{fontSize: "12px", marginLeft: "10px", color: "#3c3c3c", fontFamily: "'EinaReg', sans-serif, Arial"}}>{line[0]?.variant?.title}</span>
+                <span
+                  style={{
+                    fontSize: "12px",
+                    marginLeft: "10px",
+                    color: "#3c3c3c",
+                    fontFamily: "'EinaReg', sans-serif, Arial",
+                  }}
+                >
+                  {line[0]?.variant?.title}
+                </span>
                 <button
                   className="has-text-weight-normal has-text-danger link-button reg-remove"
                   type="button"
@@ -102,7 +111,16 @@ const CartSection = ({ data, quantity, cartState }) => {
                 <div className="cart-product-title">
                   {line[line.length - 2]?.title}
                 </div>
-                <span style={{fontSize: "12px", marginLeft: "10px", color: "#3c3c3c", fontFamily: "'EinaReg', sans-serif, Arial"}}>{line[line.length - 2]?.variant?.title}</span>
+                <span
+                  style={{
+                    fontSize: "12px",
+                    marginLeft: "10px",
+                    color: "#3c3c3c",
+                    fontFamily: "'EinaReg', sans-serif, Arial",
+                  }}
+                >
+                  {line[line.length - 2]?.variant?.title}
+                </span>
                 <button
                   className="has-text-weight-normal has-text-danger link-button reg-remove"
                   type="button"
@@ -141,7 +159,16 @@ const CartSection = ({ data, quantity, cartState }) => {
                 <div className="cart-product-title">
                   {line[line.length - 1]?.title}
                 </div>
-                <span style={{fontSize: "12px", marginLeft: "10px", color: "#3c3c3c", fontFamily: "'EinaReg', sans-serif, Arial"}}>{line[line.length - 1]?.variant?.title}</span>
+                <span
+                  style={{
+                    fontSize: "12px",
+                    marginLeft: "10px",
+                    color: "#3c3c3c",
+                    fontFamily: "'EinaReg', sans-serif, Arial",
+                  }}
+                >
+                  {line[line.length - 1]?.variant?.title}
+                </span>
                 <button
                   className="has-text-weight-normal has-text-danger link-button reg-remove"
                   type="button"
@@ -220,9 +247,15 @@ const CartSection = ({ data, quantity, cartState }) => {
             >
               View Cart
             </Link>{" "}
-            <Link to={check.webUrl} className="cart-button">
-              Checkout
-            </Link>
+            {line.length == 0 ? (
+              <button disabled className="cart-button2">
+                Checkout
+                </button>
+            ) : (
+              <Link to={check.webUrl} className="cart-button">
+                Checkout
+              </Link>
+            )}
           </div>
         </div>
       </div>

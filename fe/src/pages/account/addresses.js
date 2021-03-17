@@ -40,7 +40,8 @@ const Addresses = () => {
   const { customerAccessToken } = useContext(StoreContext);
   const [loadingValue, setLoadingValue] = useState(false);
   const [errorValue, setErrorValue] = useState(false);
-  const [modal, setModal] = useState("home")
+  const [editValue, setEditValue] = useState(null);
+  const [modal, setModal] = useState("home");
   let loadingAlert = (value) => {
     if (value) {
       setLoadingValue(true);
@@ -57,6 +58,11 @@ const Addresses = () => {
     }
   };
 
+  const handleEdit = (value) => {
+    setModal("edit");
+    setEditValue(value)
+  };
+
   return (
     <Layout>
       <Query
@@ -70,7 +76,7 @@ const Addresses = () => {
           if (!loading) {
             loadingAlert(false);
           }
-          if (error) return <>{errorAlert(true)}</>
+          if (error) return <>{errorAlert(true)}</>;
           if (!error) {
             errorAlert(false);
           }
@@ -80,50 +86,66 @@ const Addresses = () => {
               {loadingValue && <div>Loading</div>}
               {errorValue && <div>Error</div>}
               <br />
-              <div>
-                {addresses != null &&
-                  addresses?.edges.map((address) => (
-                    <>
-                      {defaultAddress?.id === address?.node?.id && (
+              {modal == "home" && (
+                <>
+                  <div>
+                    {addresses != null &&
+                      addresses?.edges.map((address) => (
                         <>
-                          <h1
-                            className="subtitle"
-                            style={{ textAlign: "left" }}
+                          {defaultAddress?.id === address?.node?.id && (
+                            <>
+                              <h1
+                                className="subtitle"
+                                style={{ textAlign: "left" }}
+                              >
+                                Default Address:{" "}
+                              </h1>
+                            </>
+                          )}
+                          <div
+                            key={address?.node?.id}
+                            className="columns is-centered"
+                            style={{
+                              justifyContent: "space-between",
+                              alignItems: "center",
+                            }}
                           >
-                            Default Address:{" "}
-                          </h1>
+                            <div style={{ textAlign: "left" }}>
+                              <p className="has-text-grey">
+                                {address?.node?.firstName}{" "}
+                                {address?.node?.lastName}
+                              </p>
+                              <p className="has-text-grey">
+                                {address?.node?.address1}
+                              </p>
+                              <p className="has-text-grey">
+                                {address?.node?.zip}, {address?.node?.city}
+                              </p>
+                              <p className="has-text-grey">
+                                {address?.node?.country}
+                              </p>
+                            </div>
+                            <div
+                              style={{ display: "flex", flexDirection: "row" }}
+                            >
+                                <button className="button account-button" onClick={() => handleEdit(address?.node)} style={{fontSize: ".8rem", display: "flex", alignItems: "center", marginRight: "15px"}}>Edit</button>
+                              <DeleteAddress id={address?.node?.id} />
+                            </div>
+                          </div>
+                          <hr />
                         </>
-                      )}
-                      <div
-                        key={address?.node?.id}
-                        className="columns is-centered"
-                        style={{ justifyContent: "space-between", alignItems: "center" }}
-                      >
-                        <div style={{textAlign: "left"}}>
-                          <p className="has-text-grey">
-                            {address?.node?.firstName} {address?.node?.lastName}
-                          </p>
-                          <p className="has-text-grey">
-                            {address?.node?.address1}
-                          </p>
-                          <p className="has-text-grey">
-                            {address?.node?.zip}, {address?.node?.city}
-                          </p>
-                          <p className="has-text-grey">
-                            {address?.node?.country}
-                          </p>
-                        </div>
-                        <div style={{display: "flex", flexDirection: "row"}}>
-                          <EditAddressForm address={address?.node} />
-                          <DeleteAddress id={address?.node?.id} />
-                        </div>
-                      </div>
-                      <hr />
-                    </>
-                  ))}
-              </div>
-              <br />
-              <AddAddressForm />
+                      ))}
+                  </div>
+                  <br />
+                  
+                </>
+              )}
+                {(modal == "edit") && (
+                    <EditAddressForm address={editValue} setModal={setModal} />
+                )}
+                {((modal == "add") || (modal == "home")) && (
+                    <AddAddressForm setModal={setModal} />
+                )}
             </div>
           );
         }}

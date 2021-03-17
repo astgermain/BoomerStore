@@ -109,7 +109,6 @@ const FeaturedSection = ({ data }) => {
         >
           {/*offers 1 collection */}
           {arrivals.map((product) => {
-            console.log(product)
             return <CollectionProductBox product={product} key={product?.id} />;
           })}
         </div>

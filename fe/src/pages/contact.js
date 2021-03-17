@@ -81,7 +81,7 @@ const Contact = () => {
 
   const showForm = (
     <form onSubmit={handleSubmit(onSubmit)} method="post">
-        <br></br>
+      <br></br>
       <Grid item xs={12} className="spacing-contact">
         <label htmlFor="name">
           <TextField
@@ -147,7 +147,7 @@ const Contact = () => {
           />
         </label>
       </Grid>
-        <br></br>
+      <br></br>
       <div className="submit-wrapper">
         <Button
           variant="contained"
@@ -176,9 +176,19 @@ const Contact = () => {
           </Alert>
         )}
         <div className="text-side">
-          <h2 className="align-left story-text" style={{fontSize: "2.5em"}}>Contact Us</h2>
+          <h2 className="align-left story-text" style={{ fontSize: "2.5em" }}>
+            Contact Us
+          </h2>
         </div>
         <div className="form-side">{submitted ? showThankYou : showForm}</div>
+        <div style={{marginTop: "25px"}}>
+          <p style={{ fontSize: "2.5em" }}>Or Find Us At</p>
+
+          <p>8670 W Cheyenne Ave. #120</p>
+          <p>Las Vegas, NV 89129</p>
+          <p>Call: (702) 960-4843</p>
+          <p>Email: info@boomernaturals.com</p>
+        </div>
       </div>
     </div>
   );
