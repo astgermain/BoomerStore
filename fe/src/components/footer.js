@@ -29,6 +29,31 @@ const Footer = () => {
           to="/about"
           style={{color: "white"}}
         >About Boomer Store</Link>
+        <Link
+          className="categories-link"
+          to="/faq"
+          style={{color: "white"}}
+        >FAQ</Link>
+        <Link
+          className="categories-link"
+          to="/refund"
+          style={{color: "white"}}
+        >Refund Policy</Link>
+        <Link
+          className="categories-link"
+          to="/terms"
+          style={{color: "white"}}
+        >Terms of Servic</Link>
+        <Link
+          className="categories-link"
+          to="/privacy"
+          style={{color: "white"}}
+        >Privacy Policy</Link>
+        <Link
+          className="categories-link"
+          to="/shipping"
+          style={{color: "white"}}
+        >Shipping Policy</Link>
             </div>
           </div>
           <div className="footer-link-column">
