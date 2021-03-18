@@ -3,21 +3,16 @@ $mobile: 768px;
 $tablet: 1200px;
 $desktop: 1800px;
 
-
 .m-icon
     display: none
-    
-
-.categories-option:hover
-    text-decoration: underline;
 
 .categories-option:hover a
     color: var(--c1) !important
-    
+
 .categories-link:hover 
     color: var(--c1) !important
-
-
+.category-bar-top
+    display: flex
 .categories-option:hover .m-icon
     display: flex
     animation-duration: .5s
@@ -116,36 +111,72 @@ $desktop: 1800px;
     height: 30px;
     align-self: flex-start;
     margin: 20px 20px 20px 20px;
+    min-width: 30px;
 
 .categories-logo
     align-self: center;
-.categorie-type-container
+    display: flex;
+.category-type-container
     margin: 0px 0px 15px 0px;
     position: fixed;
     width: 400px;
     overflow-y: scroll;
     top: 0;
     bottom: 0;
-    margin-top: 150px;
+    margin-top: 75px;
     display: flex;
     flex-direction: column;
     align-items: center;
-.categorie-header
-    font-size: 20px;
-    color: var(--c1)
-    align-self: center
+.category-header
+    font-size: 18px;
+    color: var(--c1);
+    align-self: center;
     display: block;
-    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 49px;
+    border-bottom: 2px solid #00122099;
+    border-left: 5px solid transparent;
 .product-categories
-    width: 50%
-    margin-left: 50px;
+    width: 100%
 .categories-option  
     padding: 10px 0;
+    padding-left: 50px;
+    padding-right: 25px;
+    border-bottom: 2px solid #00122099;
+    font-family: "EinaReg", Arial, sans-serif;
+    font-weight: bolder;
+    border-left: 5px solid transparent;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
 .categories-option a
     color: white
     display: flex 
 .categories-option a:hover
     color: white
+.categories-option:hover
+    border-left: 5px solid var(--c1);
+    background: linear-gradient(310deg, var(--c1) 34%, #002244 34.1%);
+    background-size: 200% 200%;
+    background-position: 0% 100%;
+    animation-duration: .75s;
+    animation-timing-function: ease;
+    animation-direction: alternate;
+    animation-name: newHover5;
+    transition: 1s ease;
+    background-position: 45% 100%;
+
+@keyframes newHover5
+    0%
+        background-position: 0% 0%
+    33%
+        background-position: 49% 100%
+    100%
+        background-position: 45% 100%
+
+.categories-option:hover .fa-chevron-left
+    color: black;
 .categories-option
     display: flex;
 

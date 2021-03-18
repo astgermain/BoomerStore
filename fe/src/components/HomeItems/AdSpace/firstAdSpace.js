@@ -4,22 +4,15 @@ import "./adSpace.sass";
 const FirstAdSpace = ({ data }) => {
   //Data is allShopifyProduct
   return (
-    <a href="/" className="second-ad">
-      <div
-        className="first-ad-space"
-        style={{
-          display: "flex",
-          margin: "0",
-          width: "100%",
-          height: "100%",
-          justifyContent: "center",
-          alignItems: "flex-end",
-          padding: "15px",
-        }}
-      >
-        <button className="button account-button-ad">Shop</button>
-      </div>
-    </a>
+    <>
+    <div style={{maxWidth: "425px", margin: "auto"}}>
+    <p style={{color: "var(--c1)", textTransform: "uppercase", fontSize: "42px", textAlign: "center", padding: "15px"}}>Get 10% Off</p>
+    <p style={{padding: "5px 15px", color: "white", fontSize: "20px", textAlign: "center"}}>Enter your email below and be one step closer to saving!</p>
+    </div>
+    <div style={{padding: "15px", maxWidth: "425px", margin: "auto"}}>
+    <div className="klaviyo-form-USSPVp"></div>
+    </div>
+    </>
   );
 };
 

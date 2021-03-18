@@ -6,7 +6,7 @@ import logo from "../images/boomerstorelogo.webp";
 import ToggleButton from "./UI/toogleButton";
 import CartSection from "./HomeItems/cartSection";
 import AccountSection from "./HomeItems/accountSection";
-import CategorieListItem from "./CategoryListItem";
+import CategoryListItem from "./CategoryListItem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faShoppingBag,
@@ -372,20 +372,13 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
         <div className="category-sidebar">
           <div className="category-container category-color">
             <div className="category-bar-top">
-              <button
-                className="categories-circle-button"
-                onClick={() => handleMenuClick()}
-              >
-                <FontAwesomeIcon
-                  icon={faChevronLeft}
-                  style={{ transform: "rotate(180deg)", width: "100%" }}
-                />
-              </button>
-              <div className="row">
+              
+              <div className="row" style={{width: "100%"}}>
                 <Link
                   aria-label="search"
                   className="categories-logo has-text-black has-text-weight-bold"
                   to="/"
+                  style={{marginLeft: "70px"}}
                 >
                   <img
                     src={logo}
@@ -421,9 +414,18 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
                 </button>
                 */}
               </div>
+              <button
+                className="categories-circle-button"
+                onClick={() => handleMenuClick()}
+              >
+                <FontAwesomeIcon
+                  icon={faTimes}
+                  style={{ transform: "rotate(180deg)", width: "100%" }}
+                />
+              </button>
             </div>
 
-            <div className="categorie-type-container">
+            <div className="category-type-container">
               {/*
               <div className="department-categories">
                 <span className="categorie-header">Department</span>
@@ -446,38 +448,42 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
               */}
 
               <div className="product-categories">
-                <span className="categorie-header">Products</span>
-                <CategorieListItem
+                <span className="category-header">Shop By Brand</span>
+                <CategoryListItem
                   url={"collection/face-covers"}
-                  title={"Face Covers"}
+                  title={"Boomer Naturals"}
                 />
-                <CategorieListItem
+                <CategoryListItem
                   url={"collection/coffee"}
-                  title={"Vietnamese Coffee"}
+                  title={"Boomer Silver"}
                 />
-                <CategorieListItem
+                <CategoryListItem
                   url={"collection/bed-and-bath"}
-                  title={"Bed & Bath"}
-                />
-                <CategorieListItem
-                  url={"collection/supplements"}
                   title={"Boomer Supplements"}
                 />
-                <CategorieListItem
-                  url={"collection/apparel"}
-                  title={"Boomer Silver Apparel"}
+                <CategoryListItem
+                  url={"collection/supplements"}
+                  title={"Boomer Electronics"}
                 />
-                <CategorieListItem
-                  url={"collection/skin-care"}
-                  title={"Skin Care"}
+                <span className="category-header">Pages</span>
+                <CategoryListItem
+                  url={"/about"}
+                  title={"About Us"}
                 />
-                <CategorieListItem url={"collection/pet"} title={"Pet"} />
+                <CategoryListItem
+                  url={"/e"}
+                  title={"Contact Us"}
+                />
+                <CategoryListItem
+                  url={"collection/bed-and-bath"}
+                  title={"FAQ"}
+                />
+                <CategoryListItem
+                  url={"collection/supplements"}
+                  title={"Wholesale"}
+                />
               </div>
-              <p
-                style={{ color: "var(--c1)", fontSize: "2em", padding: "25px" }}
-              >
-                More Info and Products Coming Soon!
-              </p>
+              
             </div>
           </div>
           <div
@@ -541,9 +547,9 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
               </div>
             </div>
 
-            <div className="categorie-type-container">
+            <div className="category-type-container">
               <div className="department-categories">
-                <span className="categorie-header">Department</span>
+                <span className="category-header">Department</span>
                 <div className="categories-option">
                   <a href="">Boomer Silver</a>
                 </div>
