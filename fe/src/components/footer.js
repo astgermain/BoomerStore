@@ -101,7 +101,7 @@ const Footer = () => {
       </div>
       <hr style={{ marginLeft: "75px", marginRight: "75px" }}></hr>
       <div className="footer-row2">
-        <div className="reserve EReg">Copyright</div>
+        <div className="reserve EReg">Copyright &copy; 2021 Boomer Store. All Rights Reserved</div>
         <div className="footer-links-section">
           <div className="footer-link-column">(702) 960-4843</div>
           <div className="footer-link-column">info@boomerstore.com</div>

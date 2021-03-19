@@ -548,28 +548,42 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
             </div>
 
             <div className="category-type-container">
-              <div className="department-categories">
-                <span className="category-header">Department</span>
-                <div className="categories-option">
-                  <a href="">Boomer Silver</a>
-                </div>
-                <div className="categories-option">
-                  <a href="">Boomer Supplements</a>
-                </div>
-                <div className="categories-option">
-                  <a href="">Boomer Electronics</a>
-                </div>
-              </div>
-
-              <div className="product-categories">
-                <span className="categorie-header">Products</span>
-                <div className="categories-option">
-                  <a href="">Apparel</a>
-                </div>
-                <div className="categories-option">
-                  <a href="">Pet & Bed</a>
-                </div>
-              </div>
+            <div className="product-categories">
+                <span className="category-header">Shop By Brand</span>
+                <CategoryListItem
+                  url={"collection/face-covers"}
+                  title={"Boomer Naturals"}
+                />
+                <CategoryListItem
+                  url={"collection/coffee"}
+                  title={"Boomer Silver"}
+                />
+                <CategoryListItem
+                  url={"collection/bed-and-bath"}
+                  title={"Boomer Supplements"}
+                />
+                <CategoryListItem
+                  url={"collection/supplements"}
+                  title={"Boomer Electronics"}
+                />
+                <span className="category-header">Pages</span>
+                <CategoryListItem
+                  url={"/about"}
+                  title={"About Us"}
+                />
+                <CategoryListItem
+                  url={"/e"}
+                  title={"Contact Us"}
+                />
+                <CategoryListItem
+                  url={"collection/bed-and-bath"}
+                  title={"FAQ"}
+                />
+                <CategoryListItem
+                  url={"collection/supplements"}
+                  title={"Wholesale"}
+                />
+              </div> 
             </div>
           </div>
           <div
