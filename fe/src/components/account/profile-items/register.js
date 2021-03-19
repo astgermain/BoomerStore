@@ -71,8 +71,8 @@ const RegisterForm = ({ login, confirm }) => {
                         result.data.customerCreate.customerUserErrors[0].message
                       );
                     } else {
-                      confirm(true);
                       login("login");
+                      confirm(true)
                     }
                   })
                   .catch((err) => {
@@ -205,8 +205,8 @@ const RegisterForm = ({ login, confirm }) => {
   );
 };
 
-const Register = ({ login }) => {
-  return <RegisterForm login={login} />;
+const Register = ({ login, confirm }) => {
+  return <RegisterForm login={login} confirm={confirm} />;
 };
 
 export default Register;

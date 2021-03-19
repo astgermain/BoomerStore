@@ -471,15 +471,15 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
                   title={"About Us"}
                 />
                 <CategoryListItem
-                  url={"/e"}
+                  url={"/contact"}
                   title={"Contact Us"}
                 />
                 <CategoryListItem
-                  url={"collection/bed-and-bath"}
+                  url={"faq"}
                   title={"FAQ"}
                 />
                 <CategoryListItem
-                  url={"collection/supplements"}
+                  url={"https://boomernaturalswholesale.com/"}
                   title={"Wholesale"}
                 />
               </div>
@@ -572,15 +572,15 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
                   title={"About Us"}
                 />
                 <CategoryListItem
-                  url={"/e"}
+                  url={"/contact"}
                   title={"Contact Us"}
                 />
                 <CategoryListItem
-                  url={"collection/bed-and-bath"}
+                  url={"faq"}
                   title={"FAQ"}
                 />
                 <CategoryListItem
-                  url={"collection/supplements"}
+                  url={"https://boomernaturalswholesale.com/"}
                   title={"Wholesale"}
                 />
               </div> 

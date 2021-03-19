@@ -19,7 +19,7 @@ const collectionPage = ({ data }) => {
   return (
     <>
       <SEO title={collection.title} />
-      <section className="hero">
+      <section className="hero" style={{minHeight: "calc(100vh - 365px)"}}>
         <div
           className="collection-box"
           style={{ display: "flex", flexDirection: "column" }}
