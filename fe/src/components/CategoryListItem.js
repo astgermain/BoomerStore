@@ -1,19 +1,20 @@
 import React from "react";
+import { Link } from "gatsby"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronLeft,
 } from "@fortawesome/free-solid-svg-icons";
 function CategoryListItem({ url, title }) {
   return (
+    <Link className="categories-link" to={url}>
     <div className="categories-option">
-      <a className="categories-link" href={url}>
         {title}
-      </a>
       <FontAwesomeIcon
         icon={faChevronLeft}
         style={{ transform: "rotate(180deg)" }}
       />
     </div>
+    </Link>
   );
 }
 

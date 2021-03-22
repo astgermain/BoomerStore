@@ -9,7 +9,7 @@ $desktop: 1800px;
 .categories-option:hover a
     color: var(--c1) !important
 
-.categories-link:hover 
+.categories-option:hover
     color: var(--c1) !important
 .category-bar-top
     display: flex
@@ -150,6 +150,8 @@ $desktop: 1800px;
     justify-content: space-between;
     align-items: center;
     color: white;
+    cursor: pointer !important;
+    z-index: 3000;
 .categories-option a
     color: white
     display: flex 
@@ -431,6 +433,17 @@ $desktop: 1800px;
         display: none
 
 @media only screen and (max-width: $mobile) 
+    .category-type-container 
+        margin: 0px 0px 15px 0px;
+        position: absolute;
+        width: 400px;
+        overflow-y: scroll;
+        top: 0;
+        bottom: 0;
+        margin-top: 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     .noscroll
         position: fixed
     .navbar
@@ -462,8 +475,6 @@ $desktop: 1800px;
     .categorie-type-container
 	    margin-left: 125px
 	    display: block;  
-    .categories-option 
-        margin-bottom: 10px  
     .product-categories
         margin-left: 0px
 

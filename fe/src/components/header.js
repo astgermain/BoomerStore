@@ -450,19 +450,19 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
               <div className="product-categories">
                 <span className="category-header">Shop By Brand</span>
                 <CategoryListItem
-                  url={"collection/face-covers"}
+                  url={"/collection/face-covers"}
                   title={"Boomer Naturals"}
                 />
                 <CategoryListItem
-                  url={"collection/coffee"}
+                  url={"/collection/coffee"}
                   title={"Boomer Silver"}
                 />
                 <CategoryListItem
-                  url={"collection/bed-and-bath"}
+                  url={"/collection/bed-and-bath"}
                   title={"Boomer Supplements"}
                 />
                 <CategoryListItem
-                  url={"collection/supplements"}
+                  url={"/collection/supplements"}
                   title={"Boomer Electronics"}
                 />
                 <span className="category-header">Pages</span>
@@ -475,7 +475,7 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
                   title={"Contact Us"}
                 />
                 <CategoryListItem
-                  url={"faq"}
+                  url={"/faq"}
                   title={"FAQ"}
                 />
                 <CategoryListItem
@@ -551,19 +551,19 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
             <div className="product-categories">
                 <span className="category-header">Shop By Brand</span>
                 <CategoryListItem
-                  url={"collection/face-covers"}
+                  url={"/collection/face-covers"}
                   title={"Boomer Naturals"}
                 />
                 <CategoryListItem
-                  url={"collection/coffee"}
+                  url={"/collection/coffee"}
                   title={"Boomer Silver"}
                 />
                 <CategoryListItem
-                  url={"collection/bed-and-bath"}
+                  url={"/collection/bed-and-bath"}
                   title={"Boomer Supplements"}
                 />
                 <CategoryListItem
-                  url={"collection/supplements"}
+                  url={"/collection/supplements"}
                   title={"Boomer Electronics"}
                 />
                 <span className="category-header">Pages</span>
@@ -576,7 +576,7 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
                   title={"Contact Us"}
                 />
                 <CategoryListItem
-                  url={"faq"}
+                  url={"/faq"}
                   title={"FAQ"}
                 />
                 <CategoryListItem
