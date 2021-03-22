@@ -2,7 +2,8 @@ import React from "react";
 import ProductList from "../productList";
 import CollectionProductBox from "../ProductList/collectionProductBox";
 import HorizontalBox from "../ProductList/horizontalBox";
-import Ad2 from "../../images/ad2.jpg";
+import Ad2 from "../../images/ad2.webp";
+import Ad3 from "../../images/ad3.webp";
 import "./featuredSection.sass";
 
 const FeaturedSection = ({ data }) => {
@@ -51,7 +52,7 @@ const FeaturedSection = ({ data }) => {
                 className="f-ad-box give-border"
                 style={{
                   backgroundImage: `url(${Ad2})`,
-                  backgroundSize: `cover`,
+                  backgroundSize: `contain`,
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "flex-end",
@@ -146,8 +147,8 @@ const FeaturedSection = ({ data }) => {
               <div
                 className="f-ad-box"
                 style={{
-                  backgroundImage: `url(${Ad2})`,
-                  backgroundSize: `cover`,
+                  backgroundImage: `url(${Ad3})`,
+                  backgroundSize: `contain`,
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "flex-end",
@@ -163,7 +164,7 @@ const FeaturedSection = ({ data }) => {
                     textAlign: "center",
                   }}
                 >
-                  Peep Our New Easter Face Covers
+                  Now Available
                 </p>
                 <button className="button account-button-ad">Shop</button>
               </div>
