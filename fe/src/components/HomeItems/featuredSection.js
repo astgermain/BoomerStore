@@ -116,7 +116,7 @@ const FeaturedSection = ({ data }) => {
       </div>
       <div className="featured-content3">
         <div className="f-row-top">
-          <span className="f-top-title3">Offers Of The Day</span>
+          <span className="f-top-title3">Holiday Products</span>
           <a href="collection/offers">
             <button className="f-button3">See More</button>
           </a>
