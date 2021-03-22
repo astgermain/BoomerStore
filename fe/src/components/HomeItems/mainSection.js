@@ -306,7 +306,7 @@ const MainSection = ({ data }) => {
                   backgroundSize: `cover`,
                 }}
               >
-                <div className="cat-info-top">Pet(Coming Soon)</div>
+                <div className="cat-info-top">Pet<p style={{color: "var(--c1)", fontSize: "14px"}}> (Coming Soon)</p></div>
                 <div className="cat-icon-bottom">
                   <div className="boxH">
                     <div className="box-backgroundH">
@@ -364,7 +364,7 @@ const MainSection = ({ data }) => {
                   backgroundSize: `cover`,
                 }}
               >
-                <div className="cat-info-top">Electronics(Coming Soon)</div>
+                <div className="cat-info-top">Electronics<p style={{color: "var(--c1)", fontSize: "14px"}}> (Coming Soon)</p></div>
                 <div className="cat-icon-bottom">
                   <div className="boxHF">
                     <div className="box-backgroundHF">
@@ -396,7 +396,7 @@ const MainSection = ({ data }) => {
                   backgroundSize: `cover`,
                 }}
               >
-                <div className="cat-info-top">Bed & Bath(Coming Soon)</div>
+                <div className="cat-info-top">Bed & Bath<p style={{color: "var(--c1)", fontSize: "14px"}}> (Coming Soon)</p></div>
                 <div className="cat-icon-bottom">
                   <div className="boxHF">
                     <div className="box-backgroundHF">
@@ -426,7 +426,7 @@ const MainSection = ({ data }) => {
                   backgroundSize: `cover`,
                 }}
               >
-                <div className="cat-info-top">Supplements(Coming Soon)</div>
+                <div className="cat-info-top">Supplements<p style={{color: "var(--c1)", fontSize: "14px"}}> (Coming Soon)</p></div>
                 <div className="cat-icon-bottom">
                   <div className="boxH">
                     <div className="box-backgroundH">
@@ -454,7 +454,7 @@ const MainSection = ({ data }) => {
                   backgroundSize: `cover`,
                 }}
               >
-                <div className="cat-info-top">Coffee(Coming Soon)</div>
+                <div className="cat-info-top">Coffee<p style={{color: "var(--c1)", fontSize: "14px"}}> (Coming Soon)</p></div>
                 <div className="cat-icon-bottom">
                   <div className="boxH">
                     <div className="box-backgroundH">
