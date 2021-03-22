@@ -450,19 +450,19 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
               <div className="product-categories">
                 <span className="category-header">Shop By Brand</span>
                 <CategoryListItem
-                  url={"/collection/face-covers"}
+                  url={"/collections/boomer-naturals"}
                   title={"Boomer Naturals"}
                 />
                 <CategoryListItem
-                  url={"/collection/coffee"}
+                  url={"/collections/boomer-silver"}
                   title={"Boomer Silver"}
                 />
                 <CategoryListItem
-                  url={"/collection/bed-and-bath"}
+                  url={"/collections/boomer-supplements"}
                   title={"Boomer Supplements"}
                 />
                 <CategoryListItem
-                  url={"/collection/supplements"}
+                  url={"/collections/boomer-electronics"}
                   title={"Boomer Electronics"}
                 />
                 <span className="category-header">Pages</span>
@@ -551,19 +551,19 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
             <div className="product-categories">
                 <span className="category-header">Shop By Brand</span>
                 <CategoryListItem
-                  url={"/collection/face-covers"}
+                  url={"/collections/boomer-naturals"}
                   title={"Boomer Naturals"}
                 />
                 <CategoryListItem
-                  url={"/collection/coffee"}
+                  url={"/collections/boomer-silver"}
                   title={"Boomer Silver"}
                 />
                 <CategoryListItem
-                  url={"/collection/bed-and-bath"}
+                  url={"/collections/boomer-supplements"}
                   title={"Boomer Supplements"}
                 />
                 <CategoryListItem
-                  url={"/collection/supplements"}
+                  url={"/collections/boomer-electronics"}
                   title={"Boomer Electronics"}
                 />
                 <span className="category-header">Pages</span>
