@@ -96,7 +96,7 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
             <img
               src={logo}
               alt="Boomer Store logo"
-              style={{ maxWidth: "115px" }}
+              style={{ maxWidth: "115px", maxHeight: "25px" }}
             ></img>
           </Link>
         </h1>
@@ -183,7 +183,7 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
               <img
                 src={logo}
                 alt="Boomer Store logo"
-                style={{ maxWidth: "150px" }}
+                style={{ maxWidth: "150px", maxHeight: "25px" }}
               ></img>
             </Link>
           </h1>
@@ -383,7 +383,7 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
                   <img
                     src={logo}
                     alt="Boomer Store logo"
-                    style={{ maxWidth: "150px" }}
+                    style={{ maxWidth: "150px", maxHeight: "25px" }}
                   ></img>
                 </Link>
                 {/*
@@ -425,7 +425,7 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
               </button>
             </div>
 
-            <div className="category-type-container">
+            <div className="category-type-container" style={{marginTop: "0px"}}>
               {/*
               <div className="department-categories">
                 <span className="categorie-header">Department</span>
@@ -514,7 +514,7 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
                   <img
                     src={logo}
                     alt="Boomer Store logo"
-                    style={{ maxWidth: "150px" }}
+                    style={{ maxWidth: "150px", maxHeight: "25px" }}
                   ></img>
                 </Link>
                 {/*
@@ -547,7 +547,7 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
               </div>
             </div>
 
-            <div className="category-type-container">
+            <div className="category-type-container" style={{marginTop: "75px"}}>
             <div className="product-categories">
                 <span className="category-header">Shop By Brand</span>
                 <CategoryListItem

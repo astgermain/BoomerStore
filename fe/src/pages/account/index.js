@@ -226,7 +226,7 @@ const Index = () => {
               return (
                 <>
                   {fetchingAlert(true)}
-                  <div style={{ height: "calc(100vh - 300px)", padding: "15px" }}>
+                  <div style={{ height: "calc(100vh - 300px)", padding: "15px", background: "#001122" }}>
                     <h1>.</h1>
                   </div>
                 </>
@@ -239,7 +239,7 @@ const Index = () => {
               return (
                 <>
                   {loadingAlert(true)}
-                  <div style={{ height: "calc(100vh - 300px)", padding: "15px" }}>
+                  <div style={{ height: "calc(100vh - 300px)", padding: "15px", background: "#001122" }}>
                     <h1>.</h1>
                   </div>
                 </>
@@ -252,7 +252,7 @@ const Index = () => {
               return (
                 <>
                   {errorAlert(true)}
-                  <div style={{ height: "calc(100vh - 300px)", padding: "15px" }}>
+                  <div style={{ height: "calc(100vh - 300px)", padding: "15px", background: "#001122" }}>
                     <h1>Data Error, Please Refresh The Page or Try Clearing Your Browser Cookies.<><br></br></> Contact Support Using The Support Button At The Bottom Right Of Your Screen If Problems Persist.</h1>
                   </div>
                 </>
