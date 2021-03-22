@@ -300,13 +300,13 @@ const MainSection = ({ data }) => {
             <div className="cat-row">
               <a
                 className="cat-half"
-                href="collection/pet"
+                //href="collection/pet"
                 style={{
                   backgroundImage: `url(${PetImg})`,
                   backgroundSize: `cover`,
                 }}
               >
-                <div className="cat-info-top">Pet</div>
+                <div className="cat-info-top">Pet(Coming Soon)</div>
                 <div className="cat-icon-bottom">
                   <div className="boxH">
                     <div className="box-backgroundH">
@@ -358,13 +358,13 @@ const MainSection = ({ data }) => {
             <div className="cat-row">
               <a
                 className="cat-full"
-                href="collection/electronics"
+                //href="collection/electronics"
                 style={{
                   backgroundImage: `url(${ElecImg})`,
                   backgroundSize: `cover`,
                 }}
               >
-                <div className="cat-info-top">Electronics</div>
+                <div className="cat-info-top">Electronics(Coming Soon)</div>
                 <div className="cat-icon-bottom">
                   <div className="boxHF">
                     <div className="box-backgroundHF">
@@ -390,13 +390,13 @@ const MainSection = ({ data }) => {
             <div className="cat-row">
               <a
                 className="cat-full"
-                href="collection/bed-and-bath"
+                //href="collection/bed-and-bath"
                 style={{
                   backgroundImage: `url(${BedImg})`,
                   backgroundSize: `cover`,
                 }}
               >
-                <div className="cat-info-top">Silver-Infused Bed & Bath</div>
+                <div className="cat-info-top">Bed & Bath(Coming Soon)</div>
                 <div className="cat-icon-bottom">
                   <div className="boxHF">
                     <div className="box-backgroundHF">
@@ -420,13 +420,13 @@ const MainSection = ({ data }) => {
             <div className="cat-row">
               <a
                 className="cat-half"
-                href="collection/supplements"
+                //href="collection/supplements"
                 style={{
                   backgroundImage: `url(${SupImg})`,
                   backgroundSize: `cover`,
                 }}
               >
-                <div className="cat-info-top">Supplements</div>
+                <div className="cat-info-top">Supplements(Coming Soon)</div>
                 <div className="cat-icon-bottom">
                   <div className="boxH">
                     <div className="box-backgroundH">
@@ -448,13 +448,13 @@ const MainSection = ({ data }) => {
               </a>
               <a
                 className="cat-half"
-                href="collection/coffee"
+                //href="collection/coffee"
                 style={{
                   backgroundImage: `url(${CofImg})`,
                   backgroundSize: `cover`,
                 }}
               >
-                <div className="cat-info-top">Coffee</div>
+                <div className="cat-info-top">Coffee(Coming Soon)</div>
                 <div className="cat-icon-bottom">
                   <div className="boxH">
                     <div className="box-backgroundH">
