@@ -4,7 +4,7 @@ import "./adSpace.sass";
 const SecondAdSpace = ({ data }) => {
   //Data is allShopifyProduct
   return (
-    <a href="/" className="second-ad">
+    <a href="/collections/ad1" className="second-ad">
       <div
         className="second-ad-space"
         style={{
