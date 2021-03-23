@@ -66,10 +66,17 @@ const SearchPage = ({ data, location }) => {
           </div>
           <div className="container search-container">
             <div className="columns is-multiline ">
-              {products
+              {
+                
+              products
                 .filter(
                   (p) =>
+                  
+                
+                    p.node.title.toUpperCase().match(new RegExp(search.split(" ").map((x)=>{return `(?=.*${x.toUpperCase()})`}).join(""), "g")) ||
                     p.node.title.toUpperCase().includes(search.toUpperCase()) ||
+                    p.node.tags.some(o => o.toUpperCase().match(new RegExp(search.split(" ").map((x)=>{return `(?=.*${x.toUpperCase()})`}).join(""), "g"))) ||
+                    p.node.tags.some(o => search.toUpperCase().includes(o.toUpperCase())) ||
                     p.node.productType
                       .toUpperCase()
                       .includes(search.toUpperCase()) ||
@@ -119,6 +126,7 @@ export const query = graphql`
           handle
           productType
           vendor
+          tags
           priceRange {
             maxVariantPrice {
               amount
