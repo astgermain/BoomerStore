@@ -3,9 +3,8 @@ import { StaticQuery, graphql } from "gatsby";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import Provider from "../context/provider";
-
-import "./layout.sass";
 import Helmet from "react-helmet";
+import "./layout.sass";
 
 const Layout = ({ path, children, location }) => {
   const [menuMobile, setMenuMobile] = useState("");
@@ -48,7 +47,6 @@ const Layout = ({ path, children, location }) => {
         >
           {" "}
         </script>
-        <script type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=TSPD66"></script>
       </Helmet>
     </Provider>
   );

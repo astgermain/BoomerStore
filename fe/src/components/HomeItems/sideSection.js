@@ -1,13 +1,21 @@
-import React from "react";
+import React, {useEffect} from "react";
 import FirstAd from '../HomeItems/AdSpace/firstAdSpace'
 import SecondAd from '../HomeItems/AdSpace/secondAdSpace'
-
+import Helmet from "react-helmet"
 import Ad1 from '../../images/ad1.webp'
 import './sideSection.sass'
 
 const SideSection = ({ data }) => {
+  useEffect(() => {
+   
+  },[])
+    
   //Data is allShopifyProduct
   return (
+    <>
+    <Helmet>
+      <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=TSPD66"></script>
+    </Helmet>
     <div className="sideSection" style={{ margin: "0", }}>
       <div className="sideContent1" style={{ background: `var(--darker)` }}>
         <FirstAd />
@@ -16,6 +24,7 @@ const SideSection = ({ data }) => {
         <SecondAd />
       </div>
     </div>
+    </>
   );
 };
 
