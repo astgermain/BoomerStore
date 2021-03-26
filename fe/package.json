@@ -44,6 +44,7 @@
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "react-hook-form": "^6.15.4",
+    "react-image-zooom": "^1.0.4",
     "react-notifications-component": "^3.0.3",
     "rebass": "^4.0.7",
     "shopify-buy": "^2.11.0"

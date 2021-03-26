@@ -159,13 +159,21 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
         </div>
       </nav>
       <div className="mobile-fixed-space"></div>
+      <div className="reg-top-header">
+        <div className="top-header-links">
+          <a>Featured</a>
+          <a>New Arrivals</a>
+          <a>Holiday</a>
+          <a>Sale</a>
+        </div>
+      </div>
       <nav
         className="navbar"
         role="navigation"
         aria-label="main navigation"
         style={{
           display: "flex",
-          height: "65px",
+          height: "75px",
           backgroundColor: `#002244`,
         }}
       >
@@ -204,21 +212,34 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
                     className="form-control"
                   />
                   <label className="labelIcon">
-                    <Link to="/search" state={{ search: search }} style={{width: "100%", height: "100%", padding: "0"}}>
-                      <button 
+                    <Link
+                      to="/search"
+                      state={{ search: search }}
+                      style={{ width: "100%", height: "100%", padding: "0" }}
+                    >
+                      <button
                         type="submit"
-                        style={{width: "100%", height: "100%", background: "transparent", border: "none", display: "flex", justifyContent: "center", alignItems: "center", outline: "none"}}>
-
-                      <FontAwesomeIcon
-                        icon={faSearch}
-                        className="p-icon"
                         style={{
-                          marginTop: "1px",
-                          color: "black",
-                          width: "0.875em",
-                          height: "1em",
+                          width: "100%",
+                          height: "100%",
+                          background: "transparent",
+                          border: "none",
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          outline: "none",
                         }}
-                      />
+                      >
+                        <FontAwesomeIcon
+                          icon={faSearch}
+                          className="p-icon"
+                          style={{
+                            marginTop: "1px",
+                            color: "black",
+                            width: "0.875em",
+                            height: "1em",
+                          }}
+                        />
                       </button>
                     </Link>
                   </label>
@@ -270,9 +291,7 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
             style={{ color: "var(--textTitle)", width: "calc(100%/3)" }}
             onClick={() => cartHover()}
           >
-            <div
-              className={`cat-btn-top2 btn-border2`}
-            >
+            <div className={`cat-btn-top2 btn-border2`}>
               {quantity > 0 ? (
                 <>
                   {cartState != "" ? (
@@ -338,21 +357,16 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
             style={{ color: "var(--textTitle)", width: "calc(100%/3)" }}
             onClick={() => handleMenuClick()}
           >
-            <a
-              className="cat-btn-top btn-border"
-              
-            >
-              <h2 style={{ display: "flex", alignItems: "center" }}>
-                Menu
-              </h2>
+            <a className="cat-btn-top btn-border">
+              <h2 style={{ display: "flex", alignItems: "center" }}>Menu</h2>
               <FontAwesomeIcon
-                  icon={faStream}
-                  style={{
-                    marginLeft: "10px",
-                    marginTop: "1px",
-                    color: "#FFBA00",
-                  }}
-                />
+                icon={faStream}
+                style={{
+                  marginLeft: "10px",
+                  marginTop: "1px",
+                  color: "#FFBA00",
+                }}
+              />
             </a>
             {/*
             <h2 style={{ marginRight: "10px" }}>Theme</h2>
@@ -372,13 +386,12 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
         <div className="category-sidebar">
           <div className="category-container category-color">
             <div className="category-bar-top">
-              
-              <div className="row" style={{width: "100%"}}>
+              <div className="row" style={{ width: "100%" }}>
                 <Link
                   aria-label="search"
                   className="categories-logo has-text-black has-text-weight-bold"
                   to="/"
-                  style={{marginLeft: "70px"}}
+                  style={{ marginLeft: "70px" }}
                 >
                   <img
                     src={logo}
@@ -425,7 +438,10 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
               </button>
             </div>
 
-            <div className="category-type-container" style={{marginTop: "0px"}}>
+            <div
+              className="category-type-container"
+              style={{ marginTop: "0px" }}
+            >
               {/*
               <div className="department-categories">
                 <span className="categorie-header">Department</span>
@@ -466,24 +482,14 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
                   title={"Boomer Electronics"}
                 />
                 <span className="category-header">Pages</span>
-                <CategoryListItem
-                  url={"/about"}
-                  title={"About Us"}
-                />
-                <CategoryListItem
-                  url={"/contact"}
-                  title={"Contact Us"}
-                />
-                <CategoryListItem
-                  url={"/faq"}
-                  title={"FAQ"}
-                />
+                <CategoryListItem url={"/about"} title={"About Us"} />
+                <CategoryListItem url={"/contact"} title={"Contact Us"} />
+                <CategoryListItem url={"/faq"} title={"FAQ"} />
                 <CategoryListItem
                   url={"https://boomernaturalswholesale.com/"}
                   title={"Wholesale"}
                 />
               </div>
-              
             </div>
           </div>
           <div
@@ -547,8 +553,11 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
               </div>
             </div>
 
-            <div className="category-type-container" style={{marginTop: "75px"}}>
-            <div className="product-categories">
+            <div
+              className="category-type-container"
+              style={{ marginTop: "75px" }}
+            >
+              <div className="product-categories">
                 <span className="category-header">Shop By Brand</span>
                 <CategoryListItem
                   url={"/collection/boomer-naturals"}
@@ -567,23 +576,14 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
                   title={"Boomer Electronics"}
                 />
                 <span className="category-header">Pages</span>
-                <CategoryListItem
-                  url={"/about"}
-                  title={"About Us"}
-                />
-                <CategoryListItem
-                  url={"/contact"}
-                  title={"Contact Us"}
-                />
-                <CategoryListItem
-                  url={"/faq"}
-                  title={"FAQ"}
-                />
+                <CategoryListItem url={"/about"} title={"About Us"} />
+                <CategoryListItem url={"/contact"} title={"Contact Us"} />
+                <CategoryListItem url={"/faq"} title={"FAQ"} />
                 <CategoryListItem
                   url={"https://boomernaturalswholesale.com/"}
                   title={"Wholesale"}
                 />
-              </div> 
+              </div>
             </div>
           </div>
           <div

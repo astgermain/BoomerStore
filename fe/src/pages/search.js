@@ -71,8 +71,6 @@ const SearchPage = ({ data, location }) => {
               products
                 .filter(
                   (p) =>
-                  
-                
                     p.node.title.toUpperCase().match(new RegExp(search.split(" ").map((x)=>{return `(?=.*${x.toUpperCase()})`}).join(""), "g")) ||
                     p.node.title.toUpperCase().includes(search.toUpperCase()) ||
                     p.node.tags.some(o => o.toUpperCase().match(new RegExp(search.split(" ").map((x)=>{return `(?=.*${x.toUpperCase()})`}).join(""), "g"))) ||
@@ -85,8 +83,8 @@ const SearchPage = ({ data, location }) => {
                       .includes(search.toUpperCase()) &&
                       p.node.productType
                         .toUpperCase()
-                        .includes(search.toUpperCase()))
-                )
+                    )
+               )
                 .map((p, i) =>
                  
                   !p ? (
