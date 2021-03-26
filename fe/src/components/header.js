@@ -161,9 +161,9 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
       <div className="mobile-fixed-space"></div>
       <div className="reg-top-header">
         <div className="top-header-links">
-          <a>Featured</a>
-          <a>New Arrivals</a>
-          <a>Holiday</a>
+          <a href="collection/featured">Featured</a>
+          <a href="collection/new-arrivals">New Arrivals</a>
+          <a href="collection/offers">Holiday</a>
           <a>Sale</a>
         </div>
       </div>
