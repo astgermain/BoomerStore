@@ -13,9 +13,6 @@ const SideSection = ({ data }) => {
   //Data is allShopifyProduct
   return (
     <>
-    <Helmet>
-      <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=TSPD66"></script>
-    </Helmet>
     <div className="sideSection" style={{ margin: "0", }}>
       <div className="sideContent1" style={{ background: `var(--darker)` }}>
         <FirstAd />

@@ -4,6 +4,7 @@ import logo from "../images/boomerstorelogo.webp";
 import "./footer.sass";
 
 const Footer = () => {
+  
   return (
     <footer className="footer" style={{ background: "#001220" }}>
       <div className="footer-row">

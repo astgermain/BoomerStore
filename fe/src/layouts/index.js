@@ -47,7 +47,8 @@ const Layout = ({ path, children, location }) => {
         >
           {" "}
         </script>
-      </Helmet>
+      <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=TSPD66"></script>
+    </Helmet>
     </Provider>
   );
 };
