@@ -5,7 +5,6 @@ import ImageZoom from "react-image-zooom";
 
 const Gallery = ({ product, chosen }) => {
     const [currentImage, setCurrentImage] = useState(product?.images[0]);
-    console.log()
     return (
         <>
             <Box
@@ -16,7 +15,7 @@ const Gallery = ({ product, chosen }) => {
                 order={[1, null, 2]}
                 className="img-hover-zoom--zoom-n-rotate img-hover-zoom"
             >
-                <ImageZoom src={`${chosen?.image?.originalSrc}`} alt="A image to apply the ImageZoom plugin" zoom="200"/>
+                <ImageZoom src={`${chosen?.image?.originalSrc}`} zoom="200"/>
                
             </Box>
             {/*
