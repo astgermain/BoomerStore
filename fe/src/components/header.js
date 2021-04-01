@@ -391,6 +391,7 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
                   aria-label="search"
                   className="categories-logo has-text-black has-text-weight-bold"
                   to="/"
+                  onClick={() => handleMenuClick()}
                   style={{ marginLeft: "70px" }}
                 >
                   <img
@@ -468,23 +469,27 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
                 <CategoryListItem
                   url={"/collection/boomer-naturals"}
                   title={"Boomer Naturals"}
+                  oc={() => handleMenuClick()}
                 />
                 <CategoryListItem
                   url={"/collection/boomer-silver"}
                   title={"Boomer Silver"}
+                  oc={() => handleMenuClick()}
                 />
                 <CategoryListItem
-                  url={"/collection/boomer-supplements"}
+                  url={"/boomersupplements"}
                   title={"Boomer Supplements"}
+                  oc={() => handleMenuClick()}
                 />
                 <CategoryListItem
                   url={"/collection/boomer-electronics"}
                   title={"Boomer Electronics"}
+                  oc={() => handleMenuClick()}
                 />
                 <span className="category-header">Pages</span>
-                <CategoryListItem url={"/about"} title={"About Us"} />
-                <CategoryListItem url={"/contact"} title={"Contact Us"} />
-                <CategoryListItem url={"/faq"} title={"FAQ"} />
+                <CategoryListItem url={"/about"} title={"About Us"} oc={() => handleMenuClick()}/>
+                <CategoryListItem url={"/contact"} title={"Contact Us"} oc={() => handleMenuClick()}/>
+                <CategoryListItem url={"/faq"} title={"FAQ"} oc={() => handleMenuClick()}/>
                 <CategoryListItem
                   url={"https://boomernaturalswholesale.com/"}
                   title={"Wholesale"}
@@ -516,6 +521,7 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
                   aria-label="search"
                   className="categories-logo has-text-black has-text-weight-bold"
                   to="/"
+                  onClick={() => handleMobileMenuClick()}
                 >
                   <img
                     src={logo}
@@ -562,23 +568,27 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
                 <CategoryListItem
                   url={"/collection/boomer-naturals"}
                   title={"Boomer Naturals"}
+                  oc={() => handleMobileMenuClick()}
                 />
                 <CategoryListItem
                   url={"/collection/boomer-silver"}
                   title={"Boomer Silver"}
+                  oc={() => handleMobileMenuClick()}
                 />
                 <CategoryListItem
-                  url={"/collection/boomer-supplements"}
+                  url={"/boomersupplements"}
                   title={"Boomer Supplements"}
+                  oc={() => handleMobileMenuClick()}
                 />
                 <CategoryListItem
                   url={"/collection/boomer-electronics"}
                   title={"Boomer Electronics"}
+                  oc={() => handleMobileMenuClick()}
                 />
                 <span className="category-header">Pages</span>
-                <CategoryListItem url={"/about"} title={"About Us"} />
-                <CategoryListItem url={"/contact"} title={"Contact Us"} />
-                <CategoryListItem url={"/faq"} title={"FAQ"} />
+                <CategoryListItem url={"/about"} title={"About Us"} oc={() => handleMobileMenuClick()}/>
+                <CategoryListItem url={"/contact"} title={"Contact Us"} oc={() => handleMobileMenuClick()}/>
+                <CategoryListItem url={"/faq"} title={"FAQ"} oc={() => handleMobileMenuClick()}/>
                 <CategoryListItem
                   url={"https://boomernaturalswholesale.com/"}
                   title={"Wholesale"}

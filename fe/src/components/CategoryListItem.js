@@ -4,9 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronLeft,
 } from "@fortawesome/free-solid-svg-icons";
-function CategoryListItem({ url, title }) {
+function CategoryListItem({ url, title, oc }) {
   return (
-    <Link className="categories-link" to={url}>
+    <Link className="categories-link" to={url} onClick={() => oc()}>
     <div className="categories-option">
         {title}
       <FontAwesomeIcon
