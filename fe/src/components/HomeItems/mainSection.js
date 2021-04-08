@@ -426,7 +426,7 @@ const MainSection = ({ data }) => {
                   backgroundSize: `cover`,
                 }}
               >
-                <div className="cat-info-top">Supplements<p style={{color: "var(--c1)", fontSize: "14px"}}> (Coming Soon)</p></div>
+                <div className="cat-info-top">Supplements</div>
                 <div className="cat-icon-bottom">
                   <div className="boxH">
                     <div className="box-backgroundH">
