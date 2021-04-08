@@ -51,6 +51,7 @@ const Supplements = ({ data }) => {
             backgroundColor: `black`,
             maxHeight: `100%`,
             maxWidth: `100%`,
+            width: `100%`,
             objectFit: `contain`
           }}
         ></img>
