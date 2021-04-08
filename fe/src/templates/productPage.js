@@ -263,11 +263,7 @@ const productPage = ({ data }) => {
               </div>
               <div className="f-row-p">
                 {/*offers 1 collection */}
-                <ProductList data={data} total={6} top={true} give={true} />
-              </div>
-              <div className="f-row-p">
-                {/*offers 2 collection */}
-                <ProductList data={data} total={6} top={true} give={true} />
+                <ProductList data={data} total={12} top={true} give={true} />
               </div>
             </div>
           </div>
