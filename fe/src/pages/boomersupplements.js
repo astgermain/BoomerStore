@@ -3,6 +3,7 @@ import CollectionProductBox from "../components/ProductList/collectionProductBox
 import HorizontalBox from "../components/ProductList/horizontalBox";
 import { Link } from "gatsby"; /* eslint-disable */
 import Banban from "../images/supsamplebanner.jpg";
+import BanbanMobile from "../images/mobilesample.jpg";
 import Ad1 from "../images/supad2.jpg";
 import Ad2 from "../images/supad1.jpg";
 import Ad3 from "../images/ad3.webp";
@@ -34,8 +35,18 @@ const Supplements = ({ data }) => {
       <div className="supplements-page">
           <Link to="/product/boomer-supplements-sample-pack">
         <img
-          className="supplements-top-banner-container"
+          className="supplements-top-banner-container hide-sup-mobile"
           src={`${Banban}`}
+          style={{
+            backgroundColor: `black`,
+            maxHeight: `100%`,
+            maxWidth: `100%`,
+            objectFit: `contain`
+          }}
+        ></img>
+        <img
+          className="supplements-top-banner-container show-sup-mobile"
+          src={`${BanbanMobile}`}
           style={{
             backgroundColor: `black`,
             maxHeight: `100%`,
