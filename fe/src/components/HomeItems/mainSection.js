@@ -420,7 +420,7 @@ const MainSection = ({ data }) => {
             <div className="cat-row">
               <a
                 className="cat-half"
-                //href="collection/supplements"
+                href="/boomersupplements"
                 style={{
                   backgroundImage: `url(${SupImg})`,
                   backgroundSize: `cover`,
