@@ -30,6 +30,7 @@ const FeaturedSection = ({ data }) => {
   let r = featured.map((product) => {
     return product;
   });
+  
   let s1 = [offers[1], offers[2]];
   let s2 = [offers[4], offers[5]];
 
