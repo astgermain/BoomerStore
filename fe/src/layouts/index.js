@@ -4,6 +4,7 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import Provider from "../context/provider";
 import Helmet from "react-helmet";
+import favicon from '../images/bsicon.png'
 import "./layout.sass";
 
 const Layout = ({ path, children, location }) => {
@@ -17,6 +18,9 @@ const Layout = ({ path, children, location }) => {
   }, []);
   return (
     <Provider>
+      <Helmet>
+        <link rel="icon" href={favicon} />
+      </Helmet>
       {theme ? (
         <Helmet
           bodyAttributes={{
