@@ -9,6 +9,7 @@ import Register from "../../components/account/profile-items/register";
 import Login from "../../components/account/profile-items/login";
 import PasswordRecover from "../../components/account/profile-items/password-recover";
 import Addresses from "./addresses";
+import SEO from "../components/seo"
 import OrderHistory from "../../components/account/profile-items/order-history";
 import Alert from "@material-ui/lab/Alert";
 import Grow from "@material-ui/core/Grow";
@@ -294,6 +295,7 @@ const Index = () => {
             return (
               <>
                 <Layout>
+                <SEO title="Account | Boomer Store" />
                   <section className="account-page-section">
                     {/*
                     <div className="account-alert-row">
