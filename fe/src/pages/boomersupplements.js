@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import CollectionProductBox from "../components/ProductList/collectionProductBox";
 import HorizontalBox from "../components/ProductList/horizontalBox";
 import { Link } from "gatsby"; /* eslint-disable */
-import SEO from "../components/seo"
+import SEO from "../components/seo";
 import Banban from "../images/supsamplebanner.jpg";
 import BanbanMobile from "../images/mobilesample.jpg";
 import Ad1 from "../images/supad2.jpg";
@@ -12,7 +12,7 @@ import "./boomersupplements.sass";
 import BoomerSupplements from "../images/boomersupplements.webp";
 
 const Supplements = ({ data }) => {
-  <SEO title="Boomer Supplements | Boomer Store" />
+  <SEO title="Boomer Supplements | Boomer Store" />;
   let offers, arrivals, featured;
   let collections = data.allShopifyCollection.nodes.map((node) => {
     if (node?.title == "Featured") {
@@ -70,18 +70,18 @@ const Supplements = ({ data }) => {
                 className="brand-logo-max fade-in"
               ></img>
               <p className="sup-desc-text">
-                Supplement your healthy lifestyle with the help of the Boomer
-                line of daily supplements. We’ve sourced the finest ingredients
-                to give your health a boost, so you can and feel your best.
-                Whether you have a specific ailment, you’re seeking relief from,
-                or just looking to increase your general wellness, we’re here to
-                support you along the way.
+                Supplement your healthy lifestyle with help from the Boomer line
+                of daily supplements. We’ve sourced the finest ingredients to
+                give your health a boost, so you can feel your best. Whether you
+                have a specific ailment you’re seeking relief from, or you're
+                looking to increase your general wellness, we’re here to support
+                you along the way.
               </p>
               <p className="sup-desc-text">
                 Our collection boasts a multi-vitamin, energy supplement,
                 vitamin C, antioxidants, and amino acids. Vitamin C helps you
                 feel your best by maintaining healthy blood vessels, bones, and
-                skin. And an antioxidant-rich diet can help reduce your risk of
+                skin. An antioxidant-rich diet can help reduce your risk of
                 heart disease and certain cancers, as well as enrich your
                 overall health by reducing the number of free radicals in your
                 body. Our NOXCG3™ supplement is sure to help you power through
@@ -95,10 +95,26 @@ const Supplements = ({ data }) => {
         </div>
         <div className="supplements-middle-banner-container">
           <div className="sup-mid-left">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/N9UvLnm1WK0" title="YouTube video player" frameborder="0" allow="fullscreen; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture allowfullscreen;s" allowfullscreen></iframe>
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/N9UvLnm1WK0"
+              title="YouTube video player"
+              frameborder="0"
+              allow="fullscreen; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture allowfullscreen;s"
+              allowfullscreen
+            ></iframe>
           </div>
           <div className="sup-mid-right">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/oqUlAWY5kSs" title="YouTube video player" frameborder="0" allow="fullscreen; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; allowfullscreen;" allowfullscreen></iframe>
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/oqUlAWY5kSs"
+              title="YouTube video player"
+              frameborder="0"
+              allow="fullscreen; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; allowfullscreen;"
+              allowfullscreen
+            ></iframe>
           </div>
         </div>
         <div className="supplements-bottom-container">
