@@ -10,7 +10,6 @@ import Ad3 from "../images/ad3.webp";
 import "./boomersupplements.sass";
 import BoomerSupplements from "../images/boomersupplements.webp";
 
-
 const Supplements = ({ data }) => {
   let offers, arrivals, featured;
   let collections = data.allShopifyCollection.nodes.map((node) => {
@@ -33,38 +32,41 @@ const Supplements = ({ data }) => {
   return (
     <div className="supplements-wrapper">
       <div className="supplements-page">
-          <Link to="/product/boomer-supplements-sample-pack">
-        <img
-          className="supplements-top-banner-container hide-sup-mobile"
-          src={`${Banban}`}
-          style={{
-            backgroundColor: `black`,
-            maxHeight: `100%`,
-            maxWidth: `100%`,
-            objectFit: `contain`
-          }}
-        ></img>
-        <img
-          className="supplements-top-banner-container show-sup-mobile"
-          src={`${BanbanMobile}`}
-          style={{
-            backgroundColor: `black`,
-            maxHeight: `100%`,
-            maxWidth: `100%`,
-            width: `100%`,
-            objectFit: `contain`
-          }}
-        ></img>
+        <Link to="/product/boomer-supplements-sample-pack">
+          <img
+            className="supplements-top-banner-container hide-sup-mobile"
+            src={`${Banban}`}
+            style={{
+              backgroundColor: `black`,
+              maxHeight: `100%`,
+              maxWidth: `100%`,
+              objectFit: `contain`,
+            }}
+          ></img>
+          <img
+            className="supplements-top-banner-container show-sup-mobile"
+            src={`${BanbanMobile}`}
+            style={{
+              backgroundColor: `black`,
+              maxHeight: `100%`,
+              maxWidth: `100%`,
+              width: `100%`,
+              objectFit: `contain`,
+            }}
+          ></img>
         </Link>
         <div className="supplements-middle-banner-container">
-          <div className="sup-mid-left">
+          <div className="sup-full">
             <div className="sup-desc">
               {/*
               <h1 className="has-text-weight-semibold is-size-2 lAlign fade-in2s">
                 Boomer Supplements
               </h1>
             */}
-            <img src={BoomerSupplements} className="brand-logo-max fade-in"></img>
+              <img
+                src={BoomerSupplements}
+                className="brand-logo-max fade-in"
+              ></img>
               <p className="sup-desc-text">
                 Supplement your healthy lifestyle with the help of the Boomer
                 line of daily supplements. We’ve sourced the finest ingredients
@@ -73,13 +75,39 @@ const Supplements = ({ data }) => {
                 or just looking to increase your general wellness, we’re here to
                 support you along the way.
               </p>
+              <p className="sup-desc-text">
+                Our collection boasts a multi-vitamin, energy supplement,
+                vitamin C, antioxidants, and amino acids. Vitamin C helps you
+                feel your best by maintaining healthy blood vessels, bones, and
+                skin. And an antioxidant-rich diet can help reduce your risk of
+                heart disease and certain cancers, as well as enrich your
+                overall health by reducing the number of free radicals in your
+                body. Our NOXCG3™ supplement is sure to help you power through
+                your next workout or recovery day. This energy-boosting drink
+                supplement contains nitric oxide- arginine, creatine, glutamine,
+                and beta-alanine for the ultimate amino acid drink that
+                stimulates muscle strength and growth.
+              </p>
             </div>
+          </div>
+        </div>
+        <div className="supplements-middle-banner-container">
+          <div className="sup-mid-left">
+            <iframe
+              width="560"
+              height="315"
+              src="https://youtu.be/N9UvLnm1WK0"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
           </div>
           <div className="sup-mid-right">
             <iframe
               width="560"
               height="315"
-              src="https://www.youtube.com/embed/SM-MjnKB_hE"
+              src="https://youtu.be/oqUlAWY5kSs"
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
