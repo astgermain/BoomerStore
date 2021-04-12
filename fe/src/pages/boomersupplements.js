@@ -96,7 +96,7 @@ const Supplements = ({ data }) => {
           <iframe width="560" height="315" src="https://www.youtube.com/embed/N9UvLnm1WK0" title="YouTube video player" frameborder="0" allow="fullscreen; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture allowfullscreen;s" allowfullscreen></iframe>
           </div>
           <div className="sup-mid-right">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/oqUlAWY5kSs" title="YouTube video player" frameborder="0" allow="fullscree; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; allowfullscreen;" allowfullscreen></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/oqUlAWY5kSs" title="YouTube video player" frameborder="0" allow="fullscreen; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; allowfullscreen;" allowfullscreen></iframe>
           </div>
         </div>
         <div className="supplements-bottom-container">
