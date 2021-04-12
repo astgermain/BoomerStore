@@ -9,7 +9,7 @@ import Register from "../../components/account/profile-items/register";
 import Login from "../../components/account/profile-items/login";
 import PasswordRecover from "../../components/account/profile-items/password-recover";
 import Addresses from "./addresses";
-import SEO from "../components/seo"
+import SEO from "../../components/seo"
 import OrderHistory from "../../components/account/profile-items/order-history";
 import Alert from "@material-ui/lab/Alert";
 import Grow from "@material-ui/core/Grow";

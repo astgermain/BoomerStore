@@ -15,13 +15,13 @@ const Supplements = ({ data }) => {
   <SEO title="Boomer Supplements | Boomer Store" />;
   let offers, arrivals, featured;
   let collections = data.allShopifyCollection.nodes.map((node) => {
-    if (node?.title == "Featured") {
+    if (node?.title == "Supplements") {
       arrivals = node.products;
     }
-    if (node?.title == "Featured") {
+    if (node?.title == "Supplements") {
       offers = node.products;
     }
-    if (node?.title == "Featured") {
+    if (node?.title == "Supplements") {
       featured = node.products;
     }
     return node;
@@ -125,71 +125,16 @@ const Supplements = ({ data }) => {
                 <button className="f-button">See More</button>
               </a>
             </div>
-            <div className="f-row-p">
-              <div className="f-column-p col-2">
-                <div className="horizontal-box-container">
-                  <HorizontalBox product={q[0]} give={true} />
-                </div>
-                <div className="horizontal-product-container">
-                  {s1.map((product) => {
-                    return (
-                      <CollectionProductBox
-                        product={product}
-                        give={true}
-                        key={product?.id}
-                      />
-                    );
-                  })}
-                </div>
-              </div>
-              <div className="f-column-p col-3">
-                <div className="horizontal-box-container">
-                  <HorizontalBox product={q[3]} give={true} />
-                </div>
-                <div className="horizontal-product-container">
-                  {s2.map((product) => {
-                    return (
-                      <CollectionProductBox
-                        product={product}
-                        give={true}
-                        key={product?.id}
-                      />
-                    );
-                  })}
-                </div>
-              </div>
-              <div className="f-column-p col-1">
-                <a
-                  href="/collection/ad3"
-                  className="second-ad"
-                  style={{ height: "100%" }}
-                >
-                  <div
-                    className="f-ad-box"
-                    style={{
-                      backgroundImage: `url(${Ad3})`,
-                      backgroundSize: `contain`,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "flex-end",
-                      flexDirection: "column",
-                      padding: "15px",
-                    }}
-                  >
-                    <p
-                      style={{
-                        padding: "15px",
-                        color: "white",
-                        fontSize: "2rem",
-                        textAlign: "center",
-                      }}
-                    >
-                      Now Available
-                    </p>
-                    <button className="button account-button-ad">Shop</button>
-                  </div>
-                </a>
-              </div>
+            <div
+              className="f-row-p"
+              style={{ justifyContent: "center", flexFlow: "wrap" }}
+            >
+              {/*offers 1 collection */}
+              {arrivals.map((product) => {
+                return (
+                  <CollectionProductBox product={product} key={product?.id} />
+                );
+              })}
             </div>
           </div>
         </div>
