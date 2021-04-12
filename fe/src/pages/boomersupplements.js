@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import CollectionProductBox from "../components/ProductList/collectionProductBox";
 import HorizontalBox from "../components/ProductList/horizontalBox";
 import { Link } from "gatsby"; /* eslint-disable */
+import SEO from "../components/seo"
 import Banban from "../images/supsamplebanner.jpg";
 import BanbanMobile from "../images/mobilesample.jpg";
 import Ad1 from "../images/supad2.jpg";
@@ -11,6 +12,7 @@ import "./boomersupplements.sass";
 import BoomerSupplements from "../images/boomersupplements.webp";
 
 const Supplements = ({ data }) => {
+  <SEO title="Boomer Supplements | Boomer Store" />
   let offers, arrivals, featured;
   let collections = data.allShopifyCollection.nodes.map((node) => {
     if (node?.title == "Featured") {
