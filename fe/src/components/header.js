@@ -77,7 +77,7 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
 
   return (
     <>
-        <Link to="/boomersupplements" >
+        <Link to="/boomersupplements" className="show-mobile">
           <p className="reg-top-header" style={{ color: "white", textAlign: "center", display: "flex", justifyContent: "center", alignItems: "center" }}>
             Click To See Our New Supplement Line
           </p>

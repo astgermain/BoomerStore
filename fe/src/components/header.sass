@@ -5,6 +5,8 @@ $desktop: 1800px;
 
 .ad-bar
     width: 100%
+.show-mobile
+    display: none
 .m-icon
     display: none
 .reg-top-header
@@ -455,6 +457,8 @@ $desktop: 1800px;
         display: none
 
 @media only screen and (max-width: $mobile) 
+    .show-mobile
+        display: flex;
     .top-header-links
         display: flex;
         justify-content: space-around;
