@@ -61,16 +61,6 @@ const FeaturedSection = ({ data }) => {
                   padding: "15px",
                 }}
               >
-                <p
-                  style={{
-                    padding: "15px",
-                    color: "white",
-                    fontSize: "2rem",
-                    textAlign: "center",
-                  }}
-                >
-                  Peep Our New Easter Face Covers
-                </p>
                 <button className="button account-button-ad">Shop</button>
               </div>
             </a>
