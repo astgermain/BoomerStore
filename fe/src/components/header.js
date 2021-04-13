@@ -77,6 +77,11 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
 
   return (
     <>
+        <Link to="/boomersupplements" >
+          <p className="reg-top-header" style={{ color: "white", textAlign: "center", display: "flex", justifyContent: "center", alignItems: "center" }}>
+            Click To See Our New Supplement Line
+          </p>
+        </Link>
       <nav className="mobile-navbar">
         <div className="mobile-nav-left">
           <a onClick={() => handleMobileMenuClick()}>
@@ -158,7 +163,6 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
           </Link>
         </div>
       </nav>
-      <div className="mobile-fixed-space"></div>
       <div className="reg-top-header">
         <div className="top-header-links">
           <a href="/collection/featured">Featured</a>
@@ -487,9 +491,21 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
                   oc={() => handleMenuClick()}
                 />
                 <span className="category-header">Pages</span>
-                <CategoryListItem url={"/about"} title={"About Us"} oc={() => handleMenuClick()}/>
-                <CategoryListItem url={"/contact"} title={"Contact Us"} oc={() => handleMenuClick()}/>
-                <CategoryListItem url={"/faq"} title={"FAQ"} oc={() => handleMenuClick()}/>
+                <CategoryListItem
+                  url={"/about"}
+                  title={"About Us"}
+                  oc={() => handleMenuClick()}
+                />
+                <CategoryListItem
+                  url={"/contact"}
+                  title={"Contact Us"}
+                  oc={() => handleMenuClick()}
+                />
+                <CategoryListItem
+                  url={"/faq"}
+                  title={"FAQ"}
+                  oc={() => handleMenuClick()}
+                />
                 <CategoryListItem
                   url={"https://boomernaturalswholesale.com/"}
                   title={"Wholesale"}
@@ -586,9 +602,21 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
                   oc={() => handleMobileMenuClick()}
                 />
                 <span className="category-header">Pages</span>
-                <CategoryListItem url={"/about"} title={"About Us"} oc={() => handleMobileMenuClick()}/>
-                <CategoryListItem url={"/contact"} title={"Contact Us"} oc={() => handleMobileMenuClick()}/>
-                <CategoryListItem url={"/faq"} title={"FAQ"} oc={() => handleMobileMenuClick()}/>
+                <CategoryListItem
+                  url={"/about"}
+                  title={"About Us"}
+                  oc={() => handleMobileMenuClick()}
+                />
+                <CategoryListItem
+                  url={"/contact"}
+                  title={"Contact Us"}
+                  oc={() => handleMobileMenuClick()}
+                />
+                <CategoryListItem
+                  url={"/faq"}
+                  title={"FAQ"}
+                  oc={() => handleMobileMenuClick()}
+                />
                 <CategoryListItem
                   url={"https://boomernaturalswholesale.com/"}
                   title={"Wholesale"}
