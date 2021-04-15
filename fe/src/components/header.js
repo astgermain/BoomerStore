@@ -168,7 +168,7 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
           <a href="/collection/featured">Featured</a>
           <a href="/collection/new-arrivals">New Arrivals</a>
           <a href="/collection/offers">Holiday</a>
-          <a>Sale</a>
+          <a href="/boomersupplements">Supplements</a>
         </div>
       </div>
       <nav
