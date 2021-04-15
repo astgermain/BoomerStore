@@ -7,6 +7,7 @@ import Helmet from "react-helmet";
 import favicon from '../images/bsicon.png'
 import "./layout.sass";
 
+
 const Layout = ({ path, children, location }) => {
   const [menuMobile, setMenuMobile] = useState("");
   const [theme, setTheme] = useState(false);
