@@ -1,4 +1,5 @@
 import React from 'react';
+import { navigate } from "gatsby"
 
 const Buttons = ({ context, available, productVariant,  quantity}) => {
     const handleAddToCart = () => {
@@ -6,7 +7,8 @@ const Buttons = ({ context, available, productVariant,  quantity}) => {
     }
 
     const handleAddToCart_BuyNow = () => {
-        context.addVariantToCartAndBuyNow(productVariant.shopifyId, quantity)
+        context.addVariantToCart(productVariant.shopifyId, quantity)
+        navigate("/cart")
     }
     return (
         <div className="columns" style={{margin: "auto"}}>
