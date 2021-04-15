@@ -48,7 +48,7 @@ const FeaturedSection = ({ data }) => {
         </div>
         <div className="f-row-p">
           <div className="f-column-p col-1">
-            <a href="/collection/ad2" className="second-ad" style={{ height: "100%" }}>
+            <a href="/boomersupplements" className="second-ad" style={{ height: "100%" }}>
               <div
                 className="f-ad-box give-border"
                 style={{
