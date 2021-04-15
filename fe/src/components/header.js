@@ -163,6 +163,7 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
           </Link>
         </div>
       </nav>
+      {/*
       <div className="reg-top-header">
         <div className="top-header-links">
           <a href="/collection/featured">Featured</a>
@@ -171,6 +172,7 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
           <a href="/boomersupplements">Supplements</a>
         </div>
       </div>
+      */}
       <nav
         className="navbar"
         role="navigation"
@@ -179,6 +181,7 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
           display: "flex",
           height: "75px",
           backgroundColor: `#002244`,
+          position: 'fixed'
         }}
       >
         <div
@@ -385,7 +388,8 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
           </div>
         </div>
       </nav>
-
+      <div className="reg-top-header">
+      </div>
       {menu && (
         <div className="category-sidebar">
           <div className="category-container category-color">
