@@ -388,7 +388,7 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
           </div>
         </div>
       </nav>
-      <div className="reg-top-header">
+      <div className="reg-top-header2">
       </div>
       {menu && (
         <div className="category-sidebar">
