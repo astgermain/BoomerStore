@@ -259,7 +259,6 @@ const productPage = ({ data }) => {
             <div className="featured-content2">
               <div className="f-row-top2">
                 <span className="f-top-title2">Offers Of The Day</span>
-                <button className="f-button2">See More</button>
               </div>
               <div className="f-row-p">
                 {/*offers 1 collection */}
