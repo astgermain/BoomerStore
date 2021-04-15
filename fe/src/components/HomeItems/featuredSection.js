@@ -14,7 +14,7 @@ const FeaturedSection = ({ data }) => {
     if (node?.title == "New Arrivals") {
       arrivals = node.products;
     }
-    if (node?.title == "Offers") {
+    if (node?.title == "Mother's Day Collection") {
       offers = node.products;
     }
     if (node?.title == "Featured") {
