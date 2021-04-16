@@ -20,6 +20,7 @@ const Layout = ({ path, children, location }) => {
   return (
     <Provider>
       <Helmet>
+      <meta name="google-site-verification" content="Ewfmr_7dBXuVYlbfsEaEPkwNlLvXHS-sqUp6nAc0xAk" />
         <link rel="icon" href={favicon} />
       </Helmet>
       {theme ? (
