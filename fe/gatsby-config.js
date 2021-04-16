@@ -5,7 +5,7 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: `Boomer Store`,
-    description: `Boomer Store Description`,
+    description: `Boomer Store is an e-commerce company committed to providing high-quality solutions to improve your life and promote overall balance.`,
     author: `@astgermain @ Boomer Team`,
   },
   plugins: [
