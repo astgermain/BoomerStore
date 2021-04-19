@@ -187,7 +187,6 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
         <div
           className="navbar-start"
           style={{
-            width: "70vw",
             alignItems: "center",
             display: "flex",
             justifyContent: "space-between",
@@ -264,10 +263,9 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
           className="navbar-end"
           style={{
             display: "flex",
-            width: "30vw",
             background: "var(--darker)",
             color: "white",
-            minWidth: "425px",
+            paddingRight: "7px"
           }}
         >
           <div

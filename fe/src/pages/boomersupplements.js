@@ -8,6 +8,10 @@ import BanbanMobile from "../images/mobilesample.jpg";
 import Ad1 from "../images/supad2.jpg";
 import Ad2 from "../images/supad1.jpg";
 import Ad3 from "../images/ad3.webp";
+import NOX from "../images/noxlogo.webp";
+import VE from "../images/velogo.webp";
+import NOXAD from "../images/noxad.webp";
+import VEAD from "../images/vead.webp";
 import "./boomersupplements.sass";
 import BoomerSupplements from "../images/boomersupplements.webp";
 
@@ -34,29 +38,126 @@ const Supplements = ({ data }) => {
   return (
     <div className="supplements-wrapper">
       <div className="supplements-page">
-        <Link to="/product/boomer-supplements-sample-pack">
-          <img
-            className="supplements-top-banner-container hide-sup-mobile"
-            src={`${Banban}`}
-            style={{
-              backgroundColor: `black`,
-              maxHeight: `100%`,
-              maxWidth: `100%`,
-              objectFit: `contain`,
-            }}
-          ></img>
-          <img
-            className="supplements-top-banner-container show-sup-mobile"
-            src={`${BanbanMobile}`}
-            style={{
-              backgroundColor: `black`,
-              maxHeight: `100%`,
-              maxWidth: `100%`,
-              width: `100%`,
-              objectFit: `contain`,
-            }}
-          ></img>
-        </Link>
+        <div
+          className="flippy"
+          style={{ display: "flex", flexDirection: "row" }}
+        >
+          <div>
+            <a href="https://boomernaturals.com/collections/featured-covers/products/copy-of-noxcg3?variant=39708348940481">
+              <img
+                className="supplements-top-banner-container hide-sup-mobile"
+                src={`${NOXAD}`}
+                style={{
+                  backgroundColor: `black`,
+                  maxHeight: `100%`,
+                  maxWidth: `100%`,
+                  objectFit: `contain`,
+                }}
+              ></img>
+            </a>
+            <div
+              className="cart-product-wrapper"
+              style={{
+                width: "100%",
+                margin: "auto",
+                marginTop: "0px",
+                marginBottom: "0px",
+                padding: "15px 25px",
+                maxWidth: "none",
+              }}
+            >
+              <div>
+                <div style={{ display: "flex" }}>
+                  <figure className="image is-96x96" style={{ margin: "auto" }}>
+                    <img src={NOX} alt="sold-out" style={{ width: "96px" }} />
+                  </figure>
+                </div>
+              </div>
+              <div
+                className="cart-product-title-section"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  width: "100%",
+                  textAlign: "left",
+                }}
+              >
+                <p style={{ padding: "15px", color: "black" }}>
+                  Visit BoomerNaturals.com to subscribe to NOXCG3™
+                </p>
+              </div>
+              <a href="https://boomernaturals.com/collections/featured-covers/products/copy-of-noxcg3?variant=39708348940481">
+                <button class="button checkout-button" type="button">
+                  Buy NOXCG3™
+                </button>
+              </a>
+            </div>
+          </div>
+          <div>
+            <Link to="/collection/vitamin-energy">
+              <img
+                className="supplements-top-banner-container hide-sup-mobile"
+                src={`${VEAD}`}
+                style={{
+                  backgroundColor: `black`,
+                  maxHeight: `100%`,
+                  maxWidth: `100%`,
+                  objectFit: `contain`,
+                }}
+              ></img>
+            </Link>
+            <div
+              className="cart-product-wrapper"
+              style={{
+                width: "100%",
+                margin: "auto",
+                marginTop: "0px",
+                marginBottom: "0px",
+                padding: "15px 25px",
+                maxWidth: "none",
+              }}
+            >
+              <div>
+                <div style={{ display: "flex" }}>
+                  <figure className="image is-96x96" style={{ margin: "auto" }}>
+                    <img src={VE} alt="sold-out" style={{ width: "96px" }} />
+                  </figure>
+                </div>
+              </div>
+              <div
+                className="cart-product-title-section"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  width: "100%",
+                  textAlign: "left",
+                }}
+              >
+                <p style={{ padding: "15px", color: "black" }}>
+                  Buy Vitamin Energy Today On BoomerStore.com
+                </p>
+              </div>
+              <Link to="/collection/vitamin-energy">
+                <button class="button checkout-button" type="button">
+                  Buy Vitamin Energy
+                </button>
+              </Link>
+            </div>
+          </div>
+        </div>
+        <img
+          className="supplements-top-banner-container show-sup-mobile"
+          src={`${BanbanMobile}`}
+          style={{
+            backgroundColor: `black`,
+            maxHeight: `100%`,
+            maxWidth: `100%`,
+            width: `100%`,
+            objectFit: `contain`,
+          }}
+        ></img>
         <div className="supplements-middle-banner-container">
           <div className="sup-full">
             <div className="sup-desc">
@@ -92,6 +193,58 @@ const Supplements = ({ data }) => {
               </p>
             </div>
           </div>
+        </div>
+        <div
+          className="cart-product-wrapper"
+          style={{
+            width: "80%",
+            margin: "auto",
+            marginTop: "15px",
+            marginBottom: "15px",
+            padding: "15px 25px",
+          }}
+        >
+          <div>
+            <div style={{ display: "flex" }}>
+              <figure className="image is-96x96" style={{ margin: "auto" }}>
+                <img src={NOX} alt="sold-out" style={{ width: "96px" }} />
+              </figure>
+              <p
+                style={{
+                  textAlign: "center",
+                  alignSelf: "center",
+                  padding: "15px",
+                }}
+              >
+                +
+              </p>
+              <figure className="image is-96x96" style={{ margin: "auto" }}>
+                <img src={VE} alt="sold-out" style={{ width: "96px" }} />
+              </figure>
+            </div>
+          </div>
+          <div
+            className="cart-product-title-section"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              width: "90%",
+              textAlign: "left",
+            }}
+          >
+            <p style={{ padding: "15px", color: "black" }}>
+              Try All 7 Flavors of Vitamin Energy and NOXCG3 Today!{" "}
+              <p style={{ fontSize: "12px", color: "gray" }}>
+                *Use Coupon Codes At Checkout*
+              </p>
+            </p>
+          </div>
+          <Link to="/product/boomer-supplements-sample-pack/">
+            <button class="button checkout-button" type="button">
+              Get Your Sample Pack
+            </button>
+          </Link>
         </div>
         <div className="supplements-middle-banner-container">
           <div className="sup-mid-left">

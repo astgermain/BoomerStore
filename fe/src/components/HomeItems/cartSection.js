@@ -214,7 +214,7 @@ const CartSection = ({ data, quantity, cartState }) => {
           <span className="EBold small-text">{quantity} Items</span>
         </div>
       </div>
-      <div>{firstTwoCart()}</div>
+      <div style={{minWidth: "90%"}}>{firstTwoCart()}</div>
       <div className="cart-bottom">
         <div
           style={{

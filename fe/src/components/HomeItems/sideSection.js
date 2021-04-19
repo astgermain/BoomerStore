@@ -3,7 +3,7 @@ import FirstAd from '../HomeItems/AdSpace/firstAdSpace'
 import SecondAd from '../HomeItems/AdSpace/secondAdSpace'
 import Helmet from "react-helmet"
 import Ad1 from '../../images/ad1.webp'
-import Ad2 from '../../images/noxad.webp'
+import Ad2 from '../../images/noxadhome.webp'
 import './sideSection.sass'
 
 const SideSection = ({ data }) => {

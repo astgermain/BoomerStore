@@ -4,13 +4,12 @@
     height: 285px;
     background: var(--darker);
     transition: all 0.5s ease;
-    min-width: 425px;
     top: 75px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    width: calc(90%/3);
+    width: calc(35vw - 7px);
     border: 3px solid var(--c1);
     border-top: none;
 
@@ -75,3 +74,10 @@
     white-space: nowrap;
     font-family: "EinaBold", Arial, sans-serif;
     display: flex
+
+@media only screen and (max-width:1200px)
+    .cart-section 
+        width: calc(50vw - 7px);
+
+    .cart-product-title
+        width: 200px
