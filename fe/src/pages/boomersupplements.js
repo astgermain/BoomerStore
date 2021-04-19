@@ -95,7 +95,7 @@ const Supplements = ({ data }) => {
             </div>
           </div>
           <div>
-            <Link to="/collection/vitamin-energy">
+            <a href="https://boomernaturals.com/collections/featured-covers/products/vitamin-energy-32-pack">
               <img
                 className="supplements-top-banner-container hide-sup-mobile"
                 src={`${VEAD}`}
@@ -106,7 +106,7 @@ const Supplements = ({ data }) => {
                   objectFit: `contain`,
                 }}
               ></img>
-            </Link>
+            </a>
             <div
               className="cart-product-wrapper"
               style={{
@@ -139,11 +139,11 @@ const Supplements = ({ data }) => {
                   Buy Vitamin Energy Today On BoomerStore.com
                 </p>
               </div>
-              <Link to="/collection/vitamin-energy">
+              <a href="https://boomernaturals.com/collections/featured-covers/products/vitamin-energy-32-pack">
                 <button class="button checkout-button" type="button">
                   Buy Vitamin Energy
                 </button>
-              </Link>
+              </a>
             </div>
           </div>
         </div>
