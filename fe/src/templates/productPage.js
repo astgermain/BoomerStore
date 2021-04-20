@@ -136,7 +136,6 @@ const productPage = ({ data }) => {
   return (
     <>
       <SEO title={product.title} />
-      {console.log("Product info: ", product)}
       <Helmet>
         {/*
       <!-- PRODUCT VIEW -->
@@ -153,11 +152,11 @@ const productPage = ({ data }) => {
               'detail': {
                 'actionField': {'list': 'Apparel Gallery'},    // 'detail' actions have an optional list property.
                 'products': [{
-                  'name': '${product.title}',         // Name or ID is required.
-                  'id': '${product.shopifyId}',
-                  'price': '${product.priceRange.maxVariantPrice.amount}',
-                  'brand': '${product.vendor}',
-                  'category': '${product.productType}',
+                  'name': '${product?.title}',         // Name or ID is required.
+                  'id': '${product?.shopifyId}',
+                  'price': 'Max: ${product?.priceRange?.maxVariantPrice?.amount} or Min: ${product?.priceRange?.minVariantPrice?.amount}',
+                  'brand': '${product?.vendor}',
+                  'category': '${product?.productType}',
                   'variant': 'Showing Entire Product'
                 }]
               }

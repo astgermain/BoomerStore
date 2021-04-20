@@ -56,7 +56,7 @@ const Layout = ({ path, children, location }) => {
       <!-- Google Tag Manager (noscript) -->
       */}
       <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MN8V8XS"
-      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      style={{display: "none", visibility: "hidden", width: "0", height: "0"}}></iframe></noscript>
       {
       //<!-- End Google Tag Manager (noscript) -->
       }

@@ -23,7 +23,6 @@ const Buttons = ({ context, available, productVariant, quantity, product }) => {
   };
   return (
     <>
-    {console.log("ProductVariant: ", productVariant)}
       {added && (
         <Helmet>
           {/*
@@ -38,12 +37,12 @@ const Buttons = ({ context, available, productVariant, quantity, product }) => {
             'currencyCode': 'USD',
             'add': {                                // 'add' actionFieldObject measures.
             'products': [{                        //  adding a product to a shopping cart.
-                'name': '${product.title}',
-                'id': '${productVariant.shopifyId}',
-                'price': '${productVariant.price}',
-                'brand': '${product.vendor}',
-                'category': '${product.productType}',
-                'variant': '${productVariant.title},
+                'name': '${product?.title}',
+                'id': '${productVariant?.shopifyId}',
+                'price': '${productVariant?.price}',
+                'brand': '${product?.vendor}',
+                'category': '${product?.productType}',
+                'variant': '${productVariant?.title},
                 'quantity': ${quantity}
             }]
             }
