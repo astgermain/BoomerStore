@@ -4,6 +4,7 @@ import React, {
   useEffect,
 } from "react"; /* eslint-disable */
 import SEO from "../components/seo";
+import Helmet from "react-helmet";
 import { graphql } from "gatsby";
 import ProductInfo from "../components/ProductPage/ProductInfo";
 import StoreContext from "../context/store";
@@ -17,10 +18,10 @@ import BoomerNaturals from "../images/boomernaturals.webp";
 import BoomerSupplements from "../images/boomersupplements.webp";
 import BoomerElectronics from "../images/boomerelectronics.webp";
 import ProductList from "../components/productList";
-import BNaturals from "../components/ProductPage/Section2/BNaturals"
-import BSilver from "../components/ProductPage/Section2/BSilver"
-import BElectronics from "../components/ProductPage/Section2/BElectronics"
-import BSupplement from "../components/ProductPage/Section2/BSupplement"
+import BNaturals from "../components/ProductPage/Section2/BNaturals";
+import BSilver from "../components/ProductPage/Section2/BSilver";
+import BElectronics from "../components/ProductPage/Section2/BElectronics";
+import BSupplement from "../components/ProductPage/Section2/BSupplement";
 import "../components/HomeItems/featuredSection.sass";
 import "./productPage.sass";
 
@@ -135,6 +136,36 @@ const productPage = ({ data }) => {
   return (
     <>
       <SEO title={product.title} />
+      {console.log("Product info: ", product)}
+      <Helmet>
+        {/*
+      <!-- PRODUCT VIEW -->
+<!-- Run this script when someone views a product on the website, AFTER the <head> GTM code has fired -->
+        */}
+        <script>
+          {/*
+// Measure a view of product details. This example assumes the detail view occurs on pageload,
+// and also tracks a standard pageview of the details page.
+  */}
+          {`
+          dataLayer.push({
+            'ecommerce': {
+              'detail': {
+                'actionField': {'list': 'Apparel Gallery'},    // 'detail' actions have an optional list property.
+                'products': [{
+                  'name': '${product.title}',         // Name or ID is required.
+                  'id': '${product.shopifyId}',
+                  'price': '${product.priceRange.maxVariantPrice.amount}',
+                  'brand': '${product.vendor}',
+                  'category': '${product.productType}',
+                  'variant': 'Showing Entire Product'
+                }]
+              }
+            }
+          });
+          `}
+        </script>
+      </Helmet>
       <section className="hero is-fullheight-with-navbar">
         <div className="hero-body" style={{ display: "block" }}>
           <div className="container">
@@ -236,24 +267,15 @@ const productPage = ({ data }) => {
                 available={available}
                 quantity={quantity}
                 productVariant={chosen}
+                product={product}
               />
             </div>
           </div>
 
-          
-          {product?.vendor == "Boomer Silver" && (
-                        <BSilver/>
-                    )}
-          {product?.vendor == "Boomer Naturals" && (
-                        <BNaturals/>
-                    )}
-          {product?.vendor == "Boomer Electronics" && (
-                        <BElectronics/>
-                    )}
-          {product?.vendor == "Boomer Supplements" && (
-                        <BSupplement/>
-                    )}
-          
+          {product?.vendor == "Boomer Silver" && <BSilver />}
+          {product?.vendor == "Boomer Naturals" && <BNaturals />}
+          {product?.vendor == "Boomer Electronics" && <BElectronics />}
+          {product?.vendor == "Boomer Supplements" && <BSupplement />}
 
           <div className="product-page-section3">
             <div className="featured-content2">
@@ -316,6 +338,11 @@ export const query = graphql`
       title
       handle
       productType
+      priceRange {
+        maxVariantPrice {
+          amount
+        }
+      }
       descriptionHtml
       shopifyId
       vendor
