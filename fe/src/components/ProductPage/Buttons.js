@@ -60,7 +60,7 @@ const Buttons = ({ context, available, productVariant, quantity, product }) => {
             disabled={!available}
             onClick={() => handleAddToCart()}
           >
-            Add to Cart
+            {available ? <>Add To Cart</> : <>Sold Out</>}
           </button>
         </div>
         <div className="column mobile-min">
@@ -69,7 +69,7 @@ const Buttons = ({ context, available, productVariant, quantity, product }) => {
             disabled={!available}
             onClick={() => handleAddToCart_BuyNow()}
           >
-            Buy It Now
+            {available ? <>Buy It Now</> : <>Sold Out</>}
           </button>
         </div>
       </div>

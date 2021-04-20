@@ -30,7 +30,7 @@ const FeaturedSection = ({ data }) => {
   let r = featured.map((product) => {
     return product;
   });
-  
+
   let s1 = [offers[1], offers[2]];
   let s2 = [offers[4], offers[5]];
 
@@ -48,7 +48,11 @@ const FeaturedSection = ({ data }) => {
         </div>
         <div className="f-row-p">
           <div className="f-column-p col-1">
-            <a href="/boomersupplements" className="second-ad" style={{ height: "100%" }}>
+            <a
+              href="/boomersupplements"
+              className="second-ad"
+              style={{ height: "100%" }}
+            >
               <div
                 className="f-ad-box give-border"
                 style={{
@@ -71,7 +75,9 @@ const FeaturedSection = ({ data }) => {
             </div>
             <div className="horizontal-product-container">
               {t1.map((product) => {
-                return <CollectionProductBox product={product} key={product?.id} />;
+                return (
+                  <CollectionProductBox product={product} key={product?.id} />
+                );
               })}
             </div>
           </div>
@@ -80,16 +86,17 @@ const FeaturedSection = ({ data }) => {
               <HorizontalBox product={featured[3]} give={true} />
             </div>
             <div className="horizontal-product-container">
-              {
-              t2.map((product) => {
-                return <CollectionProductBox product={product} key={product?.id} />;
+              {t2.map((product) => {
+                return (
+                  <CollectionProductBox product={product} key={product?.id} />
+                );
               })}
             </div>
           </div>
         </div>
       </div>
       <div className="featured-content2">
-        <div className="f-row-top2" style={{paddingBottom: "15px"}}>
+        <div className="f-row-top2" style={{ paddingBottom: "15px" }}>
           <span className="f-top-title2">New Arrivals</span>
           <a href="collection/new-arrivals">
             <button className="f-button2">See More</button>
@@ -100,8 +107,12 @@ const FeaturedSection = ({ data }) => {
           style={{ justifyContent: "center", flexFlow: "wrap" }}
         >
           {/*offers 1 collection */}
-          {arrivals.map((product) => {
-            return <CollectionProductBox product={product} key={product?.id} />;
+          {arrivals.map((product, index) => {
+            if (index < 24) {
+              return (
+                <CollectionProductBox product={product} key={product?.id} />
+              );
+            }
           })}
         </div>
       </div>
@@ -119,7 +130,13 @@ const FeaturedSection = ({ data }) => {
             </div>
             <div className="horizontal-product-container">
               {s1.map((product) => {
-                return <CollectionProductBox product={product} give={true} key={product?.id} />;
+                return (
+                  <CollectionProductBox
+                    product={product}
+                    give={true}
+                    key={product?.id}
+                  />
+                );
               })}
             </div>
           </div>
@@ -129,12 +146,22 @@ const FeaturedSection = ({ data }) => {
             </div>
             <div className="horizontal-product-container">
               {s2.map((product) => {
-                return <CollectionProductBox product={product} give={true} key={product?.id} />;
+                return (
+                  <CollectionProductBox
+                    product={product}
+                    give={true}
+                    key={product?.id}
+                  />
+                );
               })}
             </div>
           </div>
           <div className="f-column-p col-1">
-            <a href="/collection/ad3" className="second-ad" style={{ height: "100%" }}>
+            <a
+              href="/collection/ad3"
+              className="second-ad"
+              style={{ height: "100%" }}
+            >
               <div
                 className="f-ad-box"
                 style={{
