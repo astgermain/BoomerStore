@@ -38,6 +38,58 @@ const Supplements = ({ data }) => {
   return (
     <div className="supplements-wrapper">
       <div className="supplements-page">
+      <div
+          className="cart-product-wrapper"
+          style={{
+            width: "80%",
+            margin: "auto",
+            marginTop: "15px",
+            marginBottom: "15px",
+            padding: "15px 25px",
+          }}
+        >
+          <div>
+            <div style={{ display: "flex" }}>
+              <figure className="image is-96x96" style={{ margin: "auto" }}>
+                <img src={NOX} alt="sold-out" style={{ width: "96px" }} />
+              </figure>
+              <p
+                style={{
+                  textAlign: "center",
+                  alignSelf: "center",
+                  padding: "15px",
+                }}
+              >
+                +
+              </p>
+              <figure className="image is-96x96" style={{ margin: "auto" }}>
+                <img src={VE} alt="sold-out" style={{ width: "96px" }} />
+              </figure>
+            </div>
+          </div>
+          <div
+            className="cart-product-title-section"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              width: "90%",
+              textAlign: "left",
+            }}
+          >
+            <p style={{ padding: "15px", color: "black" }}>
+              Try All 7 Flavors of Vitamin Energy and NOXCG3 Today!{" "}
+              <p style={{ fontSize: "16px", color: "black" }}>
+                Get 1 Sample Pack Free Using Code <b style={{fontSize: "24px"}}>BOOMFREE</b> At Checkout
+              </p>
+            </p>
+          </div>
+          <Link to="/product/boomer-supplements-sample-pack/">
+            <button class="button checkout-button" type="button">
+              Get Your Sample Pack
+            </button>
+          </Link>
+        </div>
         <div
           className="flippy"
           style={{ display: "flex", flexDirection: "row" }}
@@ -194,58 +246,7 @@ const Supplements = ({ data }) => {
             </div>
           </div>
         </div>
-        <div
-          className="cart-product-wrapper"
-          style={{
-            width: "80%",
-            margin: "auto",
-            marginTop: "15px",
-            marginBottom: "15px",
-            padding: "15px 25px",
-          }}
-        >
-          <div>
-            <div style={{ display: "flex" }}>
-              <figure className="image is-96x96" style={{ margin: "auto" }}>
-                <img src={NOX} alt="sold-out" style={{ width: "96px" }} />
-              </figure>
-              <p
-                style={{
-                  textAlign: "center",
-                  alignSelf: "center",
-                  padding: "15px",
-                }}
-              >
-                +
-              </p>
-              <figure className="image is-96x96" style={{ margin: "auto" }}>
-                <img src={VE} alt="sold-out" style={{ width: "96px" }} />
-              </figure>
-            </div>
-          </div>
-          <div
-            className="cart-product-title-section"
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              width: "90%",
-              textAlign: "left",
-            }}
-          >
-            <p style={{ padding: "15px", color: "black" }}>
-              Try All 7 Flavors of Vitamin Energy and NOXCG3 Today!{" "}
-              <p style={{ fontSize: "12px", color: "gray" }}>
-                *Get One Sample Pack Free At Checkout Using Code <b style={{fontSize: "16px"}}>BOOMFREE</b>*
-              </p>
-            </p>
-          </div>
-          <Link to="/product/boomer-supplements-sample-pack/">
-            <button class="button checkout-button" type="button">
-              Get Your Sample Pack
-            </button>
-          </Link>
-        </div>
+        
         <div className="supplements-middle-banner-container">
           <div className="sup-mid-left">
             <iframe
