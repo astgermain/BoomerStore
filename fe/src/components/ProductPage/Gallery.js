@@ -15,7 +15,7 @@ const Gallery = ({ product, chosen }) => {
                 order={[1, null, 2]}
                 className="img-hover-zoom--zoom-n-rotate img-hover-zoom"
             >
-                <ImageZoom src={`${chosen?.image?.originalSrc}`} zoom="200"/>
+                <ImageZoom src={`${chosen?.image?.originalSrc}`} alt={`${product.title} image`} zoom="200"/>
                
             </Box>
             {/*

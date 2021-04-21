@@ -236,7 +236,7 @@ const Supplements = ({ data }) => {
             <p style={{ padding: "15px", color: "black" }}>
               Try All 7 Flavors of Vitamin Energy and NOXCG3 Today!{" "}
               <p style={{ fontSize: "12px", color: "gray" }}>
-                *Use Coupon Codes At Checkout*
+                *Get One Sample Pack Free At Checkout Using Code <b style={{fontSize: "16px"}}>BOOMFREE</b>*
               </p>
             </p>
           </div>
