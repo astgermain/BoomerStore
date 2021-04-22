@@ -1,11 +1,14 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Img from "gatsby-image"
 import { Flex, Box } from 'rebass';
 import ImageZoom from "react-image-zooom";
 
 const Gallery = ({ product, chosen }) => {
 
-    const [currentImage, setCurrentImage] = useState(product?.images[0]);
+    const [currentImage, setCurrentImage] = useState(chosen?.image?.originalSrc);
+    useEffect(() => {
+        setCurrentImage(() => {return (<ImageZoom key={`${chosen.shopifyId}`} src={`${chosen?.image?.originalSrc}`} alt={`${product.title} image`} zoom="200"/>)})
+    },[chosen])
     return (
         <>
             <Box
@@ -16,7 +19,7 @@ const Gallery = ({ product, chosen }) => {
                 order={[1, null, 2]}
                 className="img-hover-zoom--zoom-n-rotate img-hover-zoom"
             >
-                <ImageZoom src={`${chosen?.image?.originalSrc}`} alt={`${product.title} image`} zoom="200"/>
+                {currentImage}
                
             </Box>
             {/*
