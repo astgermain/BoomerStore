@@ -73,16 +73,18 @@ const productPage = ({ data }) => {
       [target.name]: target.value,
     }));
     let x = 0;
-    product.variants.map((variant1) => {
+    product.variants.map((variant1, vindex) => {
       x = 0;
       variant1.selectedOptions.map((option) => {
+        
         if (option.name == target.name) {
-          if (option.value == target.value) {
+          if (option.value == target?.options[target?.options?.selectedIndex]?.value) {
             x++;
           }
         }
         if (option.name != target.name) {
           if (option.value == variant[`${option.name}`]) {
+
             x++;
           }
         }
