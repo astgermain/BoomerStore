@@ -68,29 +68,28 @@ const productPage = ({ data }) => {
 
   const handleOptionChange = (event) => {
     const { target } = event;
-    setVariant((prevState) => ({
-      ...prevState,
-      [target.name]: target.value,
-    }));
     let x = 0;
     product.variants.map((variant1, vindex) => {
       x = 0;
+      //ONLY WORKS FOR ONE ATTRIBUTE/VARIANT TYPE
       variant1.selectedOptions.map((option) => {
-        
         if (option.name == target.name) {
           if (option.value == target?.options[target?.options?.selectedIndex]?.value) {
-            x++;
+            setChosen(variant1);
           }
         }
+        /*
         if (option.name != target.name) {
-          if (option.value == variant[`${option.name}`]) {
-
+          if (option.value == chosen[`${option.name}`]) {
+            console.log("chosen old value matches")
             x++;
           }
         }
         if (x == 2) {
           setChosen(variant1);
+          
         }
+        */
       });
     });
   };
