@@ -38,7 +38,7 @@ const Supplements = ({ data }) => {
   return (
     <div className="supplements-wrapper">
       <div className="supplements-page">
-      <div
+        <div
           className="cart-product-wrapper"
           style={{
             width: "80%",
@@ -80,7 +80,8 @@ const Supplements = ({ data }) => {
             <p style={{ padding: "15px", color: "black" }}>
               Try All 7 Flavors of Vitamin Energy and NOXCG3 Today!{" "}
               <p style={{ fontSize: "16px", color: "black" }}>
-                Get 1 Sample Pack Free Using Code <b style={{fontSize: "24px"}}>BOOMFREE</b> At Checkout
+                Get 1 Sample Pack Free Using Code{" "}
+                <b style={{ fontSize: "24px" }}>BOOMFREE</b> At Checkout
               </p>
             </p>
           </div>
@@ -246,16 +247,16 @@ const Supplements = ({ data }) => {
             </div>
           </div>
         </div>
-        
+
         <div className="supplements-middle-banner-container">
           <div className="sup-mid-left">
             <iframe
               width="560"
               height="315"
-              src="https://www.youtube.com/embed/N9UvLnm1WK0"
+              src="https://www.youtube.com/embed/TXMtHkEz9_U"
               title="YouTube video player"
               frameborder="0"
-              allow="fullscreen; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture allowfullscreen;s"
+              allow="fullscreen; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture allowfullscreen;"
               allowfullscreen
             ></iframe>
           </div>
@@ -263,10 +264,10 @@ const Supplements = ({ data }) => {
             <iframe
               width="560"
               height="315"
-              src="https://www.youtube.com/embed/oqUlAWY5kSs"
+              src="https://www.youtube.com/embed/-SHgw2T1l18"
               title="YouTube video player"
               frameborder="0"
-              allow="fullscreen; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; allowfullscreen;"
+              allow="fullscreen; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture allowfullscreen;"
               allowfullscreen
             ></iframe>
           </div>
