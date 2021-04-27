@@ -255,7 +255,7 @@ const productPage = ({ data }) => {
                 <div className="price-div">
                   <label className="label">Price</label>
                   <p
-                    className="is-size-4 has-text-grey-dark"
+                    className="is-size-4 has-text-gold"
                     style={{ textAlign: "left" }}
                   >
                     ${chosen.price}
