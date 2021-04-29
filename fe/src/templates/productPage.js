@@ -29,24 +29,24 @@ const productPage = ({ data }) => {
   const context = useContext(StoreContext);
   const product = data.shopifyProduct;
   const [quantity, setQuantity] = useState(1);
-  const [variant, setVariant] = useState(product.variants[0]);
-  const [chosen, setChosen] = useState(product.variants[0]);
+  const [variant, setVariant] = useState(product?.variants[0]);
+  const [chosen, setChosen] = useState(product?.variants[0]);
   const productVariant =
     context.store.client.product.helpers.variantForOptions(product, variant) ||
     variant;
-  const [available, setAvailable] = useState(productVariant.availableForSale);
+  const [available, setAvailable] = useState(productVariant?.availableForSale);
   let defaultOptionValues = {};
   useEffect(() => {
     checkAvailability(product.shopifyId);
-    product.options.forEach((selector) => {
-      defaultOptionValues[selector.name] = selector.values[0];
+    product?.options?.forEach((selector) => {
+      defaultOptionValues[selector?.name] = selector?.values[0];
     });
     setVariant(defaultOptionValues);
     let a = apiCall(query).then((response) => {
       response?.data?.products?.edges[0]?.node?.variants?.edges?.map(
         (variant) => {
           if (variant?.node?.id == productVariant?.shopifyId) {
-            if (variant.node.quantityAvailable > 0) {
+            if (variant?.node?.quantityAvailable > 0) {
               setAvailable(true);
             }
           }
@@ -60,7 +60,7 @@ const productPage = ({ data }) => {
       // this checks the currently selected variant for availability
 
       const result = product?.variants?.filter(
-        (variant) => variant.id === chosen?.shopifyId
+        (variant) => variant?.id === chosen?.shopifyId
       );
       setAvailable(result[0].available);
     });
@@ -69,12 +69,12 @@ const productPage = ({ data }) => {
   const handleOptionChange = (event) => {
     const { target } = event;
     let x = 0;
-    product.variants.map((variant1, vindex) => {
+    product?.variants?.map((variant1, vindex) => {
       x = 0;
       //ONLY WORKS FOR ONE ATTRIBUTE/VARIANT TYPE
       variant1.selectedOptions.map((option) => {
-        if (option.name == target.name) {
-          if (option.value == target?.options[target?.options?.selectedIndex]?.value) {
+        if (option?.name == target?.name) {
+          if (option?.value == target?.options[target?.options?.selectedIndex]?.value) {
             setChosen(variant1);
           }
         }
@@ -94,7 +94,7 @@ const productPage = ({ data }) => {
     });
   };
   const query = `{
-    products(first: 5, query:"title:${product.title}") {
+    products(first: 5, query:"title:${product?.title}") {
       edges{
         node{
           id
@@ -136,7 +136,7 @@ const productPage = ({ data }) => {
 
   return (
     <>
-      <SEO title={product.title} />
+      <SEO title={product?.title} />
       <Helmet>
         {/*
       <!-- PRODUCT VIEW -->
@@ -155,7 +155,7 @@ const productPage = ({ data }) => {
                 'products': [{
                   'name': '${product?.title}',         // Name or ID is required.
                   'id': '${product?.shopifyId}',
-                  'price': 'Max: ${product?.priceRange?.maxVariantPrice?.amount} or Min: ${product?.priceRange?.minVariantPrice?.amount}',
+                  'price': '${product?.priceRange?.maxVariantPrice?.amount}',
                   'brand': '${product?.vendor}',
                   'category': '${product?.productType}',
                   'variant': 'Showing Entire Product'
@@ -225,7 +225,7 @@ const productPage = ({ data }) => {
                       id="content"
                       className="content EReg lAlign fade-in3"
                       dangerouslySetInnerHTML={{
-                        __html: product.descriptionHtml,
+                        __html: product?.descriptionHtml,
                       }}
                     />
 
@@ -239,7 +239,7 @@ const productPage = ({ data }) => {
                 product.options.map((options) => (
                   <div className="column">
                     <VariantSelectors
-                      key={options.id.toString()}
+                      key={options?.id?.toString()}
                       onChange={handleOptionChange}
                       options={options}
                     />

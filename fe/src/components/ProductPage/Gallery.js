@@ -7,7 +7,7 @@ const Gallery = ({ product, chosen }) => {
 
     const [currentImage, setCurrentImage] = useState(chosen?.image?.originalSrc);
     useEffect(() => {
-        setCurrentImage(() => {return (<ImageZoom key={`${chosen.shopifyId}`} src={`${chosen?.image?.originalSrc}`} alt={`${product.title} image`} zoom="200"/>)})
+        setCurrentImage(() => {return (<ImageZoom key={`${chosen?.shopifyId}`} src={`${chosen?.image?.originalSrc}`} alt={`${product?.title} image`} zoom="200"/>)})
     },[chosen])
     return (
         <>

@@ -8,18 +8,12 @@ const Buttons = ({ context, available, productVariant, quantity, product }) => {
   const handleAddToCart = () => {
     context.addVariantToCart(productVariant.shopifyId, quantity);
     setAdded(true);
-    setTimeout(() => {
-        setAdded(false)
-    },[1000])
   };
 
   const handleAddToCart_BuyNow = () => {
     context.addVariantToCart(productVariant.shopifyId, quantity);
     navigate("/cart");
     setAdded(true);
-    setTimeout(() => {
-        setAdded(false)
-    },[1000])
   };
   return (
     <>
