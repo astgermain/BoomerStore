@@ -20,6 +20,20 @@ const Layout = ({ path, children, location }) => {
     <Provider>
       <Helmet>
         {
+          //50 pound global tag
+        }
+        <script async src="https://www.googletagmanager.com/gtag/js?id=DC-10104861"></script>
+        <script>
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'DC-10104861');
+          `}
+        </script>
+
+        {
           //<!-- MAIN GTM, INSTALL ON ALL PAGES -->
           //<!-- INSTALL INSIDE <HEAD> AS HIGH AS POSSIBLE -->
           //Google Tag Manager

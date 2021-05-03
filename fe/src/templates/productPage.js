@@ -37,6 +37,7 @@ const productPage = ({ data }) => {
   const [available, setAvailable] = useState(productVariant?.availableForSale);
   let defaultOptionValues = {};
   useEffect(() => {
+    console.log(product.title);
     checkAvailability(product.shopifyId);
     product?.options?.forEach((selector) => {
       defaultOptionValues[selector?.name] = selector?.values[0];
@@ -74,7 +75,10 @@ const productPage = ({ data }) => {
       //ONLY WORKS FOR ONE ATTRIBUTE/VARIANT TYPE
       variant1.selectedOptions.map((option) => {
         if (option?.name == target?.name) {
-          if (option?.value == target?.options[target?.options?.selectedIndex]?.value) {
+          if (
+            option?.value ==
+            target?.options[target?.options?.selectedIndex]?.value
+          ) {
             setChosen(variant1);
           }
         }
@@ -111,7 +115,8 @@ const productPage = ({ data }) => {
         }
       }
     }
-  }`;
+  }`; 
+  
 
   function apiCall(query) {
     return fetch(
@@ -137,7 +142,31 @@ const productPage = ({ data }) => {
   return (
     <>
       <SEO title={product?.title} />
+      <noscript>
+        <img
+          src={`https://ad.doubleclick.net/ddm/activity/src=10104861;type=supau0;cat=boome0;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;gdpr=\${GDPR};gdpr_consent=\${GDPR_CONSENT_755};ord=${Math.floor((Math.random() * 1000000))}?`}
+          width="1"
+          height="1"
+          alt=""
+        />
+      </noscript>
+      {product?.title == "Boomer Supplements Sample (Pack Of 7)" &&
       <Helmet>
+        
+        <script>
+        {`
+gtag('event', 'conversion', {
+  'allow_custom_scripts': true,
+  'send_to': 'DC-10104861/supau0/boome0+standard'
+});
+`}
+      </script>
+      
+        
+        </Helmet>
+}
+        <Helmet>
+
         {/*
       <!-- PRODUCT VIEW -->
 <!-- Run this script when someone views a product on the website, AFTER the <head> GTM code has fired -->
