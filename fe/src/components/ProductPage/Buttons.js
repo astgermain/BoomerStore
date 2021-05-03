@@ -25,6 +25,7 @@ const Buttons = ({ context, available, productVariant, quantity, product }) => {
         */}
           <script>
             {`
+        function cb = () => {
         dataLayer.push({
         'event': 'addToCart',
         'ecommerce': {
@@ -36,7 +37,7 @@ const Buttons = ({ context, available, productVariant, quantity, product }) => {
                 'price': '${productVariant?.price}',
                 'brand': '${product?.vendor}',
                 'category': '${product?.productType}',
-                'variant': '${productVariant?.title},
+                'variant': '${productVariant?.title}`,
                 'quantity': ${quantity}
             }]
             }
