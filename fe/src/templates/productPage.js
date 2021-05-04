@@ -116,7 +116,6 @@ const productPage = ({ data }) => {
       }
     }
   }`; 
-  
 
   function apiCall(query) {
     return fetch(

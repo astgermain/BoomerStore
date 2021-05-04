@@ -114,6 +114,25 @@ const Provider = ({ children }) => {
               });
             });
         },
+        removeDiscount: () => {
+          updateStore((state) => {
+            return { ...state, adding: true };
+          });
+          const { checkout, client } = store;
+          const checkoutId = checkout.id;
+          return client.checkout
+            .removeDiscount(checkoutId)
+            .then((checkout) => {
+              updateStore((state) => {
+                return {
+                  ...state,
+                  checkout,
+                  adding: false,
+                  errorMessage: checkout?.userErrors[0]?.message,
+                };
+              });
+            });
+        },
         updateSearchValue: (value) => {
           updateStore((state) => {
             return { ...state, searchValue: value };

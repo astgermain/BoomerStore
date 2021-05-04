@@ -6,7 +6,7 @@ import Img404 from "../images/no-page.png"
 const NotFoundPage = () => (
   <>
     <SEO title="404: Not found" />
-    <div style={{display: "flex", flexDirection: "row", height: "calc(100vh - 300px)"}}>
+    <div style={{display: "flex", flexDirection: "row", minHeight: "calc(100vh - 300px)", marginTop: "75px"}}>
       <div style={{width: "50%", padding: "15px", display: "flex", justifyContent: "center", alignItems: "center"}}>
         <img src={Img404} alt="404"></img>
       </div>

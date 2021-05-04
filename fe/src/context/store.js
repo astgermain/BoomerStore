@@ -24,6 +24,7 @@ export const defaultStoreContext = {
   removeLineItem: () => { },
   updateLineItem: () => { },
   addDiscount: () => { },
+  removeDiscount: () => { },
 }
 
 const StoreContext = React.createContext(defaultStoreContext)

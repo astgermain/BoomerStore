@@ -8,6 +8,7 @@ const Products = ({ checkout }) => {
   const context = useContext(StoreContext);
   const [discountCode, setDiscountCode] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [inputTitle, setInputTitle] = useState("");
   const checkoutID = context.store.checkout.id;
   let priceCheck = false
   const removeItem = (value) => {
@@ -16,7 +17,14 @@ const Products = ({ checkout }) => {
   const addDiscount = () => {
     // Add a discount code to the checkout
     let message = context.addDiscount(discountCode);
+    setInputTitle(true)
+    console.log(checkout?.discountApplications)
   };
+
+  const removeDiscount = () => {
+    setInputTitle(false)
+    let removeMessage = context.removeDiscount();
+  }
   let priceFormat = (price) => parseFloat(price).toFixed(2);
 
   return (
@@ -97,13 +105,21 @@ const Products = ({ checkout }) => {
       <div className="bottom-cart">
         <div className="discount-section">
           <h1 className="redeem-title">Discount Code</h1>
+          {checkout?.discountApplications[0]?.code && 
+          <>
+          <p>Current Discount Code: {checkout?.discountApplications[0]?.code}</p>
+          <button className="button product-input-button" onClick={() => removeDiscount()}>Click here to remove discount</button>
+          </>
+          }
           <div className="redeem-section">
             <input
               type="text"
               placeholder="Enter Code"
               name="discount"
               autoComplete="off"
-              onChange={(e) => setDiscountCode(e.target.value)}
+              onChange={(e) => {
+                setDiscountCode(e.target.value)
+              }}
               className="product-input"
             ></input>
             <button
@@ -182,7 +198,8 @@ const Products = ({ checkout }) => {
                     )}
                   </>
                 )}
-              {checkout?.discountApplications[0]?.value?.percentage &&
+                {checkout?.discountApplications[0]?.value?.percentage &&
+                checkout?.discountApplications[0]?.allocationMethod != "EACH" &&
                 checkout?.discountApplications[0]?.targetType !=
                   "SHIPPING_LINE" && (
                   <>
@@ -192,6 +209,14 @@ const Products = ({ checkout }) => {
                         checkout?.discountApplications[0]?.value?.percentage) /
                         100
                     )}
+                  </>
+                )}
+              {checkout?.discountApplications[0]?.value?.percentage &&
+              checkout?.discountApplications[0]?.allocationMethod == "EACH" &&
+                checkout?.discountApplications[0]?.targetType !=
+                  "SHIPPING_LINE" && (
+                  <>
+                    Calculated at checkout
                   </>
                 )}
               {checkout?.discountApplications[0]?.value?.amount && (
