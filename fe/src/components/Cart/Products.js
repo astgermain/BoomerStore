@@ -108,7 +108,7 @@ const Products = ({ checkout }) => {
           {checkout?.discountApplications[0]?.code && 
           <>
           <p>Current Discount Code: {checkout?.discountApplications[0]?.code}</p>
-          <button className="button product-input-button" onClick={() => removeDiscount()}>Click here to remove discount</button>
+          <button className="button checkout-button" onClick={() => removeDiscount()}>Click here to remove discount</button>
           </>
           }
           <div className="redeem-section">
