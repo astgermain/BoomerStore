@@ -1,11 +1,13 @@
-/*
+
 import React from "react"
 
 import SEO from "../components/seo"
 import Img404 from "../images/no-page.png"
 
 const Loyalty = () => (
+
   <>
+  {/*
     <SEO title="Loyalty" />
     <div style={{display: "flex", flexDirection: "column", minHeight: "calc(100vh - 300px)"}}>
       <div style={{width: "100%", padding: "15px", display: "flex", justifyContent: "center", alignItems: "center", padding: "25px"}}>
@@ -25,8 +27,8 @@ const Loyalty = () => (
         <button className="button account-button" style={{ marginTop: "50px" }} href="/">Return Home</button>
       </div>
     </div>
+  */}
   </>
 )
 
 export default Loyalty
-*/
