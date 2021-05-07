@@ -36,6 +36,11 @@ HOW WE USE YOUR PERSONAL INFORMATION
 <p className="privacy-answer">
 We use the Order Information that we generally collect to fulfill any orders placed through the Site (including processing your payment information, arranging for shipping, providing you with invoices and or order confirmations, processing recurring orders and subscriptions). Additionally, we use this Order Information to:
 </p>
+<p>When you purchase something from our store, as part of the buying and selling process, we collect the personal information you give us such as your name, address and email address.
+When you browse our store, we also automatically receive your computer’s internet protocol (IP) address in order to provide us with information that helps us learn about your browser and operating system.
+Email marketing (if applicable): With your permission, we may send you emails about our store, new products and other updates.
+Text marketing (if applicable): With your permission, we may send text messages about our store, new products, and other updates. Updates include Checkout Reminders. Webhooks will be used to trigger the Checkout Reminders messaging system.
+</p>
 <p className="privacy-topic">
 Communicate with you;
 </p>

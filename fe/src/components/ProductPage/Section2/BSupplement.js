@@ -36,7 +36,7 @@ function BSupplement() {
             sure to help you power through your next workout or recovery day.
             This energy-boosting drink supplement contains nitric oxide-
             arginine, creatine, glutamine, and beta-alanine for the ultimate
-            amino acid drink that stimulates muscle strength and growth.{" "}
+            amino acid drink that stimulates muscle strength and growth.d{" "}
           </p>
         </div>
       </div>

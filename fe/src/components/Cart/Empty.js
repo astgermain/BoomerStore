@@ -6,7 +6,7 @@ const Empty = () => {
     return (
         <div className="has-text-centered no-cart">
             <div className="shopping-half">
-                <img src={noprod}></img>
+                <img src={noprod} alt="No Product"></img>
             </div>
             <div className="shopping-half">
                 <p className="is-size-3">Your cart is empty.</p>

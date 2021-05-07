@@ -8,14 +8,14 @@ const Product = ({ line_item }) => {
   const imageItem = line_item.variant.image && (
     <figure className="image is-96x96" style={{ margin: "auto" }}>
       <img
-        src={line_item.variant.image.src}
-        alt={line_item.variant.image.altText}
+        src={line_item?.variant?.image?.src}
+        alt={line_item?.variant?.image?.altText}
       />
     </figure>
   );
 
-  useEffect(() => {
-    setQuantity(line_item.quantity);
+  useEffect((line_item) => {
+    setQuantity(line_item?.quantity);
   }, []);
   const handleMinus = () => {
     if (quantity > 0) {
@@ -26,16 +26,16 @@ const Product = ({ line_item }) => {
     setQuantity(quantity + 1);
   };
   const removeItem = () => {
-    context.removeLineItem(checkoutID, line_item.id);
+    context.removeLineItem(checkoutID, line_item?.id);
   };
   const updateItem = () => {
-    if (quantity == 0) {
+    if (quantity === 0) {
       removeItem();
     } else {
       context.updateLineItem(
-        context.store.client,
+        context?.store?.client,
         checkoutID,
-        line_item.id,
+        line_item?.id,
         quantity
       );
     }
@@ -47,10 +47,10 @@ const Product = ({ line_item }) => {
         <div className="cart-product-half-1">
           <div className="cart-product-image">{imageItem}</div>
           <div className="cart-product-title-section">
-            <p className="cart-page-product-title">{line_item.title}</p>
+            <p className="cart-page-product-title">{line_item?.title}</p>
             <p className="cart-page-product-subtitle">
-              {line_item.variant.title != "Default Title" &&
-                line_item.variant.title}
+              {line_item?.variant?.title !== "Default Title" &&
+                line_item?.variant?.title}
             </p>
             <button
               className="has-text-weight-normal has-text-danger link-button reg-remove"
