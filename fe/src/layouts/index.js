@@ -22,7 +22,21 @@ const Layout = ({ path, children, location }) => {
         {
           //50 pound global tag
         }
-        <script async src="https://www.googletagmanager.com/gtag/js?id=DC-10104861"></script>
+        <script>
+          {`
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+// Insert Twitter Pixel ID and Standard Event data below
+twq('init','o5w5g');
+twq('track','PageView');
+`}
+        </script>
+
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=DC-10104861"
+        ></script>
         <script>
           {`
           window.dataLayer = window.dataLayer || [];
@@ -69,10 +83,19 @@ const Layout = ({ path, children, location }) => {
       <!-- INSTALL IMMEDIATELY AFTER OPENING <BODY> TAG-->
       <!-- Google Tag Manager (noscript) -->
       */}
-      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MN8V8XS"
-      style={{display: "none", visibility: "hidden", width: "0", height: "0"}}></iframe></noscript>
+      <noscript>
+        <iframe
+          src="https://www.googletagmanager.com/ns.html?id=GTM-MN8V8XS"
+          style={{
+            display: "none",
+            visibility: "hidden",
+            width: "0",
+            height: "0",
+          }}
+        ></iframe>
+      </noscript>
       {
-      //<!-- End Google Tag Manager (noscript) -->
+        //<!-- End Google Tag Manager (noscript) -->
       }
       <div className="page-content">
         <Header
