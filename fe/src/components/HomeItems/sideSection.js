@@ -18,7 +18,7 @@ const SideSection = ({ data }) => {
       <div className="sideContent1" style={{ backgroundImage: `url(${Ad2})`, backgroundSize: `cover` }}>
         <FirstAd />
       </div>
-      <div className="sideContent2" style={{ backgroundImage: `url(${Ad1})`, backgroundSize: `contain`, backgroundPosition: "center" }}>
+      <div className="sideContent2" style={{ backgroundImage: `url(${Ad1})`, backgroundSize: `cover`, backgroundPosition: "center" }}>
         <SecondAd />
       </div>
     </div>
