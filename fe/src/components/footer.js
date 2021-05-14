@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "gatsby"; /* eslint-disable */
 import logo from "../images/boomerstorelogo.webp";
 import "./footer.sass";
