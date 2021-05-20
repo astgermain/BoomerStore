@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import StoreContext from "../../context/store";
 
 const Product = ({ line_item }) => {
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(line_item?.quantity);
   const context = useContext(StoreContext);
   const checkoutID = context.store.checkout.id;
   const imageItem = line_item.variant.image && (
@@ -15,8 +15,11 @@ const Product = ({ line_item }) => {
   );
 
   useEffect((line_item) => {
-    setQuantity(line_item?.quantity);
-  }, []);
+    if(line_item){
+      setQuantity(line_item.quantity);
+    }
+    
+  }, [line_item]);
   const handleMinus = () => {
     if (quantity > 0) {
       setQuantity(quantity - 1);
