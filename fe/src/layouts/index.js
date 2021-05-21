@@ -97,18 +97,7 @@ twq('track','PageView');
       {
         //<!-- End Google Tag Manager (noscript) -->
       }
-      {path != "/outlaws/" ?
-        <div className="page-content">
-          <Header
-            setTheme={setTheme}
-            path={path}
-            loc={location}
-            setMenuMobile={setMenuMobile}
-          />
-          {children}
-          <Footer />
-        </div>
-        :
+      {path == "/outlaws/" ?
         <div className="page-content">
           <Header
             setTheme={setTheme}
@@ -118,6 +107,17 @@ twq('track','PageView');
             noDisplay={true}
           />
         {children}
+        </div>
+        :
+        <div className="page-content">
+          <Header
+            setTheme={setTheme}
+            path={path}
+            loc={location}
+            setMenuMobile={setMenuMobile}
+          />
+          {children}
+          <Footer />
         </div>
       }
       <Helmet>
