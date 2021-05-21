@@ -29,7 +29,7 @@ const countQuantity = (lineItems) => {
   return quantity;
 };
 
-const Header = ({ path, setTheme, loc, setMenuMobile }) => {
+const Header = ({ path, setTheme, loc, setMenuMobile, noDisplay }) => {
   const [selected, setSelected] = useState(false);
   const [cartState, setCartState] = useState("");
   const [accountState, setAccountState] = useState("");
@@ -76,6 +76,11 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
   };
 
   return (
+    <>
+    {noDisplay == true ? 
+    <>
+    </>
+    :
     <>
         <Link to="/boomersupplements" className="show-mobile">
           <p className="reg-top-header" style={{ color: "white", textAlign: "center", display: "flex", justifyContent: "center", alignItems: "center" }}>
@@ -652,7 +657,10 @@ const Header = ({ path, setTheme, loc, setMenuMobile }) => {
         <button className="modal-close is-large" onClick={closeSearchBar} aria-label="close"></button>
       </div>
       */}
+      
     </>
+      }
+      </>
   );
 };
 

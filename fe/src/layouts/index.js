@@ -97,16 +97,29 @@ twq('track','PageView');
       {
         //<!-- End Google Tag Manager (noscript) -->
       }
-      <div className="page-content">
-        <Header
-          setTheme={setTheme}
-          path={path}
-          loc={location}
-          setMenuMobile={setMenuMobile}
-        />
+      {path != "/outlaws/" ?
+        <div className="page-content">
+          <Header
+            setTheme={setTheme}
+            path={path}
+            loc={location}
+            setMenuMobile={setMenuMobile}
+          />
+          {children}
+          <Footer />
+        </div>
+        :
+        <div className="page-content">
+          <Header
+            setTheme={setTheme}
+            path={path}
+            loc={location}
+            setMenuMobile={setMenuMobile}
+            noDisplay={true}
+          />
         {children}
-        <Footer />
-      </div>
+        </div>
+      }
       <Helmet>
         <script
           id="ze-snippet"
@@ -114,11 +127,6 @@ twq('track','PageView');
         >
           {" "}
         </script>
-        <script
-          async
-          type="text/javascript"
-          src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=TSPD66"
-        ></script>
       </Helmet>
     </Provider>
   );
