@@ -97,7 +97,8 @@ twq('track','PageView');
       {
         //<!-- End Google Tag Manager (noscript) -->
       }
-      {path == ("/outlaws/" || "/outlaws-contest/") ?
+      {console.log(path)}
+      {path == ("/outlaws/") || path == ("/outlaws-contest/") ?
         <div className="page-content">
           <Header
             setTheme={setTheme}
