@@ -134,7 +134,7 @@ const Outlaws = () => {
       >
         <div className="blackOverlay">
           <div className="outlawsHeroHeader">
-              <button onClick={() => setMenu(!menu)} style={{border: "none", background: "none", cursor: "pointer"}}>
+              <button onClick={() => setMenu(!menu)} style={{border: "none", background: "none", cursor: "pointer", zIndex: "200"}}>
             <FontAwesomeIcon
               icon={faStream}
               className={`outlawsMenuButton ${menu && `rotateStream`}`}
