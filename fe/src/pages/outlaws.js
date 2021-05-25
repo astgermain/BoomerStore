@@ -190,6 +190,19 @@ const Outlaws = () => {
           }}
         >
           <div className="outlawsPlayer">
+          <h1
+          style={{
+            display: "flex",
+            justifyContent: "flex-start",
+            alignItems: "center",
+            padding: "25px",
+            paddingBottom: "5px",
+            paddingTop: "0",
+            color: "black",
+          }}
+        >
+          Joobi’s Pick: Orange
+        </h1>
             <img src={Joobi} style={{ maxHeight: "none" }}></img>
             <button
               className="buttonClick"
@@ -215,6 +228,19 @@ const Outlaws = () => {
             </button>
           </div>
           <div className="outlawsPlayer">
+          <h1
+          style={{
+            display: "flex",
+            justifyContent: "flex-start",
+            alignItems: "center",
+            padding: "25px",
+            paddingBottom: "5px",
+            paddingTop: "0",
+            color: "black",
+          }}
+        >
+          Crimzo’s Pick: Mango Pomegranate 
+        </h1>
             <img src={Crimzo} style={{ maxHeight: "none" }}></img>
             <button
               className="buttonClick"
@@ -240,6 +266,19 @@ const Outlaws = () => {
             </button>
           </div>
           <div className="outlawsPlayer">
+          <h1
+          style={{
+            display: "flex",
+            justifyContent: "flex-start",
+            alignItems: "center",
+            padding: "25px",
+            paddingBottom: "5px",
+            paddingTop: "0",
+            color: "black",
+          }}
+        >
+          Jake’s Pick: Cherry Lime
+        </h1>
             <img src={Jake} style={{ maxHeight: "none" }}></img>
             <button
               className="buttonClick"
@@ -265,6 +304,19 @@ const Outlaws = () => {
             </button>
           </div>
           <div className="outlawsPlayer">
+          <h1
+          style={{
+            display: "flex",
+            justifyContent: "flex-start",
+            alignItems: "center",
+            padding: "25px",
+            paddingBottom: "5px",
+            paddingTop: "0",
+            color: "black",
+          }}
+        >
+          CoolMatt’s Pick: Raspberry Lemon
+        </h1>
             <img src={CoolMatt} style={{ maxHeight: "none" }}></img>
             <button
               className="buttonClick"
@@ -301,11 +353,11 @@ const Outlaws = () => {
           padding: "50px 10px 50px 10px",
         }}
       >
-        <h1 style={{ textAlign: "center" }}>
+        <h1 style={{ textAlign: "center", color: "black", textTransform: "uppercase" }}>
           Buy Two Get One Free Use Offer{" "}
           <span style={{ color: "#97d700" }}>OUTLAWS2FOR1</span> At Checkout
         </h1>
-        <a>Click For A Free Sample Pack</a>
+        <a href="https://www.boomerstore.com/product/boomer-supplements-sample-pack/">Click For A Free Sample Pack - Code: BOOMFREE</a>
       </div>
       <div className="outlawsContestSection">
         <div className="outlawsContestPrize">
