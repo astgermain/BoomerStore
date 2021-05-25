@@ -195,7 +195,7 @@ const Outlaws = () => {
             display: "flex",
             justifyContent: "flex-start",
             alignItems: "center",
-            padding: "0px 0px 5px 25px;",
+            padding: "0px 0px 5px 25px",
             color: "black",
             height: "55px",
           }}
@@ -232,7 +232,7 @@ const Outlaws = () => {
             display: "flex",
             justifyContent: "flex-start",
             alignItems: "center",
-            padding: "0px 0px 5px 25px;",
+            padding: "0px 0px 5px 25px",
             color: "black",
             height: "55px",
           }}
@@ -269,7 +269,7 @@ const Outlaws = () => {
             display: "flex",
             justifyContent: "flex-start",
             alignItems: "center",
-            padding: "0px 0px 5px 25px;",
+            padding: "0px 0px 5px 25px",
             color: "black",
             height: "55px",
           }}
@@ -306,7 +306,7 @@ const Outlaws = () => {
             display: "flex",
             justifyContent: "flex-start",
             alignItems: "center",
-            padding: "0px 0px 5px 25px;",
+            padding: "0px 0px 5px 25px",
             color: "black",
             height: "55px",
           }}
