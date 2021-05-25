@@ -195,10 +195,9 @@ const Outlaws = () => {
             display: "flex",
             justifyContent: "flex-start",
             alignItems: "center",
-            padding: "25px",
-            paddingBottom: "5px",
-            paddingTop: "0",
+            padding: "0px 0px 5px 25px;",
             color: "black",
+            height: "55px",
           }}
         >
           Joobi’s Pick: Orange
@@ -233,10 +232,9 @@ const Outlaws = () => {
             display: "flex",
             justifyContent: "flex-start",
             alignItems: "center",
-            padding: "25px",
-            paddingBottom: "5px",
-            paddingTop: "0",
+            padding: "0px 0px 5px 25px;",
             color: "black",
+            height: "55px",
           }}
         >
           Crimzo’s Pick: Mango Pomegranate 
@@ -271,10 +269,9 @@ const Outlaws = () => {
             display: "flex",
             justifyContent: "flex-start",
             alignItems: "center",
-            padding: "25px",
-            paddingBottom: "5px",
-            paddingTop: "0",
+            padding: "0px 0px 5px 25px;",
             color: "black",
+            height: "55px",
           }}
         >
           Jake’s Pick: Cherry Lime
@@ -309,10 +306,9 @@ const Outlaws = () => {
             display: "flex",
             justifyContent: "flex-start",
             alignItems: "center",
-            padding: "25px",
-            paddingBottom: "5px",
-            paddingTop: "0",
+            padding: "0px 0px 5px 25px;",
             color: "black",
+            height: "55px",
           }}
         >
           CoolMatt’s Pick: Raspberry Lemon
