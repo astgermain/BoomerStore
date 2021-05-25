@@ -23,7 +23,7 @@ const LAMBDA_URL =
   "https://ma04tol43k.execute-api.us-west-1.amazonaws.com/Production";
 const required = "This field is required";
 
-const Outlaws = () => {
+const OutlawsContest = () => {
   const [submitted, setSubmitted] = useState(false);
   const [menu, setMenu] = useState(false);
   const methods = useForm();
@@ -120,6 +120,8 @@ const Outlaws = () => {
       <div className={menu ? "menu" : "closed"}>
           <a href="https://www.boomerstore.com/" style={{ textAlign: "left", padding: "10px", width: "100%", color: "black", fontSize: "24px" }} className="outlawsMenuLink">BoomerStore.com</a>
           <a href="http://outlaws.gg/" style={{ textAlign: "left", padding: "10px", width: "100%", color: "black", fontSize: "24px" }} className="outlawsMenuLink">Outlaws.gg</a>
+          <a style={{ textAlign: "left", padding: "10px", width: "100%", color: "black", fontSize: "24px" }} className="outlawsMenuLink">Official Contest Rules</a>
+          <a style={{ textAlign: "left", padding: "10px", width: "100%", color: "black", fontSize: "24px" }} className="outlawsMenuLink">Privacy Policy</a>
       </div>
       <div
         className="outlawsHero"
@@ -353,7 +355,44 @@ const Outlaws = () => {
         </h1>
         <a href="https://www.boomerstore.com/product/boomer-supplements-sample-pack/">Click For A Free Sample Pack - Code: BOOMFREE</a>
       </div>
-      
+      <div className="outlawsContestSection">
+        <div className="outlawsContestPrize">
+          <img src={ContestLoot} style={{ maxHeight: "450px" }}></img>
+        </div>
+        <div className="outlawsContestFormContainer">
+          <div className="contest-page">
+            {errors && errors.submit && (
+              <Alert
+                variant="outlined"
+                severity="error"
+                className="spacing-contact"
+              >
+                Your message wasn't sent, there seems to be an issue!
+              </Alert>
+            )}
+            <div className="text-side">
+              <h2
+                className="align-left story-text"
+                style={{ fontSize: "2em", color: "black" }}
+              >
+                Enter To Win
+              </h2>
+              <h3
+                style={{ fontSize: "1em", color: "black", fontWeight: "400" }}
+              >
+                Enter to win a month’s supply of{" "}
+                <span className="bold">Vitamin Energy</span>,
+                <span className="bold"> Astro Headphones</span>,{" "}
+                <span className="bold">Exclusive Merch</span>, and{" "}
+                <span className="bold">signed poster from the team</span>.
+              </h3>
+            </div>
+            <div className="form-side">
+              {submitted ? showThankYou : showForm}
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="outlawsFooterSection">
         <div className="outlawsLogoSVG">
           <OutlawsSVG />
@@ -362,7 +401,8 @@ const Outlaws = () => {
           className="outlawsContestLinks"
           style={{ textAlign: "center", padding: "10px" }}
         >
-          
+          <a style={{ textAlign: "center", padding: "10px" }}>OFFICIAL CONTEST RULES</a>
+          <a style={{ textAlign: "center", padding: "10px" }}>PRIVACY POLICY</a>
         </div>
         <div className="boomerStoreLogoSVG">
           <BoomerSVG />
@@ -371,4 +411,4 @@ const Outlaws = () => {
     </>
   );
 };
-export default Outlaws;
+export default OutlawsContest;
