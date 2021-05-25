@@ -11,7 +11,7 @@ import CoolMatt from "../images/outlaws/CoolMatt.png";
 import Crimzo from "../images/outlaws/Crimzo.png";
 import Jake from "../images/outlaws/Jake.png";
 import Joobi from "../images/outlaws/Joobi.png";
-import ContestLoot from "../images/outlaws/ContestLoot.png";
+import ContestLoot from "../images/outlaws/contestLoot.png";
 import { useForm } from "react-hook-form";
 import TextField from "@material-ui/core/TextField";
 import Alert from "@material-ui/lab/Alert";
