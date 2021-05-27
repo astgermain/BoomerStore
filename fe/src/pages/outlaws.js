@@ -309,7 +309,7 @@ const Outlaws = () => {
             height: "55px",
           }}
         >
-          CoolMatt’s Pick: Raspberry Lemon
+          Coolmatt’s Pick: Raspberry Lemon
         </h1>
             <img src={CoolMatt} style={{ maxHeight: "none" }}></img>
             <button
