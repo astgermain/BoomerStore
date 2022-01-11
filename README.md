@@ -1,6 +1,6 @@
 # BoomerStore
 
-## BUGS
+## For anyone that wants to work with Shopify's GraphQL API with Gatsby. Fully functional build just replace API keys and such
 
 ## TODO
 
